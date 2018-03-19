@@ -9,18 +9,16 @@
 
 void move_map(window_t *window)
 {
-	sfKeyboard_isKeyPressed(sfKeyUp) ? window->rect.top -= 20 : 0;
-	sfKeyboard_isKeyPressed(sfKeyUp) ? window->rect.height -= 20 : 0;
-	sfKeyboard_isKeyPressed(sfKeyDown) ? window->rect.top += 20 : 0;
-	sfKeyboard_isKeyPressed(sfKeyUp) ? window->rect.height += 20 : 0;
-	sfKeyboard_isKeyPressed(sfKeyRight) ? window->rect.left += 20 : 0;
-	sfKeyboard_isKeyPressed(sfKeyUp) ? window->rect.width += 20 : 0;
-	sfKeyboard_isKeyPressed(sfKeyLeft) ? window->rect.left -= 20 : 0;
-	sfKeyboard_isKeyPressed(sfKeyUp) ? window->rect.width -= 20 : 0;
+	int move = 5;
+
+	sfKeyboard_isKeyPressed(sfKeyUp) ? window->rect.top -= move : 0;
+	sfKeyboard_isKeyPressed(sfKeyDown) ? window->rect.top += move : 0;
+	sfKeyboard_isKeyPressed(sfKeyRight) ? window->rect.left += move : 0;
+	sfKeyboard_isKeyPressed(sfKeyLeft) ? window->rect.left -= move : 0;
 	window->rect.top < 0 ? window->rect.top = 0 : 0;
- 	window->rect.left < 0 ? window->rect.left = 0 : 0;
-	window->rect.width > SIZE_IMG_X ? window->rect.width = SIZE_IMG_X : 0;
-	window->rect.height > SIZE_IMG_Y ? window->rect.height = SIZE_IMG_Y : 0;
+	window->rect.left < 0 ? window->rect.left = 0 : 0;
+ 	window->rect.left -= window->rect.left > SIZE_IMG_X - SIZE_Y? move : 0;
+	window->rect.top -= window->rect.top > SIZE_IMG_Y - SIZE_Y? move : 0;
 	sfSprite_setTextureRect(window->sprite, window->rect);
 }
 

@@ -16,7 +16,7 @@ void event_gestion(window_t *window)
 			sfRenderWindow_close(window->window);
 		window->event = event;
 	}
-	if (window->seconds >= 0.20)
+	if (window->seconds >= 0.10)
 		sfClock_restart(window->clock);
 	window->time = sfClock_getElapsedTime(window->clock);
 	window->seconds = window->time.microseconds / 1000000.0;
