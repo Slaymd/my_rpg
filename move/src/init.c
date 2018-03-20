@@ -17,14 +17,14 @@ void set_character(character_t *character)
 character_t *init_character(void)
 {
 	character_t *character = malloc(sizeof(character_t));
-	int x = SIZE_SCREEN_X / 2 - SIZE_PERSO_X / 2;
-	int y = SIZE_SCREEN_Y / 2 - SIZE_PERSO_Y / 2;
+	int x = SIZE_S_X / 2 - SIZE_C_X / 2;
+	int y = SIZE_S_Y / 2 - SIZE_C_Y / 2;
 
 	if (!character)
 		return (NULL);
 	character->texture = sfTexture_createFromFile("./img/sacha.png", NULL);
 	character->sprite = sfSprite_create();
-	character->rect = (sfIntRect){0,0, SIZE_PERSO_X, SIZE_PERSO_Y};
+	character->rect = (sfIntRect){0,0, SIZE_C_X, SIZE_C_Y};
 	character->speed = 4;
 	character->pos = (sfVector2f){x, y};
 	set_character(character);
@@ -47,10 +47,10 @@ window_t *init_window(void)
 
 	if (!window)
 		return (NULL);
-	window->mode = (sfVideoMode){SIZE_SCREEN_X, SIZE_SCREEN_X, 32};
+	window->mode = (sfVideoMode){SIZE_S_X, SIZE_S_X, 32};
 	window->texture = sfTexture_createFromFile("./img/bg.jpg", NULL);
 	window->sprite = sfSprite_create();
-	window->rect = (sfIntRect){0, 0, SIZE_SCREEN_X, SIZE_SCREEN_Y};
+	window->rect = (sfIntRect){0, 0, SIZE_S_X, SIZE_S_Y};
 	window->clock = sfClock_create();
 	window->time = sfClock_getElapsedTime(window->clock);
 	window->seconds = 0;

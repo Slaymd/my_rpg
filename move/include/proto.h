@@ -16,12 +16,12 @@
 	#include <fcntl.h>
 	#include "struct.h"
 
-	#define SIZE_SCREEN_X 750
-	#define SIZE_SCREEN_Y 750
-	#define SIZE_IMG_X 1440
-	#define SIZE_IMG_Y 1056
-	#define SIZE_PERSO_X 68
-	#define SIZE_PERSO_Y 72
+	#define SIZE_S_X 750
+	#define SIZE_S_Y 750
+	#define SIZE_I_X 1440
+	#define SIZE_I_Y 1056
+	#define SIZE_C_X 68
+	#define SIZE_C_Y 72
 
 	void event_gestion(window_t *window);
 
