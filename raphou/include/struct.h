@@ -25,6 +25,8 @@
 		sfSprite *sprite;
 		sfTexture *texture;
 		sfIntRect rect;
+		sfVector2f pos;
+		int speed;
 	} character_t;
 
 #endif

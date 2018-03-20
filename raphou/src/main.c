@@ -16,7 +16,7 @@ int main(int ac, char **av)
 		return (84);
 	while (sfRenderWindow_isOpen(window->window)) {
 		event_gestion(window);
-		display_map(window);
+		display_map(window, character);
 		display_character(window, character);
 		sfRenderWindow_display(window->window);
 	}
