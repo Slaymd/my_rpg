@@ -5,7 +5,7 @@
 ** event
 */
 
-#include "proto.h"
+#include "rpg.h"
 
 void event_gestion(window_t *window)
 {

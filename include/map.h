@@ -32,7 +32,7 @@ enum tile_type_e { WALKABLE, NON_WALKABLE };
 
 struct linked_list_s {
 	void *data;
-	linked_list_s
+	linked_list_s;
 }
 
 struct pos_s {
