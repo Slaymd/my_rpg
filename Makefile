@@ -1,37 +1,45 @@
 ##
 ## EPITECH PROJECT, 2018
-## PSU_minishell2_2017
+## PSU_my_rpg_2017
 ## File description:
 ## MF
 ##
 
-SRC_MAIN	=	src/main.c
+SRC_MAIN		=	src/main.c
 
-SRC_TEST	=	\
+SRC_TEST		=	\
 
-SRC		=	\
+SRC			=	\
 
-CFLAGS	=	-W -Wall -Wextra -I./include -L./lib/my -lmy -g3
+CFLAGS		=	-W -Wall -Wextra -I./include -L./lib/my -lmy -g3 -lm
 
-CUNITTEST	=	-lcriterion
+LIB_TEST		=	-lcriterion
 
-OBJ		=	$(SRC:.c=.o)
+LIB_CSFML		=	-lcsfml-graphics -lcsfml-system
 
-OBJ_MAIN	=	$(SRC_MAIN:.c=.o)
+LIB_EPICSFML	=	-lc_graph_prog
 
-OBJ_TEST	=	$(SRC_TEST:.c=.o)
+OBJ			=	$(SRC:.c=.o)
 
-NAME		=	mysh
+OBJ_MAIN		=	$(SRC_MAIN:.c=.o)
 
-TEST		=	test
+OBJ_TEST		=	$(SRC_TEST:.c=.o)
 
-MAKE_LIB	=	make -C./lib/my
+NAME			=	my_rpg
+
+TEST			=	test
+
+MAKE_LIB		=	make -C./lib/my
 
 all: $(NAME)
 
 $(NAME): $(OBJ) $(OBJ_MAIN)
 	$(MAKE_LIB)
-	gcc $(OBJ) $(OBJ_MAIN) $(CFLAGS) -o $(NAME)
+	gcc $(OBJ) $(OBJ_MAIN) $(CFLAGS) $(LIB_EPICSFML) -o $(NAME)
+
+my: $(OBJ) $(OBJ_MAIN)
+	$(MAKE_LIB)
+	gcc $(OBJ) $(OBJ_MAIN) $(CFLAGS) $(LIB_CSFML) -o $(NAME)
 
 $(TEST): $(OBJ) $(OBJ_TEST)
 	$(MAKE_LIB)
