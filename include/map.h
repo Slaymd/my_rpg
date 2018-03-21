@@ -34,30 +34,31 @@ struct pos_s {
 	int		x;
 	int		y;
 	int		z;
-}
+};
 
 struct entity_s {
 	pos_t		pos;
 	entity_type	type;
 	sfSprite		*sprite;
-}
+};
 
 struct object_s {
 	pos_t		pos;
 	object_type	type;
 	sfSprite		*sprite;
-}
+};
 
 struct tile_s {
 	pos_t		pos;
 	tile_type		type;
+	int			texture_id;
 	sfSprite		*sprite;
-}
+};
 
 struct chunk_s {
 	pos_t		pos;
 	tile_t		**tiles;
-}
+};
 
 struct map_s {
 	char			*name;
@@ -65,6 +66,22 @@ struct map_s {
 	linked_list_t	*chunks;
 	linked_list_t	*objects;
 	linked_list_t	*entities;
-}
+	linked_list_t	*textures;
+};
+
+//INITS
+map_t *init_map(char *name, int seed);
+chunk_t *init_chunk(pos_t pos);
+tile_t init_tile(int x, int y, int noisevalue);
+
+//MAP GEN
+map_t	*generate_map(int seed);
+chunk_t	*chunk_gen(map_t *map, pos_t pos);
+
+//TILE SPRITES
+sfSprite	*get_tile_sprite(map_t *map, tile_t *tile);
+
+//DISP
+int	disp_map(sfRenderWindow *wd, map_t *map);
 
 #endif /* RPG_MAP_H_ */

@@ -9,12 +9,20 @@ SRC_MAIN		=	src/main.c
 
 SRC_TEST		=	\
 
-SRC			=	./src/main.c	\
-				./src/event.c	\
-				./src/init.c	\
-				./src/display.c	\
-				./src/destroy.c	\
-				./src/move.c
+SRC			=	./src/main.c					\
+				./src/init.c					\
+				./src/move.c					\
+				./src/event.c					\
+				./src/display.c				\
+				./src/destroy.c				\
+				src/map/map_gen.c				\
+				src/map/init_map.c				\
+				src/map/tile_gen.c				\
+				src/map/disp_map.c				\
+				src/map/chunk_gen.c				\
+				src/map/init_textures.c			\
+				src/map/sprite_getter.c			\
+				src/list/linked_list_tools.c		\
 
 CFLAGS		=	-W -Wall -Wextra -I./include -L./lib/my -lmy -g3 -lm
 

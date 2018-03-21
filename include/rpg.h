@@ -20,19 +20,17 @@
 
 	//#include "map.h"
 	#include "character.h"
+	#include "linked_list.h"
+
+	#define WIDTH 800
+	#define HEIGHT 600
 
 	#define SIZE_S_X 750
 	#define SIZE_S_Y 750
 	#define SIZE_I_X 1440
 	#define SIZE_I_Y 1056
 
-	typedef struct linked_list_s linked_list_t;
 	typedef struct rpg_s rpg_t;
-
-	struct linked_list_s {
-		void *data;
-		linked_list_t *next;
-	};
 
 	struct window_s {
 		sfRenderWindow *window;
