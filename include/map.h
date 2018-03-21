@@ -24,16 +24,11 @@ typedef enum entity_type_e entity_type;
 typedef enum object_type_e object_type;
 typedef enum tile_type_e tile_type;
 
-enum entity_type_e { NO_AI, ANIMAL, MONSTER, };
+enum entity_type_e { NO_AI, ANIMAL, MONSTER };
 
 enum object_type_e { ENVIRONNEMENT, BUILDING, DECORATION };
 
 enum tile_type_e { WALKABLE, NON_WALKABLE };
-
-struct linked_list_s {
-	void *data;
-	linked_list_s
-}
 
 struct pos_s {
 	int		x;
