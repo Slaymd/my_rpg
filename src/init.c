@@ -5,7 +5,7 @@
 ** init
 */
 
-#include "proto.h"
+#include "rpg.h"
 
 void set_character(character_t *character)
 {
@@ -56,4 +56,17 @@ window_t *init_window(void)
 	window->seconds = 0;
 	set_window(window);
 	return (window);
+}
+
+rpg_t *init_rpg(void)
+{
+	rpg_t *rpg = malloc(sizeof(rpg_t));
+
+	if (!rpg)
+		return (NULL);
+	rpg->window = init_window();
+	rpg->character = init_character();
+	if (!rpg->window || !rpg->character)
+		return (NULL);
+	return (rpg);
 }

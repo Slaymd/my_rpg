@@ -9,13 +9,18 @@ SRC_MAIN		=	src/main.c
 
 SRC_TEST		=	\
 
-SRC			=	\
+SRC			=	./src/main.c	\
+				./src/event.c	\
+				./src/init.c	\
+				./src/display.c	\
+				./src/destroy.c	\
+				./src/move.c
 
 CFLAGS		=	-W -Wall -Wextra -I./include -L./lib/my -lmy -g3 -lm
 
 LIB_TEST		=	-lcriterion
 
-LIB_CSFML		=	-lcsfml-graphics -lcsfml-system
+LIB_CSFML		=	-lcsfml-graphics -lcsfml-system -lcsfml-audio -lcsfml-window
 
 LIB_EPICSFML	=	-lc_graph_prog
 
@@ -37,9 +42,9 @@ $(NAME): $(OBJ) $(OBJ_MAIN)
 	$(MAKE_LIB)
 	gcc $(OBJ) $(OBJ_MAIN) $(CFLAGS) $(LIB_EPICSFML) -o $(NAME)
 
-my: $(OBJ) $(OBJ_MAIN)
+my: $(OBJ)
 	$(MAKE_LIB)
-	gcc $(OBJ) $(OBJ_MAIN) $(CFLAGS) $(LIB_CSFML) -o $(NAME)
+	gcc $(OBJ) $(CFLAGS) $(LIB_CSFML) -o $(NAME)
 
 $(TEST): $(OBJ) $(OBJ_TEST)
 	$(MAKE_LIB)

@@ -5,7 +5,7 @@
 ** move
 */
 
-#include "proto.h"
+#include "rpg.h"
 
 void display_map(window_t *window, character_t *character)
 {
