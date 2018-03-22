@@ -19,9 +19,12 @@ SRC			=	./src/main.c					\
 				src/map/init_map.c				\
 				src/map/tile_gen.c				\
 				src/map/disp_map.c				\
+				src/map/pos_tools.c				\
 				src/map/chunk_gen.c				\
+				src/map/chunk_getter.c			\
 				src/map/init_textures.c			\
 				src/map/sprite_getter.c			\
+				src/event/events_handler.c		\
 				src/list/linked_list_tools.c		\
 
 CFLAGS		=	-W -Wall -Wextra -I./include -L./lib/my -lmy -g3 -lm

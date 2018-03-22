@@ -19,7 +19,6 @@ sfSprite	*get_tile_sprite(map_t *map, tile_t *tile)
 
 	while (_textures != NULL) {
 		txtre = (texture_t*)_textures->data;
-		my_printf("--> %d\n", txtre->id);
 		if (txtre->id == tex_id && tile->sprite == NULL) {
 			sprite = sfSprite_copy(txtre->sprite);
 			tile->sprite = sprite;

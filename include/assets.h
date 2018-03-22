@@ -10,7 +10,8 @@
 
 #include "rpg.h"
 
-#define TXTRE_GRASS "assets/textures/grass.png"
+#define TXTRE_GRASS "assets/textures/grass.jpg"
+#define TXTRE_WATER "assets/textures/water.jpg"
 
 typedef struct texture_s texture_t;
 

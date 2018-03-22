@@ -21,13 +21,13 @@ sfSprite *get_sprite_from_noise_value(int noisevalue)
 	return (sprite);
 }
 
-tile_t init_tile(int x, int y, int noisevalue)
+tile_t init_tile(float x, float y, int noisevalue)
 {
 	tile_t tile;
 
 	tile.pos = (pos_t){x, y, 0};
 	tile.type = WALKABLE;
-	tile.texture_id = noisevalue >= 1 ? 1 : 0;
+	tile.texture_id = noisevalue >= 1 ? 2 : 0;
 	tile.sprite = NULL;
 	return (tile);
 }

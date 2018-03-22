@@ -27,6 +27,7 @@ int	main(int nbargs, char **args, char **envp)
 {
 	map_t *map = generate_map(55465756);
 	sfRenderWindow *wd = create_window();
+	pos_t corner_to_disp = {0, 0, 0};
 	sfEvent event;
 
 	while (sfRenderWindow_isOpen(wd)) {
@@ -34,7 +35,8 @@ int	main(int nbargs, char **args, char **envp)
 			if (event.type == sfEvtClosed)
 				sfRenderWindow_close(wd);
 		sfRenderWindow_clear(wd, sfBlack);
-		disp_map(wd, map);
+		corner_to_disp.y += 0.1;
+		disp_map(wd, map, corner_to_disp);
 		sfRenderWindow_display(wd);
 	}
 	sfRenderWindow_destroy(wd);

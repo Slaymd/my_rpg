@@ -10,6 +10,8 @@
 
 #include "rpg.h"
 
+#define TILE_SIZE 64
+
 typedef struct pos_s pos_t;
 
 typedef struct tile_s tile_t;
@@ -31,9 +33,9 @@ enum object_type_e { ENVIRONNEMENT, BUILDING, DECORATION };
 enum tile_type_e { WALKABLE, NON_WALKABLE };
 
 struct pos_s {
-	int		x;
-	int		y;
-	int		z;
+	float		x;
+	float		y;
+	float		z;
 };
 
 struct entity_s {
@@ -72,7 +74,7 @@ struct map_s {
 //INITS
 map_t *init_map(char *name, int seed);
 chunk_t *init_chunk(pos_t pos);
-tile_t init_tile(int x, int y, int noisevalue);
+tile_t init_tile(float x, float y, int noisevalue);
 
 //MAP GEN
 map_t	*generate_map(int seed);
@@ -82,6 +84,12 @@ chunk_t	*chunk_gen(map_t *map, pos_t pos);
 sfSprite	*get_tile_sprite(map_t *map, tile_t *tile);
 
 //DISP
-int	disp_map(sfRenderWindow *wd, map_t *map);
+int	disp_map(sfRenderWindow *wd, map_t *map, pos_t pos);
+
+//COORDS
+pos_t	get_chunk_coords(pos_t pos);
+linked_list_t *get_nearest_chunks(map_t *map, pos_t pos);
+int		is_coords_in_chunk(pos_t pos, chunk_t *chunk);
+sfVector2f	get_relative_pixel_pos(pos_t ref, chunk_t *chk, pos_t pos);
 
 #endif /* RPG_MAP_H_ */
