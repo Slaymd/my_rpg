@@ -11,8 +11,8 @@
 
 pos_t	get_chunk_coords(pos_t pos)
 {
-	int x = (int)pos.x/16;
-	int y = (int)pos.y/16;
+	int x = (int)pos.x/TILES_PER_CHUNKS;
+	int y = (int)pos.y/TILES_PER_CHUNKS;
 	pos_t	cpos = {x, y, 0};
 
 	cpos.x = pos.x < 0 ? cpos.x-1 : cpos.x;
@@ -33,8 +33,8 @@ pos_t	get_absolute_pos(chunk_t *chunk, pos_t pos)
 {
 	pos_t	absol = {0, 0, 0};
 
-	absol.x = chunk->pos.x*16+pos.x;
-	absol.y = chunk->pos.y*16+pos.y;
+	absol.x = chunk->pos.x*TILES_PER_CHUNKS+pos.x;
+	absol.y = chunk->pos.y*TILES_PER_CHUNKS+pos.y;
 	return (absol);
 }
 

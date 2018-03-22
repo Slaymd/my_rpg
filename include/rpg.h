@@ -22,8 +22,8 @@
 	#include "character.h"
 	#include "linked_list.h"
 
-	#define WIDTH 800
-	#define HEIGHT 600
+	#define WIDTH 2000
+	#define HEIGHT 1500
 
 	#define SIZE_S_X 750
 	#define SIZE_S_Y 750

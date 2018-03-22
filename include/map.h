@@ -11,6 +11,10 @@
 #include "rpg.h"
 
 #define TILE_SIZE 64
+#define MOVE_SPEED 0.5
+
+#define TILES_PER_CHUNKS 32
+#define DEFAULT_RENDER_DISTANCE 2
 
 typedef struct pos_s pos_t;
 
@@ -65,6 +69,7 @@ struct chunk_s {
 struct map_s {
 	char			*name;
 	int			seed;
+	pos_t		topleft_to_disp;
 	linked_list_t	*chunks;
 	linked_list_t	*objects;
 	linked_list_t	*entities;
@@ -74,7 +79,7 @@ struct map_s {
 //INITS
 map_t *init_map(char *name, int seed);
 chunk_t *init_chunk(pos_t pos);
-tile_t init_tile(float x, float y, int noisevalue);
+tile_t init_tile(float x, float y, float noisevalue);
 
 //MAP GEN
 map_t	*generate_map(int seed);
@@ -91,5 +96,9 @@ pos_t	get_chunk_coords(pos_t pos);
 linked_list_t *get_nearest_chunks(map_t *map, pos_t pos);
 int		is_coords_in_chunk(pos_t pos, chunk_t *chunk);
 sfVector2f	get_relative_pixel_pos(pos_t ref, chunk_t *chk, pos_t pos);
+pos_t	get_absolute_pos(chunk_t *chunk, pos_t pos);
+
+//EVENTS
+int	map_event_handler(sfRenderWindow *wd, map_t *map);
 
 #endif /* RPG_MAP_H_ */

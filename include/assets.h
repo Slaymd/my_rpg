@@ -12,6 +12,8 @@
 
 #define TXTRE_GRASS "assets/textures/grass.jpg"
 #define TXTRE_WATER "assets/textures/water.jpg"
+#define TXTRE_DEEP_WATER "assets/textures/deep_water.jpg"
+#define TXTRE_LIGHT_STONE "assets/textures/light_stone.jpg"
 
 typedef struct texture_s texture_t;
 

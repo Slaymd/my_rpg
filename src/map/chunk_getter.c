@@ -14,7 +14,7 @@ linked_list_t *get_nearest_chunks(map_t *map, pos_t pos)
 	linked_list_t	*_chunks = map->chunks;
 	linked_list_t	*nearest_chunks = NULL;
 	pos_t		min_cpos = get_chunk_coords(pos);
-	pos_t		max_cpos = {min_cpos.x+1, min_cpos.y+1, 0};
+	pos_t		max_cpos = {min_cpos.x+DEFAULT_RENDER_DISTANCE, min_cpos.y+DEFAULT_RENDER_DISTANCE, 0};
 	chunk_t		*chunk = NULL;
 
 	for (; _chunks != NULL; _chunks = _chunks->next) {

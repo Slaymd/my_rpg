@@ -5,13 +5,13 @@
 ** map gen
 */
 
-#include "../../include/my.h"
-#include "../../include/map.h"
-#include "../../include/linked_list.h"
+#include "../../../include/my.h"
+#include "../../../include/map.h"
+#include "../../../include/linked_list.h"
 
 map_t	*generate_map(int seed)
 {
-	map_t *map = init_map("test map", seed);
+	map_t *map = init_map(NULL, seed);
 	chunk_t *_chunk = NULL;
 
 	for (float y = -5.0; y < 6.0; y++) {

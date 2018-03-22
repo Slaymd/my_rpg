@@ -26,17 +26,14 @@ sfRenderWindow	*create_window(void)
 int	main(int nbargs, char **args, char **envp)
 {
 	map_t *map = generate_map(55465756);
+	//return (0);
 	sfRenderWindow *wd = create_window();
-	pos_t corner_to_disp = {0, 0, 0};
-	sfEvent event;
 
+	map->topleft_to_disp = (pos_t){1, 1, 0};
 	while (sfRenderWindow_isOpen(wd)) {
-		while (sfRenderWindow_pollEvent(wd, &event))
-			if (event.type == sfEvtClosed)
-				sfRenderWindow_close(wd);
+		map_event_handler(wd, map);
 		sfRenderWindow_clear(wd, sfBlack);
-		corner_to_disp.y += 0.1;
-		disp_map(wd, map, corner_to_disp);
+		disp_map(wd, map, map->topleft_to_disp);
 		sfRenderWindow_display(wd);
 	}
 	sfRenderWindow_destroy(wd);
