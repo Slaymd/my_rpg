@@ -16,6 +16,8 @@
 #define TILES_PER_CHUNKS 32
 #define DEFAULT_RENDER_DISTANCE 2
 
+#define SEED 213314
+
 typedef struct pos_s pos_t;
 
 typedef struct tile_s tile_t;
@@ -100,5 +102,8 @@ pos_t	get_absolute_pos(chunk_t *chunk, pos_t pos);
 
 //EVENTS
 int	map_event_handler(sfRenderWindow *wd, map_t *map);
+
+//PERLIN
+float get_perlin_value(map_t *map, pos_t pos, float freq, int depth);
 
 #endif /* RPG_MAP_H_ */

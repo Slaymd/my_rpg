@@ -45,6 +45,7 @@ int	disp_map(sfRenderWindow *wd, map_t *map, pos_t ref)
 	linked_list_t	*_chunks = get_nearest_chunks(map, ref);
 	chunk_t		*chunk = NULL;
 
+	my_printf("DISP\n");
 	for (; _chunks != NULL; _chunks = _chunks->next) {
 		chunk = (chunk_t*)_chunks->data;
 		disp_chunk(wd, map, (chunk_t*)_chunks->data, ref);

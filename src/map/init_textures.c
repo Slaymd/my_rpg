@@ -29,9 +29,10 @@ linked_list_t	*init_textures(void)
 {
 	linked_list_t	*txts = NULL;
 
-	add_to_linked_list(&txts, init_texture(1, TXTRE_GRASS, sfGreen));
+	add_to_linked_list(&txts, init_texture(1, TXTRE_DEEP_WATER, sfBlue));
 	add_to_linked_list(&txts, init_texture(2, TXTRE_WATER, sfBlue));
-	add_to_linked_list(&txts, init_texture(3, TXTRE_DEEP_WATER, sfBlue));
-	add_to_linked_list(&txts, init_texture(4, TXTRE_LIGHT_STONE, sfWhite));
+	add_to_linked_list(&txts, init_texture(3, TXTRE_SAND, sfYellow));
+	add_to_linked_list(&txts, init_texture(4, TXTRE_GRASS, sfGreen));
+	add_to_linked_list(&txts, init_texture(5, TXTRE_LIGHT_STONE, sfWhite));
 	return (txts);
 }

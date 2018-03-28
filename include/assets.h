@@ -10,10 +10,11 @@
 
 #include "rpg.h"
 
-#define TXTRE_GRASS "assets/textures/grass.jpg"
-#define TXTRE_WATER "assets/textures/water.jpg"
-#define TXTRE_DEEP_WATER "assets/textures/deep_water.jpg"
-#define TXTRE_LIGHT_STONE "assets/textures/light_stone.jpg"
+#define TXTRE_GRASS "assets/textures/mc_grass.png"
+#define TXTRE_WATER "assets/textures/mc_water.png"
+#define TXTRE_DEEP_WATER "assets/textures/mc_deep_water.png"
+#define TXTRE_LIGHT_STONE "assets/textures/mc_stone.png"
+#define TXTRE_SAND "assets/textures/mc_sand.png"
 
 typedef struct texture_s texture_t;
 

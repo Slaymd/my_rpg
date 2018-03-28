@@ -25,16 +25,22 @@ sfRenderWindow	*create_window(void)
 
 int	main(int nbargs, char **args, char **envp)
 {
-	map_t *map = generate_map(55465756);
-	//return (0);
+	map_t *map = generate_map(SEED);
 	sfRenderWindow *wd = create_window();
+	sfClock *sfclock = sfClock_create();
+	sfTime sftime;
+	int start = 1;
 
-	map->topleft_to_disp = (pos_t){1, 1, 0};
 	while (sfRenderWindow_isOpen(wd)) {
-		map_event_handler(wd, map);
-		sfRenderWindow_clear(wd, sfBlack);
-		disp_map(wd, map, map->topleft_to_disp);
-		sfRenderWindow_display(wd);
+		sftime = sfClock_getElapsedTime(sfclock);
+		if (sftime.microseconds / 1000000.0 > 0.05) {
+			if (map_event_handler(wd, map) || start) {
+				sfRenderWindow_clear(wd, sfBlack);
+				disp_map(wd, map, map->topleft_to_disp);
+				sfRenderWindow_display(wd);
+				start = 0;
+			}
+		}
 	}
 	sfRenderWindow_destroy(wd);
 	return (0);

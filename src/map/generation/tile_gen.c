@@ -11,14 +11,26 @@
 
 int		get_texture_from_noise(float noise)
 {
-	if (noise <= -0.25)
-		return (3);
-	else if (noise < 0.0)
+	if (noise < 0.15)
+		return (1);
+	else if (noise < 0.25)
 		return (2);
-	else if (noise < 0.3)
+	else if (noise < 0.35)
+		return (3);
+	else if (noise < 0.65)
+		return (4);
+	else
+		return (5);
+	/*if (noise < 0.15)
+		return (3);
+	else if (noise < 0.25)
+		return (2);
+	else if (noise < 0.55)
+		return (5);
+	else if (noise < 0.75)
 		return (1);
 	else
-		return (4);
+		return (4);*/
 	return (1);
 }
 
