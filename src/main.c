@@ -25,7 +25,7 @@ sfRenderWindow	*create_window(void)
 
 int	main(int nbargs, char **args, char **envp)
 {
-	map_t *map = generate_map(SEED);
+	map_t *map = init_map(NULL, 432542543);
 	sfRenderWindow *wd = create_window();
 	sfClock *sfclock = sfClock_create();
 	sfTime sftime;
