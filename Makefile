@@ -12,6 +12,7 @@ SRC_MAIN		=	src/main.c
 SRC_TEST		=	\
 
 SRC			=	./src/main.c				\
+				./src/lib.c				\
 				./src/init.c				\
 				./src/destroy.c				\
 				./src/character/move.c			\
@@ -23,10 +24,17 @@ SRC			=	./src/main.c				\
 				src/map/init_textures.c			\
 				src/map/sprite_getter.c			\
 				src/event/events_handler.c		\
+				src/event/events_gestion.c		\
 				src/map/generation/map_gen.c		\
 				src/map/generation/tile_gen.c		\
 				src/map/generation/chunk_gen.c		\
 				src/map/generation/perlin_noise.c	\
+				./src/menu/create.c			\
+				./src/menu/display.c			\
+				./src/menu/free.c			\
+				./src/menu/scene_start.c		\
+				./src/menu/buttons/manage_buttons.c	\
+				./src/menu/buttons/buttons_main.c
 
 CFLAGS		=	-W -Wall -Wextra -I./include -g3 -lm
 

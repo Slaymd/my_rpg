@@ -39,7 +39,7 @@ void set_window(window_t *window)
 	(sfVector2f){SIZE_S_X * 0.6, SIZE_S_Y * 0.6});
 	sfView_setSize(window->v_map, (sfVector2f){SIZE_S_X, SIZE_S_Y});
 	sfView_setViewport(window->v_map, (sfFloatRect){0.7, 0.05, 0.25, 0.25});
-	sfRenderWindow_setView(window->window, window->v_screen);
+	// sfRenderWindow_setView(window->window, window->v_screen);
 	sfRenderWindow_setFramerateLimit(window->window, 60);
 	sfSprite_setTexture(window->sprite, window->texture, sfTrue);
 	sfSprite_setPosition(window->sprite, (sfVector2f){0, 0});
@@ -73,9 +73,9 @@ rpg_t *init_rpg(void)
 
 	if (!rpg)
 		return (NULL);
+	rpg->state = 0;
 	rpg->window = init_window();
 	rpg->character = init_character();
-	if (!rpg->window || !rpg->character)
-		return (NULL);
+	rpg->menu = create_menu();
 	return (rpg);
 }

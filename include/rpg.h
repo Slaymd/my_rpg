@@ -23,6 +23,7 @@
 	#include "list.h"
 	#include "my.h"
 	#include "assets.h"
+	#include "menu.h"
 
 	#define WIDTH 800
 	#define HEIGHT 600
@@ -51,12 +52,13 @@
 	};
 
 	struct rpg_s {
+		int state;
 		map_t	*map;
 		window_t *window;
+		menu_t *menu;
 		character_t *character;
 	};
 
-	void event_gestion(window_t *window);
 
 	//CREATE
 	rpg_t *init_rpg(void);
@@ -66,6 +68,7 @@
 
 	//ACTION
 	void verif_action(rpg_t *rpg);
+	void event_gestion(window_t *window, map_t *map);
 
 	//DISPLAY
 	void display_map(window_t *window, character_t *character);

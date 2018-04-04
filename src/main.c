@@ -5,20 +5,7 @@
 ** main
 */
 
-#include "../include/rpg.h"
-
-sfRenderWindow	*create_window(void)
-{
-	sfRenderWindow	*window;
-	sfVideoMode	mode;
-
-	mode.width = WIDTH;
-	mode.height = HEIGHT;
-	mode.bitsPerPixel = 32;
-	window = sfRenderWindow_create(mode, "my_rpg", sfDefaultStyle, NULL);
-	sfRenderWindow_setFramerateLimit(window, 30);
-	return (window);
-}
+#include "rpg.h"
 
 int	main(void)
 {
@@ -26,24 +13,28 @@ int	main(void)
 	rpg_t *rpg = init_rpg();
 	sfClock *sfclock = sfClock_create();
 	sfTime sftime;
-	int start = 1;
 
 	while (sfRenderWindow_isOpen(rpg->window->window)) {
 		sftime = sfClock_getElapsedTime(sfclock);
 		if (sftime.microseconds / 1000000.0 > 0.05) {
-			if (map_event_handler(rpg->window, map) || start) {
+			event_gestion(rpg->window, map);
+			if (rpg->state == 0) {
 				sfRenderWindow_clear(rpg->window->window, sfBlack);
+				manage_buttons(rpg);
+				display_menu(rpg->menu->scene[rpg->menu->state], rpg->window);
+			} else if (rpg->state == 1) {
+				sfRenderWindow_clear(rpg->window->window, sfBlack);
+				sfRenderWindow_setView(rpg->window->window, rpg->window->v_screen);
 				disp_map(rpg->window->window, map, map->topleft_to_disp);
 				sfRenderWindow_setView(rpg->window->window, rpg->window->v_map);
 				disp_map(rpg->window->window, map, map->topleft_to_disp);
-				sfRenderWindow_setView(rpg->window->window, rpg->window->v_screen);
 				display_character(rpg->window, rpg->character);
-				sfRenderWindow_display(rpg->window->window);
-				start = 0;
 			}
+			sfRenderWindow_display(rpg->window->window);
 		}
 	}
 	sfRenderWindow_destroy(rpg->window->window);
+	free_menu(rpg->menu);
 	return (0);
 }
 
