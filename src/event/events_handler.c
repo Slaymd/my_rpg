@@ -5,7 +5,7 @@
 ** event_handler
 */
 
-#include "../../include/rpg.h"
+#include "rpg.h"
 
 int	close_window(sfRenderWindow *wd, sfEvent event)
 {

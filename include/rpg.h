@@ -23,7 +23,11 @@
 	#include "list.h"
 	#include "my.h"
 	#include "assets.h"
+<<<<<<< HEAD
 	#include "ennemy.h"
+=======
+	#include "menu.h"
+>>>>>>> 931a223aae9faa7ed863bf4376e4a352fe83b2f9
 
 	#define WIDTH 800
 	#define HEIGHT 600
@@ -52,13 +56,14 @@
 	};
 
 	struct rpg_s {
+		int state;
 		map_t	*map;
 		window_t *window;
+		menu_t *menu;
 		character_t *character;
 		ennemy_t *ennemy[20];
 	};
 
-	void event_gestion(window_t *window);
 
 	//CREATE
 	rpg_t *init_rpg(void);
@@ -68,6 +73,7 @@
 
 	//ACTION
 	void verif_action(rpg_t *rpg);
+	void event_gestion(window_t *window, map_t *map);
 
 	//DISPLAY
 	void display_map(window_t *window, character_t *character);

@@ -88,4 +88,8 @@ void	free_strdarray(char **darray);
 
 int	my_strstartswithstr(char *str2, char *str1);
 
+char **str_to_array(char *str, char c);
+
+void free_str_array(char **array);
+
 #endif
