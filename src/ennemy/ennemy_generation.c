@@ -24,6 +24,7 @@ sfIntRect square)
 	new->pos = (pos_t){16000, 16000, 0};
 	sfSprite_setTexture(new->sprite, new->texture, sfTrue);
 	sfSprite_setTextureRect(new->sprite, new->square);
+	sfSprite_setScale(new->sprite, (sfVector2f){0.6, 0.6});
 	return (new);
 }
 
