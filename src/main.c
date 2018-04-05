@@ -38,6 +38,32 @@ int	main(void)
 	return (0);
 }
 
+// int	main(void)
+// {
+// 	map_t *map = init_map(NULL, 432542543);
+// 	rpg_t *rpg = init_rpg();
+// 	sfClock *sfclock = sfClock_create();
+// 	sfTime sftime;
+// 	int start = 1;
+//
+// 	while (sfRenderWindow_isOpen(rpg->window->window)) {
+// 		sftime = sfClock_getElapsedTime(sfclock);
+// 		if (sftime.microseconds / 1000000.0 > 0.05) {
+// 			if (map_event_handler(rpg->window, map) || start) {
+// 				sfRenderWindow_clear(rpg->window->window, sfBlack);
+// 				disp_map(rpg->window->window, map, map->topleft_to_disp);
+// 				sfRenderWindow_setView(rpg->window->window, rpg->window->v_map);
+// 				disp_map(rpg->window->window, map, map->topleft_to_disp);
+// 				sfRenderWindow_setView(rpg->window->window, rpg->window->v_screen);
+// 				display_character(rpg->window, rpg->character);
+// 				sfRenderWindow_display(rpg->window->window);
+// 				start = 0;
+// 			}
+// 		}
+// 	}
+// 	return (0);
+// }
+
 /*int main(int ac, char **av)
 {
 	rpg_t *rpg = init_rpg();
