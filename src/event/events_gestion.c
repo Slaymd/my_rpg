@@ -37,9 +37,9 @@ void event_gestion(window_t *window, map_t *map)
 	while (sfRenderWindow_pollEvent(window->window, &event)) {
 		if (event.type == sfEvtClosed)
 			sfRenderWindow_close(window->window);
-		map_move(event, map);
 		window->event = event;
 	}
+	map_move(window->event, map);
 	window->time = sfClock_getElapsedTime(window->clock);
 	window->seconds = window->time.microseconds / 1000000.0;
 }
