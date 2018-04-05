@@ -7,6 +7,14 @@
 
 #include "rpg.h"
 
+void display_minimap(sfSprite *sprite, window_t *window)
+{
+	sfRenderWindow_setView(window->window, window->v_screen);
+	sfRenderWindow_drawSprite(window->window, sprite, NULL);
+	sfRenderWindow_setView(window->window, window->v_map);
+	sfRenderWindow_drawSprite(window->window, sprite, NULL);
+}
+
 int	main(void)
 {
 	map_t *map = init_map(NULL, 432542543);

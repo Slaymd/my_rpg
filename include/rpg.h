@@ -75,6 +75,8 @@
 	//DISPLAY
 	void display_map(window_t *window, character_t *character);
 	void display_character(window_t *window, character_t *);
+	void display_minimap(sfSprite *sprite, window_t *window);
+
 	//MOVE
 	void move_map(window_t *window, character_t *character);
 	void move_character(character_t *character, window_t *window);

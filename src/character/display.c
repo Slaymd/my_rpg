@@ -10,10 +10,7 @@
 void display_character(window_t *window, character_t *character)
 {
 	move_character(character, window);
-	sfRenderWindow_setView(window->window, window->v_screen);
-	sfRenderWindow_drawSprite(window->window, character->sprite, NULL);
-	sfRenderWindow_setView(window->window, window->v_map);
-	sfRenderWindow_drawSprite(window->window, character->sprite, NULL);
+	display_minimap(character->sprite, window);
 }
 
 void display_ennemy(window_t *window, ennemy_t *ennemy, map_t *map)
