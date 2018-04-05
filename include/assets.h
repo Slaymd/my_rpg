@@ -16,6 +16,8 @@
 #define TXTRE_LIGHT_STONE "assets/textures/mc_stone.png"
 #define TXTRE_SAND "assets/textures/mc_sand.png"
 
+#define ENT_OSTRICH "assets/entities/ostrich.png"
+
 typedef struct texture_s texture_t;
 
 struct texture_s {

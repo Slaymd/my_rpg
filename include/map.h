@@ -28,11 +28,15 @@ typedef struct window_s window_t;
 typedef struct chunk_s chunk_t;
 typedef struct map_s map_t;
 
+
+typedef struct entity_s entity_t;
+typedef struct entity_infos_s entity_infos_t;
+
 typedef enum entity_type_e entity_type;
 typedef enum object_type_e object_type;
 typedef enum tile_type_e tile_type;
 
-enum entity_type_e { NO_AI, ANIMAL, MONSTER };
+enum entity_type_e { NO_AI, OSTRICH, UNKNOWN };
 
 enum object_type_e { ENVIRONNEMENT, BUILDING, DECORATION };
 
@@ -42,12 +46,6 @@ struct pos_s {
 	float		x;
 	float		y;
 	float		z;
-};
-
-struct entity_s {
-	pos_t		pos;
-	entity_type	type;
-	sfSprite		*sprite;
 };
 
 struct object_s {
@@ -77,6 +75,31 @@ struct map_s {
 	list_t	*entities;
 	list_t	*textures;
 };
+
+// ENTITIES
+
+struct entity_infos_s {
+	entity_type type;
+	sfIntRect rect;
+	int	life;
+	int	damages;
+	int	level;
+	int	range;
+	char *tex_path;
+};
+
+struct entity_s {
+	entity_type type;
+	int lvl;
+	int ennemy_range;
+	sfRectangleShape *rect;
+	sfIntRect square;
+	void(*callback)();
+	sfSprite *sprite;
+	sfTexture *texture;
+	pos_t pos;
+};
+
 
 //INITS
 map_t *init_map(char *name, int seed);
