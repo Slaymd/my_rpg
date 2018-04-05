@@ -23,6 +23,7 @@
 	#include "list.h"
 	#include "my.h"
 	#include "assets.h"
+	#include "ennemy.h"
 	#include "menu.h"
 
 	#define WIDTH 800
@@ -57,6 +58,7 @@
 		window_t *window;
 		menu_t *menu;
 		character_t *character;
+		ennemy_t *ennemy[20];
 	};
 
 
@@ -72,13 +74,18 @@
 
 	//DISPLAY
 	void display_map(window_t *window, character_t *character);
-	void display_character(window_t *window, character_t *character);
-
+	void display_character(window_t *window, character_t *);
 	//MOVE
 	void move_map(window_t *window, character_t *character);
 	void move_character(character_t *character, window_t *window);
 
 	//DESTROY
 	void free_rpg(rpg_t *rpg);
+
+	//ENNEMY
+	ennemy_t *add_ennemy_class_1(const char *path_sprite,
+	sfIntRect square);
+	void init_sprite(rpg_t *rpg);
+	void display_ennemy(window_t *window, ennemy_t *, map_t *);
 
 #endif /* RPG_H_ */

@@ -72,7 +72,8 @@ void move_character(character_t *character, window_t *window)
 	sfKeyboard_isKeyPressed(sfKeyDown) || sfKeyboard_isKeyPressed(sfKeyUp)))
 		character->rect.left += 68;
 	(character->rect.left >= 272) ? character->rect.left = 0 : 0;
-	sfSprite_setPosition(character->sprite, character->pos);
+	//pos_screen
+	sfSprite_setPosition(character->sprite, character->pos_screen);
 	sfSprite_setTextureRect(character->sprite, character->rect);
 	if (window->seconds >= 0.10)
 		sfClock_restart(window->clock);

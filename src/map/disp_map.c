@@ -43,7 +43,6 @@ int	disp_map(sfRenderWindow *wd, map_t *map, pos_t ref)
 	list_t	*_chunks = get_nearest_chunks(map, ref);
 	chunk_t		*chunk = NULL;
 
-	my_printf("DISP\n");
 	for (; _chunks != NULL; _chunks = _chunks->next) {
 		chunk = (chunk_t*)_chunks->data;
 		disp_chunk(wd, map, chunk, ref);
@@ -58,8 +57,7 @@ int	disp_sprite_at(sfRenderWindow *wd, map_t *mp, sfSprite *sp, pos_t p)
 	sfVector2f px = {relat_ref_pos.x*TILE_SIZE,
 		relat_ref_pos.y*TILE_SIZE};
 	sfSprite *sprite = NULL;
-
-	if (px.x <= -TILE_SIZE || px.x >= WIDTH || sprite == NULL)
+	if (px.x <= -TILE_SIZE || px.x >= WIDTH || sp == NULL)
 		return (-1);
 	if (px.y <= -TILE_SIZE || px.y >= HEIGHT)
 		return (-1);

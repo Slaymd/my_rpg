@@ -10,7 +10,7 @@
 void set_character(character_t *character)
 {
 	sfSprite_setTexture(character->sprite, character->texture, sfTrue);
-	sfSprite_setPosition(character->sprite, character->pos);
+	sfSprite_setPosition(character->sprite, character->pos_screen);
 	sfSprite_setTextureRect(character->sprite, character->rect);
 }
 
@@ -26,7 +26,8 @@ character_t *init_character(void)
 	character->sprite = sfSprite_create();
 	character->rect = (sfIntRect){0,0, SIZE_C_X, SIZE_C_Y};
 	character->speed = 4;
-	character->pos = (sfVector2f){x, y};
+	character->pos_screen = (sfVector2f){x, y};
+	character->pos = (pos_t){16000, 16000, 0};
 	set_character(character);
 	return (character);
 }
