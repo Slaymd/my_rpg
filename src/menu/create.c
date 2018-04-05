@@ -58,10 +58,11 @@ menu_t *create_menu(void)
 	if (!menu)
 		return (NULL);
 	menu->state = 0;
-	menu->scene = malloc(sizeof(scene_t *) * 2);
+	menu->scene = malloc(sizeof(scene_t *) * 3);
 	if (!menu->scene)
 		return (NULL);
 	menu->scene[0] = create_start_scene();
-	menu->scene[1] = NULL;
+	menu->scene[1] = create_options_scene();
+	menu->scene[2] = NULL;
 	return (menu);
 }

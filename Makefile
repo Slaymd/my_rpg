@@ -33,8 +33,10 @@ SRC			=	./src/main.c				\
 				./src/menu/display.c			\
 				./src/menu/free.c			\
 				./src/menu/scene_start.c		\
+				./src/menu/scene_options.c		\
 				./src/menu/buttons/manage_buttons.c	\
-				./src/menu/buttons/buttons_main.c
+				./src/menu/buttons/buttons_main.c	\
+				./src/menu/buttons/buttons_scene.c
 
 CFLAGS		=	-W -Wall -Wextra -I./include -g3 -lm
 

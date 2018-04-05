@@ -52,5 +52,7 @@
 	void manage_buttons(rpg_t *rpg);
 	void quit_button(rpg_t *rpg);
 	void play_button(rpg_t *rpg);
+	void start_button(rpg_t *rpg);
+	void options_button(rpg_t *rpg);
 
 #endif
