@@ -13,26 +13,11 @@ int	main(void)
 	rpg_t *rpg = init_rpg();
 	sfClock *sfclock = sfClock_create();
 	sfTime sftime;
-<<<<<<< HEAD
-	int start = 1;
 	init_sprite(rpg);
-=======
 
->>>>>>> 931a223aae9faa7ed863bf4376e4a352fe83b2f9
 	while (sfRenderWindow_isOpen(rpg->window->window)) {
 		sftime = sfClock_getElapsedTime(sfclock);
-		sfRenderWindow_clear(rpg->window->window, sfBlack);
-		disp_map(rpg->window->window, map, map->topleft_to_disp);
-		sfRenderWindow_setView(rpg->window->window, rpg->window->v_map);
-		disp_map(rpg->window->window, map, map->topleft_to_disp);
-		sfRenderWindow_setView(rpg->window->window, rpg->window->v_screen);
 		if (sftime.microseconds / 1000000.0 > 0.05) {
-<<<<<<< HEAD
-			if (map_event_handler(rpg->window, map) || start)
-				start = 0;
-			display_ennemy(rpg->window, rpg->ennemy[0], map);
-			display_character(rpg->window, rpg->character, map);
-=======
 			event_gestion(rpg->window, map);
 			if (rpg->state == 0) {
 				sfRenderWindow_clear(rpg->window->window, sfBlack);
@@ -45,8 +30,8 @@ int	main(void)
 				sfRenderWindow_setView(rpg->window->window, rpg->window->v_map);
 				disp_map(rpg->window->window, map, map->topleft_to_disp);
 				display_character(rpg->window, rpg->character);
+				display_ennemy(rpg->window, rpg->ennemy[0], map);
 			}
->>>>>>> 931a223aae9faa7ed863bf4376e4a352fe83b2f9
 			sfRenderWindow_display(rpg->window->window);
 		}
 	}
@@ -54,46 +39,3 @@ int	main(void)
 	free_menu(rpg->menu);
 	return (0);
 }
-
-// int	main(void)
-// {
-// 	map_t *map = init_map(NULL, 432542543);
-// 	rpg_t *rpg = init_rpg();
-// 	sfClock *sfclock = sfClock_create();
-// 	sfTime sftime;
-// 	int start = 1;
-//
-// 	while (sfRenderWindow_isOpen(rpg->window->window)) {
-// 		sftime = sfClock_getElapsedTime(sfclock);
-// 		if (sftime.microseconds / 1000000.0 > 0.05) {
-// 			if (map_event_handler(rpg->window, map) || start) {
-// 				sfRenderWindow_clear(rpg->window->window, sfBlack);
-// 				disp_map(rpg->window->window, map, map->topleft_to_disp);
-// 				sfRenderWindow_setView(rpg->window->window, rpg->window->v_map);
-// 				disp_map(rpg->window->window, map, map->topleft_to_disp);
-// 				sfRenderWindow_setView(rpg->window->window, rpg->window->v_screen);
-// 				display_character(rpg->window, rpg->character);
-// 				sfRenderWindow_display(rpg->window->window);
-// 				start = 0;
-// 			}
-// 		}
-// 	}
-// 	return (0);
-// }
-
-/*int main(int ac, char **av)
-{
-	rpg_t *rpg = init_rpg();
-
-	if (!rpg || ac != ac || av != av)
-		return (84);
-	while (sfRenderWindow_isOpen(rpg->window->window)) {
-		event_gestion(rpg->window);
-		display_map(rpg->window, rpg->character);
-		display_character(rpg->window, rpg->character);
-		verif_action(rpg);
-		sfRenderWindow_display(rpg->window->window);
-	}
-	free_rpg(rpg);
-	return (0);
-}*/

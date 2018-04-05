@@ -23,11 +23,8 @@
 	#include "list.h"
 	#include "my.h"
 	#include "assets.h"
-<<<<<<< HEAD
 	#include "ennemy.h"
-=======
 	#include "menu.h"
->>>>>>> 931a223aae9faa7ed863bf4376e4a352fe83b2f9
 
 	#define WIDTH 800
 	#define HEIGHT 600
@@ -77,7 +74,7 @@
 
 	//DISPLAY
 	void display_map(window_t *window, character_t *character);
-	void display_character(window_t *window, character_t *, map_t *);
+	void display_character(window_t *window, character_t *);
 	//MOVE
 	void move_map(window_t *window, character_t *character);
 	void move_character(character_t *character, window_t *window);

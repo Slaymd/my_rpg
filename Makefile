@@ -29,18 +29,13 @@ SRC			=	./src/main.c				\
 				src/map/generation/tile_gen.c		\
 				src/map/generation/chunk_gen.c		\
 				src/map/generation/perlin_noise.c	\
-<<<<<<< HEAD
-				src/ennemy/ennemy_generation.c
-
-CFLAGS		=	-W -Wall -Wextra -I ./include -L./lib/my -lmy -g3 -lm
-=======
+				src/ennemy/ennemy_generation.c		\
 				./src/menu/create.c			\
 				./src/menu/display.c			\
 				./src/menu/free.c			\
 				./src/menu/scene_start.c		\
 				./src/menu/buttons/manage_buttons.c	\
 				./src/menu/buttons/buttons_main.c
->>>>>>> 931a223aae9faa7ed863bf4376e4a352fe83b2f9
 
 CFLAGS		=	-W -Wall -Wextra -I./include -g3 -lm
 
