@@ -23,7 +23,6 @@ SRC			=	./src/main.c				\
 				src/map/chunk_getter.c			\
 				src/map/init_textures.c			\
 				src/map/sprite_getter.c			\
-				src/event/events_handler.c		\
 				src/event/events_gestion.c		\
 				src/map/generation/map_gen.c		\
 				src/map/generation/tile_gen.c		\
@@ -33,8 +32,8 @@ SRC			=	./src/main.c				\
 				./src/menu/create.c			\
 				./src/menu/display.c			\
 				./src/menu/free.c			\
-				./src/menu/scene_start.c		\
-				./src/menu/scene_options.c		\
+				./src/menu/scenes/scene_start.c		\
+				./src/menu/scenes/scene_options.c	\
 				./src/menu/buttons/manage_buttons.c	\
 				./src/menu/buttons/buttons_main.c	\
 				./src/menu/buttons/buttons_scene.c
