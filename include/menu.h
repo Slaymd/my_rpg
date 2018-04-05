@@ -41,7 +41,8 @@
 	};
 
 	menu_t *create_menu(void);
-	scene_t *create_start_scene();
+	scene_t *create_start_scene(void);
+	scene_t *create_options_scene(void);
 	scene_t *create_menu_bg(char *path);
 	button_t *create_menu_button(char *path, sfVector2f pos, sfVector2f size, button_action_t func);
 	text_t *create_menu_text(char *info, int size, sfVector2f pos, sfColor color);
