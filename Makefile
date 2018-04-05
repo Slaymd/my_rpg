@@ -27,6 +27,9 @@ SRC			=	./src/main.c				\
 				src/map/generation/tile_gen.c		\
 				src/map/generation/chunk_gen.c		\
 				src/map/generation/perlin_noise.c	\
+				src/ennemy/ennemy_generation.c
+
+CFLAGS		=	-W -Wall -Wextra -I ./include -L./lib/my -lmy -g3 -lm
 
 CFLAGS		=	-W -Wall -Wextra -I./include -g3 -lm
 

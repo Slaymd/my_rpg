@@ -18,7 +18,8 @@
 		sfSprite *sprite;
 		sfTexture *texture;
 		sfIntRect rect;
-		sfVector2f pos;
+		sfVector2f pos_screen;
+		pos_t pos;
 		int speed;
 	};
 
