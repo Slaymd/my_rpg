@@ -57,7 +57,7 @@
 		window_t *window;
 		menu_t *menu;
 		character_t *character;
-		entity_t *ennemy[20];
+		list_t *entities;
 	};
 
 

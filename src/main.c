@@ -38,7 +38,7 @@ int	main(void)
 				sfRenderWindow_setView(rpg->window->window, rpg->window->v_map);
 				disp_map(rpg->window->window, map, map->topleft_to_disp);
 				display_character(rpg->window, rpg->character);
-				display_ennemy(rpg->window, rpg->ennemy[0], map);
+				display_ennemy(rpg->window, (entity_t *)rpg->entities->data, map);
 			}
 			sfRenderWindow_display(rpg->window->window);
 		}

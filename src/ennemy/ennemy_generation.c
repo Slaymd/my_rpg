@@ -9,7 +9,7 @@
 
 entity_infos_t get_entity_infos(entity_type type)
 {
-	entity_infos_t ents_infos[] = {{OSTRICH,{0,0,0,0},1,1,1,1,ENT_OSTRICH},
+	entity_infos_t ents_infos[] = {{OSTRICH,{0, 150, 100, 120},1,1,1,1,ENT_OSTRICH},
 		{UNKNOWN,{0,0,0,0},0,0,0,0,""}};
 
 	for (int i = 0; ents_infos[i].type != UNKNOWN; i++) {
@@ -29,11 +29,14 @@ entity_t *create_entity(entity_type type)
 	ent->ennemy_range = infos.range;
 	ent->callback = NULL;
 	ent->lvl = infos.level;
-	ent->pos = (pos_t){0, 0, 0};
+	ent->pos = (pos_t){16000, 16000, 0};
 	ent->rect = NULL;
-	ent->sprite = NULL; //À FAIRE ! LOAD SPRITE DE BASE
+	ent->sprite = sfSprite_create();
 	ent->square = infos.rect;
-	ent->texture = NULL; //À FAIRE ! LOAD DE TEXTUTE infos.tex_path
+	ent->texture = sfTexture_createFromFile(infos.tex_path, NULL);
+	sfSprite_setTexture(ent->sprite, ent->texture, sfTrue);
+	sfSprite_setTextureRect(ent->sprite, ent->square);
+	sfSprite_setScale(ent->sprite, (sfVector2f){0.6, 0.6});
 	ent->type = type;
 	return (ent);
 }
@@ -61,5 +64,6 @@ entity_t *add_ennemy_class_1(const char *path_sprite, sfIntRect square)
 
 void init_sprite(rpg_t *rpg)
 {
-	rpg->ennemy[0] = add_ennemy_class_1(ENT_OSTRICH, (sfIntRect){0, 150, 100, 120});
+	list_add(&rpg->entities, create_entity(OSTRICH));
+	//rpg->ennemy[0] = add_ennemy_class_1(ENT_OSTRICH, (sfIntRect){0, 150, 100, 120});
 }

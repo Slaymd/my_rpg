@@ -21,7 +21,7 @@ void display_ennemy(window_t *window, entity_t *ent, map_t *map)
 		ent->square.left = ent->square.left > 260 ? 0 :
 		ent->square.left + 10;
 	}
-	disp_sprite_at(window->window, map, ent[0].sprite, ent[0].pos);
+	disp_sprite_at(window->window, map, ent->sprite, ent->pos);
 	sfRenderWindow_setView(window->window, window->v_screen);
-	disp_sprite_at(window->window, map, ent[0].sprite, ent[0].pos);
+	disp_sprite_at(window->window, map, ent->sprite, ent->pos);
 }
