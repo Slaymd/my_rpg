@@ -15,7 +15,7 @@ void display_minimap(sfSprite *sprite, window_t *window)
 	sfRenderWindow_drawSprite(window->window, sprite, NULL);
 }
 
-int	main(void)
+int main(void)
 {
 	map_t *map = init_map(NULL, 432542543);
 	rpg_t *rpg = init_rpg();

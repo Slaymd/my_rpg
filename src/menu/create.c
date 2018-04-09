@@ -25,10 +25,12 @@ button_t *create_menu_button(char *path, sfVector2f pos, sfVector2f size, button
 	button->texture = sfTexture_createFromFile(path, NULL);
 	button->sprite = sfSprite_create();
 	sfSprite_setTexture(button->sprite, button->texture, sfTrue);
-	sfSprite_setPosition(button->sprite, pos);
+	sfSprite_setPosition(button->sprite,
+	(sfVector2f){pos.x * WIDTH, pos.y * HEIGHT});
 	sfSprite_setTextureRect(button->sprite,
 	(sfIntRect){0, 0, size.x, size.y});
-	sfRectangleShape_setPosition(button->rect, pos);
+	sfRectangleShape_setPosition(button->rect,
+	(sfVector2f){pos.x * WIDTH, pos.y * HEIGHT});
 	sfRectangleShape_setSize(button->rect, size);
 	sfRectangleShape_setFillColor(button->rect, sfRed);
 	button->callback = func;
@@ -45,7 +47,8 @@ text_t *create_menu_text(char *info, int size, sfVector2f pos, sfColor color)
 	sfText_setFont(text->text, text->font);
 	sfText_setString(text->text, str[0]);
 	sfText_setCharacterSize(text->text, size);
-	sfText_setPosition(text->text, pos);
+	sfText_setPosition(text->text,
+	(sfVector2f){pos.x * WIDTH, pos.y * HEIGHT});
 	sfText_setColor(text->text, color);
 	free_str_array(str);
 	return (text);
