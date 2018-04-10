@@ -10,8 +10,8 @@
 void create_start_buttons(int nbr, scene_t *scene)
 {
 	scene->button = malloc(sizeof(button_t) * (nbr + 1));
-	scene->button[0] = create_menu_button("img/buttons/play.png",
-	(sfVector2f){0.2, 0.5}, (sfVector2f){100, 50}, &play_button);
+	scene->button[0] = create_menu_button("img/buttons/start.png",
+	(sfVector2f){0.2, 0.5}, (sfVector2f){150, 39}, &play_button);
 	scene->button[1] = create_menu_button("img/buttons/quit.png",
 	(sfVector2f){0.6, 0.5}, (sfVector2f){100, 50}, &quit_button);
 	scene->button[2] = create_menu_button("img/buttons/options.png",

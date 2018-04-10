@@ -25,10 +25,14 @@ button_t *create_menu_button(char *path, sfVector2f pos, sfVector2f size, button
 	button->texture = sfTexture_createFromFile(path, NULL);
 	button->sprite = sfSprite_create();
 	sfSprite_setTexture(button->sprite, button->texture, sfTrue);
+	sfSprite_setOrigin(button->sprite,
+	(sfVector2f){size.x / 2, size.y / 2});
 	sfSprite_setPosition(button->sprite,
 	(sfVector2f){pos.x * WIDTH, pos.y * HEIGHT});
 	sfSprite_setTextureRect(button->sprite,
 	(sfIntRect){0, 0, size.x, size.y});
+	sfRectangleShape_setOrigin(button->rect,
+	(sfVector2f){size.x / 2, size.y / 2});
 	sfRectangleShape_setPosition(button->rect,
 	(sfVector2f){pos.x * WIDTH, pos.y * HEIGHT});
 	sfRectangleShape_setSize(button->rect, size);
