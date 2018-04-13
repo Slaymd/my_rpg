@@ -5,7 +5,7 @@
 ** textbox events
 */
 
-#include "my_uilib.h"
+#include "uilib.h"
 
 int	check_pos_in_textbox(textbox_t *textbox, sfVector2f pos)
 {
@@ -18,15 +18,18 @@ int	check_pos_in_textbox(textbox_t *textbox, sfVector2f pos)
 	return (0);
 }
 
-int	click_on_textboxes(sfEvent event, textbox_t *textboxes, int nb)
+int	click_on_textboxes(sfEvent event, list_t *textboxes)
 {
+	textbox_t *textbox = NULL;
+	list_t *tmp = textboxes;
 	sfVector2f pos = {event.mouseButton.x, event.mouseButton.y};
 
-	for (int i = 0; i < nb; i++) {
-		if (check_pos_in_textbox(&textboxes[i], pos))
-			textboxes[i].state = textboxes[i].state == 1 ? 0 : 1;
+	for (; tmp != NULL; tmp = tmp->next) {
+		textbox = (textbox_t*)tmp->data;
+		if (check_pos_in_textbox(textbox, pos))
+			textbox->state = textbox->state == 1 ? 0 : 1;
 		else
-			textboxes[i].state = 0;
+			textbox->state = 0;
 	}
 	return (0);
 }

@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 #include <SFML/Graphics.h>
-#include "my_uilib.h"
+#include "uilib.h"
 
 void set_button_position(button_t *button, sfVector2f pos)
 {

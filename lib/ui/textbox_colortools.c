@@ -5,7 +5,7 @@
 ** __DESCRIPTION__
 */
 
-#include "my_uilib.h"
+#include "uilib.h"
 
 void	set_textbox_color(textbox_t *textbox, sfColor fill, sfColor outl)
 {

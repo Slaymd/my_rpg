@@ -5,7 +5,7 @@
 ** states disp
 */
 
-#include "my_uilib.h"
+#include "uilib.h"
 
 int	set_button_state(button_t *button, int state)
 {

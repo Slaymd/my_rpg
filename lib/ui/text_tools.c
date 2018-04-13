@@ -5,7 +5,7 @@
 ** text tools
 */
 
-#include "my_uilib.h"
+#include "uilib.h"
 char *my_strcpy(char *, char *);
 
 char	*get_text_string(text_t *text)

@@ -5,7 +5,7 @@
 ** textboxes disps
 */
 
-#include "my_uilib.h"
+#include "uilib.h"
 
 void edit_textbox_design_by_state(textbox_t *textbox)
 {
@@ -38,9 +38,10 @@ void	disp_textbox(sfRenderWindow *wd, textbox_t *textbox)
 		disp_text(wd, textbox->text);
 }
 
-void	disp_textboxes(sfRenderWindow *wd, textbox_t *textboxes, int nb)
+void	disp_textboxes(sfRenderWindow *wd, list_t *textboxes)
 {
-	for (int i = 0; textboxes != NULL && i < nb; i++) {
-		disp_textbox(wd, &textboxes[i]);
-	}
+	list_t *tmp = textboxes;
+
+	for (; tmp != NULL; tmp = tmp->next)
+		disp_textbox(wd, (textbox_t*)tmp->data);
 }

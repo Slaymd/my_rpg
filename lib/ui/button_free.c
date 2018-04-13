@@ -5,7 +5,7 @@
 ** button free
 */
 
-#include "my_uilib.h"
+#include "uilib.h"
 
 void	free_button(button_t *button)
 {

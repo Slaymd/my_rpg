@@ -5,7 +5,7 @@
 ** button disp
 */
 
-#include "my_uilib.h"
+#include "uilib.h"
 #include <SFML/Graphics.h>
 
 void	disp_button(sfRenderWindow *wd, button_t *button)
@@ -24,9 +24,10 @@ void	disp_button(sfRenderWindow *wd, button_t *button)
 	}
 }
 
-void	disp_buttons(sfRenderWindow *wd, button_t *buttons, int nb)
+void	disp_buttons(sfRenderWindow *wd, list_t *buttons)
 {
-	for (int i = 0; buttons != NULL && i < nb; i++) {
-		disp_button(wd, &buttons[i]);
-	}
+	list_t *tmp = buttons;
+
+	for (; tmp != NULL; tmp = tmp->next)
+		disp_button(wd, (button_t*)tmp->data);
 }

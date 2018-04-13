@@ -5,7 +5,7 @@
 ** textbox free
 */
 
-#include "my_uilib.h"
+#include "uilib.h"
 
 void	free_textbox(textbox_t *textbox)
 {

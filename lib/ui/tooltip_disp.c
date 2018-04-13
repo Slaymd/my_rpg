@@ -5,7 +5,7 @@
 ** tooltip disp
 */
 
-#include "my_uilib.h"
+#include "uilib.h"
 
 void tooltip_animation_tick(button_t *button)
 {
@@ -48,11 +48,13 @@ void	disp_tooltip(sfRenderWindow *wd, button_t *button)
 	disp_text(wd, tooltip->text);
 }
 
-void	disp_tooltips(sfRenderWindow *wd, button_t *buttons, int nb)
+void	disp_tooltips(sfRenderWindow *wd, list_t *buttons)
 {
 	button_t *button = NULL;
-	for (int i = 0; buttons != NULL && i < nb; i++) {
-		button = &buttons[i];
+	list_t *tmp = buttons;
+
+	for (; tmp != NULL; tmp = tmp->next) {
+		button = (button_t*)tmp->data;
 		if (button != NULL && button->tooltip != NULL)
 			disp_tooltip(wd, button);
 	}

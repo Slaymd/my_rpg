@@ -5,7 +5,7 @@
 ** text tools
 */
 
-#include "my_uilib.h"
+#include "uilib.h"
 
 int	my_strlen_but_text(char *str)
 {

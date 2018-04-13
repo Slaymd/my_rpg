@@ -5,7 +5,7 @@
 ** button effets
 */
 
-#include "my_uilib.h"
+#include "uilib.h"
 
 int	set_textbox_hover_design(textbox_t *textbox)
 {

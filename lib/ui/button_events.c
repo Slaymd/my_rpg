@@ -5,7 +5,7 @@
 ** button events
 */
 
-#include "my_uilib.h"
+#include "uilib.h"
 
 int	check_pos_in_button(button_t *button, sfVector2f pos)
 {
@@ -27,26 +27,32 @@ int	send_click_action(button_t *button)
 	return (1);
 }
 
-int	click_on_buttons(sfEvent event, button_t *buttons, int nb)
+int	click_on_buttons(sfEvent event, list_t *buttons)
 {
+	list_t *tmp = buttons;
+	button_t *button = NULL;
 	sfVector2f pos = {event.mouseButton.x, event.mouseButton.y};
 
-	for (int i = 0; i < nb; i++) {
-		if (check_pos_in_button(&buttons[i], pos))
-			send_click_action(&buttons[i]);
+	for (; tmp != NULL; tmp = tmp->next) {
+		button = (button_t*)tmp->data;
+		if (check_pos_in_button(button, pos))
+			send_click_action(button);
 	}
 	return (0);
 }
 
-int	hover_on_buttons(sfEvent event, button_t *buttons, int nb)
+int	hover_on_buttons(sfEvent event, list_t *buttons)
 {
+	list_t *tmp = buttons;
+	button_t *button = NULL;
 	sfVector2f pos = {event.mouseMove.x, event.mouseMove.y};
 
-	for (int i = 0; i < nb; i++) {
-		if (check_pos_in_button(&buttons[i], pos))
-			set_button_hover_design(&buttons[i]);
+	for (; tmp != NULL; tmp = tmp->next) {
+		button = (button_t*)tmp->data;
+		if (check_pos_in_button(button, pos))
+			set_button_hover_design(button);
 		else
-			rem_button_hover_design(&buttons[i]);
+			rem_button_hover_design(button);
 	}
 	return (0);
 }

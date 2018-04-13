@@ -5,7 +5,7 @@
 ** button states init
 */
 
-#include "my_uilib.h"
+#include "uilib.h"
 
 bt_state_t *fill_first_state(button_t *but, bt_state_t *states)
 {

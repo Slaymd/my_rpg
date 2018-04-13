@@ -5,14 +5,23 @@
 ## lib maker :o
 ##
 
-SRC	=	$(wildcard *.c)
+CC		=	gcc
 
-OBJ	=	$(SRC:.c=.o)
+CFLAGS	=	-Wall -Wextra -W
 
-all:	make_lib clean
+SRC		=	$(wildcard *.c)
 
-make_lib:	$(OBJ)
-	ar rc libui.a *.o
+OBJ		=	$(SRC:.c=.o)
+
+NAME 	=	libui.a
+
+all:	$(NAME)
+
+$(NAME): $(OBJ)
+	ar rc libmy.a $(OBJ)
 
 clean:
-	rm *.o
+	rm -f $(OBJ)
+
+fclean: clean
+	rm -f $(NAME)

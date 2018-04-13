@@ -64,6 +64,8 @@ MAKE_LIBMY	=	make -C./lib/my
 
 MAKE_LIBLIST	=	make -C./lib/list
 
+MAKE_LIBUI	=	make -C./lib/ui
+
 all: $(NAME)
 
 $(NAME): $(OBJ) $(OBJ_MAIN)

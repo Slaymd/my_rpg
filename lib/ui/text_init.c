@@ -5,7 +5,7 @@
 ** text init
 */
 
-#include "my_uilib.h"
+#include "uilib.h"
 
 text_t	*create_text(sfVector2f pos, char *str, int size, sfColor color)
 {

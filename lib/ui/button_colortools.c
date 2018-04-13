@@ -5,7 +5,7 @@
 ** __DESCRIPTION__
 */
 
-#include "my_uilib.h"
+#include "uilib.h"
 
 void	set_button_color(button_t *button, sfColor fill, sfColor outl)
 {

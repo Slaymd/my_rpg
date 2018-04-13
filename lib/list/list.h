@@ -29,6 +29,8 @@ struct intlist_s {
 //Add
 int	list_add(list_t **list, void *data);
 int	intlist_add(intlist_t **list, int value);
+int	list_add_withtag(list_t **list, void *data, char *tag);
+int	list_append_withtag(list_t **list, void *data, char *tag);
 
 //Append
 int	list_append(list_t	**list, void *data);
@@ -42,6 +44,7 @@ list_t *list_copy(list_t *list);
 
 //Getters
 void *list_get_last(list_t *list);
+void *list_get_fromtag(list_t *list, char *tag);
 
 //Size
 int	list_size(list_t *list);

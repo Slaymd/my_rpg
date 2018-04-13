@@ -5,7 +5,7 @@
 ** keyboard handling
 */
 
-#include "my_uilib.h"
+#include "uilib.h"
 
 char get_char_from_keycode(sfKeyCode key)
 {

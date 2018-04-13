@@ -5,17 +5,18 @@
 ** scene events
 */
 
-#include "my_uilib.h"
+#include "uilib.h"
 
 int	scene_mouse_evts_hdl(sfRenderWindow *wd, sfEvent e, scene_t *scn)
 {
+	(void)wd;
 	switch (e.type) {
 	case sfEvtMouseButtonPressed:
-		click_on_buttons(e,scn->buttons,scn->nb_buttons);
-		click_on_textboxes(e,scn->textboxes,scn->nb_textboxes);
+		click_on_buttons(e,scn->buttons);
+		click_on_textboxes(e,scn->textboxes);
 		break;
 	case sfEvtMouseMoved:
-		hover_on_buttons(e,scn->buttons,scn->nb_buttons);
+		hover_on_buttons(e,scn->buttons);
 		break;
 	default:
 		break;
@@ -34,7 +35,7 @@ int	scene_events_handler(sfRenderWindow *wd, sfEvent e, scene_t *scn)
 		break;
 	case sfEvtKeyPressed:
 		keyc = get_char_from_keycode(e.key.code);
-		add_char_in_textboxes(scn->textboxes,scn->nb_textboxes,keyc);
+		add_char_in_textboxes(scn->textboxes,keyc);
 		break;
 	default:
 		break;

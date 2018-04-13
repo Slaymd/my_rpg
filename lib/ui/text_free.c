@@ -5,7 +5,7 @@
 ** text free
 */
 
-#include "my_uilib.h"
+#include "uilib.h"
 
 void free_text(text_t *text)
 {

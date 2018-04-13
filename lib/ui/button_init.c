@@ -5,7 +5,7 @@
 ** button initialisation
 */
 
-#include "my_uilib.h"
+#include "uilib.h"
 #include <SFML/Graphics.h>
 #include <stdlib.h>
 

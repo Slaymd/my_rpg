@@ -5,7 +5,7 @@
 ** button effets
 */
 
-#include "my_uilib.h"
+#include "uilib.h"
 
 int	set_button_hover_design(button_t *button)
 {

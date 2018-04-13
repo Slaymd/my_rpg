@@ -5,7 +5,7 @@
 ** textbox init
 */
 
-#include "my_uilib.h"
+#include "uilib.h"
 
 textbox_t	*create_textbox(sfIntRect rect, sfColor fill, sfColor outl)
 {

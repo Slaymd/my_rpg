@@ -5,16 +5,17 @@
 ** text disp
 */
 
-#include "my_uilib.h"
+#include "uilib.h"
 
 void	disp_text(sfRenderWindow *wd, text_t *text)
 {
 	sfRenderWindow_drawText(wd, text->text, NULL);
 }
 
-void	disp_texts(sfRenderWindow *wd, text_t *texts, int nb)
+void	disp_texts(sfRenderWindow *wd, list_t *texts)
 {
-	for (int i = 0; texts != NULL && i < nb; i++) {
-		disp_text(wd, &texts[i]);
-	}
+	list_t *tmp = texts;
+
+	for (; tmp != NULL; tmp = tmp->next)
+		disp_text(wd, (text_t*)tmp->data);
 }
