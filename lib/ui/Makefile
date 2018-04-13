@@ -18,7 +18,7 @@ NAME 	=	libui.a
 all:	$(NAME)
 
 $(NAME): $(OBJ)
-	ar rc libmy.a $(OBJ)
+	ar rc $(NAME) $(OBJ)
 
 clean:
 	rm -f $(OBJ)

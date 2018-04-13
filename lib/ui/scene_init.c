@@ -16,5 +16,6 @@ scene_t *create_scene(void)
 	scene->buttons = NULL;
 	scene->labels = NULL;
 	scene->textboxes = NULL;
+	scene->panels = NULL;
 	return (scene);
 }

@@ -29,7 +29,10 @@ SRC			=	./src/main.c				\
 				src/map/generation/chunk_gen.c		\
 				src/map/generation/perlin_noise.c	\
 				src/ennemy/ennemy_generation.c		\
-				./src/menu/create.c			\
+				src/ui/ui_basic_tools.c				\
+				src/ui/ui_init_mainmenu.c			\
+
+				##./src/menu/create.c			\
 				./src/menu/display.c			\
 				./src/menu/free.c			\
 				./src/menu/scenes/scene_start.c		\
@@ -37,8 +40,6 @@ SRC			=	./src/main.c				\
 				./src/menu/buttons/manage_buttons.c	\
 				./src/menu/buttons/buttons_main.c	\
 				./src/menu/buttons/buttons_scene.c		\
-				src/ui/ui_basic_tools.c				\
-				src/ui/ui_init_mainmenu.c			\
 
 CFLAGS		=	-W -Wall -Wextra -I./include -g3 -lm
 
@@ -71,16 +72,19 @@ all: $(NAME)
 $(NAME): $(OBJ) $(OBJ_MAIN)
 	$(MAKE_LIBMY)
 	$(MAKE_LIBLIST)
+	$(MAKE_LIBUI)
 	$(CC) $(OBJ) $(OBJ_MAIN) $(CFLAGS) $(LIB_EPICSFML) $(LIB) -o $(NAME)
 
 my: $(OBJ)
 	$(MAKE_LIBMY)
 	$(MAKE_LIBLIST)
+	$(MAKE_LIBUI)
 	$(CC) $(OBJ) $(CFLAGS) $(LIB_CSFML) $(LIB) -o $(NAME)
 
 $(TEST): $(OBJ) $(OBJ_TEST)
 	$(MAKE_LIBMY)
 	$(MAKE_LIBLIST)
+	$(MAKE_LIBUI)
 	$(CC) $(OBJ) $(OBJ_TEST) $(CFLAGS) $(CUNITTEST) $(LIB) -o $(TEST)
 
 clean:
@@ -89,11 +93,13 @@ clean:
 	rm -f $(OBJ_TEST)
 	$(MAKE_LIBMY) clean
 	$(MAKE_LIBLIST) clean
+	$(MAKE_LIBUI) clean
 
 fclean:	clean
 	rm -f $(NAME)
 	rm -f $(TEST)
 	$(MAKE_LIBMY) fclean
 	$(MAKE_LIBLIST) fclean
+	$(MAKE_LIBUI) fclean
 
 re:	fclean all

@@ -7,6 +7,16 @@
 
 #include "uilib.h"
 
+void free_panels(list_t *panels)
+{
+	list_t *next = NULL;
+
+	for (; panels != NULL; panels = next) {
+		next = panels->next;
+		free_panel((panel_t*)panels->data);
+	}
+}
+
 void free_labels(list_t *labels)
 {
 	list_t *next = NULL;
@@ -44,5 +54,6 @@ void	free_scene(scene_t *scene)
 	free_labels(scene->labels);
 	free_buttons(scene->buttons);
 	free_textboxes(scene->textboxes);
+	free_panels(scene->panels);
 	free(scene);
 }

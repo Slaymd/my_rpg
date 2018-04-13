@@ -7,7 +7,7 @@
 
 #include <SFML/Graphics.h>
 #include <stdlib.h>
-#include "../list/list.h"
+#include "list.h"
 
 #define DEFAULT_FONT "assets/fonts/UbuntuMono-R.ttf"
 
@@ -53,6 +53,10 @@ typedef struct tooltip_s {
 	int				state;
 }tooltip_t;
 
+typedef struct panel_s {
+	sfRectangleShape *rect;
+}panel_t;
+
 typedef struct button_s {
 	button_type_e type;
 	sfRectangleShape *rect;
@@ -79,7 +83,16 @@ typedef struct scene_s {
 	list_t *buttons;
 	list_t *textboxes;
 	list_t *labels;
+	list_t *panels;
 }scene_t;
+
+//UI ELEMENT CREATE
+panel_t *create_flat_panel(sfVector2f pos, sfVector2f size, sfColor fill);
+
+//PANEL TOOLS
+void set_panel_opacity(panel_t *panel, float opacity);
+void	disp_panels(sfRenderWindow *wd, list_t *panels);
+void free_panel(panel_t *panel);
 
 //Tooltips create
 tooltip_t	*create_tooltip(char *str, int size);

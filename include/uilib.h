@@ -7,6 +7,7 @@
 
 #include <SFML/Graphics.h>
 #include <stdlib.h>
+#include "list.h"
 
 #define DEFAULT_FONT "assets/fonts/UbuntuMono-R.ttf"
 
@@ -52,6 +53,10 @@ typedef struct tooltip_s {
 	int				state;
 }tooltip_t;
 
+typedef struct panel_s {
+	sfRectangleShape *rect;
+}panel_t;
+
 typedef struct button_s {
 	button_type_e type;
 	sfRectangleShape *rect;
@@ -75,19 +80,25 @@ typedef struct textbox_s {
 }textbox_t;
 
 typedef struct scene_s {
-	int		nb_buttons;
-	int		nb_textboxes;
-	int		nb_texts;
-	button_t	*buttons;
-	textbox_t	*textboxes;
-	text_t	*texts;
+	list_t *buttons;
+	list_t *textboxes;
+	list_t *labels;
+	list_t *panels;
 }scene_t;
+
+//UI ELEMENT CREATE
+panel_t *create_flat_panel(sfVector2f pos, sfVector2f size, sfColor fill);
+
+//PANEL TOOLS
+void set_panel_opacity(panel_t *panel, float opacity);
+void	disp_panels(sfRenderWindow *wd, list_t *panels);
+void free_panel(panel_t *panel);
 
 //Tooltips create
 tooltip_t	*create_tooltip(char *str, int size);
 
 //Tooltips disp
-void	disp_tooltips(sfRenderWindow *wd, button_t *buttons, int nb);
+void	disp_tooltips(sfRenderWindow *wd, list_t *buttons);
 
 //Button create
 button_t	*create_void_button();
@@ -95,7 +106,7 @@ button_t	*create_flat_button(sfIntRect pos, sfColor fill,
 	sfColor outl, char *str);
 //Button disp
 void	disp_button(sfRenderWindow *wd, button_t *button);
-void	disp_buttons(sfRenderWindow *wd, button_t *buttons, int nb);
+void	disp_buttons(sfRenderWindow *wd, list_t *buttons);
 
 //Button position/size tools
 void set_button_size(button_t *button, sfVector2f size);
@@ -104,8 +115,8 @@ sfVector2f get_button_position(button_t *button);
 sfVector2f get_button_size(button_t *button);
 
 //Buttons events
-int	click_on_buttons(sfEvent event, button_t *buttons, int);
-int	hover_on_buttons(sfEvent event, button_t *buttons, int);
+int	click_on_buttons(sfEvent event, list_t *buttons);
+int	hover_on_buttons(sfEvent event, list_t *buttons);
 //get fill/outline color
 sfColor get_button_fill_color(button_t *button);
 sfColor get_button_outline_color(button_t *button);
@@ -134,7 +145,7 @@ void	set_text_size(text_t *text, int size);
 void set_text_position(text_t *text, sfVector2f pos);
 //Disp
 void	disp_text(sfRenderWindow *wd, text_t *text);
-void	disp_texts(sfRenderWindow *wd, text_t *texts, int nb);
+void	disp_texts(sfRenderWindow *wd, list_t *texts);
 //Destroy
 void free_text(text_t *text);
 //Create
@@ -154,13 +165,13 @@ int	set_textbox_hover_design(textbox_t *textbox);
 int	rem_textbox_hover_design(textbox_t *textbox);
 //Events
 int	check_pos_in_textbox(textbox_t *textbox, sfVector2f pos);
-int	click_on_textboxes(sfEvent event, textbox_t *textboxes, int);
-int	add_char_in_textboxes(textbox_t *textboxes, int nb, char c);
+int	click_on_textboxes(sfEvent event, list_t *textboxes);
+int	add_char_in_textboxes(list_t *textboxes, char c);
 //Destroy
 void	free_textbox(textbox_t *textbox);
 //Disps
 void	disp_textbox(sfRenderWindow *wd, textbox_t *textbox);
-void	disp_textboxes(sfRenderWindow *wd, textbox_t *textboxes, int);
+void	disp_textboxes(sfRenderWindow *wd, list_t *textboxes);
 
 //****[EVENTS]****
 //Keycode to char
@@ -168,7 +179,7 @@ char get_char_from_keycode(sfKeyCode key);
 
 //****[SCENES]****
 //Create
-scene_t *create_scene(int nb_buttons, int nb_textboxes, int);
+scene_t *create_scene(void);
 //Events
 int	scene_events_handler(sfRenderWindow *wd, sfEvent, scene_t *);
 //Destroy
