@@ -25,7 +25,7 @@
 	#include "assets.h"
 	#include "menu.h"
 
-	#define WIDTH 800
+	#define WIDTH 900
 	#define HEIGHT 600
 
 	#define SIZE_S_X 900
@@ -53,13 +53,16 @@
 
 	struct rpg_s {
 		int state;
+		sfRenderWindow *wd;
+		window_t *oldwin;
 		map_t	*map;
-		window_t *window;
 		menu_t *menu;
 		character_t *character;
 		entity_t *ennemy[20];
 	};
 
+	//WINDOW TOOLS
+	sfRenderWindow	*create_window(void);
 
 	//CREATE
 	rpg_t *init_rpg(void);

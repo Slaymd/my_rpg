@@ -17,6 +17,11 @@ void display_minimap(sfSprite *sprite, window_t *window)
 
 int	main(void)
 {
+	rpg_t *rpg = init_rpg();
+}
+
+/*int	main(void)
+{
 	map_t *map = init_map(NULL, 432542543);
 	rpg_t *rpg = init_rpg();
 	sfClock *sfclock = sfClock_create();
@@ -46,4 +51,4 @@ int	main(void)
 	sfRenderWindow_destroy(rpg->window->window);
 	free_menu(rpg->menu);
 	return (0);
-}
+}*/

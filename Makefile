@@ -36,11 +36,13 @@ SRC			=	./src/main.c				\
 				./src/menu/scenes/scene_options.c	\
 				./src/menu/buttons/manage_buttons.c	\
 				./src/menu/buttons/buttons_main.c	\
-				./src/menu/buttons/buttons_scene.c
+				./src/menu/buttons/buttons_scene.c		\
+				src/ui/ui_basic_tools.c				\
+				src/ui/ui_init_mainmenu.c			\
 
 CFLAGS		=	-W -Wall -Wextra -I./include -g3 -lm
 
-LIB			=	-L./lib/my -lmy -L./lib/list -llist
+LIB			=	-L./lib/my -lmy -L./lib/list -llist -L./lib/ui -lui
 
 LIB_TEST		=	-lcriterion
 

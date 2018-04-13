@@ -9,11 +9,13 @@
 #define __LIST_LIB_H__
 
 #include <stdlib.h>
+#include <stdio.h>
 
 typedef struct list_s list_t;
 typedef struct intlist_s intlist_t;
 
 struct list_s {
+	char *tag;
 	void *data;
 	list_t *next;
 	void *last;
