@@ -36,7 +36,7 @@ typedef enum entity_type_e entity_type;
 typedef enum object_type_e object_type;
 typedef enum tile_type_e tile_type;
 
-enum entity_type_e { NO_AI, OSTRICH, UNKNOWN };
+enum entity_type_e { NO_AI, OSTRICH, STONE_OGRE, UNKNOWN };
 
 enum object_type_e { ENVIRONNEMENT, BUILDING, DECORATION };
 
@@ -83,22 +83,34 @@ struct entity_infos_s {
 	sfIntRect rect;
 	int	life;
 	int	damages;
-	int	level;
-	int	range;
+	float 	lvl;
+	float	movement;
 	char *tex_path;
+	int num;
+	pos_t pos;
+	int mirror;
+	int max;
 };
 
 struct entity_s {
 	entity_type type;
+	int num;
 	int lvl;
-	int ennemy_range;
+	int movement;
+	int mirror;
+	int max;
 	sfRectangleShape *rect;
 	sfIntRect square;
-	void(*callback)();
+	//void(*callback)();
 	sfSprite *sprite;
 	sfTexture *texture;
 	pos_t pos;
 };
+
+typedef struct ptr_s {
+	char balise;
+	void(*callback)();
+} ptr_t;
 
 
 //INITS

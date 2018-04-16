@@ -75,17 +75,28 @@
 	void display_map(window_t *window, character_t *character);
 	void display_character(window_t *window, character_t *);
 	void display_minimap(sfSprite *sprite, window_t *window);
+	int disp_rect_at(sfRenderWindow *wd, map_t *mp,
+	sfRectangleShape *rect, pos_t p);
 
 	//MOVE
 	void move_map(window_t *window, character_t *character);
 	void move_character(character_t *character, window_t *window);
 
+	//game_loop
+	void menu(rpg_t *rpg);
+	void game(rpg_t *rpg, map_t *map);
+
 	//DESTROY
 	void free_rpg(rpg_t *rpg);
 
 	//ENNEMY
+	void ennemy_handling(rpg_t *rpg, map_t *map);
 	entity_t *add_ennemy_class_1(const char *path_sprite, sfIntRect square);
 	void init_sprite(rpg_t *rpg);
-	void display_ennemy(window_t *window, entity_t *, map_t *);
+	void display_ennemy(window_t *window, entity_t *ent, map_t *map, int);
+	int rand_time(int min, int max);
+	void deplacement_ogre(rpg_t *rpg, map_t *map, entity_t *ent);
+	void deplacement_ostrich(rpg_t *rpg, map_t *map, entity_t *ent);
+	void mirror_sprite(entity_t *ent, int mirror);
 
 #endif /* RPG_H_ */

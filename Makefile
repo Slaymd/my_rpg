@@ -28,7 +28,7 @@ SRC			=	./src/main.c				\
 				src/map/generation/tile_gen.c		\
 				src/map/generation/chunk_gen.c		\
 				src/map/generation/perlin_noise.c	\
-				src/ennemy/ennemy_generation.c		\
+				src/entity/ennemy_generation.c		\
 				./src/menu/create.c			\
 				./src/menu/display.c			\
 				./src/menu/free.c			\
@@ -36,7 +36,13 @@ SRC			=	./src/main.c				\
 				./src/menu/scenes/scene_options.c	\
 				./src/menu/buttons/manage_buttons.c	\
 				./src/menu/buttons/buttons_main.c	\
-				./src/menu/buttons/buttons_scene.c
+				./src/menu/buttons/buttons_scene.c	\
+				src/entity/disp_ennemy.c		\
+				src/entity/ennemy_handling.c		\
+				src/rand/rand.c				\
+				src/entity/deplacement_stone_ogre.c	\
+				src/entity/deplacement_ostrich.c	\
+				src/game_loop.c
 
 CFLAGS		=	-W -Wall -Wextra -I./include -g3 -lm
 

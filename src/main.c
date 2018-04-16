@@ -15,6 +15,12 @@ void display_minimap(sfSprite *sprite, window_t *window)
 	sfRenderWindow_drawSprite(window->window, sprite, NULL);
 }
 
+void my_free(rpg_t *rpg)
+{
+	sfRenderWindow_destroy(rpg->window->window);
+	free_menu(rpg->menu);
+}
+
 int	main(void)
 {
 	map_t *map = init_map(NULL, 432542543);
@@ -27,23 +33,10 @@ int	main(void)
 		sftime = sfClock_getElapsedTime(sfclock);
 		if (sftime.microseconds / 1000000.0 > 0.05) {
 			event_gestion(rpg->window, map);
-			if (rpg->state == 0) {
-				sfRenderWindow_clear(rpg->window->window, sfBlack);
-				manage_buttons(rpg);
-				display_menu(rpg->menu->scene[rpg->menu->state], rpg->window);
-			} else if (rpg->state == 1) {
-				sfRenderWindow_clear(rpg->window->window, sfBlack);
-				sfRenderWindow_setView(rpg->window->window, rpg->window->v_screen);
-				disp_map(rpg->window->window, map, map->topleft_to_disp);
-				sfRenderWindow_setView(rpg->window->window, rpg->window->v_map);
-				disp_map(rpg->window->window, map, map->topleft_to_disp);
-				display_character(rpg->window, rpg->character);
-				display_ennemy(rpg->window, (entity_t *)rpg->entities->data, map);
-			}
+			rpg->state == 0 ? menu(rpg) : game(rpg, map);
 			sfRenderWindow_display(rpg->window->window);
 		}
 	}
-	sfRenderWindow_destroy(rpg->window->window);
-	free_menu(rpg->menu);
+	my_free(rpg);
 	return (0);
 }

@@ -12,16 +12,3 @@ void display_character(window_t *window, character_t *character)
 	move_character(character, window);
 	display_minimap(character->sprite, window);
 }
-
-void display_ennemy(window_t *window, entity_t *ent, map_t *map)
-{
-	if (window->seconds >= 0.10) {
-		ent->square.left += 100;
-		sfSprite_setTextureRect(ent->sprite, ent->square);
-		ent->square.left = ent->square.left > 260 ? 0 :
-		ent->square.left + 10;
-	}
-	disp_sprite_at(window->window, map, ent->sprite, ent->pos);
-	sfRenderWindow_setView(window->window, window->v_screen);
-	disp_sprite_at(window->window, map, ent->sprite, ent->pos);
-}

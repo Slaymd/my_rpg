@@ -50,6 +50,23 @@ int	disp_map(sfRenderWindow *wd, map_t *map, pos_t ref)
 	return (0);
 }
 
+
+int	disp_rect_at(sfRenderWindow *wd, map_t *mp, sfRectangleShape *rect,
+	pos_t p)
+{
+	pos_t relat_ref_pos = {p.x-mp->topleft_to_disp.x,
+		p.y-mp->topleft_to_disp.y, 0};
+	sfVector2f px = {relat_ref_pos.x*TILE_SIZE,
+		relat_ref_pos.y*TILE_SIZE};
+	if (px.x <= -TILE_SIZE || px.x >= WIDTH)
+		return (-1);
+	if (px.y <= -TILE_SIZE || px.y >= HEIGHT)
+		return (-1);
+	sfRectangleShape_setPosition(rect, (sfVector2f){px.x - 60, px.y - 60});
+	sfRenderWindow_drawRectangleShape(wd, rect, NULL);
+	return (0);
+}
+
 int	disp_sprite_at(sfRenderWindow *wd, map_t *mp, sfSprite *sp, pos_t p)
 {
 	pos_t relat_ref_pos = {p.x-mp->topleft_to_disp.x,
