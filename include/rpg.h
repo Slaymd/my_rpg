@@ -55,6 +55,7 @@
 	struct rpg_s {
 		int state;
 		sfRenderWindow *wd;
+		sfEvent event;
 		scene_t *scene;
 		window_t *oldwin;
 		map_t	*map;
@@ -67,8 +68,11 @@
 	sfRenderWindow	*create_window(void);
 
 	//UI
-	scene_t *init_mainmenu(void);
+	scene_t *init_mainmenu(rpg_t *rpg);
 	void disp_mainmenu(rpg_t *rpg);
+
+	//UI EVENTS
+	void click_play_button(void *data);
 
 	//CREATE
 	rpg_t *init_rpg(void);

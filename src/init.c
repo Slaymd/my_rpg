@@ -77,7 +77,7 @@ rpg_t *init_rpg(void)
 	rpg->wd = create_window();
 	rpg->character = init_character();
 	rpg->map = init_map(NULL, SEED);
-	rpg->scene = init_mainmenu();
+	rpg->scene = init_mainmenu(rpg);
 	return (rpg);
 }
 

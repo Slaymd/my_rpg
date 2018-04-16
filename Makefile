@@ -28,9 +28,11 @@ SRC			=	./src/main.c				\
 				src/map/generation/tile_gen.c		\
 				src/map/generation/chunk_gen.c		\
 				src/map/generation/perlin_noise.c	\
+				src/map/collision/tiles_collision.c	\
 				src/ennemy/ennemy_generation.c		\
 				src/ui/ui_basic_tools.c				\
 				src/ui/ui_init_mainmenu.c			\
+				src/ui/ui_events_mainmenu.c			\
 
 				##./src/menu/create.c			\
 				./src/menu/display.c			\

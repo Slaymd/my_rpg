@@ -15,17 +15,29 @@ void display_minimap(sfSprite *sprite, window_t *window)
 	sfRenderWindow_drawSprite(window->window, sprite, NULL);
 }
 
+int	disp_game(rpg_t *rpg)
+{
+	map_move(rpg->event, rpg->map);
+	disp_map(rpg->wd, rpg->map, rpg->map->topleft_to_disp);
+	my_printf("CAN MOVE HERE: %d\n", can_move_here(rpg->map, rpg->map->topleft_to_disp));
+	return (0);
+}
+
 int	game_loop(rpg_t *rpg)
 {
 	sfEvent event;
 
 	sfRenderWindow_clear(rpg->wd, sfBlack);
 	while(sfRenderWindow_pollEvent(rpg->wd, &event)) {
+		rpg->event = event;
 		if (event.type == sfEvtClosed)
 			sfRenderWindow_close(rpg->wd);
 		scene_events_handler(rpg->wd, event, rpg->scene);
 	}
-	disp_mainmenu(rpg);
+	if (rpg->state == 0)
+		disp_mainmenu(rpg);
+	else if (rpg->state == 1)
+		disp_game(rpg);
 	sfRenderWindow_display(rpg->wd);
 	return (0);
 }
