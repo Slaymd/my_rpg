@@ -18,6 +18,9 @@
 		sfSprite *sprite;
 		sfTexture *texture;
 		sfIntRect rect;
+		sfClock *clock;
+		sfTime time;
+		float seconds;
 		sfVector2f pos_screen;
 		pos_t pos;
 		int speed;

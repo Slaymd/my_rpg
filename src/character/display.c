@@ -7,10 +7,10 @@
 
 #include "rpg.h"
 
-void display_character(window_t *window, character_t *character)
+void display_character(rpg_t *rpg)
 {
-	move_character(character, window);
-	display_minimap(character->sprite, window);
+	move_character(rpg->character, rpg);
+	display_minimap(rpg->character->sprite, rpg);
 }
 
 void display_ennemy(window_t *window, entity_t *ent, map_t *map)

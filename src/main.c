@@ -7,12 +7,12 @@
 
 #include "../include/rpg.h"
 
-void display_minimap(sfSprite *sprite, window_t *window)
+void display_minimap(sfSprite *sprite, rpg_t *rpg)
 {
-	sfRenderWindow_setView(window->window, window->v_screen);
-	sfRenderWindow_drawSprite(window->window, sprite, NULL);
-	sfRenderWindow_setView(window->window, window->v_map);
-	sfRenderWindow_drawSprite(window->window, sprite, NULL);
+	sfRenderWindow_setView(rpg->wd, rpg->v_screen);
+	sfRenderWindow_drawSprite(rpg->wd, sprite, NULL);
+	sfRenderWindow_setView(rpg->wd, rpg->v_map);
+	sfRenderWindow_drawSprite(rpg->wd, sprite, NULL);
 }
 
 int	disp_game(rpg_t *rpg)
@@ -34,10 +34,17 @@ int	game_loop(rpg_t *rpg)
 			sfRenderWindow_close(rpg->wd);
 		scene_events_handler(rpg->wd, event, rpg->scene);
 	}
+	rpg->character->time = sfClock_getElapsedTime(rpg->character->clock);
+	rpg->character->seconds = rpg->character->time.microseconds / 1000000.0;
 	if (rpg->state == 0)
 		disp_mainmenu(rpg);
-	else if (rpg->state == 1)
+	else if (rpg->state == 1) {
+		sfRenderWindow_setView(rpg->wd, rpg->v_screen);
 		disp_game(rpg);
+		sfRenderWindow_setView(rpg->wd, rpg->v_map);
+		disp_game(rpg);
+		display_character(rpg);
+	}
 	sfRenderWindow_display(rpg->wd);
 	return (0);
 }
@@ -50,9 +57,9 @@ int	main(void)
 
 	while (sfRenderWindow_isOpen(rpg->wd)) {
 		sftime = sfClock_getElapsedTime(sfclock);
-		if (sftime.microseconds / 1000000.0 > 0.05) {
+		// if (sftime.microseconds / 1000000.0 > 0.05) {
 			game_loop(rpg);
-		}
+		// }
 	}
 	sfRenderWindow_destroy(rpg->wd);
 	return (0);

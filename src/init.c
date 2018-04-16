@@ -17,13 +17,16 @@ void set_character(character_t *character)
 character_t *init_character(void)
 {
 	character_t *character = malloc(sizeof(character_t));
-	int x = SIZE_S_X / 2 - SIZE_C_X / 2;
-	int y = SIZE_S_Y / 2 - SIZE_C_Y / 2;
+	int x = WIDTH / 2 - SIZE_C_X / 2;
+	int y = HEIGHT / 2 - SIZE_C_Y / 2;
 
 	if (!character)
 		return (NULL);
 	character->texture = sfTexture_createFromFile("./img/sacha.png", NULL);
 	character->sprite = sfSprite_create();
+	character->clock = sfClock_create();
+	character->time = sfClock_getElapsedTime(character->clock);
+	character->seconds = 0;
 	character->rect = (sfIntRect){0,0, SIZE_C_X, SIZE_C_Y};
 	character->speed = 4;
 	character->pos_screen = (sfVector2f){x, y};
@@ -37,8 +40,8 @@ void set_window(window_t *window)
 	window->window = sfRenderWindow_create(window->mode,"RPG",\
 	sfClose | sfResize, NULL);
 	sfView_setSize(window->v_screen,
-	(sfVector2f){SIZE_S_X * 0.6, SIZE_S_Y * 0.6});
-	sfView_setSize(window->v_map, (sfVector2f){SIZE_S_X, SIZE_S_Y});
+	(sfVector2f){WIDTH * 0.6, HEIGHT * 0.6});
+	sfView_setSize(window->v_map, (sfVector2f){WIDTH, HEIGHT});
 	sfView_setViewport(window->v_map, (sfFloatRect){0.7, 0.05, 0.25, 0.25});
 	sfRenderWindow_setFramerateLimit(window->window, 60);
 	sfSprite_setTexture(window->sprite, window->texture, sfTrue);
@@ -52,14 +55,14 @@ window_t *init_window(void)
 
 	if (!window)
 		return (NULL);
-	window->mode = (sfVideoMode){SIZE_S_X, SIZE_S_Y, 32};
+	window->mode = (sfVideoMode){WIDTH, HEIGHT, 32};
 	window->texture = sfTexture_createFromFile("./img/bg.jpg", NULL);
 	window->v_screen = sfView_createFromRect((sfFloatRect)
-	{0, 0, SIZE_S_X, SIZE_S_Y});
+	{0, 0, WIDTH, HEIGHT});
 	window->v_map = sfView_createFromRect((sfFloatRect)
-	{0, 0, SIZE_S_X, SIZE_S_Y});
+	{0, 0, WIDTH, HEIGHT});
 	window->sprite = sfSprite_create();
-	window->rect = (sfIntRect){0, 0, SIZE_S_X, SIZE_S_Y};
+	window->rect = (sfIntRect){0, 0, WIDTH, HEIGHT};
 	window->clock = sfClock_create();
 	window->time = sfClock_getElapsedTime(window->clock);
 	window->seconds = 0;
@@ -78,6 +81,13 @@ rpg_t *init_rpg(void)
 	rpg->character = init_character();
 	rpg->map = init_map(NULL, SEED);
 	rpg->scene = init_mainmenu(rpg);
+	rpg->v_screen = sfView_createFromRect((sfFloatRect)
+	{0, 0, WIDTH, HEIGHT});
+	rpg->v_map = sfView_createFromRect((sfFloatRect)
+	{0, 0, WIDTH, HEIGHT});
+	sfView_setSize(rpg->v_screen, (sfVector2f){WIDTH * 0.8, HEIGHT * 0.8});
+	sfView_setSize(rpg->v_map, (sfVector2f){WIDTH, HEIGHT});
+	sfView_setViewport(rpg->v_map, (sfFloatRect){0.7, 0.05, 0.25, 0.25});
 	return (rpg);
 }
 

@@ -56,10 +56,11 @@
 		int state;
 		sfRenderWindow *wd;
 		sfEvent event;
+		sfView *v_screen;
+		sfView *v_map;
 		scene_t *scene;
 		window_t *oldwin;
 		map_t	*map;
-		//menu_t *menu;
 		character_t *character;
 		entity_t *ennemy[20];
 	};
@@ -86,12 +87,12 @@
 
 	//DISPLAY
 	void display_map(window_t *window, character_t *character);
-	void display_character(window_t *window, character_t *);
-	void display_minimap(sfSprite *sprite, window_t *window);
+	void display_character(rpg_t *rpg);
+	void display_minimap(sfSprite *sprite, rpg_t *rpg);
 
 	//MOVE
 	void move_map(window_t *window, character_t *character);
-	void move_character(character_t *character, window_t *window);
+	void move_character(character_t *character, rpg_t *rpg);
 
 	//DESTROY
 	void free_rpg(rpg_t *rpg);
