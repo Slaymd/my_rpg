@@ -60,7 +60,6 @@
 		entity_t *ennemy[20];
 	};
 
-
 	//CREATE
 	rpg_t *init_rpg(void);
 	character_t *init_character(void);
