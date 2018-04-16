@@ -7,6 +7,8 @@
 
 #include "list.h"
 
+int	my_streqstr(char *str1, char *str2);
+
 void *list_get_last(list_t *list)
 {
 	list_t *_tmp = list;
@@ -20,6 +22,17 @@ void *list_get_last(list_t *list)
 			list->last = _tmp;
 			return (_tmp);
 		}
+	}
+	return (NULL);
+}
+
+void *list_get_fromtag(list_t *list, char *tag)
+{
+	list_t *_tmp = list;
+
+	for (; _tmp != NULL; _tmp = _tmp->next) {
+		if (_tmp->tag != NULL && my_streqstr(tag, _tmp->tag))
+			return (_tmp->data);
 	}
 	return (NULL);
 }

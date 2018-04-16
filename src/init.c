@@ -5,7 +5,7 @@
 ** init
 */
 
-#include "rpg.h"
+#include "../include/rpg.h"
 
 void set_character(character_t *character)
 {
@@ -69,13 +69,19 @@ window_t *init_window(void)
 
 rpg_t *init_rpg(void)
 {
-	rpg_t *rpg = malloc(sizeof(rpg_t));
+	rpg_t *rpg = (rpg_t*)malloc(sizeof(rpg_t));
 
 	if (!rpg)
 		return (NULL);
 	rpg->state = 0;
-	rpg->window = init_window();
+	rpg->wd = create_window();
 	rpg->character = init_character();
-	rpg->menu = create_menu();
+	rpg->map = init_map(NULL, SEED);
+	rpg->scene = init_mainmenu(rpg);
 	return (rpg);
+}
+
+void free_rpg(rpg_t *rpg)
+{
+
 }

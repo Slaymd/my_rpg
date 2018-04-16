@@ -23,9 +23,10 @@
 	#include "list.h"
 	#include "my.h"
 	#include "assets.h"
-	#include "menu.h"
+	//#include "menu.h"
+	#include "uilib.h"
 
-	#define WIDTH 800
+	#define WIDTH 900
 	#define HEIGHT 600
 
 	#define SIZE_S_X 900
@@ -53,12 +54,25 @@
 
 	struct rpg_s {
 		int state;
+		sfRenderWindow *wd;
+		sfEvent event;
+		scene_t *scene;
+		window_t *oldwin;
 		map_t	*map;
-		window_t *window;
-		menu_t *menu;
+		//menu_t *menu;
 		character_t *character;
 		entity_t *ennemy[20];
 	};
+
+	//WINDOW TOOLS
+	sfRenderWindow	*create_window(void);
+
+	//UI
+	scene_t *init_mainmenu(rpg_t *rpg);
+	void disp_mainmenu(rpg_t *rpg);
+
+	//UI EVENTS
+	void click_play_button(void *data);
 
 	//CREATE
 	rpg_t *init_rpg(void);

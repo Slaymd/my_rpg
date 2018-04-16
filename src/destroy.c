@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-void free_rpg(rpg_t *rpg)
+/*void free_rpg(rpg_t *rpg)
 {
 	sfRenderWindow_destroy(rpg->window->window);
 	sfTexture_destroy(rpg->window->texture);
@@ -18,4 +18,4 @@ void free_rpg(rpg_t *rpg)
 	sfSprite_destroy(rpg->character->sprite);
 	free(rpg->character);
 	free(rpg);
-}
+}*/
