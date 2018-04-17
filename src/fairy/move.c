@@ -25,8 +25,8 @@ void kinetic_fairy_move(fairy_t *fairy)
 		fairy->kinetic.x += 1;
 	fairy->pos.x += fairy->kinetic.x;
 	fairy->pos.y += fairy->kinetic.y;
-	fairy->kinetic.x *= 0.93;
-	fairy->kinetic.y *= 0.93;
+	fairy->kinetic.x *= 0.9;
+	fairy->kinetic.y *= 0.9;
 }
 
 void move_fairy(fairy_t *fairy, rpg_t *rpg)
