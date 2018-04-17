@@ -35,6 +35,27 @@ character_t *init_character(void)
 	return (character);
 }
 
+fairy_t *init_fairy(void)
+{
+	fairy_t *fairy = malloc(sizeof(fairy_t));
+	int x = WIDTH / 2 + 20;
+	int y = HEIGHT / 2 + 20;
+
+	fairy->texture = sfTexture_createFromFile("./img/fairy.png", NULL);
+	fairy->sprite = sfSprite_create();
+	fairy->clock = sfClock_create();
+	fairy->time = sfClock_getElapsedTime(fairy->clock);
+	fairy->seconds = 0;
+	fairy->pos = (sfVector2f){x, y};
+	fairy->pos = (sfVector2f){0, 0};
+	fairy->rect = (sfIntRect){0,0, SIZE_F_X, SIZE_F_Y};
+	sfSprite_setTexture(fairy->sprite, fairy->texture, sfTrue);
+	sfSprite_setPosition(fairy->sprite, fairy->pos);
+	sfSprite_setTextureRect(fairy->sprite, fairy->rect);
+	sfSprite_setOrigin(fairy->sprite, (V2F){SIZE_F_X / 2, SIZE_F_Y / 2});
+	return (fairy);
+}
+
 void set_window(window_t *window)
 {
 	window->window = sfRenderWindow_create(window->mode,"RPG",\
@@ -79,6 +100,7 @@ rpg_t *init_rpg(void)
 	rpg->state = 0;
 	rpg->wd = create_window();
 	rpg->character = init_character();
+	rpg->fairy = init_fairy();
 	rpg->map = init_map(NULL, SEED);
 	rpg->scene = init_mainmenu(rpg);
 	rpg->v_screen = sfView_createFromRect((sfFloatRect)

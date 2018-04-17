@@ -20,10 +20,10 @@
 
 	#include "map.h"
 	#include "character.h"
+	#include "fairy.h"
 	#include "list.h"
 	#include "my.h"
 	#include "assets.h"
-	//#include "menu.h"
 	#include "uilib.h"
 
 	#define WIDTH 900
@@ -36,6 +36,8 @@
 
 	typedef struct rpg_s rpg_t;
 	typedef struct map_s map_t;
+
+	#define V2F sfVector2f
 
 	struct window_s {
 		sfRenderWindow *window;
@@ -62,6 +64,7 @@
 		window_t *oldwin;
 		map_t	*map;
 		character_t *character;
+		fairy_t *fairy;
 		entity_t *ennemy[20];
 	};
 
@@ -101,5 +104,9 @@
 	entity_t *add_ennemy_class_1(const char *path_sprite, sfIntRect square);
 	void init_sprite(rpg_t *rpg);
 	void display_ennemy(window_t *window, entity_t *, map_t *);
+
+	//FAIRY
+	void display_fairy(rpg_t *rpg);
+	void move_fairy(fairy_t *fairy, rpg_t *rpg);
 
 #endif /* RPG_H_ */

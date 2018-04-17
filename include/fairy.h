@@ -5,24 +5,25 @@
 ** structs for graphical
 */
 
-#ifndef _CHARACTER_H_
-	#define _CHARACTER_H_
+#ifndef _FAIRY_H_
+	#define _FAIRY_H_
 
-	#define SIZE_C_X 68
-	#define SIZE_C_Y 72
+	#define SIZE_F_X 34
+	#define SIZE_F_Y 49
+	#define MOVE_F_X 100
+	#define MOVE_F_Y 100
 
-	typedef struct character_s character_t;
+	typedef struct fairy_s fairy_t;
 
-	struct character_s {
+	struct fairy_s {
 		sfSprite *sprite;
 		sfTexture *texture;
 		sfIntRect rect;
 		sfClock *clock;
 		sfTime time;
 		float seconds;
-		int speed;
-		sfVector2f pos_screen;
-		pos_t pos;
+		sfVector2f pos;
+		sfVector2f kinetic;
 	};
 
 #endif

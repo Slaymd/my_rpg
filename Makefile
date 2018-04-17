@@ -17,6 +17,8 @@ SRC			=	./src/main.c				\
 				./src/destroy.c				\
 				./src/character/move.c			\
 				./src/character/display.c		\
+				./src/fairy/move.c			\
+				./src/fairy/display.c			\
 				src/map/init_map.c			\
 				src/map/disp_map.c			\
 				src/map/pos_tools.c			\
@@ -30,9 +32,9 @@ SRC			=	./src/main.c				\
 				src/map/generation/perlin_noise.c	\
 				src/map/collision/tiles_collision.c	\
 				src/ennemy/ennemy_generation.c		\
-				src/ui/ui_basic_tools.c				\
-				src/ui/ui_init_mainmenu.c			\
-				src/ui/ui_events_mainmenu.c			\
+				src/ui/ui_basic_tools.c			\
+				src/ui/ui_init_mainmenu.c		\
+				src/ui/ui_events_mainmenu.c		\
 
 				##./src/menu/create.c			\
 				./src/menu/display.c			\
@@ -41,7 +43,7 @@ SRC			=	./src/main.c				\
 				./src/menu/scenes/scene_options.c	\
 				./src/menu/buttons/manage_buttons.c	\
 				./src/menu/buttons/buttons_main.c	\
-				./src/menu/buttons/buttons_scene.c		\
+				./src/menu/buttons/buttons_scene.c	\
 
 CFLAGS		=	-W -Wall -Wextra -I./include -g3 -lm
 
