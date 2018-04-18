@@ -30,10 +30,14 @@ int detect_ennemy(entity_t *ent, map_t *map)
 void ennemy_handling(rpg_t *rpg, map_t *map)
 {
 	list_t *tmp = rpg->entities;
+	static int  x = 0;
 
 	for (; tmp != NULL; tmp = tmp->next) {
-		((entity_t *)tmp->data)->time = sfClock_getElapsedTime(((entity_t *)tmp->data)->clock);
-		((entity_t *)tmp->data)->seconds = ((entity_t *)tmp->data)->time.microseconds / 1000000.0;
+		((entity_t *)tmp->data)->time =
+		sfClock_getElapsedTime(((entity_t *)tmp->data)->clock);
+		((entity_t *)tmp->data)->seconds =
+		((entity_t *)tmp->data)->time.microseconds / 1000000.0;
+
 		for (int i = 0; i < 3; i++) {
 			if (((entity_t *)tmp->data)->num == func[i].balise)
 				func[i].callback(rpg, map, (entity_t *)
