@@ -7,15 +7,24 @@
 
 #include "rpg.h"
 
-/*void free_rpg(rpg_t *rpg)
+void free_fairy(fairy_t *fairy)
 {
-	sfRenderWindow_destroy(rpg->window->window);
-	sfTexture_destroy(rpg->window->texture);
-	sfSprite_destroy(rpg->window->sprite);
-	sfClock_destroy(rpg->window->clock);
-	free(rpg->window);
-	sfTexture_destroy(rpg->character->texture);
-	sfSprite_destroy(rpg->character->sprite);
-	free(rpg->character);
-	free(rpg);
-}*/
+	sfSprite_destroy(fairy->sprite);
+	sfTexture_destroy(fairy->texture);
+	sfClock_destroy(fairy->clock);
+	sfMusic_destroy(fairy->shhh);
+}
+
+void free_character(character_t *character)
+{
+	sfSprite_destroy(character->sprite);
+	sfTexture_destroy(character->texture);
+	sfClock_destroy(character->clock);
+}
+
+void free_rpg(rpg_t *rpg)
+{
+	sfRenderWindow_destroy(rpg->wd);
+	free_fairy(rpg->fairy);
+	free_character(rpg->character);
+}
