@@ -36,8 +36,10 @@
 
 	typedef struct rpg_s rpg_t;
 	typedef struct map_s map_t;
+	typedef struct view_s view_t;
 
 	#define V2F sfVector2f
+	#define FR sfFloatRect
 
 	struct window_s {
 		sfRenderWindow *window;
@@ -54,12 +56,17 @@
 		float seconds;
 	};
 
+	struct view_s {
+		sfView *v_screen;
+		sfView *v_map;
+		sfView *v_normal;
+	};
+
 	struct rpg_s {
 		int state;
 		sfRenderWindow *wd;
 		sfEvent event;
-		sfView *v_screen;
-		sfView *v_map;
+		view_t *view;
 		scene_t *scene;
 		window_t *oldwin;
 		map_t	*map;

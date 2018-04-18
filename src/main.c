@@ -9,9 +9,9 @@
 
 void display_minimap(sfSprite *sprite, rpg_t *rpg)
 {
-	sfRenderWindow_setView(rpg->wd, rpg->v_screen);
+	sfRenderWindow_setView(rpg->wd, rpg->view->v_screen);
 	sfRenderWindow_drawSprite(rpg->wd, sprite, NULL);
-	sfRenderWindow_setView(rpg->wd, rpg->v_map);
+	sfRenderWindow_setView(rpg->wd, rpg->view->v_map);
 	sfRenderWindow_drawSprite(rpg->wd, sprite, NULL);
 }
 
@@ -37,9 +37,9 @@ int	game_loop(rpg_t *rpg)
 	if (rpg->state == 0)
 		disp_mainmenu(rpg);
 	else if (rpg->state == 1) {
-		sfRenderWindow_setView(rpg->wd, rpg->v_screen);
+		sfRenderWindow_setView(rpg->wd, rpg->view->v_screen);
 		disp_game(rpg);
-		sfRenderWindow_setView(rpg->wd, rpg->v_map);
+		sfRenderWindow_setView(rpg->wd, rpg->view->v_map);
 		disp_game(rpg);
 		display_character(rpg);
 		display_fairy(rpg);
