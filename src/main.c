@@ -62,6 +62,6 @@ int	main(void)
 	while (sfRenderWindow_isOpen(rpg->wd)) {
 		game_loop(rpg);
 	}
-	sfRenderWindow_destroy(rpg->wd);
+	free_rpg(rpg);
 	return (0);
 }

@@ -18,13 +18,12 @@ void apply_physic_move(fairy_t *fairy, V2F ep)
 	if (ep.x == 0) {
 		fairy->pos.x += fairy->ep.x;
 		fairy->ep.x *= 0.7;
-	} else
-		fairy->ec.x = 0;
-	if (ep.y == 0) {
+	} if (ep.y == 0) {
 		fairy->pos.y += fairy->ep.y;
 		fairy->ep.y *= 0.7;
-	} else
-		fairy->ec.y = 0;
+	}
+	(ep.x != 0) ? fairy->ec.x = 0 : 0;
+	(ep.y != 0) ? fairy->ec.y = 0 : 0;
 	fairy->pos.x += fairy->ec.x;
 	fairy->pos.y += fairy->ec.y;
 }

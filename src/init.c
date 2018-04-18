@@ -50,6 +50,7 @@ fairy_t *init_fairy(void)
 	fairy->ep = (sfVector2f){0, 0};
 	fairy->pos = (sfVector2f){x, y};
 	fairy->rect = (sfIntRect){0,0, SIZE_F_X, SIZE_F_Y};
+	fairy->shhh = sfMusic_createFromFile("song/boom.ogg");
 	sfSprite_setTexture(fairy->sprite, fairy->texture, sfTrue);
 	sfSprite_setPosition(fairy->sprite, fairy->pos);
 	sfSprite_setTextureRect(fairy->sprite, fairy->rect);

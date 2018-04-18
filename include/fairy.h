@@ -25,6 +25,7 @@
 		sfVector2f pos;
 		sfVector2f ec;
 		sfVector2f ep;
+		sfMusic *shhh;
 	};
 
 #endif
