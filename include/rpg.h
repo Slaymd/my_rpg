@@ -38,6 +38,7 @@
 	typedef struct map_s map_t;
 
 	#define V2F sfVector2f
+	#define KeyPressed sfKeyboard_isKeyPressed
 
 	struct window_s {
 		sfRenderWindow *window;
