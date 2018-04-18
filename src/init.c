@@ -46,8 +46,9 @@ fairy_t *init_fairy(void)
 	fairy->clock = sfClock_create();
 	fairy->time = sfClock_getElapsedTime(fairy->clock);
 	fairy->seconds = 0;
-	fairy->pos = (V2F){x, y};
-	fairy->pos = (V2F){0, 0};
+	fairy->ec = (sfVector2f){0, 0};
+	fairy->ep = (sfVector2f){0, 0};
+	fairy->pos = (sfVector2f){x, y};
 	fairy->rect = (sfIntRect){0,0, SIZE_F_X, SIZE_F_Y};
 	sfSprite_setTexture(fairy->sprite, fairy->texture, sfTrue);
 	sfSprite_setPosition(fairy->sprite, fairy->pos);

@@ -42,7 +42,7 @@ int	game_loop(rpg_t *rpg)
 		sfRenderWindow_setView(rpg->wd, rpg->view->v_map);
 		disp_game(rpg);
 		display_character(rpg);
-		display_fairy(rpg);
+		display_fairy(rpg, event);
 	}
 	sfRenderWindow_display(rpg->wd);
 	return (0);
