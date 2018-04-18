@@ -60,7 +60,7 @@ fairy_t *init_fairy(void)
 
 // void set_window(window_t *window)
 // {
-// 	window->window = sfRenderWindow_create(window->mode,"RPG",\
+// 	window->window = sfRenderWindow_create(window->mode,"RPG",
 // 	sfClose | sfResize, NULL);
 // 	sfView_setSize(window->v_screen,
 // 	(V2F){WIDTH * 0.6, HEIGHT * 0.6});
