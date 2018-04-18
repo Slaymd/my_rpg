@@ -67,13 +67,13 @@ struct chunk_s {
 };
 
 struct map_s {
-	char			*name;
-	int			seed;
-	pos_t		topleft_to_disp;
+	int		seed;
+	char		*name;
 	list_t	*chunks;
 	list_t	*objects;
 	list_t	*entities;
 	list_t	*textures;
+	pos_t	topleft_to_disp;
 };
 
 // ENTITIES
@@ -90,6 +90,9 @@ struct entity_infos_s {
 	pos_t pos;
 	int mirror;
 	int max;
+	// sfClock *clock;
+	// sfTime time;
+	// float seconds;
 };
 
 struct entity_s {
@@ -105,6 +108,9 @@ struct entity_s {
 	sfSprite *sprite;
 	sfTexture *texture;
 	pos_t pos;
+	sfClock *clock;
+	sfTime time;
+	float seconds;
 };
 
 typedef struct ptr_s {
@@ -136,9 +142,14 @@ int		is_coords_in_chunk(pos_t pos, chunk_t *chunk);
 sfVector2f	get_relative_pixel_pos(pos_t ref, chunk_t *chk, pos_t pos);
 pos_t	get_absolute_pos(chunk_t *chunk, pos_t pos);
 chunk_t *get_chunk_at(map_t *map, pos_t pos);
+tile_t *get_tile_at(map_t *map, pos_t pos);
+
+//COLLISIONS
+int	can_move_here(map_t *map, pos_t pos);
 
 //EVENTS
 int	map_event_handler(window_t *window, map_t *map);
+int map_move(sfEvent event, map_t *map);
 
 //PERLIN
 float get_perlin_value(map_t *map, pos_t pos, float freq, int depth);

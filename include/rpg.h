@@ -20,10 +20,11 @@
 
 	#include "map.h"
 	#include "character.h"
+	#include "fairy.h"
 	#include "list.h"
 	#include "my.h"
 	#include "assets.h"
-	#include "menu.h"
+	#include "uilib.h"
 
 	#define WIDTH 900
 	#define HEIGHT 600
@@ -35,6 +36,11 @@
 
 	typedef struct rpg_s rpg_t;
 	typedef struct map_s map_t;
+	typedef struct view_s view_t;
+
+	#define V2F sfVector2f
+	#define FR sfFloatRect
+	#define KeyPressed sfKeyboard_isKeyPressed
 
 	struct window_s {
 		sfRenderWindow *window;
@@ -51,15 +57,35 @@
 		float seconds;
 	};
 
+	struct view_s {
+		sfView *v_screen;
+		sfView *v_map;
+		sfView *v_normal;
+	};
+
 	struct rpg_s {
 		int state;
+		sfRenderWindow *wd;
+		sfEvent event;
+		view_t *view;
+		scene_t *scene;
+		window_t *oldwin;
 		map_t	*map;
-		window_t *window;
-		menu_t *menu;
 		character_t *character;
+		fairy_t *fairy;
+		entity_t *ennemy[20];
 		list_t *entities;
 	};
 
+	//WINDOW TOOLS
+	sfRenderWindow	*create_window(void);
+
+	//UI
+	scene_t *init_mainmenu(rpg_t *rpg);
+	void disp_mainmenu(rpg_t *rpg);
+
+	//UI EVENTS
+	void click_play_button(void *data);
 
 	//CREATE
 	rpg_t *init_rpg(void);
@@ -73,14 +99,14 @@
 
 	//DISPLAY
 	void display_map(window_t *window, character_t *character);
-	void display_character(window_t *window, character_t *);
-	void display_minimap(sfSprite *sprite, window_t *window);
+	void display_character(rpg_t *);
+	void display_minimap(sfSprite *sprite, rpg_t *rpg);
 	int disp_rect_at(sfRenderWindow *wd, map_t *mp,
 	sfRectangleShape *rect, pos_t p);
 
 	//MOVE
 	void move_map(window_t *window, character_t *character);
-	void move_character(character_t *character, window_t *window);
+	void move_character(character_t *character, rpg_t *rpg);
 
 	//game_loop
 	void menu(rpg_t *rpg);
@@ -96,10 +122,14 @@
 	void ennemy_handling(rpg_t *rpg, map_t *map);
 	entity_t *add_ennemy_class_1(const char *path_sprite, sfIntRect square);
 	void init_sprite(rpg_t *rpg);
-	void display_ennemy(window_t *window, entity_t *ent, map_t *map, int);
+	void display_ennemy(rpg_t *rpg, entity_t *ent, map_t *map, int);
 	int rand_time(int min, int max);
 	void deplacement_ogre(rpg_t *rpg, map_t *map, entity_t *ent);
 	void deplacement_ostrich(rpg_t *rpg, map_t *map, entity_t *ent);
 	void mirror_sprite(entity_t *ent, int mirror);
+
+	//FAIRY
+	void display_fairy(rpg_t *rpg, sfEvent event);
+	void move_fairy(fairy_t *fairy, rpg_t *rpg, sfEvent event);
 
 #endif /* RPG_H_ */

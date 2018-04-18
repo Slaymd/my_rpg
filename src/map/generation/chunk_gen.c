@@ -16,7 +16,6 @@ chunk_t	*chunk_gen(map_t *map, pos_t pos)
 
 	for (int y = 0; y < TILES_PER_CHUNKS; y++) {
 		for (int x = 0; x < TILES_PER_CHUNKS; x++) {
-			printf("%d, %d\n", x, y);
 			tile_pos = (pos_t){(float)x, (float)y, 0.0};
 			absol_pos = get_absolute_pos(chunk, tile_pos);
 			noise = get_perlin_value(map, absol_pos, 0.08, 3);

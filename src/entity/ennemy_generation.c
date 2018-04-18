@@ -44,6 +44,10 @@ entity_t *create_entity(entity_type type)
 	sfRectangleShape_setPosition(ent->rect, (sfVector2f){200, 200});
 	sfRectangleShape_setSize(ent->rect, (sfVector2f){200, 200});
 	sfRectangleShape_setFillColor(ent->rect, sfBlue);
+
+	ent->clock = sfClock_create();
+	ent->time = sfClock_getElapsedTime(ent->clock);
+	ent->seconds = 0;
 	return (ent);
 }
 

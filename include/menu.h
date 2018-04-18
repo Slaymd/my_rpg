@@ -28,12 +28,12 @@
 		sfFont *font;
 	} text_t;
 
-	typedef struct scene_s {
+	/*typedef struct scene_s {
 		sfSprite *sprite;
 		sfTexture *texture;
 		button_t **button;
 		text_t **text;
-	} scene_t;
+	} scene_t;*/
 
 	struct menu_s {
 		scene_t **scene;

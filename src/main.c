@@ -5,39 +5,63 @@
 ** main
 */
 
-#include "rpg.h"
+#include "../include/rpg.h"
 
-void display_minimap(sfSprite *sprite, window_t *window)
+void display_minimap(sfSprite *sprite, rpg_t *rpg)
 {
-	sfRenderWindow_setView(window->window, window->v_screen);
-	sfRenderWindow_drawSprite(window->window, sprite, NULL);
-	sfRenderWindow_setView(window->window, window->v_map);
-	sfRenderWindow_drawSprite(window->window, sprite, NULL);
+	sfRenderWindow_setView(rpg->wd, rpg->view->v_screen);
+	sfRenderWindow_drawSprite(rpg->wd, sprite, NULL);
+	sfRenderWindow_setView(rpg->wd, rpg->view->v_map);
+	sfRenderWindow_drawSprite(rpg->wd, sprite, NULL);
+}
+
+int	disp_game(rpg_t *rpg)
+{
+	map_move(rpg->event, rpg->map);
+	disp_map(rpg->wd, rpg->map, rpg->map->topleft_to_disp);
+	// my_printf("CAN MOVE HERE: %d\n", can_move_here(rpg->map, rpg->map->topleft_to_disp));
+	return (0);
+}
+
+int	game_loop(rpg_t *rpg)
+{
+	sfEvent event;
+
+	sfRenderWindow_clear(rpg->wd, sfBlack);
+	while(sfRenderWindow_pollEvent(rpg->wd, &event)) {
+		rpg->event = event;
+		if (event.type == sfEvtClosed)
+			sfRenderWindow_close(rpg->wd);
+		scene_events_handler(rpg->wd, event, rpg->scene);
+	}
+	if (rpg->state == 0)
+		disp_mainmenu(rpg);
+	else if (rpg->state == 1) {
+		sfRenderWindow_setView(rpg->wd, rpg->view->v_screen);
+		disp_game(rpg);
+		sfRenderWindow_setView(rpg->wd, rpg->view->v_map);
+		disp_game(rpg);
+		ennemy_handling(rpg, rpg->map);
+		display_character(rpg);
+		display_fairy(rpg, event);
+	}
+	sfRenderWindow_display(rpg->wd);
+	return (0);
 }
 
 void my_free(rpg_t *rpg)
 {
-	sfRenderWindow_destroy(rpg->window->window);
-	free_menu(rpg->menu);
+	sfRenderWindow_destroy(rpg->wd);
 }
 
 int	main(void)
 {
-	map_t *map = init_map(NULL, 432542543);
 	rpg_t *rpg = init_rpg();
-	sfClock *sfclock = sfClock_create();
-	sfTime sftime;
-	init_sprite(rpg);
 
-	while (sfRenderWindow_isOpen(rpg->window->window)) {
-		sftime = sfClock_getElapsedTime(sfclock);
-		if (sftime.microseconds / 1000000.0 > 0.05) {
-			event_gestion(rpg->window, map);
-			rpg->state == 0 ? menu(rpg) : game(rpg, map);
-			sfRenderWindow_display(rpg->window->window);
-		}
-		printf("char y = %f et x  = %f\n", rpg->character->pos.y,  rpg->character->pos.x);
+	init_sprite(rpg);
+	while (sfRenderWindow_isOpen(rpg->wd)) {
+		game_loop(rpg);
 	}
-	my_free(rpg);
+	sfRenderWindow_destroy(rpg->wd);
 	return (0);
 }
