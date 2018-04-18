@@ -20,9 +20,9 @@ void display_ennemy(window_t *window, entity_t *ent, map_t *map, int count)
 		sfSprite_setTextureRect(ent->sprite, ent->square);
 	}
 	sfRenderWindow_setView(window->window, window->v_map);
-	//disp_rect_at(window->window, map, ent->rect, ent->pos);
+	disp_rect_at(window->window, map, ent->rect, ent->pos);
 	disp_sprite_at(window->window, map, ent->sprite, ent->pos);
 	sfRenderWindow_setView(window->window, window->v_screen);
-	//disp_rect_at(window->window, map, ent->rect, ent->pos);
+	disp_rect_at(window->window, map, ent->rect, ent->pos);
 	disp_sprite_at(window->window, map, ent->sprite, ent->pos);
 }

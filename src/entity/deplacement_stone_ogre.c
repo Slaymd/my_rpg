@@ -42,6 +42,7 @@ void deplacement_ogre(rpg_t *rpg, map_t *map, entity_t *ent)
 	static int count = 0;
 	static int x = 0;
 
+	detect_ennemy(ent, map) == 1 ? follow_ogre(rpg, ent, map) : 0;
 	rpg->window->seconds >= 0.10 ? count += 1 : 0;
 	ent->mirror == 0 && count == 5 ? x++ : 0;
 	ent->mirror == 1 && count == 5 ? x-- : 0;

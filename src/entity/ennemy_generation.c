@@ -31,7 +31,7 @@ entity_t *create_entity(entity_type type)
 	if (ent == NULL)
 		return (NULL);
 	ent->movement = infos.movement;
-	for (int i = 0; i == 0; i = 1, /*ent->callback = NULL,*/
+	for (int i = 0; i == 0; i = 1,
 	ent->lvl = infos.lvl, ent->pos = infos.pos,
 	ent->rect = NULL, ent->sprite = sfSprite_create(), ent->mirror =
 	infos.mirror, ent->square = infos.rect, ent->max = infos.max,

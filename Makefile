@@ -42,7 +42,8 @@ SRC			=	./src/main.c				\
 				src/rand/rand.c				\
 				src/entity/deplacement_stone_ogre.c	\
 				src/entity/deplacement_ostrich.c	\
-				src/game_loop.c
+				src/game_loop.c				\
+				src/entity/combat.c
 
 CFLAGS		=	-W -Wall -Wextra -I./include -g3 -lm
 

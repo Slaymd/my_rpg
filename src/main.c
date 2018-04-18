@@ -36,6 +36,7 @@ int	main(void)
 			rpg->state == 0 ? menu(rpg) : game(rpg, map);
 			sfRenderWindow_display(rpg->window->window);
 		}
+		printf("char y = %f et x  = %f\n", rpg->character->pos.y,  rpg->character->pos.x);
 	}
 	my_free(rpg);
 	return (0);
