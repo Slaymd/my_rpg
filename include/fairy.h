@@ -23,7 +23,8 @@
 		sfTime time;
 		float seconds;
 		sfVector2f pos;
-		sfVector2f kinetic;
+		sfVector2f ec;
+		sfVector2f ep;
 	};
 
 #endif

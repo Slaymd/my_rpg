@@ -106,7 +106,7 @@
 	void display_ennemy(window_t *window, entity_t *, map_t *);
 
 	//FAIRY
-	void display_fairy(rpg_t *rpg);
-	void move_fairy(fairy_t *fairy, rpg_t *rpg);
+	void display_fairy(rpg_t *rpg, sfEvent event);
+	void move_fairy(fairy_t *fairy, rpg_t *rpg, sfEvent event);
 
 #endif /* RPG_H_ */
