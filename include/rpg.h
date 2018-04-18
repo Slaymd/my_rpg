@@ -82,10 +82,14 @@
 
 	//UI
 	scene_t *init_mainmenu(rpg_t *rpg);
+	scene_t *init_mapeditor(rpg_t *rpg);
 	void disp_mainmenu(rpg_t *rpg);
+	void swap_state_maptravelling(rpg_t *rpg);
+	void regen_map_from_ui(void *data);
 
 	//UI EVENTS
 	void click_play_button(void *data);
+	void click_save_button(void *data);
 
 	//CREATE
 	rpg_t *init_rpg(void);

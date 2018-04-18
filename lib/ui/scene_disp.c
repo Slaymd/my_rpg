@@ -9,6 +9,8 @@
 
 int	disp_scene(sfRenderWindow *wd, scene_t *scene)
 {
+	if (scene == NULL)
+		return (0);
 	disp_panels(wd, scene->panels);
 	disp_texts(wd, scene->labels);
 	disp_textboxes(wd, scene->textboxes);
