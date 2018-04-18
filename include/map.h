@@ -76,8 +76,6 @@ struct map_s {
 	pos_t	topleft_to_disp;
 };
 
-// ENTITIES
-
 struct entity_infos_s {
 	entity_type type;
 	sfIntRect rect;
@@ -90,9 +88,6 @@ struct entity_infos_s {
 	pos_t pos;
 	int mirror;
 	int max;
-	// sfClock *clock;
-	// sfTime time;
-	// float seconds;
 };
 
 struct entity_s {

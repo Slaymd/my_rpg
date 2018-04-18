@@ -19,7 +19,6 @@ int	disp_game(rpg_t *rpg)
 {
 	map_move(rpg->event, rpg->map);
 	disp_map(rpg->wd, rpg->map, rpg->map->topleft_to_disp);
-	// my_printf("CAN MOVE HERE: %d\n", can_move_here(rpg->map, rpg->map->topleft_to_disp));
 	return (0);
 }
 
@@ -47,11 +46,6 @@ int	game_loop(rpg_t *rpg)
 	}
 	sfRenderWindow_display(rpg->wd);
 	return (0);
-}
-
-void my_free(rpg_t *rpg)
-{
-	sfRenderWindow_destroy(rpg->wd);
 }
 
 int	main(void)
