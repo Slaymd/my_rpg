@@ -19,6 +19,7 @@ SRC			=	./src/main.c				\
 				./src/character/display.c		\
 				./src/fairy/move.c			\
 				./src/fairy/display.c			\
+				./src/fairy/fight.c			\
 				src/map/init_map.c			\
 				src/map/disp_map.c			\
 				src/map/pos_tools.c			\
