@@ -33,6 +33,8 @@ SRC			=	./src/main.c				\
 				src/ui/ui_basic_tools.c				\
 				src/ui/ui_init_mainmenu.c			\
 				src/ui/ui_events_mainmenu.c			\
+				src/ui/ui_events_mapeditor.c			\
+				src/ui/ui_init_mapeditor.c			\
 
 				##./src/menu/create.c			\
 				./src/menu/display.c			\

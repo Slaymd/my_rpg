@@ -10,6 +10,9 @@
 
 #include "rpg.h"
 
+#define FONT_UBUMED "assets/fonts/Ubuntu-M.ttf"
+#define FONT_UBUREG "assets/fonts/Ubuntu-R.ttf"
+
 #define TXTRE_GRASS "assets/textures/mc_grass.png"
 #define TXTRE_WATER "assets/textures/mc_water.png"
 #define TXTRE_DEEP_WATER "assets/textures/mc_deep_water.png"
