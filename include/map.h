@@ -16,6 +16,9 @@
 #define TILES_PER_CHUNKS 32
 #define DEFAULT_RENDER_DISTANCE 2
 
+#define DEFAULT_POS_X 16000
+#define DEFAULT_POS_Y 16000
+
 #define SEED 213314
 
 typedef struct pos_s pos_t;

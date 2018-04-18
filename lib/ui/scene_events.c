@@ -28,6 +28,8 @@ int	scene_events_handler(sfRenderWindow *wd, sfEvent e, scene_t *scn)
 {
 	char keyc = '\0';
 
+	if (scn == NULL)
+		return (0);
 	scene_mouse_evts_hdl(wd, e, scn);
 	switch (e.type) {
 	case sfEvtClosed:

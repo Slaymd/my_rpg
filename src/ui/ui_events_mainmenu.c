@@ -11,5 +11,6 @@ void click_play_button(void *data)
 {
 	rpg_t *rpg = (rpg_t*)data;
 
+	rpg->scene = init_mapeditor(rpg);
 	rpg->state = 1;
 }
