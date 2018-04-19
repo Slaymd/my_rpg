@@ -23,6 +23,8 @@
 		int speed;
 		sfVector2f pos_screen;
 		pos_t pos;
+		float hp;
+		sfRectangleShape *hp_bar;
 	};
 
 #endif

@@ -7,11 +7,14 @@
 
 #include "rpg.h"
 
-void set_character(character_t *character)
+void set_character(character_t *character, int x, int y)
 {
 	sfSprite_setTexture(character->sprite, character->texture, sfTrue);
 	sfSprite_setPosition(character->sprite, character->pos_screen);
 	sfSprite_setTextureRect(character->sprite, character->rect);
+	sfRectangleShape_setSize(character->hp_bar, (V2F){50, 5});
+	sfRectangleShape_setFillColor(character->hp_bar, sfGreen);
+	sfRectangleShape_setPosition(character->hp_bar, (V2F){x + 9, y});
 }
 
 character_t *init_character(void)
@@ -30,7 +33,8 @@ character_t *init_character(void)
 	character->rect = (sfIntRect){0,0, SIZE_C_X, SIZE_C_Y};
 	character->speed = 4;
 	character->pos_screen = (V2F){x, y};
-	character->pos = (pos_t){16000, 16000, 0};
-	set_character(character);
+	character->hp = 100;
+	character->hp_bar = sfRectangleShape_create();
+	set_character(character, x, y);
 	return (character);
 }

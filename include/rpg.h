@@ -105,7 +105,7 @@
 
 	//DISPLAY
 	void display_map(window_t *window, character_t *character);
-	void display_character(rpg_t *);
+	void display_character(rpg_t *, character_t *character);
 	void display_minimap(sfSprite *sprite, rpg_t *rpg);
 	int disp_rect_at(sfRenderWindow *wd, map_t *mp,
 	sfRectangleShape *rect, pos_t p);
