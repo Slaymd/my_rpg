@@ -141,5 +141,7 @@
 	void display_fairy(rpg_t *rpg, sfEvent event);
 	void move_fairy(fairy_t *fairy, rpg_t *rpg, sfEvent event);
 	void fairy_fight(fairy_t *fairy, rpg_t *rpg);
+	void new_shoot(list_shoot_t *list, V2F pos);
+	void end_shoot(list_shoot_t *list);
 
 #endif /* RPG_H_ */
