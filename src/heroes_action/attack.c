@@ -10,6 +10,6 @@
 void verif_action(rpg_t *rpg)
 {
 	if (sfKeyboard_isKeyPressed(sfKeySpace)) {
-		printf("%s\n", "attack");
+		my_printf("%s\n", "attack");
 	}
 }

@@ -20,10 +20,7 @@ int detect_ennemy(entity_t *ent, map_t *map)
 
 	if (x >= ent->pos.x - 3 && x <= ent->pos.x + 3 && y >= ent->pos.y - 3
 	&& y <= ent->pos.y + 3) {
-		// my_printf("%s\n", "collision");
 		return (1);
-	} else {
-		my_printf("%s\n", "no collision");
 	}
 	return (0);
 }
