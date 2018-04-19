@@ -35,11 +35,7 @@ int	game_loop(rpg_t *rpg)
 	}
 	if (rpg->state == 0)
 		disp_mainmenu(rpg);
-<<<<<<< HEAD
 	else if (rpg->state == 1) {
-=======
-	else if (rpg->state == 3) {
->>>>>>> c3dba5096672bb940d60cf14f4c07f8ed14f9028
 		sfRenderWindow_setView(rpg->wd, rpg->view->v_screen);
 		disp_game(rpg);
 		sfRenderWindow_setView(rpg->wd, rpg->view->v_map);
