@@ -64,7 +64,7 @@ fairy_t *init_fairy(void)
 	fairy->s_explo = sfSprite_create();
 	fairy->shoot = malloc(sizeof(list_shoot_t));
 	fairy->line = sfVertexArray_create();
-	fairy->shhh = sfMusic_createFromFile("assets/musics/boom.ogg");
+	fairy->shhh = sfMusic_createFromFile("assets/musics/shhh.ogg");
 	set_fairy(fairy);
 	return (fairy);
 }
