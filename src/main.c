@@ -28,6 +28,7 @@ int	game_loop(rpg_t *rpg)
 {
 	sfEvent event;
 
+	event.key.code = 0;
 	sfRenderWindow_clear(rpg->wd, sfBlack);
 	while(sfRenderWindow_pollEvent(rpg->wd, &event)) {
 		rpg->event = event;
