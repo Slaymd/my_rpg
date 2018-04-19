@@ -32,7 +32,7 @@ entity_t *init_entity(entity_t *ent, entity_infos_t infos)
 	ent->rect = sfRectangleShape_create();
 	sfRectangleShape_setPosition(ent->rect, (sfVector2f){200, 200});
 	sfRectangleShape_setSize(ent->rect, (sfVector2f){200, 200});
-	sfRectangleShape_setFillColor(ent->rect, sfBlue);
+	sfRectangleShape_setFillColor(ent->rect, (sfColor){0, 0, 255, 100});
 	ent->clock = sfClock_create();
 	ent->time = sfClock_getElapsedTime(ent->clock);
 	ent->seconds = 0;
