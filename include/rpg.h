@@ -140,6 +140,6 @@
 	fairy_t *init_fairy(void);
 	void display_fairy(rpg_t *rpg, sfEvent event);
 	void move_fairy(fairy_t *fairy, rpg_t *rpg, sfEvent event);
-	void fairy_fight(fairy_t *fairy);
+	void fairy_fight(fairy_t *fairy, rpg_t *rpg);
 
 #endif /* RPG_H_ */
