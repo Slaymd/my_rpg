@@ -50,7 +50,7 @@ fairy_t *init_fairy(void)
 	fairy->ep = (sfVector2f){0, 0};
 	fairy->pos = (sfVector2f){x, y};
 	fairy->rect = (sfIntRect){0,0, SIZE_F_X, SIZE_F_Y};
-	fairy->shhh = sfMusic_createFromFile("song/boom.ogg");
+	fairy->shhh = sfMusic_createFromFile("assets/musics/boom.ogg");
 	sfSprite_setTexture(fairy->sprite, fairy->texture, sfTrue);
 	sfSprite_setPosition(fairy->sprite, fairy->pos);
 	sfSprite_setTextureRect(fairy->sprite, fairy->rect);
@@ -60,7 +60,7 @@ fairy_t *init_fairy(void)
 
 // void set_window(window_t *window)
 // {
-// 	window->window = sfRenderWindow_create(window->mode,"RPG",\
+// 	window->window = sfRenderWindow_create(window->mode,"RPG",
 // 	sfClose | sfResize, NULL);
 // 	sfView_setSize(window->v_screen,
 // 	(V2F){WIDTH * 0.6, HEIGHT * 0.6});

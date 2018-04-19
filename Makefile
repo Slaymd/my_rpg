@@ -32,11 +32,11 @@ SRC			=	./src/main.c				\
 				src/map/generation/chunk_gen.c		\
 				src/map/generation/perlin_noise.c	\
 				src/map/collision/tiles_collision.c	\
-				src/ui/ui_basic_tools.c				\
-				src/ui/ui_init_mainmenu.c			\
-				src/ui/ui_events_mainmenu.c			\
-				src/ui/ui_events_mapeditor.c			\
-				src/ui/ui_init_mapeditor.c			\
+				src/ui/ui_basic_tools.c			\
+				src/ui/ui_init_mainmenu.c		\
+				src/ui/ui_events_mainmenu.c		\
+				src/ui/ui_events_mapeditor.c		\
+				src/ui/ui_init_mapeditor.c		\
 				src/entity/disp_ennemy.c		\
 				src/entity/ennemy_handling.c		\
 				src/rand/rand.c				\
