@@ -15,8 +15,10 @@ SRC			=	./src/main.c				\
 				./src/lib.c				\
 				./src/init.c				\
 				./src/destroy.c				\
+				./src/character/create.c			\
 				./src/character/move.c			\
 				./src/character/display.c		\
+				./src/fairy/create.c			\
 				./src/fairy/move.c			\
 				./src/fairy/display.c			\
 				./src/fairy/fight.c			\

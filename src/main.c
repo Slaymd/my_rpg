@@ -13,6 +13,7 @@ void display_minimap(sfSprite *sprite, rpg_t *rpg)
 	sfRenderWindow_drawSprite(rpg->wd, sprite, NULL);
 	sfRenderWindow_setView(rpg->wd, rpg->view->v_map);
 	sfRenderWindow_drawSprite(rpg->wd, sprite, NULL);
+	sfRenderWindow_setView(rpg->wd, rpg->view->v_screen);
 }
 
 int	disp_game(rpg_t *rpg)
