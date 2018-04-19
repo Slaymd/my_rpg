@@ -121,8 +121,8 @@
 
 	//ENNEMY
 	int detect_ennemy(entity_t *ent, map_t *map);
-	void follow_ogre(rpg_t *rpg, entity_t *ent, map_t *map);
-	void follow_ostrich(rpg_t *rpg, entity_t *ent, map_t *map);
+	void follow_ogre(entity_t *ent, map_t *map);
+	void follow_ostrich(entity_t *ent, map_t *map);
 	void ennemy_handling(rpg_t *rpg, map_t *map);
 	entity_t *add_ennemy_class_1(const char *path_sprite, sfIntRect square);
 	void init_sprite(rpg_t *rpg);

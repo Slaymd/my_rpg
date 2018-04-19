@@ -23,19 +23,8 @@ entity_infos_t get_entity_infos(entity_type type)
 	(pos_t){0, 0, 0}, 0, 0});
 }
 
-entity_t *create_entity(entity_type type)
+entity_t *init_entity(entity_t *ent, entity_infos_t infos)
 {
-	entity_t *ent = (entity_t*)malloc(sizeof(entity_t));
-	entity_infos_t infos = get_entity_infos(type);
-
-	if (ent == NULL)
-		return (NULL);
-	ent->movement = infos.movement;
-	for (int i = 0; i == 0; i = 1,
-	ent->lvl = infos.lvl, ent->pos = infos.pos,
-	ent->rect = NULL, ent->sprite = sfSprite_create(), ent->mirror =
-	infos.mirror, ent->square = infos.rect, ent->max = infos.max,
-	ent->num = infos.num, ent->type = type);
 	ent->texture = sfTexture_createFromFile(infos.tex_path, NULL);
 	sfSprite_setTexture(ent->sprite, ent->texture, sfTrue);
 	sfSprite_setTextureRect(ent->sprite, ent->square);
@@ -44,17 +33,35 @@ entity_t *create_entity(entity_type type)
 	sfRectangleShape_setPosition(ent->rect, (sfVector2f){200, 200});
 	sfRectangleShape_setSize(ent->rect, (sfVector2f){200, 200});
 	sfRectangleShape_setFillColor(ent->rect, sfBlue);
-
 	ent->clock = sfClock_create();
 	ent->time = sfClock_getElapsedTime(ent->clock);
 	ent->seconds = 0;
 	return (ent);
 }
 
+entity_t *create_entity(entity_type type)
+{
+	entity_t *ent = (entity_t*)malloc(sizeof(entity_t));
+	entity_infos_t infos = get_entity_infos(type);
+
+	if (ent == NULL)
+		return (NULL);
+	ent->movement = infos.movement;
+	ent->lvl = infos.lvl;
+	ent->pos = infos.pos;
+	ent->rect = NULL;
+	ent->sprite = sfSprite_create();
+	ent->mirror = infos.mirror;
+	ent->square = infos.rect;
+	ent->max = infos.max;
+	ent->num = infos.num;
+	ent->type = type;
+	return (init_entity(ent, infos));
+}
+
 void init_sprite(rpg_t *rpg)
 {
 	rpg->entities = NULL;
-
 	list_add(&rpg->entities, create_entity(OSTRICH));
 	list_add(&rpg->entities, create_entity(STONE_OGRE));
 }
