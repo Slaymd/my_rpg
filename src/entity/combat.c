@@ -12,6 +12,8 @@ void follow_ostrich(entity_t *ent, map_t *map)
 	int x = map->topleft_to_disp.x + (WIDTH / TILE_SIZE / 2);
 	int y = map->topleft_to_disp.y + (HEIGHT / TILE_SIZE / 2);
 	static int pos = 0;
+
+	sfMusic_play(ent->song);
 	if (ent->pos.x < x) {
 		pos != x ? ent->pos.x -= 0.22 : 0;
 		ent->mirror = 4;
@@ -30,6 +32,7 @@ void follow_ogre(entity_t *ent, map_t *map)
 	int x = map->topleft_to_disp.x + (WIDTH / TILE_SIZE / 2);
 	int y = map->topleft_to_disp.y + (HEIGHT / TILE_SIZE / 2);
 
+	sfMusic_play(ent->song);
 	ent->pos.x <= x + 0.3 ? ent->pos.x += 0.12, ent->mirror = 3 : 0;
 	ent->pos.x >= x + 0.3 ? ent->pos.x -= 0.12, ent->mirror = 4 : 0;
 	ent->pos.y >= y ? ent->pos.y -= 0.16 : 0;

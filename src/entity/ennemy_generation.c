@@ -10,21 +10,22 @@
 entity_infos_t get_entity_infos(entity_type type)
 {
 	entity_infos_t ents_infos[] = {{OSTRICH, {0, 150, 108, 120}, 1, 1, 850,
-	108, TXTRE_OSTRICH, 1, (pos_t){16020, 16010, 0}, 0, 430},
+	108, TXTRE_OSTRICH, 1, (pos_t){16020, 16010, 0}, 0, 430, "assets/musics/aer.ogg"},
 	{STONE_OGRE, {0, 150, 140, 155}, 1, 1, 644, 144,
-	TXTRE_STONE_OGRE, 2, (pos_t){16010, 16010, 0}, 0, 720},
-	{UNKNOWN, {0, 0, 0, 0}, 0, 0, 0, 0, "", 0, (pos_t){0, 0, 0}, 0, 0}};
+	TXTRE_STONE_OGRE, 2, (pos_t){16010, 16010, 0}, 0, 720, "assets/musics/aer.ogg"},
+	{UNKNOWN, {0, 0, 0, 0}, 0, 0, 0, 0, "", 0, (pos_t){0, 0, 0}, 0, 0, ""}};
 
 	for (int i = 0; ents_infos[i].type != UNKNOWN; i++) {
 		if (ents_infos[i].type == type)
 			return (ents_infos[i]);
 	}
 	return ((entity_infos_t){UNKNOWN, {0 , 0, 0, 0}, 0, 0, 0, 0, "", 0,
-	(pos_t){0, 0, 0}, 0, 0});
+	(pos_t){0, 0, 0}, 0, 0, NULL});
 }
 
 entity_t *init_entity(entity_t *ent, entity_infos_t infos)
 {
+	ent->song = sfMusic_createFromFile(infos.song);
 	ent->texture = sfTexture_createFromFile(infos.tex_path, NULL);
 	sfSprite_setTexture(ent->sprite, ent->texture, sfTrue);
 	sfSprite_setTextureRect(ent->sprite, ent->square);

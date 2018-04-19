@@ -36,6 +36,7 @@ void free_entity(rpg_t *rpg)
 		sfTexture_destroy(((entity_t *)tmp->data)->texture);
 		sfClock_destroy(((entity_t *)tmp->data)->clock);
 		sfRectangleShape_destroy(((entity_t *)tmp->data)->rect);
+		sfMusic_destroy(((entity_t *)tmp->data)->song);
 		free(tmp);
 	}
 }
