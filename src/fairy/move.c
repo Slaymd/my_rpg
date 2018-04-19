@@ -70,10 +70,7 @@ void physic_fairy_move(fairy_t *fairy, sfEvent event)
 void move_fairy(fairy_t *fairy, rpg_t *rpg, sfEvent event)
 {
 	rpg = rpg;
-	if (rpg->fairy->seconds >= 0.05) {
-		// random_fairy_move(fairy);
-		sfClock_restart(rpg->fairy->clock);
-	}
+	// random_fairy_move(fairy);
 	physic_fairy_move(fairy, event);
 	(fairy->pos.x > WIDTH / 2 + MOVE_F_X) ?
 	fairy->pos.x = WIDTH / 2 + MOVE_F_X : 0;

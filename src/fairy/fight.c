@@ -7,8 +7,11 @@
 
 #include "rpg.h"
 
-void fairy_fight(fairy_t *fairy)
+void fairy_fight(fairy_t *fairy, rpg_t *rpg)
 {
-	if (sfKeyboard_isKeyPressed(sfKeySpace))
-		sfMusic_play(fairy->shhh);
+	if (rpg->fairy->seconds >= 0.10) {
+		if (sfKeyboard_isKeyPressed(sfKeySpace))
+			sfMusic_play(fairy->shhh);
+		sfClock_restart(rpg->fairy->clock);
+	}
 }

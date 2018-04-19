@@ -28,7 +28,7 @@ void display_fairy(rpg_t *rpg, sfEvent event)
 	rpg->fairy->time = sfClock_getElapsedTime(rpg->fairy->clock);
 	rpg->fairy->seconds = rpg->fairy->time.microseconds / 1000000.0;
 	move_fairy(rpg->fairy, rpg, event);
-	fairy_fight(rpg->fairy);
+	fairy_fight(rpg->fairy, rpg);
 	display_fairy_line(rpg->fairy, rpg);
 	display_minimap(rpg->fairy->sprite, rpg);
 }
