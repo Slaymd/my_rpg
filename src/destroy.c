@@ -31,11 +31,12 @@ void free_entity(rpg_t *rpg)
 
 	for (; tmp != NULL; tmp = tmp_next) {
 		tmp_next = tmp->next;
-		free(tmp->data);
 		sfSprite_destroy(((entity_t *)tmp->data)->sprite);
 		sfTexture_destroy(((entity_t *)tmp->data)->texture);
 		sfClock_destroy(((entity_t *)tmp->data)->clock);
 		sfRectangleShape_destroy(((entity_t *)tmp->data)->rect);
+		sfMusic_destroy(((entity_t *)tmp->data)->song);
+		free(tmp->data);
 		free(tmp);
 	}
 }

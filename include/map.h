@@ -11,7 +11,7 @@
 #include "list.h"
 
 #define TILE_SIZE 32
-#define MOVE_SPEED 0.20
+#define MOVE_SPEED 0.12
 
 #define TILES_PER_CHUNKS 32
 #define DEFAULT_RENDER_DISTANCE 2
@@ -91,6 +91,7 @@ struct entity_infos_s {
 	pos_t pos;
 	int mirror;
 	int max;
+	char *song;
 };
 
 struct entity_s {
@@ -109,6 +110,7 @@ struct entity_s {
 	sfClock *clock;
 	sfTime time;
 	float seconds;
+	sfMusic *song;
 };
 
 typedef struct ptr_s {

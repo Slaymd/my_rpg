@@ -12,8 +12,23 @@
 	#define SIZE_F_Y 49
 	#define MOVE_F_X 50
 	#define MOVE_F_Y 55
+	#define EXPLO_X 192
+	#define EXPLO_Y 195
 
 	typedef struct fairy_s fairy_t;
+	typedef struct shoot_s shoot_t;
+	typedef struct list_shoot_s list_shoot_t;
+
+	struct shoot_s {
+		sfIntRect rect;
+		sfVector2f pos;
+		// pos_t pos;
+		shoot_t *next;
+	};
+
+	struct list_shoot_s {
+		shoot_t *first;
+	};
 
 	struct fairy_s {
 		sfSprite *sprite;
@@ -25,6 +40,9 @@
 		sfVector2f pos;
 		sfVector2f ec;
 		sfVector2f ep;
+		sfSprite *s_explo;
+		sfTexture *t_explo;
+		list_shoot_t *shoot;
 		sfVertexArray *line;
 		sfMusic *shhh;
 	};
