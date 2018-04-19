@@ -10,11 +10,10 @@
 int map_move_left(map_t *map)
 {
 	float player_x = map->topleft_to_disp.x + (WIDTH / TILE_SIZE / 2);
-	float player_y = map->topleft_to_disp.y+1 + (HEIGHT / TILE_SIZE / 2);
+	float player_y = map->topleft_to_disp.y+1.5 + (HEIGHT / TILE_SIZE / 2);
 	pos_t player_pos = {player_x - MOVE_SPEED, player_y, 0};
 	int canmove = can_move_here(map, player_pos);
 
-	printf("--> %d\n", canmove);
 	if (!canmove)
 		map->topleft_to_disp.x -= MOVE_SPEED;
 	return (0);
@@ -23,11 +22,10 @@ int map_move_left(map_t *map)
 int map_move_right(map_t *map)
 {
 	float player_x = map->topleft_to_disp.x + (WIDTH / TILE_SIZE / 2);
-	float player_y = map->topleft_to_disp.y+1 + (HEIGHT / TILE_SIZE / 2);
+	float player_y = map->topleft_to_disp.y+1.3 + (HEIGHT / TILE_SIZE / 2);
 	pos_t player_pos = {player_x + MOVE_SPEED, player_y, 0};
 	int canmove = can_move_here(map, player_pos);
 
-	printf("--> %d\n", canmove);
 	if (!canmove)
 		map->topleft_to_disp.x += MOVE_SPEED;
 	return (0);
@@ -36,11 +34,10 @@ int map_move_right(map_t *map)
 int map_move_up(map_t *map)
 {
 	float player_x = map->topleft_to_disp.x + (WIDTH / TILE_SIZE / 2);
-	float player_y = map->topleft_to_disp.y+1 + (HEIGHT / TILE_SIZE / 2);
+	float player_y = map->topleft_to_disp.y+1.3 + (HEIGHT / TILE_SIZE / 2);
 	pos_t player_pos = {player_x, player_y - MOVE_SPEED, 0};
 	int canmove = can_move_here(map, player_pos);
 
-	printf("--> %d\n", canmove);
 	if (!canmove)
 		map->topleft_to_disp.y -= MOVE_SPEED;
 	return (0);
@@ -49,11 +46,10 @@ int map_move_up(map_t *map)
 int map_move_down(map_t *map)
 {
 	float player_x = map->topleft_to_disp.x + (WIDTH / TILE_SIZE / 2);
-	float player_y = map->topleft_to_disp.y+1 + (HEIGHT / TILE_SIZE / 2);
+	float player_y = map->topleft_to_disp.y+1.3 + (HEIGHT / TILE_SIZE / 2);
 	pos_t player_pos = {player_x, player_y + MOVE_SPEED, 0};
 	int canmove = can_move_here(map, player_pos);
 
-	printf("--> %d\n", canmove);
 	if (!canmove)
 		map->topleft_to_disp.y += MOVE_SPEED;
 	return (0);
@@ -81,17 +77,3 @@ int map_move(sfEvent event, map_t *map)
 	}
 	return (0);
 }
-
-// void event_gestion(window_t *window, map_t *map)
-// {
-// 	// sfEvent event;
-//         //
-// 	// while (sfRenderWindow_pollEvent(window->window, &event)) {
-// 	// 	if (event.type == sfEvtClosed)
-// 	// 		sfRenderWindow_close(window->window);
-// 	// 	window->event = event;
-// 	// }
-// 	// map_move(window->event, map);
-// 	// window->time = sfClock_getElapsedTime(window->clock);
-// 	// window->seconds = window->time.microseconds / 1000000.0;
-// }

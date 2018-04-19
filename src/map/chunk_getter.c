@@ -10,18 +10,16 @@
 tile_t *get_tile_at(map_t *map, pos_t pos)
 {
 	pos_t cpos = get_chunk_coords(pos);
-	pos_t cpos_absol = {cpos.x*TILES_PER_CHUNKS, cpos.y*TILES_PER_CHUNKS};
+	pos_t cpos_absol = {cpos.x*TILES_PER_CHUNKS,cpos.y*TILES_PER_CHUNKS,0};
 	chunk_t *chk = NULL;
 	list_t *tmp = map->chunks;
 
-	printf("CHUNKPOS       (%f, %f)\n", cpos.x, cpos.y);
-	printf("CHUNKPOS ABSOL (%f, %f)\n", cpos_absol.x, cpos_absol.y);
-	printf(" TILEPOS       (%f, %f)\n", pos.x-cpos.x, pos.y-cpos.y);
 	for (; tmp != NULL; tmp = tmp->next) {
 		chk = (chunk_t*)tmp->data;
 		if (chk->pos.x != cpos.x || chk->pos.y != cpos.y)
 			continue;
-		return (&chk->tiles[(int)(pos.y-cpos_absol.y)][(int)(pos.x-cpos_absol.x)]);
+		return (&chk->tiles[(int)(pos.y-cpos_absol.y)]
+		[(int)(pos.x-cpos_absol.x)]);
 	}
 	return (NULL);
 }

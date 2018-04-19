@@ -5,8 +5,7 @@
 ** move
 */
 
-#include <time.h>
-#include "rpg.h"
+#include "../../include/rpg.h"
 
 int rand_time(int min, int max)
 {
