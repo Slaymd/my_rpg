@@ -30,6 +30,8 @@
 	#define WIDTH 900
 	#define HEIGHT 600
 
+	#define ZOOM 0.7
+
 	#define SIZE_S_X 900
 	#define SIZE_S_Y 600
 	#define SIZE_I_X 1440
