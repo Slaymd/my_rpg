@@ -10,7 +10,6 @@
 void display_minimap(sfSprite *sprite, rpg_t *rpg)
 {
 	sfRenderWindow_setView(rpg->wd, rpg->view->v_screen);
-	sfRenderWindow_setView(rpg->wd, rpg->view->v_normal);
 	sfRenderWindow_drawSprite(rpg->wd, sprite, NULL);
 	sfRenderWindow_setView(rpg->wd, rpg->view->v_map);
 	sfRenderWindow_drawSprite(rpg->wd, sprite, NULL);
@@ -28,6 +27,7 @@ int	game_loop(rpg_t *rpg)
 {
 	sfEvent event;
 
+	event.key.code = 0;
 	sfRenderWindow_clear(rpg->wd, sfBlack);
 	while(sfRenderWindow_pollEvent(rpg->wd, &event)) {
 		rpg->event = event;
@@ -43,7 +43,7 @@ int	game_loop(rpg_t *rpg)
 		sfRenderWindow_setView(rpg->wd, rpg->view->v_map);
 		disp_game(rpg);
 		ennemy_handling(rpg, rpg->map);
-		display_character(rpg);
+		display_character(rpg, rpg->character);
 		display_fairy(rpg, event);
 	}
 	sfRenderWindow_display(rpg->wd);

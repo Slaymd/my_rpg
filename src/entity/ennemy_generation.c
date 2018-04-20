@@ -11,16 +11,16 @@ entity_infos_t get_entity_infos(entity_type type)
 {
 	entity_infos_t ents_infos[] = {{OSTRICH, {0, 150, 108, 120}, 1, 1, 850,
 	108, TXTRE_OSTRICH, 1, (pos_t){16020, 16010, 0}, 0, 430,
-	"assets/musics/aer.ogg"}, {STONE_OGRE, {0, 150, 140, 155}, 1, 1, 644,
+	"assets/musics/aer.ogg", 30}, {STONE_OGRE, {0, 150, 140, 155}, 1, 1, 644,
 	144, TXTRE_STONE_OGRE, 2, (pos_t){16010, 16010, 0}, 0, 720,
-	"assets/musics/aer.ogg"}, {UNKNOWN, {0, 0, 0, 0}, 0, 0, 0, 0, "", 0,
-	(pos_t){0, 0, 0}, 0, 0, ""}};
+	"assets/musics/aer.ogg", 150}, {UNKNOWN, {0, 0, 0, 0}, 0, 0, 0, 0, "", 0,
+	(pos_t){0, 0, 0}, 0, 0, "", 0}};
 	for (int i = 0; ents_infos[i].type != UNKNOWN; i++) {
 		if (ents_infos[i].type == type)
 			return (ents_infos[i]);
 	}
 	return ((entity_infos_t){UNKNOWN, {0 , 0, 0, 0}, 0, 0, 0, 0, "", 0,
-	(pos_t){0, 0, 0}, 0, 0, NULL});
+	(pos_t){0, 0, 0}, 0, 0, NULL, 0});
 }
 
 entity_t *init_entity(entity_t *ent, entity_infos_t infos)
@@ -33,10 +33,17 @@ entity_t *init_entity(entity_t *ent, entity_infos_t infos)
 	ent->rect = sfRectangleShape_create();
 	sfRectangleShape_setPosition(ent->rect, (sfVector2f){200, 200});
 	sfRectangleShape_setSize(ent->rect, (sfVector2f){200, 200});
-	sfRectangleShape_setFillColor(ent->rect, (sfColor){0, 0, 255, 100});
+	sfRectangleShape_setFillColor(ent->rect, (sfColor){0, 0, 0, 0});
 	ent->clock = sfClock_create();
 	ent->time = sfClock_getElapsedTime(ent->clock);
 	ent->seconds = 0;
+	ent->hp = infos.hp;
+	ent->hp_bar = sfRectangleShape_create();
+	sfSprite_setOrigin(ent->sprite, (V2F){ent->square.width / 2,
+	ent->square.height / 2});
+	sfRectangleShape_setOrigin(ent->hp_bar, (V2F){25, 2.5});
+	sfRectangleShape_setSize(ent->hp_bar, (V2F){50, 5});
+	sfRectangleShape_setFillColor(ent->hp_bar, sfRed);
 	return (ent);
 }
 

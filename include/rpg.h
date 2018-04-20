@@ -105,7 +105,7 @@
 
 	//DISPLAY
 	void display_map(window_t *window, character_t *character);
-	void display_character(rpg_t *);
+	void display_character(rpg_t *, character_t *character);
 	void display_minimap(sfSprite *sprite, rpg_t *rpg);
 	int disp_rect_at(sfRenderWindow *wd, map_t *mp,
 	sfRectangleShape *rect, pos_t p);
@@ -123,7 +123,7 @@
 
 	//ENNEMY
 	int detect_ennemy(entity_t *ent, map_t *map);
-	void follow_ogre(entity_t *ent, map_t *map);
+	void follow_ogre(entity_t *ent, map_t *map, character_t *character);
 	void follow_ostrich(entity_t *ent, map_t *map);
 	void ennemy_handling(rpg_t *rpg, map_t *map);
 	entity_t *add_ennemy_class_1(const char *path_sprite, sfIntRect square);
@@ -142,7 +142,7 @@
 	void display_fairy(rpg_t *rpg, sfEvent event);
 	void move_fairy(fairy_t *fairy, rpg_t *rpg, sfEvent event);
 	void fairy_fight(fairy_t *fairy, rpg_t *rpg);
-	void new_shoot(list_shoot_t *list, V2F pos);
+	void new_shoot(list_shoot_t *list, pos_t pos, rpg_t *rpg);
 	void end_shoot(list_shoot_t *list);
 
 #endif /* RPG_H_ */

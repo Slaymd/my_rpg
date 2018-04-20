@@ -92,6 +92,7 @@ struct entity_infos_s {
 	int mirror;
 	int max;
 	char *song;
+	float hp;
 };
 
 struct entity_s {
@@ -111,6 +112,8 @@ struct entity_s {
 	sfTime time;
 	float seconds;
 	sfMusic *song;
+	float hp;
+	sfRectangleShape *hp_bar;
 };
 
 typedef struct ptr_s {

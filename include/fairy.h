@@ -21,8 +21,7 @@
 
 	struct shoot_s {
 		sfIntRect rect;
-		sfVector2f pos;
-		// pos_t pos;
+		pos_t pos;
 		shoot_t *next;
 	};
 
