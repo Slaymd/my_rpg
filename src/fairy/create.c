@@ -13,7 +13,7 @@ void new_shoot(list_shoot_t *list, pos_t pos, rpg_t *rpg)
 
 	if (!new)
 		return;
-	new->rect = (sfIntRect){0,0, EXPLO_X, EXPLO_Y};
+	new->rect = (sfIntRect){0, 0, EXPLO_X, EXPLO_Y};
 	new->pos = (pos_t){pos.x + rpg->map->topleft_to_disp.x,
 	pos.y + rpg->map->topleft_to_disp.y, pos.z};
 	new->next = list->first;
@@ -43,6 +43,7 @@ void set_fairy(fairy_t *fairy)
 	sfSprite_setTexture(fairy->sprite, fairy->texture, sfTrue);
 	sfSprite_setPosition(fairy->sprite, fairy->pos);
 	sfSprite_setTextureRect(fairy->sprite, fairy->rect);
+	sfSprite_setScale(fairy->sprite, (V2F){ZOOM, ZOOM});
 	sfSprite_setOrigin(fairy->sprite, (V2F){SIZE_F_X / 2, SIZE_F_Y / 2});
 	sfSprite_setTexture(fairy->s_explo, fairy->t_explo, sfTrue);
 	sfSprite_setOrigin(fairy->s_explo, (V2F){EXPLO_X / 2, EXPLO_Y / 2});

@@ -10,8 +10,8 @@
 
 	#define SIZE_F_X 34
 	#define SIZE_F_Y 49
-	#define MOVE_F_X 50
-	#define MOVE_F_Y 55
+	#define MOVE_F_X 35
+	#define MOVE_F_Y 40
 	#define EXPLO_X 192
 	#define EXPLO_Y 195
 

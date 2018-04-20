@@ -33,12 +33,27 @@ int	disp_chunk(sfRenderWindow *wd, map_t *map, chunk_t *chk, pos_t ref)
 		if (y == TILES_PER_CHUNKS)
 			break;
 		px_pos = get_relative_pixel_pos(ref, chk, chk->tiles[y][x].pos);
+		px_pos = (sfVector2f){px_pos.x+WIDTH/2, px_pos.y+HEIGHT/2};
 		disp_tile(wd, map, &chk->tiles[y][x], px_pos);
 	}
 	return (0);
 }
 
-int	disp_map(sfRenderWindow *wd, map_t *map, pos_t ref)
+int	disp_map(rpg_t *rpg)
+{
+	list_t *nchunks = NULL;
+	map_t *map = rpg != NULL ? rpg->map : NULL;
+
+	if (map == NULL)
+		return (-1);
+	nchunks = get_nearest_chunks(map, map->center);
+	for (; nchunks != NULL; nchunks = nchunks->next) {
+		disp_chunk(rpg->wd, map, (chunk_t*)nchunks->data, map->center);
+	}
+	return (0);
+}
+
+/*int	disp_map(sfRenderWindow *wd, map_t *map, pos_t ref)
 {
 	list_t	*_chunks = get_nearest_chunks(map, ref);
 	chunk_t		*chunk = NULL;
@@ -48,7 +63,7 @@ int	disp_map(sfRenderWindow *wd, map_t *map, pos_t ref)
 		disp_chunk(wd, map, chunk, ref);
 	}
 	return (0);
-}
+}*/
 
 int	disp_rect_at(sfRenderWindow *wd, map_t *mp, sfRectangleShape *rect,
 	pos_t p)

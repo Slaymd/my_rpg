@@ -26,6 +26,6 @@ scene_t *init_mainmenu(rpg_t *rpg)
 void disp_mainmenu(rpg_t *rpg)
 {
 	rpg->map->topleft_to_disp.x += MOVE_SPEED/5;
-	disp_map(rpg->wd, rpg->map, rpg->map->topleft_to_disp);
+	disp_map(rpg);
 	disp_scene(rpg->wd, rpg->scene);
 }

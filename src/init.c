@@ -49,8 +49,8 @@ view_t *create_view(void)
 	view->v_screen = sfView_createFromRect((FR){0, 0, WIDTH, HEIGHT});
 	view->v_normal = sfView_createFromRect((FR){0, 0, WIDTH, HEIGHT});
 	view->v_map = sfView_createFromRect((FR){0, 0, WIDTH, HEIGHT});
-	sfView_setSize(view->v_screen, (V2F){WIDTH * 0.8, HEIGHT * 0.8});
-	sfView_zoom(view->v_screen, 0.8);
+	// sfView_setSize(view->v_screen, (V2F){WIDTH * 0.8, HEIGHT * 0.8});
+	sfView_zoom(view->v_screen, ZOOM);
 	sfView_setSize(view->v_normal, (V2F){WIDTH, HEIGHT});
 	sfView_setSize(view->v_map, (V2F){WIDTH * 2, HEIGHT * 2});
 	sfView_setViewport(view->v_map, (FR){0.7, 0.0, 0.35, 0.35});

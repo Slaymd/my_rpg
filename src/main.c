@@ -19,7 +19,7 @@ void display_minimap(sfSprite *sprite, rpg_t *rpg)
 int	disp_game(rpg_t *rpg)
 {
 	map_move(rpg->event, rpg->map);
-	disp_map(rpg->wd, rpg->map, rpg->map->topleft_to_disp);
+	disp_map(rpg);
 	return (0);
 }
 

@@ -21,6 +21,9 @@ void display_character(rpg_t *rpg, character_t *character)
 	character->time = sfClock_getElapsedTime(character->clock);
 	character->seconds = character->time.microseconds / 1000000.0;
 	move_character(character, rpg);
-	display_character_hp(rpg, character);
+	if (character->hp > 0)
+		display_character_hp(rpg, character);
+	else
+		sfRenderWindow_close(rpg->wd);
 	display_minimap(character->sprite, rpg);
 }

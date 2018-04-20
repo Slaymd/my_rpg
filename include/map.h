@@ -13,8 +13,8 @@
 #define TILE_SIZE 16
 #define MOVE_SPEED 0.12
 
-#define TILES_PER_CHUNKS 32
-#define DEFAULT_RENDER_DISTANCE 4
+#define TILES_PER_CHUNKS 16
+#define DEFAULT_RENDER_DISTANCE 3
 
 #define DEFAULT_POS_X 16000
 #define DEFAULT_POS_Y 16000
@@ -31,6 +31,7 @@ typedef struct window_s window_t;
 typedef struct chunk_s chunk_t;
 typedef struct map_s map_t;
 
+typedef struct rpg_s rpg_t;
 
 typedef struct entity_s entity_t;
 typedef struct entity_infos_s entity_infos_t;
@@ -77,6 +78,8 @@ struct map_s {
 	list_t	*entities;
 	list_t	*textures;
 	pos_t	topleft_to_disp;
+	pos_t	center;
+	sfVector2i render_distance;
 };
 
 struct entity_infos_s {
@@ -135,7 +138,7 @@ chunk_t	*chunk_gen(map_t *map, pos_t pos);
 sfSprite	*get_tile_sprite(map_t *map, tile_t *tile);
 
 //DISP
-int	disp_map(sfRenderWindow *wd, map_t *map, pos_t pos);
+int	disp_map(rpg_t *rpg);
 int	disp_sprite_at(sfRenderWindow *wd, map_t *mp, sfSprite *sp, pos_t p);
 
 //COORDS

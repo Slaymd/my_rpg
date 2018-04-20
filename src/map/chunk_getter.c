@@ -25,11 +25,12 @@ chunk_t *get_chunk_at(map_t *map, pos_t pos)
 
 list_t *get_nearest_chunks(map_t *map, pos_t pos)
 {
+	sfVector2i dispdist = map->render_distance;
 	list_t	*nearest_chunks = NULL;
-	pos_t		minpos = get_chunk_coords(pos);
-	pos_t		maxpos = {minpos.x+DEFAULT_RENDER_DISTANCE,
-		minpos.y+DEFAULT_RENDER_DISTANCE, 0};
-	chunk_t		*chunk = NULL;
+	pos_t	cctr = get_chunk_coords(pos);
+	pos_t	minpos = {cctr.x-dispdist.x,cctr.y-dispdist.y,0};
+	pos_t	maxpos = {minpos.x+dispdist.x*2+1,minpos.y+dispdist.y*2+1,0};
+	chunk_t	*chunk = NULL;
 
 	for (float x = minpos.x, y = minpos.y; x <= maxpos.x; x++) {
 		if (x == maxpos.x) {

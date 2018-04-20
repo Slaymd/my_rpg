@@ -19,6 +19,9 @@ map_t *init_map(char *name, int seed)
 	map->name = name;
 	map->topleft_to_disp = (pos_t){500*TILES_PER_CHUNKS,
 		500*TILES_PER_CHUNKS, 0.0};
+	map->render_distance = (sfVector2i){DEFAULT_RENDER_DISTANCE,
+		DEFAULT_RENDER_DISTANCE};
+	map->center = (pos_t){DEFAULT_POS_X, DEFAULT_POS_Y, 0};
 	return (map);
 }
 
