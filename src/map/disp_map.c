@@ -50,7 +50,6 @@ int	disp_map(sfRenderWindow *wd, map_t *map, pos_t ref)
 	return (0);
 }
 
-
 int	disp_rect_at(sfRenderWindow *wd, map_t *mp, sfRectangleShape *rect,
 	pos_t p)
 {
@@ -62,7 +61,7 @@ int	disp_rect_at(sfRenderWindow *wd, map_t *mp, sfRectangleShape *rect,
 		return (-1);
 	if (px.y <= -TILE_SIZE || px.y >= HEIGHT)
 		return (-1);
-	sfRectangleShape_setPosition(rect, (sfVector2f){px.x - 60, px.y - 60});
+	sfRectangleShape_setPosition(rect, (sfVector2f){px.x - 10, px.y - 55});
 	sfRenderWindow_drawRectangleShape(wd, rect, NULL);
 	return (0);
 }

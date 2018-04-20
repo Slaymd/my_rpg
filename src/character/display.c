@@ -10,6 +10,7 @@
 void display_character_hp(rpg_t *rpg, character_t *character)
 {
 	float hp = 50 * (character->hp / 100.0);
+
 	sfRectangleShape_setSize(character->hp_bar, (V2F){hp, 5});
 	sfRenderWindow_setView(rpg->wd, rpg->view->v_screen);
 	sfRenderWindow_drawRectangleShape(rpg->wd, character->hp_bar, NULL);

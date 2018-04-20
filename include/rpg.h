@@ -123,7 +123,7 @@
 
 	//ENNEMY
 	int detect_ennemy(entity_t *ent, map_t *map);
-	void follow_ogre(entity_t *ent, map_t *map);
+	void follow_ogre(entity_t *ent, map_t *map, character_t *character);
 	void follow_ostrich(entity_t *ent, map_t *map);
 	void ennemy_handling(rpg_t *rpg, map_t *map);
 	entity_t *add_ennemy_class_1(const char *path_sprite, sfIntRect square);
