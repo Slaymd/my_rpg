@@ -13,7 +13,7 @@ void new_shoot(list_shoot_t *list, pos_t pos, rpg_t *rpg)
 
 	if (!new)
 		return;
-	new->rect = (sfIntRect){0,0, EXPLO_X, EXPLO_Y};
+	new->rect = (sfIntRect){0, 0, EXPLO_X, EXPLO_Y};
 	new->pos = (pos_t){pos.x + rpg->map->topleft_to_disp.x,
 	pos.y + rpg->map->topleft_to_disp.y, pos.z};
 	new->next = list->first;

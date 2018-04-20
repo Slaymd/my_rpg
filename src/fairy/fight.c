@@ -47,6 +47,22 @@ void display_shoot(list_shoot_t *shoot, fairy_t *fairy, rpg_t *rpg)
 	sfRenderWindow_setView(rpg->wd, rpg->view->v_screen);
 }
 
+void is_it_hit(rpg_t *rpg, pos_t pos)
+{
+	list_t *tmp = rpg->entities;
+
+	float x = pos.x;
+	float y = pos.y;
+
+	for (; tmp != NULL; tmp = tmp->next) {
+		if (x >= ((entity_t *)tmp->data)->pos.x - 3 && x <=
+		((entity_t *)tmp->data)->pos.x + 3 && y >=
+		((entity_t *)tmp->data)->pos.y - 3 && y <=
+		((entity_t *)tmp->data)->pos.y + 3) {
+		}
+	}
+}
+
 void fairy_fight(fairy_t *fairy, rpg_t *rpg)
 {
 	float x = (float)sfMouse_getPositionRenderWindow(rpg->wd).x;
@@ -56,6 +72,7 @@ void fairy_fight(fairy_t *fairy, rpg_t *rpg)
 		move_shoot(fairy->shoot);
 		if (sfKeyboard_isKeyPressed(sfKeySpace)) {
 			new_shoot(fairy->shoot, (pos_t){x, y, 0}, rpg);
+			is_it_hit(rpg, rpg->fairy->shoot->first->pos);
 			sfMusic_play(fairy->shhh);
 		}
 		end_shoot(fairy->shoot);
