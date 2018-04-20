@@ -18,15 +18,30 @@ void move_shoot(list_shoot_t *shoot)
 	}
 }
 
+int disp_shoot_at(sfRenderWindow *wd, map_t *mp, sfSprite *sp, pos_t p)
+{
+	pos_t relat_ref_pos = {p.x-mp->topleft_to_disp.x,
+	p.y-mp->topleft_to_disp.y, 0};
+	sfVector2f px = {relat_ref_pos.x, relat_ref_pos.y};
+	sfSprite *sprite = NULL;
+	if (px.x <= -TILE_SIZE || px.x >= WIDTH || sp == NULL)
+		return (-1);
+	if (px.y <= -TILE_SIZE || px.y >= HEIGHT)
+		return (-1);
+	sprite = sfSprite_copy(sp);
+	sfSprite_setPosition(sprite, px);
+	sfRenderWindow_drawSprite(wd, sprite, NULL);
+	return (0);
+}
+
 void display_shoot(list_shoot_t *shoot, fairy_t *fairy, rpg_t *rpg)
 {
 	shoot_t *tmp = shoot->first;
 
 	sfRenderWindow_setView(rpg->wd, rpg->view->v_normal);
 	while (tmp) {
-		sfSprite_setPosition(fairy->s_explo, tmp->pos);
 		sfSprite_setTextureRect(fairy->s_explo, tmp->rect);
-		sfRenderWindow_drawSprite(rpg->wd, fairy->s_explo, NULL);
+		disp_shoot_at(rpg->wd, rpg->map, fairy->s_explo, tmp->pos);
 		tmp = tmp->next;
 	}
 	sfRenderWindow_setView(rpg->wd, rpg->view->v_screen);
@@ -40,7 +55,7 @@ void fairy_fight(fairy_t *fairy, rpg_t *rpg)
 	if (rpg->fairy->seconds >= 0.05) {
 		move_shoot(fairy->shoot);
 		if (sfKeyboard_isKeyPressed(sfKeySpace)) {
-			new_shoot(fairy->shoot, (V2F){x, y});
+			new_shoot(fairy->shoot, (pos_t){x, y, 0}, rpg);
 			sfMusic_play(fairy->shhh);
 		}
 		end_shoot(fairy->shoot);

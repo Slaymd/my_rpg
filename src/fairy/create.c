@@ -7,16 +7,15 @@
 
 #include "rpg.h"
 
-void new_shoot(list_shoot_t *list, V2F pos)
+void new_shoot(list_shoot_t *list, pos_t pos, rpg_t *rpg)
 {
 	shoot_t *new = malloc(sizeof(shoot_t));
 
 	if (!new)
 		return;
 	new->rect = (sfIntRect){0,0, EXPLO_X, EXPLO_Y};
-	new->pos = (V2F){pos.x, pos.y};
-	// new->pos = (pos_t){pos.x, pos.y};
-	new->next = list->first;
+	new->pos = (pos_t){pos.x + rpg->map->topleft_to_disp.x,
+	pos.y + rpg->map->topleft_to_disp.y, pos.z};
 	list->first = new;
 }
 
