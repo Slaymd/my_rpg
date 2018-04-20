@@ -57,6 +57,7 @@ int	disp_rect_at(sfRenderWindow *wd, map_t *mp, sfRectangleShape *rect,
 		p.y-mp->topleft_to_disp.y, 0};
 	sfVector2f px = {relat_ref_pos.x*TILE_SIZE,
 		relat_ref_pos.y*TILE_SIZE};
+
 	if (px.x <= -TILE_SIZE || px.x >= WIDTH)
 		return (-1);
 	if (px.y <= -TILE_SIZE || px.y >= HEIGHT)
@@ -73,6 +74,7 @@ int	disp_sprite_at(sfRenderWindow *wd, map_t *mp, sfSprite *sp, pos_t p)
 	sfVector2f px = {relat_ref_pos.x*TILE_SIZE,
 		relat_ref_pos.y*TILE_SIZE};
 	sfSprite *sprite = NULL;
+
 	if (px.x <= -TILE_SIZE || px.x >= WIDTH || sp == NULL)
 		return (-1);
 	if (px.y <= -TILE_SIZE || px.y >= HEIGHT)
