@@ -10,11 +10,11 @@
 
 #include "list.h"
 
-#define TILE_SIZE 32
+#define TILE_SIZE 16
 #define MOVE_SPEED 0.12
 
 #define TILES_PER_CHUNKS 32
-#define DEFAULT_RENDER_DISTANCE 2
+#define DEFAULT_RENDER_DISTANCE 4
 
 #define DEFAULT_POS_X 16000
 #define DEFAULT_POS_Y 16000
