@@ -46,7 +46,8 @@ SRC			=	./src/main.c				\
 				src/entity/deplacement_ostrich.c	\
 				src/game_loop.c				\
 				src/entity/combat.c			\
-				src/entity/ennemy_generation.c
+				src/entity/ennemy_generation.c	\
+				src/map/tile_getter.c			\
 				# ./src/menu/display.c
 				# ./src/menu/free.c
 				# ./src/menu/scenes/scene_start.c

@@ -35,9 +35,9 @@ int	game_loop(rpg_t *rpg)
 			sfRenderWindow_close(rpg->wd);
 		scene_events_handler(rpg->wd, event, rpg->scene);
 	}
-	if (rpg->state == 0)
+	if (rpg->state < 3)
 		disp_mainmenu(rpg);
-	else if (rpg->state == 1) {
+	else if (rpg->state == 3) {
 		sfRenderWindow_setView(rpg->wd, rpg->view->v_screen);
 		disp_game(rpg);
 		sfRenderWindow_setView(rpg->wd, rpg->view->v_map);
