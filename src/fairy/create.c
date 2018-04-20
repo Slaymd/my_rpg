@@ -16,6 +16,7 @@ void new_shoot(list_shoot_t *list, pos_t pos, rpg_t *rpg)
 	new->rect = (sfIntRect){0,0, EXPLO_X, EXPLO_Y};
 	new->pos = (pos_t){pos.x + rpg->map->topleft_to_disp.x,
 	pos.y + rpg->map->topleft_to_disp.y, pos.z};
+	new->next = list->first;
 	list->first = new;
 }
 
@@ -27,7 +28,10 @@ void end_shoot(list_shoot_t *list)
 	while (tmp && tmp->next) {
 		if (tmp->next->rect.left >= 4800) {
 			delete = tmp->next;
-			tmp->next = tmp->next->next;
+			if (tmp->next->next)
+				tmp->next = tmp->next->next;
+			else
+				tmp->next = NULL;
 			free(delete);
 		}
 		tmp = tmp->next;
