@@ -11,7 +11,6 @@ int rand_time(int min, int max)
 {
 	int nb = 0;
 
-	srand(time(NULL));
 	nb = rand() % (max - min) + min;
 	return (nb);
 }

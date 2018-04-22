@@ -9,48 +9,48 @@
 
 int map_move_left(map_t *map)
 {
-	float player_x = map->center.x-0.5;
-	float player_y = map->center.y+1;
+	float player_x = map->center.x;
+	float player_y = map->center.y;
 	pos_t player_pos = {player_x - MOVE_SPEED, player_y, 0};
 	int canmove = can_move_here(map, player_pos);
 
-	if (!canmove)
+	if (canmove)
 		map->center.x -= MOVE_SPEED;
 	return (0);
 }
 
 int map_move_right(map_t *map)
 {
-	float player_x = map->center.x-0.5;
-	float player_y = map->center.y+1;
+	float player_x = map->center.x;
+	float player_y = map->center.y;
 	pos_t player_pos = {player_x + MOVE_SPEED, player_y, 0};
 	int canmove = can_move_here(map, player_pos);
 
-	if (!canmove)
+	if (canmove)
 		map->center.x += MOVE_SPEED;
 	return (0);
 }
 
 int map_move_up(map_t *map)
 {
-	float player_x = map->center.x-0.5;
-	float player_y = map->center.y+1;
+	float player_x = map->center.x;
+	float player_y = map->center.y;
 	pos_t player_pos = {player_x, player_y - MOVE_SPEED, 0};
 	int canmove = can_move_here(map, player_pos);
 
-	if (!canmove)
+	if (canmove)
 		map->center.y -= MOVE_SPEED;
 	return (0);
 }
 
 int map_move_down(map_t *map)
 {
-	float player_x = map->center.x-0.5;
-	float player_y = map->center.y+1;
+	float player_x = map->center.x;
+	float player_y = map->center.y;
 	pos_t player_pos = {player_x, player_y + MOVE_SPEED, 0};
 	int canmove = can_move_here(map, player_pos);
 
-	if (!canmove)
+	if (canmove)
 		map->center.y += MOVE_SPEED;
 	return (0);
 }

@@ -150,6 +150,9 @@ pos_t	get_absolute_pos(chunk_t *chunk, pos_t pos);
 chunk_t *get_chunk_at(map_t *map, pos_t pos);
 tile_t *get_tile_at(map_t *map, pos_t pos);
 
+//POS GEN
+pos_t generate_pos_near(map_t *map, pos_t pos, int minradius);
+
 //COLLISIONS
 int	can_move_here(map_t *map, pos_t pos);
 

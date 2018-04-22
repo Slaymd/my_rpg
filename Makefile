@@ -48,14 +48,7 @@ SRC			=	./src/main.c				\
 				src/entity/combat.c			\
 				src/entity/ennemy_generation.c	\
 				src/map/tile_getter.c			\
-				# ./src/menu/display.c
-				# ./src/menu/free.c
-				# ./src/menu/scenes/scene_start.c
-				# ./src/menu/scenes/scene_options.c
-				# ./src/menu/buttons/manage_buttons.c
-				# ./src/menu/buttons/buttons_main.c
-				# ./src/menu/buttons/buttons_scene.c
-				#./src/menu/create.c
+				src/map/generation/pos_gen.c		\
 
 CFLAGS		=	-W -Wall -Wextra -I./include -g3 -lm
 

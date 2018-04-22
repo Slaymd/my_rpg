@@ -54,6 +54,10 @@ int	disp_map(rpg_t *rpg)
 	for (; nchunks != NULL; nchunks = nchunks->next) {
 		disp_chunk(rpg->wd, map, (chunk_t*)nchunks->data, map->center);
 	}
+	if (rpg->state == 3 && !can_move_here(map, map->center)) {
+		map->center = generate_pos_near(map, map->center, 2);
+		disp_map(rpg);
+	}
 	return (0);
 }
 

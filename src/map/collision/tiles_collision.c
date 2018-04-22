@@ -14,6 +14,6 @@ int	can_move_here(map_t *map, pos_t pos)
 	if (tile == NULL)
 		return (-1);
 	if (tile->texture_id <= 2 || tile->texture_id > 4)
-		return (1);
-	return (0);
+		return (0);
+	return (1);
 }
