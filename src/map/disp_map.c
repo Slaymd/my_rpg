@@ -11,10 +11,14 @@ int	disp_tile(sfRenderWindow *wd, map_t *map, tile_t *tile, sfVector2f px)
 {
 	sfSprite *sprite = NULL;
 
-	if (px.x <= -TILE_SIZE || px.x >= WIDTH)
+	if (px.x <= -TILE_SIZE || px.x >= WIDTH || px.y <= -TILE_SIZE ||
+	px.y >= HEIGHT) {
+		if (tile->sprite != NULL) {
+			sfSprite_destroy(tile->sprite);
+			tile->sprite = NULL;
+		}
 		return (-1);
-	if (px.y <= -TILE_SIZE || px.y >= HEIGHT)
-		return (-1);
+	}
 	sprite = get_tile_sprite(map, tile);
 	sfSprite_setPosition(sprite, px);
 	sfRenderWindow_drawSprite(wd, sprite, NULL);

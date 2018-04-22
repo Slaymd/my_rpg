@@ -44,9 +44,9 @@ void regen_map_from_ui(void *data)
 
 void swap_state_maptravelling(rpg_t *rpg)
 {
-	if (rpg->state == 2 && rpg->map->topleft_to_disp.x <= DEFAULT_POS_X)
+	if (rpg->state == 2 && rpg->map->center.x <= DEFAULT_POS_X)
 		rpg->state = 1;
-	else if (rpg->state == 1 && rpg->map->topleft_to_disp.x >=
+	else if (rpg->state == 1 && rpg->map->center.x >=
 		DEFAULT_POS_X+TILES_PER_CHUNKS)
 		rpg->state = 2;
 }
