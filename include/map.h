@@ -10,8 +10,11 @@
 
 #include "list.h"
 
-#define TILE_SIZE 16
+#define TILE_SIZE 22
 #define MOVE_SPEED 0.12
+
+#define DEPTH 2
+#define FREQ 0.06
 
 #define TILES_PER_CHUNKS 16
 #define DEFAULT_RENDER_DISTANCE 3
@@ -128,14 +131,17 @@ typedef struct ptr_s {
 //INITS
 map_t *init_map(char *name, int seed);
 chunk_t *init_chunk(pos_t pos);
-tile_t init_tile(float x, float y, float noisevalue);
 
 //MAP GEN
 map_t	*generate_map(int seed);
 chunk_t	*chunk_gen(map_t *map, pos_t pos);
+tile_t generate_tile_at(map_t *map, pos_t apos, pos_t pos);
 
 //TILE SPRITES
 sfSprite	*get_tile_sprite(map_t *map, tile_t *tile);
+
+//TILE TEXTURES
+int	get_texture_id(float adjtxt[9]);
 
 //DISP
 int	disp_map(rpg_t *rpg);

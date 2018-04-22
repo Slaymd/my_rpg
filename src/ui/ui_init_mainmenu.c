@@ -15,7 +15,7 @@ scene_t *init_mainmenu(rpg_t *rpg)
 	panel_t *bgpanel = create_flat_panel((sfVector2f){0,0},\
 	(sfVector2f){WIDTH,HEIGHT}, sfBlack);
 
-	set_panel_opacity(bgpanel, 0.5);
+	set_panel_opacity(bgpanel, 0.3);
 	play->action = &click_play_button;
 	play->params = rpg;
 	list_add_withtag(&scene->buttons, play, "play_button");

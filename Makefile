@@ -49,6 +49,7 @@ SRC			=	./src/main.c				\
 				src/entity/ennemy_generation.c	\
 				src/map/tile_getter.c			\
 				src/map/generation/pos_gen.c		\
+				src/map/generation/texture_table.c	\
 
 CFLAGS		=	-W -Wall -Wextra -I./include -g3 -lm
 

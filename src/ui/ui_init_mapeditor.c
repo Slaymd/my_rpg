@@ -50,7 +50,7 @@ scene_t *init_mapeditor(rpg_t *rpg)
 	textbox_t *nametb = create_textbox((sfIntRect){50,350,250,42},
 	sfBlack, sfWhite);
 
-	set_panel_opacity(bgpanel, 0.5);
+	set_panel_opacity(bgpanel, 0.3);
 	seedtb->type = ONLY_NUM;
 	list_add(&scene->panels, bgpanel);
 	list_add_withtag(&scene->textboxes, seedtb, "seed");
