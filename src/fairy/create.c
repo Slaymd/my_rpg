@@ -44,7 +44,8 @@ void set_fairy(fairy_t *fairy)
 	sfSprite_setPosition(fairy->sprite, fairy->pos);
 	sfSprite_setTextureRect(fairy->sprite, fairy->rect);
 	sfSprite_setScale(fairy->sprite, (V2F){ZOOM, ZOOM});
-	sfSprite_setOrigin(fairy->sprite, (V2F){SIZE_F_X / 2, SIZE_F_Y / 2});
+	sfSprite_setOrigin(fairy->sprite, (V2F){SIZE_F_X / 2 * ZOOM,
+	SIZE_F_Y / 2 * ZOOM});
 	sfSprite_setTexture(fairy->s_explo, fairy->t_explo, sfTrue);
 	sfSprite_setOrigin(fairy->s_explo, (V2F){EXPLO_X / 2, EXPLO_Y / 2});
 	sfSprite_setScale(fairy->s_explo, (V2F){0.5, 0.5});
