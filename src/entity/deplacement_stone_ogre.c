@@ -74,6 +74,6 @@ void deplacement_ogre(rpg_t *rpg, map_t *map, entity_t *ent)
 	ent->mirror == 1 && count == 5 ? x-- : 0;
 	x = my_if_ogre(ent, x);
 	display_ennemy(rpg, ent, map, (int) count);
-	count = ent->mirror == 0 ? go_left_ogre(ent, count, map) :
+	count = ent->mirror == 1 ? go_left_ogre(ent, count, map) :
 	go_right_ogre(ent, count, map);
 }

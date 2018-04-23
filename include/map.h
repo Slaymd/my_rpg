@@ -58,14 +58,14 @@ struct pos_s {
 struct object_s {
 	pos_t		pos;
 	object_type	type;
-	sfSprite		*sprite;
+	sfSprite	*sprite;
 };
 
 struct tile_s {
 	pos_t		pos;
-	tile_type		type;
-	int			texture_id;
-	sfSprite		*sprite;
+	tile_type	type;
+	int		texture_id;
+	sfSprite	*sprite;
 };
 
 struct chunk_s {
@@ -74,8 +74,8 @@ struct chunk_s {
 };
 
 struct map_s {
-	int		seed;
-	char		*name;
+	int	seed;
+	char	*name;
 	list_t	*chunks;
 	list_t	*objects;
 	list_t	*entities;
