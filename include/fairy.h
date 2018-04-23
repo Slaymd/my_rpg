@@ -41,6 +41,7 @@
 		sfVector2f ep;
 		sfSprite *s_explo;
 		sfTexture *t_explo;
+		particle_t *particle;
 		list_shoot_t *shoot;
 		sfVertexArray *line;
 		sfMusic *shhh;

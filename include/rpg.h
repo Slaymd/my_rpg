@@ -21,6 +21,7 @@
 
 	#include "map.h"
 	#include "character.h"
+	#include "particle.h"
 	#include "fairy.h"
 	#include "list.h"
 	#include "my.h"
