@@ -14,19 +14,16 @@ void move_shoot(list_shoot_t *shoot)
 	while (tmp) {
 		tmp->pos_r.x += tmp->distance.x / 10;
 		tmp->pos_r.y += tmp->distance.y / 10;
-		if (tmp->distance.x > 0)
-			(tmp->pos_r.x >= tmp->pos_e.x) ? tmp->pos_r.x =
-			tmp->pos_e.x : 0;
-		else
-			(tmp->pos_r.x <= tmp->pos_e.x) ? tmp->pos_r.x =
-			tmp->pos_e.x : 0;
-		if (tmp->distance.y > 0)
-			(tmp->pos_r.y >= tmp->pos_e.y) ? tmp->pos_r.y =
-			tmp->pos_e.y : 0;
-		else
-			(tmp->pos_r.y <= tmp->pos_e.y) ? tmp->pos_r.y =
-			tmp->pos_e.y : 0;
-		if (tmp->pos_r.x == tmp->pos_e.x && tmp->pos_r.y == tmp->pos_e.y)
+		(tmp->distance.x >= 0 && tmp->pos_r.x >= tmp->pos_e.x) ?
+		tmp->pos_r.x = tmp->pos_e.x : 0;
+		(tmp->distance.x < 0 && tmp->pos_r.x <= tmp->pos_e.x) ?
+		tmp->pos_r.x = tmp->pos_e.x : 0;
+		(tmp->distance.y >= 0 && tmp->pos_r.y >= tmp->pos_e.y) ?
+		tmp->pos_r.y = tmp->pos_e.y : 0;
+		(tmp->distance.y < 0 && tmp->pos_r.y <= tmp->pos_e.y) ?
+		tmp->pos_r.y = tmp->pos_e.y : 0;
+		if (tmp->pos_r.x == tmp->pos_e.x &&
+		tmp->pos_r.y == tmp->pos_e.y)
 			tmp->state = 1;
 		if (tmp->state == 1 && tmp->rect.left < 4800)
 			tmp->rect.left += 192;
