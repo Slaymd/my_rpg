@@ -68,7 +68,7 @@ void fairy_fight(fairy_t *fairy, rpg_t *rpg)
 	float x = (float)sfMouse_getPositionRenderWindow(rpg->wd).x;
 	float y = (float)sfMouse_getPositionRenderWindow(rpg->wd).y;
 
-	if (rpg->fairy->seconds >= 0.05) {
+	if (rpg->fairy->seconds >= 0.10) {
 		move_shoot(fairy->shoot);
 		if (sfKeyboard_isKeyPressed(sfKeySpace)) {
 			new_shoot(fairy->shoot, (pos_t){x, y, 0}, rpg);
@@ -76,7 +76,6 @@ void fairy_fight(fairy_t *fairy, rpg_t *rpg)
 			sfMusic_play(fairy->shhh);
 		}
 		end_shoot(fairy->shoot);
-		sfClock_restart(rpg->fairy->clock);
 	}
 	display_shoot(fairy->shoot, fairy, rpg);
 }

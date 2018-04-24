@@ -20,10 +20,10 @@
 	};
 	particle_t *create_particle(int x, int y);
 	void display_particle(particle_t *particle, sfRenderWindow *window,
-	sfVector2f pos);
+	sfVector2f pos, int refresh);
 	void destroy_particle(particle_t *particle);
 	void put_pixel(particle_t *particle, int x, int y, sfColor color);
 
-	void radian_gradiant(particle_t *particle, sfVector2i pos);
+	void radian_gradiant(particle_t *particle, sfVector2i pos, int refresh);
 
 #endif

@@ -38,14 +38,14 @@ void put_pixel(particle_t *particle, int x, int y, sfColor color)
 	}
 }
 
-void display_circle(particle_t *p)
+void display_circle(particle_t *p, int refresh)
 {
 	sfVector2i pos = {p->x / 2 - p->x / 2, p->y / 2 - p->y / 2};
 
 	while (pos.x != p->x / 2 + p->x / 2 || pos.y != p->y / 2 + p->y / 2) {
 		if ((((pos.x - p->x / 2) * (pos.x - p->x / 2)) + ((pos.y - p->y
 		/ 2) * (pos.y - p->y / 2))) <= (p->x / 2 * p->y / 2))
-			radian_gradiant(p, pos);
+			radian_gradiant(p, pos, refresh);
 		pos.x += 1;
 		if (pos.x > p->x / 2 + p->x / 2) {
 			pos.x = 0;
@@ -54,9 +54,9 @@ void display_circle(particle_t *p)
 	}
 }
 
-void display_particle(particle_t *particle, sfRenderWindow *window, V2F pos)
+void display_particle(particle_t *particle, sfRenderWindow *window, V2F pos, int refresh)
 {
-	display_circle(particle);
+	display_circle(particle, refresh);
 	sfTexture_updateFromPixels(particle->texture, particle->pixels,
 	particle->x, particle->y, 0, 0);
 	sfSprite_setPosition(particle->sprite, pos);
