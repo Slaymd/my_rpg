@@ -24,6 +24,6 @@
 	void destroy_particle(particle_t *particle);
 	void put_pixel(particle_t *particle, int x, int y, sfColor color);
 
-	void radian_gradiant(particle_t *particle, sfVector2i pos, int refresh);
+	void radial_gradiant(particle_t *particle, sfVector2i pos, int refresh);
 
 #endif

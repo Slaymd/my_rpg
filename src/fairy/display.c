@@ -30,8 +30,9 @@ void display_fairy(rpg_t *rpg, sfEvent event)
 	move_fairy(rpg->fairy, rpg, event);
 	fairy_fight(rpg->fairy, rpg);
 	display_fairy_line(rpg->fairy, rpg);
-	display_particle(rpg->fairy->particle, rpg->wd, rpg->fairy->pos, rpg->fairy->seconds >= 0.10 ? 1 : 0);
+	display_particle(rpg->fairy->particle, rpg->wd, rpg->fairy->pos,
+	rpg->fairy->seconds >= 0.05 ? 1 : 0);
 	display_minimap(rpg->fairy->sprite, rpg);
-	if (rpg->fairy->seconds >= 0.10)
+	if (rpg->fairy->seconds >= 0.05)
 		sfClock_restart(rpg->fairy->clock);
 }

@@ -55,7 +55,7 @@ SRC			=	./src/main.c				\
 
 CFLAGS		=	-W -Wall -Wextra -I./include -g3 -lm
 
-LIB			=	-L./lib/my -lmy -L./lib/list -llist -L./lib/ui -lui
+LIB			=	-L./lib/my -lmy -L./lib/list -llist -L./lib/ui -lui -lm
 
 LIB_TEST		=	-lcriterion
 

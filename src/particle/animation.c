@@ -7,21 +7,21 @@
 
 #include "rpg.h"
 
-void radian_gradiant(particle_t *particle, sfVector2i pos, int refresh)
+void radial_gradiant(particle_t *particle, sfVector2i pos, int refresh)
 {
-	static sfColor color = (sfColor){255, 255, 255, 0};
+	static sfColor color;
+	sfVector2f og;
+	float d;
+	float a;
 
 	if (refresh == 1) {
-		if (pos.x > particle->x / 2)
-			color.a += (float)(pos.x) / (float)particle->x * 2 * 127.5 * -1;
-		else
-			color.a += (float)(pos.x) / (float)particle->x * 2 * 127.5;
-		if (pos.y > particle->y / 2)
-			color.a += (float)(pos.y) / (float)particle->y * 2 * 127.5 * -1;
-		else
-			color.a += (float)(pos.y) / (float)particle->y * 2 * 127.5;
-		if (rand() % 2 == 0)
-			color.a = 0;
+		color = sfWhite;
+		if (rand() % 2 == 1)
+			color = sfBlack;
+		og = (V2F){particle->x * 0.5, particle->y * 0.5};
+		d = sqrt(pow((og.x - pos.x), 2) + pow((og.y - pos.y), 2));
+		a = ((d / (particle->x / 2)) * 255 - 255) * -1;
+		color.a = (a >= 0 && a <= 255) ? a : 0;
 		put_pixel(particle, pos.x, pos.y, color);
 	}
 }

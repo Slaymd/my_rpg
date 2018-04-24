@@ -13,12 +13,11 @@ particle_t *create_particle(int x, int y)
 	sfUint8 *pixels = malloc(sizeof(sfUint8) * x * y * 4);
 
 	for (int i = 0; i < x * y * 4; i++)
-		pixels[i] = (i + 1 % 4 == 0) ? 255 : 0;
+		pixels[i] = 0;
 	particle->texture = sfTexture_create(x, y);
 	particle->sprite = sfSprite_create();
 	particle->x = x;
 	particle->y = y;
-	particle->color = sfWhite;
 	particle->pixels = pixels;
 	sfSprite_setTexture(particle->sprite, particle->texture, sfTrue);
 	sfSprite_setOrigin(particle->sprite, (V2F){x / 2, y / 2});
@@ -45,7 +44,7 @@ void display_circle(particle_t *p, int refresh)
 	while (pos.x != p->x / 2 + p->x / 2 || pos.y != p->y / 2 + p->y / 2) {
 		if ((((pos.x - p->x / 2) * (pos.x - p->x / 2)) + ((pos.y - p->y
 		/ 2) * (pos.y - p->y / 2))) <= (p->x / 2 * p->y / 2))
-			radian_gradiant(p, pos, refresh);
+			radial_gradiant(p, pos, refresh);
 		pos.x += 1;
 		if (pos.x > p->x / 2 + p->x / 2) {
 			pos.x = 0;

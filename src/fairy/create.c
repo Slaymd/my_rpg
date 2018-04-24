@@ -68,7 +68,7 @@ fairy_t *init_fairy(void)
 	fairy->t_explo = sfTexture_createFromFile("./img/explosion.png", NULL);
 	fairy->s_explo = sfSprite_create();
 	fairy->shoot = malloc(sizeof(list_shoot_t));
-	fairy->particle = create_particle(75, 75);
+	fairy->particle = create_particle(76, 76);
 	fairy->line = sfVertexArray_create();
 	fairy->shhh = sfMusic_createFromFile("assets/musics/shhh.ogg");
 	set_fairy(fairy);
