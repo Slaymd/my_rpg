@@ -14,14 +14,19 @@
 	#define MOVE_F_Y 40
 	#define EXPLO_X 192
 	#define EXPLO_Y 195
+	#define ROCKET_X 266
+	#define ROCKET_Y 250
 
 	typedef struct fairy_s fairy_t;
 	typedef struct shoot_s shoot_t;
 	typedef struct list_shoot_s list_shoot_t;
 
 	struct shoot_s {
+		int state;
 		sfIntRect rect;
-		pos_t pos;
+		pos_t pos_r;
+		pos_t pos_e;
+		sfVector2f distance;
 		shoot_t *next;
 	};
 
@@ -41,6 +46,8 @@
 		sfVector2f ep;
 		sfSprite *s_explo;
 		sfTexture *t_explo;
+		sfSprite *s_rocket;
+		sfTexture *t_rocket;
 		particle_t *particle;
 		list_shoot_t *shoot;
 		sfVertexArray *line;

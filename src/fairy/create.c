@@ -7,15 +7,20 @@
 
 #include "rpg.h"
 
-void new_shoot(list_shoot_t *list, pos_t pos, rpg_t *rpg)
+void new_shoot(list_shoot_t *list, pos_t pos_e, pos_t pos_r, rpg_t *rpg)
 {
 	shoot_t *new = malloc(sizeof(shoot_t));
 
 	if (!new)
 		return;
 	new->rect = (sfIntRect){0, 0, EXPLO_X, EXPLO_Y};
-	new->pos = (pos_t){pos.x + rpg->map->topleft_to_disp.x,
-	pos.y + rpg->map->topleft_to_disp.y, pos.z};
+	new->state = 0;
+	new->pos_e = (pos_t){pos_e.x + rpg->map->topleft_to_disp.x,
+	pos_e.y + rpg->map->topleft_to_disp.y, pos_e.z};
+	new->pos_r = (pos_t){rpg->map->topleft_to_disp.x + pos_r.x,
+	rpg->map->topleft_to_disp.y + pos_r.y, pos_r.z};
+	new->distance = (V2F){new->pos_e.x - new->pos_r.x,
+	new->pos_e.y - new->pos_r.y};
 	new->next = list->first;
 	list->first = new;
 }
@@ -49,6 +54,9 @@ void set_fairy(fairy_t *fairy)
 	sfSprite_setTexture(fairy->s_explo, fairy->t_explo, sfTrue);
 	sfSprite_setOrigin(fairy->s_explo, (V2F){EXPLO_X / 2, EXPLO_Y / 2});
 	sfSprite_setScale(fairy->s_explo, (V2F){0.5, 0.5});
+	sfSprite_setTexture(fairy->s_rocket, fairy->t_rocket, sfTrue);
+	sfSprite_setOrigin(fairy->s_rocket, (V2F){ROCKET_X / 2, ROCKET_Y / 2});
+	sfSprite_setScale(fairy->s_rocket, (V2F){0.15, 0.15});
 	fairy->shoot->first = NULL;
 }
 
@@ -67,6 +75,8 @@ fairy_t *init_fairy(void)
 	fairy->rect = (sfIntRect){0,0, SIZE_F_X, SIZE_F_Y};
 	fairy->t_explo = sfTexture_createFromFile("./img/explosion.png", NULL);
 	fairy->s_explo = sfSprite_create();
+	fairy->t_rocket = sfTexture_createFromFile("./img/nao.png", NULL);
+	fairy->s_rocket = sfSprite_create();
 	fairy->shoot = malloc(sizeof(list_shoot_t));
 	fairy->particle = create_particle(76, 76);
 	fairy->line = sfVertexArray_create();
