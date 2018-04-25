@@ -31,18 +31,16 @@ void move_shoot(list_shoot_t *shoot)
 	}
 }
 
-int disp_shoot_at(sfRenderWindow *wd, map_t *mp, sfSprite *sp, pos_t p)
+int disp_shoot_at(sfRenderWindow *wd, map_t *mp, sfSprite *sprite, pos_t p)
 {
-	pos_t relat_ref_pos = {p.x-mp->topleft_to_disp.x,
-	p.y-mp->topleft_to_disp.y, 0};
+	pos_t relat_ref_pos = {p.x - mp->center.x,
+	p.y - mp->center.y, 0};
 	sfVector2f px = {relat_ref_pos.x, relat_ref_pos.y};
-	sfSprite *sprite = NULL;
 
-	if (px.x <= -TILE_SIZE || px.x >= WIDTH || sp == NULL)
+	if (px.x <= -TILE_SIZE || px.x >= WIDTH)
 		return (-1);
 	if (px.y <= -TILE_SIZE || px.y >= HEIGHT)
 		return (-1);
-	sprite = sfSprite_copy(sp);
 	sfSprite_setPosition(sprite, px);
 	sfRenderWindow_drawSprite(wd, sprite, NULL);
 	return (0);
