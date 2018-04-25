@@ -15,10 +15,10 @@ void new_shoot(list_shoot_t *list, pos_t pos_e, pos_t pos_r, rpg_t *rpg)
 		return;
 	new->rect = (sfIntRect){0, 0, EXPLO_X, EXPLO_Y};
 	new->state = 0;
-	new->pos_e = (pos_t){pos_e.x + rpg->map->topleft_to_disp.x,
-	pos_e.y + rpg->map->topleft_to_disp.y, pos_e.z};
-	new->pos_r = (pos_t){rpg->map->topleft_to_disp.x + pos_r.x,
-	rpg->map->topleft_to_disp.y + pos_r.y, pos_r.z};
+	new->pos_e = (pos_t){pos_e.x + rpg->map->center.x,
+	pos_e.y + rpg->map->center.y, pos_e.z};
+	new->pos_r = (pos_t){rpg->map->center.x + pos_r.x,
+	rpg->map->center.y + pos_r.y, pos_r.z};
 	new->distance = (V2F){new->pos_e.x - new->pos_r.x,
 	new->pos_e.y - new->pos_r.y};
 	new->angle = acos(new->distance.x / sqrt(pow(new->distance.y, 2) +
@@ -52,7 +52,7 @@ void set_fairy(fairy_t *fairy)
 	sfSprite_setPosition(fairy->sprite, fairy->pos);
 	sfSprite_setTextureRect(fairy->sprite, fairy->rect);
 	sfSprite_setScale(fairy->sprite, (V2F){ZOOM, ZOOM});
-	sfSprite_setOrigin(fairy->sprite, (V2F){SIZE_F_X / 2, SIZE_F_Y / 2});
+	sfSprite_setOrigin(fairy->sprite, (V2F){SIZE_F_X / 2, SIZE_F_Y / 1.4});
 	sfSprite_setTexture(fairy->s_explo, fairy->t_explo, sfTrue);
 	sfSprite_setOrigin(fairy->s_explo, (V2F){EXPLO_X / 2, EXPLO_Y / 2});
 	sfSprite_setScale(fairy->s_explo, (V2F){0.5, 0.5});

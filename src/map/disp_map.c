@@ -94,16 +94,14 @@ int	disp_rect_at(sfRenderWindow *wd, map_t *mp, sfRectangleShape *rect,
 int	disp_sprite_at(sfRenderWindow *wd, map_t *mp, sfSprite *sp, pos_t p)
 {
 	pos_t relat_ref_pos = {p.x-(mp->center.x-(WIDTH/TILE_SIZE/2)),
-		p.y-(mp->center.y-(HEIGHT / TILE_SIZE / 2)), 0};
+	p.y-(mp->center.y-(HEIGHT / TILE_SIZE / 2)), 0};
 	sfVector2f px = {relat_ref_pos.x * TILE_SIZE,
-		relat_ref_pos.y * TILE_SIZE};
-	//sfSprite *sprite = NULL;
+	relat_ref_pos.y * TILE_SIZE};
 
 	if (px.x <= -TILE_SIZE || px.x >= WIDTH || sp == NULL)
 		return (-1);
 	if (px.y <= -TILE_SIZE || px.y >= HEIGHT)
 		return (-1);
-	//sprite = sfSprite_copy(sp);
 	sfSprite_setPosition(sp, px);
 	sfRenderWindow_drawSprite(wd, sp, NULL);
 	return (0);
