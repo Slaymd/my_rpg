@@ -35,8 +35,10 @@ int	click_on_buttons(sfEvent event, list_t *buttons)
 
 	for (; tmp != NULL; tmp = tmp->next) {
 		button = (button_t*)tmp->data;
-		if (check_pos_in_button(button, pos))
+		if (check_pos_in_button(button, pos)) {
 			send_click_action(button);
+			return (1);
+		}
 	}
 	return (0);
 }

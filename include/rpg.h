@@ -47,21 +47,6 @@
 	#define FR sfFloatRect
 	#define KeyPressed sfKeyboard_isKeyPressed
 
-	// struct window_s {
-	// 	sfRenderWindow *window;
-	// 	sfVideoMode mode;
-	// 	sfVector2f screen;
-	// 	sfView *v_screen;
-	// 	sfView *v_map;
-	// 	sfSprite *sprite;
-	// 	sfTexture *texture;
-	// 	sfIntRect rect;
-	// 	sfEvent event;
-	// 	sfClock *clock;
-	// 	sfTime time;
-	// 	float seconds;
-	// };
-
 	struct view_s {
 		sfView *v_screen;
 		sfView *v_map;
@@ -95,6 +80,7 @@
 	//UI EVENTS
 	void click_play_button(void *data);
 	void click_save_button(void *data);
+	void click_map_settings_button(void *data);
 
 	//CREATE
 	rpg_t *init_rpg(void);
