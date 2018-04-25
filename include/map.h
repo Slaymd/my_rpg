@@ -85,8 +85,8 @@ struct chunk_s {
 };
 
 struct map_s {
-	int		seed;
-	char		*name;
+	int	seed;
+	char	*name;
 	list_t	*chunks;
 	list_t	*objects;
 	list_t	*entities;

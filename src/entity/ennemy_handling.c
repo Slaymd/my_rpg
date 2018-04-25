@@ -15,8 +15,8 @@ ptr_t func[3] = {
 
 int detect_ennemy(entity_t *ent, map_t *map)
 {
-	int x = map->topleft_to_disp.x + (WIDTH / TILE_SIZE / 2);
-	int y = map->topleft_to_disp.y + (HEIGHT / TILE_SIZE / 2);
+	int x = map->center.x + (WIDTH / TILE_SIZE / 2);
+	int y = map->center.y + (HEIGHT / TILE_SIZE / 2);
 
 	if (x >= ent->pos.x - 3 && x <= ent->pos.x + 3 && y >= ent->pos.y - 3
 	&& y <= ent->pos.y + 3) {

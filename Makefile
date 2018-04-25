@@ -15,9 +15,11 @@ SRC			=	./src/main.c				\
 				./src/lib.c				\
 				./src/init.c				\
 				./src/destroy.c				\
-				./src/character/create.c			\
+				./src/character/create.c		\
 				./src/character/move.c			\
 				./src/character/display.c		\
+				./src/particle/particle.c		\
+				./src/particle/animation.c		\
 				./src/fairy/create.c			\
 				./src/fairy/move.c			\
 				./src/fairy/display.c			\
@@ -46,7 +48,7 @@ SRC			=	./src/main.c				\
 				src/entity/deplacement_ostrich.c	\
 				src/game_loop.c				\
 				src/entity/combat.c			\
-				src/entity/ennemy_generation.c	\
+				src/entity/ennemy_generation.c		\
 				src/map/tile_getter.c			\
 				src/map/generation/pos_gen.c		\
 				src/map/generation/texture_table.c	\
@@ -56,7 +58,7 @@ SRC			=	./src/main.c				\
 
 CFLAGS		=	-W -Wall -Wextra -I./include -g3 -lm
 
-LIB			=	-L./lib/my -lmy -L./lib/list -llist -L./lib/ui -lui
+LIB			=	-L./lib/my -lmy -L./lib/list -llist -L./lib/ui -lui -lm
 
 LIB_TEST		=	-lcriterion
 
