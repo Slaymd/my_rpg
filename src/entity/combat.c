@@ -22,8 +22,8 @@ int my_right_ostrich(entity_t *ent, map_t *map, int pos, int x)
 
 void follow_ostrich(entity_t *ent, map_t *map)
 {
-	int x = map->center.x + (WIDTH / TILE_SIZE / 2);
-	int y = map->center.y + (HEIGHT / TILE_SIZE / 2);
+	int x = map->center.x;
+	int y = map->center.y;
 	static int pos = 0;
 
 	ent->seconds >= 1 ? sfMusic_play(ent->song) : 0;
@@ -44,8 +44,8 @@ void follow_ostrich(entity_t *ent, map_t *map)
 
 void follow_ogre(entity_t *ent, map_t *map, character_t *character)
 {
-	int x = map->center.x + (WIDTH / TILE_SIZE / 2);
-	int y = map->center.y + (HEIGHT / TILE_SIZE / 2);
+	int x = map->center.x;
+	int y = map->center.y;
 	static int pos = 0;
 
 //	ent->seconds >= 1 ? sfMusic_play(ent->song) : 0;
