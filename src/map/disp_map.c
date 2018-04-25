@@ -96,13 +96,9 @@ int	disp_sprite_at(sfRenderWindow *wd, map_t *mp, sfSprite *sp, pos_t p)
 	pos_t relat_ref_pos = {p.x-(mp->center.x-(WIDTH/TILE_SIZE/2)),
 	p.y-(mp->center.y-(HEIGHT / TILE_SIZE / 2)), 0};
 	sfVector2f px = {relat_ref_pos.x * TILE_SIZE,
-<<<<<<< HEAD
 		relat_ref_pos.y * TILE_SIZE};
 	sfVector2f scale = sfSprite_getScale(sp);
 	sfIntRect rect = sfSprite_getTextureRect(sp);
-=======
-	relat_ref_pos.y * TILE_SIZE};
->>>>>>> dda6e77b9379bfafd0382cedd57c1c41173d7e77
 
 	if (px.x+(rect.width*scale.x) < 0 || px.x >= WIDTH ||
 	sp == NULL)
