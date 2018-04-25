@@ -38,16 +38,18 @@ typedef struct rpg_s rpg_t;
 
 typedef struct entity_s entity_t;
 typedef struct entity_infos_s entity_infos_t;
+typedef struct object_stats_s object_stats_t;
 
 typedef enum entity_type_e entity_type;
-typedef enum object_type_e object_type;
+typedef enum collision_type_e collision_type;
+typedef enum freq_type_e freq_type;
 typedef enum tile_type_e tile_type;
 
 enum entity_type_e { NO_AI, OSTRICH, STONE_OGRE, UNKNOWN };
 
-enum object_type_e { ENVIRONNEMENT, BUILDING, DECORATION };
+enum collision_type_e { WALKABLE, NON_WALKABLE };
 
-enum tile_type_e { WALKABLE, NON_WALKABLE };
+enum freq_type_e { MAP, CHUNK, TILE };
 
 struct pos_s {
 	float		x;
@@ -55,15 +57,24 @@ struct pos_s {
 	float		z;
 };
 
+struct object_stats_s {
+	char		**txt_paths;
+	float	freq;
+	int		object_id;
+	int		data;
+	freq_type	spawn_type;
+};
+
 struct object_s {
 	pos_t		pos;
-	object_type	type;
+	collision_type	type;
+	char			*txt_path;
 	sfSprite		*sprite;
 };
 
 struct tile_s {
 	pos_t		pos;
-	tile_type		type;
+	collision_type	type;
 	int			texture_id;
 	sfSprite		*sprite;
 };
@@ -80,6 +91,7 @@ struct map_s {
 	list_t	*objects;
 	list_t	*entities;
 	list_t	*textures;
+	list_t	*obj_stats;
 	pos_t	topleft_to_disp;
 	pos_t	center;
 	sfVector2i render_distance;
@@ -132,6 +144,11 @@ typedef struct ptr_s {
 map_t *init_map(char *name, int seed);
 chunk_t *init_chunk(pos_t pos);
 
+//OBJECTS
+list_t *init_objects(void);
+int	generate_tile_objects(map_t *map, pos_t pos, int txt_id);
+//int	generate_object_of_type(map_t *map, freq_type spawn_type, pos_t pos);
+
 //MAP GEN
 map_t	*generate_map(int seed);
 chunk_t	*chunk_gen(map_t *map, pos_t pos);
@@ -146,6 +163,7 @@ int	get_texture_id(float adjtxt[9]);
 //DISP
 int	disp_map(rpg_t *rpg);
 int	disp_sprite_at(sfRenderWindow *wd, map_t *mp, sfSprite *sp, pos_t p);
+int	disp_objects(sfRenderWindow *wd, map_t *map);
 
 //COORDS
 pos_t	get_chunk_coords(pos_t pos);

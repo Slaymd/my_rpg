@@ -15,6 +15,7 @@ map_t *init_map(char *name, int seed)
 	map->entities = NULL;
 	map->objects = NULL;
 	map->textures = init_textures();
+	map->obj_stats = init_objects();
 	map->seed = seed;
 	map->name = name;
 	map->topleft_to_disp = (pos_t){500*TILES_PER_CHUNKS,

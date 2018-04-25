@@ -13,56 +13,80 @@
 #define FONT_UBUMED "assets/fonts/Ubuntu-M.ttf"
 #define FONT_UBUREG "assets/fonts/Ubuntu-R.ttf"
 
-#define TXTRE_GRASS "assets/textures/grass.png"
-#define TXTRE_WATER "assets/textures/water.png"
-#define TXTRE_DEEP_WATER "assets/textures/mc_deep_water.png"
-#define TXTRE_LIGHT_STONE "assets/textures/mc_stone.png"
-#define TXTRE_SAND "assets/textures/sand.png"
-#define TXTRE_DARK_GRASS "assets/textures/darkgrass.png"
+#define TXTRE_GRASS "assets/textures/tiles/grass.png"
+#define TXTRE_WATER "assets/textures/tiles/water.png"
+#define TXTRE_SAND "assets/textures/tiles/sand.png"
+#define TXTRE_DARK_GRASS "assets/textures/tiles/darkgrass.png"
+
+#define TXTRE_LITTLE_STONE1 "assets/textures/objects/little_stone_1.png"
+#define TXTRE_LITTLE_STONE2 "assets/textures/objects/little_stone_2.png"
+
+#define TXTRE_LITTLE_BUSH "assets/textures/objects/little_bush.png"
+#define TXTRE_BIG_BUSH "assets/textures/objects/big_bush.png"
+
+#define TXTRE_FLOWERS1 "assets/textures/objects/flowers_1.png"
+#define TXTRE_FLOWERS2 "assets/textures/objects/flowers_2.png"
+#define TXTRE_FLOWERS3 "assets/textures/objects/flowers_3.png"
+
+#define TXTRE_LILY_PAD1 "assets/textures/objects/lily_pad_1.png"
+
+#define TXTRE_WATER_WAVE "assets/textures/objects/water_wave.png"
+
+#define TXTRE_LOG "assets/textures/objects/log.png"
+
+#define TXTRE_LIST_LITTLE_STONE {TXTRE_LITTLE_STONE1,\
+	TXTRE_LITTLE_STONE2, NULL}
+#define TXTRE_LIST_FLOWERS {TXTRE_FLOWERS1, TXTRE_FLOWERS2, TXTRE_FLOWERS3,\
+	NULL}
+#define TXTRE_LIST_LILY_PAD {TXTRE_LILY_PAD1, NULL}
+#define TXTRE_LIST_WATER_WAVE {TXTRE_WATER_WAVE, NULL}
+#define TXTRE_LIST_LITTLE_BUSH {TXTRE_LITTLE_BUSH, NULL}
+#define TXTRE_LIST_BIG_BUSH {TXTRE_BIG_BUSH, NULL}
+#define TXTRE_LIST_LOG {TXTRE_LOG, NULL}
 
 //Textures variations
 
-#define TXTRE_GRASS_SE1 "assets/textures/grass_varSE1.png"
-#define TXTRE_GRASS_S1 "assets/textures/grass_varS1.png"
-#define TXTRE_GRASS_SW1 "assets/textures/grass_varSW1.png"
-#define TXTRE_GRASS_W1 "assets/textures/grass_varW1.png"
-#define TXTRE_GRASS_NW1 "assets/textures/grass_varNW1.png"
-#define TXTRE_GRASS_N1 "assets/textures/grass_varN1.png"
-#define TXTRE_GRASS_NE1 "assets/textures/grass_varNE1.png"
-#define TXTRE_GRASS_E1 "assets/textures/grass_varE1.png"
+#define TXTRE_GRASS_SE1 "assets/textures/tiles/grass_varSE1.png"
+#define TXTRE_GRASS_S1 "assets/textures/tiles/grass_varS1.png"
+#define TXTRE_GRASS_SW1 "assets/textures/tiles/grass_varSW1.png"
+#define TXTRE_GRASS_W1 "assets/textures/tiles/grass_varW1.png"
+#define TXTRE_GRASS_NW1 "assets/textures/tiles/grass_varNW1.png"
+#define TXTRE_GRASS_N1 "assets/textures/tiles/grass_varN1.png"
+#define TXTRE_GRASS_NE1 "assets/textures/tiles/grass_varNE1.png"
+#define TXTRE_GRASS_E1 "assets/textures/tiles/grass_varE1.png"
 
-#define TXTRE_GRASS_N1NE1E1 "assets/textures/grass_varN1NE1E1.png"
-#define TXTRE_GRASS_E1SE1S1 "assets/textures/grass_varE1SE1S1.png"
-#define TXTRE_GRASS_W1SW1S1 "assets/textures/grass_varW1SW1S1.png"
-#define TXTRE_GRASS_N1NW1W1 "assets/textures/grass_varN1NW1W1.png"
+#define TXTRE_GRASS_N1NE1E1 "assets/textures/tiles/grass_varN1NE1E1.png"
+#define TXTRE_GRASS_E1SE1S1 "assets/textures/tiles/grass_varE1SE1S1.png"
+#define TXTRE_GRASS_W1SW1S1 "assets/textures/tiles/grass_varW1SW1S1.png"
+#define TXTRE_GRASS_N1NW1W1 "assets/textures/tiles/grass_varN1NW1W1.png"
 
-#define TXTRE_SAND_SE1 "assets/textures/sand_varSE1.png"
-#define TXTRE_SAND_S1 "assets/textures/sand_varS1.png"
-#define TXTRE_SAND_SW1 "assets/textures/sand_varSW1.png"
-#define TXTRE_SAND_W1 "assets/textures/sand_varW1.png"
-#define TXTRE_SAND_NW1 "assets/textures/sand_varNW1.png"
-#define TXTRE_SAND_N1 "assets/textures/sand_varN1.png"
-#define TXTRE_SAND_NE1 "assets/textures/sand_varNE1.png"
-#define TXTRE_SAND_E1 "assets/textures/sand_varE1.png"
+#define TXTRE_SAND_SE1 "assets/textures/tiles/sand_varSE1.png"
+#define TXTRE_SAND_S1 "assets/textures/tiles/sand_varS1.png"
+#define TXTRE_SAND_SW1 "assets/textures/tiles/sand_varSW1.png"
+#define TXTRE_SAND_W1 "assets/textures/tiles/sand_varW1.png"
+#define TXTRE_SAND_NW1 "assets/textures/tiles/sand_varNW1.png"
+#define TXTRE_SAND_N1 "assets/textures/tiles/sand_varN1.png"
+#define TXTRE_SAND_NE1 "assets/textures/tiles/sand_varNE1.png"
+#define TXTRE_SAND_E1 "assets/textures/tiles/sand_varE1.png"
 
-#define TXTRE_SAND_N1NE1E1 "assets/textures/sand_varN1NE1E1.png"
-#define TXTRE_SAND_E1SE1S1 "assets/textures/sand_varE1SE1S1.png"
-#define TXTRE_SAND_W1SW1S1 "assets/textures/sand_varW1SW1S1.png"
-#define TXTRE_SAND_N1NW1W1 "assets/textures/sand_varN1NW1W1.png"
+#define TXTRE_SAND_N1NE1E1 "assets/textures/tiles/sand_varN1NE1E1.png"
+#define TXTRE_SAND_E1SE1S1 "assets/textures/tiles/sand_varE1SE1S1.png"
+#define TXTRE_SAND_W1SW1S1 "assets/textures/tiles/sand_varW1SW1S1.png"
+#define TXTRE_SAND_N1NW1W1 "assets/textures/tiles/sand_varN1NW1W1.png"
 
-#define TXTRE_GRASS_SE2 "assets/textures/grass_varSE2.png"
-#define TXTRE_GRASS_S2 "assets/textures/grass_varS2.png"
-#define TXTRE_GRASS_SW2 "assets/textures/grass_varSW2.png"
-#define TXTRE_GRASS_W2 "assets/textures/grass_varW2.png"
-#define TXTRE_GRASS_NW2 "assets/textures/grass_varNW2.png"
-#define TXTRE_GRASS_N2 "assets/textures/grass_varN2.png"
-#define TXTRE_GRASS_NE2 "assets/textures/grass_varNE2.png"
-#define TXTRE_GRASS_E2 "assets/textures/grass_varE2.png"
+#define TXTRE_GRASS_SE2 "assets/textures/tiles/grass_varSE2.png"
+#define TXTRE_GRASS_S2 "assets/textures/tiles/grass_varS2.png"
+#define TXTRE_GRASS_SW2 "assets/textures/tiles/grass_varSW2.png"
+#define TXTRE_GRASS_W2 "assets/textures/tiles/grass_varW2.png"
+#define TXTRE_GRASS_NW2 "assets/textures/tiles/grass_varNW2.png"
+#define TXTRE_GRASS_N2 "assets/textures/tiles/grass_varN2.png"
+#define TXTRE_GRASS_NE2 "assets/textures/tiles/grass_varNE2.png"
+#define TXTRE_GRASS_E2 "assets/textures/tiles/grass_varE2.png"
 
-#define TXTRE_GRASS_N2NE2E2 "assets/textures/grass_varN2NE2E2.png"
-#define TXTRE_GRASS_E2SE2S2 "assets/textures/grass_varE2SE2S2.png"
-#define TXTRE_GRASS_W2SW2S2 "assets/textures/grass_varW2SW2S2.png"
-#define TXTRE_GRASS_N2NW2W2 "assets/textures/grass_varN2NW2W2.png"
+#define TXTRE_GRASS_N2NE2E2 "assets/textures/tiles/grass_varN2NE2E2.png"
+#define TXTRE_GRASS_E2SE2S2 "assets/textures/tiles/grass_varE2SE2S2.png"
+#define TXTRE_GRASS_W2SW2S2 "assets/textures/tiles/grass_varW2SW2S2.png"
+#define TXTRE_GRASS_N2NW2W2 "assets/textures/tiles/grass_varN2NW2W2.png"
 
 #define TXTRE_OSTRICH "assets/entities/ostrich.png"
 #define TXTRE_STONE_OGRE "assets/entities/stone_ogre.png"
@@ -114,6 +138,50 @@
 #define TILE_SAND_E1SE1S1_ID 210
 #define TILE_SAND_W1SW1S1_ID 211
 #define TILE_SAND_N1NW1W1_ID 212
+
+#define S_SE1 {-1.0, -1.0, -1.0, -1.0, 2.0, 2.0, -1.0, 2.0, 1.0}
+#define S_S1 {-1.0, -1.0, -1.0, -1.0, 2.0, -1.0, -1.0, 1.0, -1.0}
+#define S_SW1 {-1.0, -1.0, -1.0, 2.0, 2.0, -1.0, 1.0, 2.0, -1.0}
+#define S_W1 {-1.0, -1.0, -1.0, 1.0, 2.0, -1.0, -1.0, -1.0, -1.0}
+#define S_NW1 {1.0, 2.0, -1.0, 2.0, 2.0, -1.0, -1.0, -1.0, -1.0}
+#define S_N1 {-1.0, 1.0, -1.0, -1.0, 2.0, -1.0, -1.0, -1.0, -1.0}
+#define S_NE1 {-1.0, 2.0, 1.0, -1.0, 2.0, 2.0, -1.0, -1.0, -1.0}
+#define S_E1 {-1.0, -1.0, -1.0, -1.0, 2.0, 1.0, -1.0, -1.0, -1.0}
+
+#define S_N1NE1E1 {-1.0, 1.0, 1.0, -1.0, 2.0, 1.0, -1.0, -1.0, -1.0}
+#define S_E1SE1S1 {-1.0, -1.0, -1.0, -1.0, 2.0, 1.0, -1.0, 1.0, 1.0}
+#define S_W1SW1S1 {-1.0, -1.0, -1.0, 1.0, 2.0, -1.0, 1.0, 1.0, -1.0}
+#define S_N1NW1W1 {1.0, 1.0, -1.0, 1.0, 2.0, -1.0, -1.0, -1.0, -1.0}
+
+#define G_SE1 {-1.0, -1.0, -1.0, -1.0, 3.0, 3.0, -1.0, 3.0, 1.0}
+#define G_S1 {-1.0, -1.0, -1.0, -1.0, 3.0, -1.0, -1.0, 1.0, -1.0}
+#define G_SW1 {-1.0, -1.0, -1.0, 3.0, 3.0, -1.0, 1.0, 3.0, -1.0}
+#define G_W1 {-1.0, -1.0, -1.0, 1.0, 3.0, -1.0, -1.0, -1.0, -1.0}
+#define G_NW1 {1.0, 3.0, -1.0, 3.0, 3.0, -1.0, -1.0, -1.0, -1.0}
+#define G_N1 {-1.0, 1.0, -1.0, -1.0, 3.0, -1.0, -1.0, -1.0, -1.0}
+#define G_NE1 {-1.0, 3.0, 1.0, -1.0, 3.0, 3.0, -1.0, -1.0, -1.0}
+#define G_E1 {-1.0, -1.0, -1.0, -1.0, 3.0, 1.0, -1.0, -1.0, -1.0}
+
+#define G_N1NE1E1 {-1.0, 1.0, 1.0, -1.0, 3.0, 1.0, -1.0, -1.0, -1.0}
+#define G_E1SE1S1 {-1.0, -1.0, -1.0, -1.0, 3.0, 1.0, -1.0, 1.0, 1.0}
+#define G_W1SW1S1 {-1.0, -1.0, -1.0, 1.0, 3.0, -1.0, 1.0, 1.0, -1.0}
+#define G_N1NW1W1 {1.0, 1.0, -1.0, 1.0, 3.0, -1.0, -1.0, -1.0, -1.0}
+
+#define G_SE2 {-1.0, -1.0, -1.0, -1.0, 3.0, 3.0, -1.0, 3.0, 2.0}
+#define G_S2 {-1.0, -1.0, -1.0, -1.0, 3.0, -1.0, -1.0, 2.0, -1.0}
+#define G_SW2 {-1.0, -1.0, -1.0, 3.0, 3.0, -1.0, 2.0, 3.0, -1.0}
+#define G_W2 {-1.0, -1.0, -1.0, 2.0, 3.0, -1.0, -1.0, -1.0, -1.0}
+#define G_NW2 {2.0, 3.0, -1.0, 3.0, 3.0, -1.0, -1.0, -1.0, -1.0}
+#define G_N2 {-1.0, 2.0, -1.0, -1.0, 3.0, -1.0, -1.0, -1.0, -1.0}
+#define G_NE2 {-1.0, 3.0, 2.0, -1.0, 3.0, 3.0, -1.0, -1.0, -1.0}
+#define G_E2 {-1.0, -1.0, -1.0, -1.0, 3.0, 2.0, -1.0, -1.0, -1.0}
+
+#define G_N2NE2E2 {-1.0, 2.0, 2.0, -1.0, 3.0, 2.0, -1.0, -1.0, -1.0}
+#define G_E2SE2S2 {-1.0, -1.0, -1.0, -1.0, 3.0, 2.0, -1.0, 2.0, 2.0}
+#define G_W2SW2S2 {-1.0, -1.0, -1.0, 2.0, 3.0, -1.0, 2.0, 2.0, -1.0}
+#define G_N2NW2W2 {2.0, 2.0, -1.0, 2.0, 3.0, -1.0, -1.0, -1.0, -1.0}
+
+#define DSTP {-2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0}
 
 typedef struct texture_s texture_t;
 

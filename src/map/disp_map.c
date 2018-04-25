@@ -54,6 +54,7 @@ int	disp_map(rpg_t *rpg)
 	for (; nchunks != NULL; nchunks = nchunks->next) {
 		disp_chunk(rpg->wd, map, (chunk_t*)nchunks->data, map->center);
 	}
+	disp_objects(rpg->wd, map);
 	if (rpg->state == 3 && !can_move_here(map, map->center)) {
 		map->center = generate_pos_near(map, map->center, 2);
 		disp_map(rpg);
@@ -92,18 +93,18 @@ int	disp_rect_at(sfRenderWindow *wd, map_t *mp, sfRectangleShape *rect,
 
 int	disp_sprite_at(sfRenderWindow *wd, map_t *mp, sfSprite *sp, pos_t p)
 {
-	pos_t relat_ref_pos = {p.x-mp->topleft_to_disp.x,
-		p.y-mp->topleft_to_disp.y, 0};
+	pos_t relat_ref_pos = {p.x-(mp->center.x-(WIDTH/TILE_SIZE/2)),
+		p.y-(mp->center.y-(HEIGHT/TILE_SIZE/2)), 0};
 	sfVector2f px = {relat_ref_pos.x*TILE_SIZE,
 		relat_ref_pos.y*TILE_SIZE};
-	sfSprite *sprite = NULL;
+	//sfSprite *sprite = NULL;
 
 	if (px.x <= -TILE_SIZE || px.x >= WIDTH || sp == NULL)
 		return (-1);
 	if (px.y <= -TILE_SIZE || px.y >= HEIGHT)
 		return (-1);
-	sprite = sfSprite_copy(sp);
-	sfSprite_setPosition(sprite, px);
-	sfRenderWindow_drawSprite(wd, sprite, NULL);
+	//sprite = sfSprite_copy(sp);
+	sfSprite_setPosition(sp, px);
+	sfRenderWindow_drawSprite(wd, sp, NULL);
 	return (0);
 }
