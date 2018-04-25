@@ -147,6 +147,7 @@ chunk_t *init_chunk(pos_t pos);
 //OBJECTS
 list_t *init_objects(void);
 int	generate_tile_objects(map_t *map, pos_t pos, int txt_id);
+int	free_object(object_t *obj);
 //int	generate_object_of_type(map_t *map, freq_type spawn_type, pos_t pos);
 
 //MAP GEN
@@ -159,6 +160,7 @@ sfSprite	*get_tile_sprite(map_t *map, tile_t *tile);
 
 //TILE TEXTURES
 int	get_texture_id(float adjtxt[9]);
+int	get_texture_from_noise(float noise);
 
 //DISP
 int	disp_map(rpg_t *rpg);
@@ -179,6 +181,7 @@ pos_t generate_pos_near(map_t *map, pos_t pos, int minradius);
 
 //COLLISIONS
 int	can_move_here(map_t *map, pos_t pos);
+int	can_be_placed_here(map_t *map, sfSprite *sprite, pos_t pos);
 
 //EVENTS
 int	map_event_handler(window_t *window, map_t *map);

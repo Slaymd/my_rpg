@@ -47,7 +47,7 @@ entity_t *init_entity(entity_t *ent, entity_infos_t infos)
 	return (ent);
 }
 
-entity_t *create_entity(entity_type type)
+entity_t *create_entity(map_t *map, entity_type type)
 {
 	entity_t *ent = (entity_t*)malloc(sizeof(entity_t));
 	entity_infos_t infos = get_entity_infos(type);
@@ -56,7 +56,7 @@ entity_t *create_entity(entity_type type)
 		return (NULL);
 	ent->movement = infos.movement;
 	ent->lvl = infos.lvl;
-	ent->pos = infos.pos;
+	ent->pos = generate_pos_near(map, map->center, 1);
 	ent->rect = NULL;
 	ent->sprite = sfSprite_create();
 	ent->mirror = infos.mirror;
@@ -70,6 +70,6 @@ entity_t *create_entity(entity_type type)
 void init_sprite(rpg_t *rpg)
 {
 	rpg->entities = NULL;
-	list_add(&rpg->entities, create_entity(OSTRICH));
-	list_add(&rpg->entities, create_entity(STONE_OGRE));
+	list_add(&rpg->entities, create_entity(rpg->map, OSTRICH));
+	list_add(&rpg->entities, create_entity(rpg->map, STONE_OGRE));
 }
