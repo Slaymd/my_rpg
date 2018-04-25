@@ -14,8 +14,8 @@
 	#define MOVE_F_Y 40
 	#define EXPLO_X 192
 	#define EXPLO_Y 195
-	#define ROCKET_X 266
-	#define ROCKET_Y 250
+	#define ROCKET_X 32
+	#define ROCKET_Y 32
 
 	typedef struct fairy_s fairy_t;
 	typedef struct shoot_s shoot_t;
@@ -24,6 +24,7 @@
 	struct shoot_s {
 		int state;
 		sfIntRect rect;
+		float angle;
 		pos_t pos_r;
 		pos_t pos_e;
 		sfVector2f distance;

@@ -21,6 +21,9 @@ void new_shoot(list_shoot_t *list, pos_t pos_e, pos_t pos_r, rpg_t *rpg)
 	rpg->map->topleft_to_disp.y + pos_r.y, pos_r.z};
 	new->distance = (V2F){new->pos_e.x - new->pos_r.x,
 	new->pos_e.y - new->pos_r.y};
+	new->angle = acos(new->distance.x / sqrt(pow(new->distance.y, 2) +
+	pow(new->distance.x, 2))) * 180 / M_PI + 90;
+	(new->distance.y < 0) ? new->angle += 180, new->angle *= -1 : 0;
 	new->next = list->first;
 	list->first = new;
 }
@@ -49,14 +52,12 @@ void set_fairy(fairy_t *fairy)
 	sfSprite_setPosition(fairy->sprite, fairy->pos);
 	sfSprite_setTextureRect(fairy->sprite, fairy->rect);
 	sfSprite_setScale(fairy->sprite, (V2F){ZOOM, ZOOM});
-	sfSprite_setOrigin(fairy->sprite, (V2F){SIZE_F_X / 2,
-	SIZE_F_Y / 2});
+	sfSprite_setOrigin(fairy->sprite, (V2F){SIZE_F_X / 2, SIZE_F_Y / 2});
 	sfSprite_setTexture(fairy->s_explo, fairy->t_explo, sfTrue);
 	sfSprite_setOrigin(fairy->s_explo, (V2F){EXPLO_X / 2, EXPLO_Y / 2});
 	sfSprite_setScale(fairy->s_explo, (V2F){0.5, 0.5});
 	sfSprite_setTexture(fairy->s_rocket, fairy->t_rocket, sfTrue);
 	sfSprite_setOrigin(fairy->s_rocket, (V2F){ROCKET_X / 2, ROCKET_Y / 2});
-	sfSprite_setScale(fairy->s_rocket, (V2F){0.15, 0.15});
 	fairy->shoot->first = NULL;
 }
 
@@ -75,7 +76,7 @@ fairy_t *init_fairy(void)
 	fairy->rect = (sfIntRect){0,0, SIZE_F_X, SIZE_F_Y};
 	fairy->t_explo = sfTexture_createFromFile("./img/explosion.png", NULL);
 	fairy->s_explo = sfSprite_create();
-	fairy->t_rocket = sfTexture_createFromFile("./img/nao.png", NULL);
+	fairy->t_rocket = sfTexture_createFromFile("./img/rocket.png", NULL);
 	fairy->s_rocket = sfSprite_create();
 	fairy->shoot = malloc(sizeof(list_shoot_t));
 	fairy->particle = create_particle(76, 76);

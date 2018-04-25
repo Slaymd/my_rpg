@@ -55,6 +55,7 @@ void display_shoot(list_shoot_t *shoot, fairy_t *fairy, rpg_t *rpg)
 	sfRenderWindow_setView(rpg->wd, rpg->view->v_normal);
 	while (tmp) {
 		sfSprite_setTextureRect(fairy->s_explo, tmp->rect);
+		sfSprite_setRotation(fairy->s_rocket, tmp->angle);
 		if (tmp->state == 0)
 			disp_shoot_at(rpg->wd, rpg->map, fairy->s_rocket,
 			tmp->pos_r);
