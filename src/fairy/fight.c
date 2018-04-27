@@ -33,8 +33,7 @@ void move_shoot(list_shoot_t *shoot)
 
 int disp_shoot_at(sfRenderWindow *wd, map_t *mp, sfSprite *sprite, pos_t p)
 {
-	pos_t relat_ref_pos = {p.x - mp->center.x,
-	p.y - mp->center.y, 0};
+	pos_t relat_ref_pos = {p.x - mp->center.x, p.y - mp->center.y, 0};
 	sfVector2f px = {relat_ref_pos.x, relat_ref_pos.y};
 
 	if (px.x <= -TILE_SIZE || px.x >= WIDTH)
@@ -57,9 +56,13 @@ void display_shoot(list_shoot_t *shoot, fairy_t *fairy, rpg_t *rpg)
 		if (tmp->state == 0)
 			disp_shoot_at(rpg->wd, rpg->map, fairy->s_rocket,
 			tmp->pos_r);
-		else
+		else {
+			// printf("Pos = %f & %f\n", tmp->pos_e.x, tmp->pos_e.y);
+			// printf("Ctr = %f & %f\n", rpg->map->center.x , rpg->map->center.y);
+			// printf("Add = %f & %f\n\n", tmp->pos_e.x - rpg->map->center.x , tmp->pos_e.y - rpg->map->center.y);
 			disp_shoot_at(rpg->wd, rpg->map, fairy->s_explo,
 			tmp->pos_e);
+		}
 		tmp = tmp->next;
 	}
 	sfRenderWindow_setView(rpg->wd, rpg->view->v_screen);

@@ -36,10 +36,7 @@ void end_shoot(list_shoot_t *list)
 	while (tmp && tmp->next) {
 		if (tmp->next->rect.left >= 4800) {
 			delete = tmp->next;
-			if (tmp->next->next)
-				tmp->next = tmp->next->next;
-			else
-				tmp->next = NULL;
+			tmp->next = (tmp->next->next) ? tmp->next->next : NULL;
 			free(delete);
 		}
 		tmp = tmp->next;
