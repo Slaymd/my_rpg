@@ -7,22 +7,23 @@
 
 #include "rpg.h"
 
-particle_t *create_particle(int x, int y, form_type_t form, effect_type_t effect)
+particle_t *create_particle(sfVector2i size, sfColor color, form_type_t form, effect_type_t effect)
 {
 	particle_t *particle = malloc(sizeof(particle_t));
-	sfUint8 *pixels = malloc(sizeof(sfUint8) * x * y * 4);
+	sfUint8 *pixels = malloc(sizeof(sfUint8) * size.x * size.y * 4);
 
-	for (int i = 0; i < x * y * 4; i++)
+	for (int i = 0; i < size.x * size.y * 4; i++)
 		pixels[i] = 0;
-	particle->texture = sfTexture_create(x, y);
+	particle->texture = sfTexture_create(size.x, size.y);
 	particle->sprite = sfSprite_create();
-	particle->x = x;
-	particle->y = y;
+	particle->x = size.x;
+	particle->y = size.y;
 	particle->pixels = pixels;
+	particle->color = color;
 	particle->form = form;
 	particle->effect = effect;
 	sfSprite_setTexture(particle->sprite, particle->texture, sfTrue);
-	sfSprite_setOrigin(particle->sprite, (V2F){x / 2, y / 2});
+	sfSprite_setOrigin(particle->sprite, (V2F){size.x / 2, size.y / 2});
 	return (particle);
 }
 

@@ -9,7 +9,7 @@
 	#define _PARTICLE_H_
 
 	#define NB_FORM 2
-	#define NB_EFFECT 1
+	#define NB_EFFECT 2
 
 	typedef struct particle_s particle_t;
 
@@ -19,6 +19,7 @@
 	} form_type_t;
 
 	typedef enum effect_type_s {
+		NONE,
 		RADIAL
 	} effect_type_t;
 
@@ -44,8 +45,8 @@
 	};
 
 	//CREATE
-	particle_t *create_particle(int x, int y, form_type_t form,
-	effect_type_t effect);
+	particle_t *create_particle(sfVector2i size, sfColor color, form_type_t
+	form, effect_type_t effect);
 	void destroy_particle(particle_t *particle);
 
 	//DISPLAY
@@ -60,5 +61,6 @@
 
 	//EFFECT
 	void select_effect(particle_t *particle, sfVector2i pos, int refresh);
+	void no_effect(particle_t *particle, sfVector2i pos, int refresh);
 	void radial_gradiant(particle_t *particle, sfVector2i pos, int refresh);
 #endif

@@ -7,7 +7,13 @@
 
 #include "rpg.h"
 
-effect_tab_t const effect_tab[] = {{RADIAL, radial_gradiant}};
+effect_tab_t const effect_tab[] = {{NONE, no_effect},
+	{RADIAL, radial_gradiant}};
+
+void no_effect(particle_t *particle, sfVector2i pos, int refresh)
+{
+	put_pixel(particle, pos.x, pos.y, particle->color);
+}
 
 void radial_gradiant(particle_t *particle, sfVector2i pos, int refresh)
 {
