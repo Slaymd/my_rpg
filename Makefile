@@ -19,7 +19,8 @@ SRC			=	./src/main.c				\
 				./src/character/move.c			\
 				./src/character/display.c		\
 				./src/particle/particle.c		\
-				./src/particle/animation.c		\
+				./src/particle/effect.c			\
+				./src/particle/form.c			\
 				./src/fairy/create.c			\
 				./src/fairy/move.c			\
 				./src/fairy/display.c			\
