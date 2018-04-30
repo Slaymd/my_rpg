@@ -7,6 +7,14 @@
 
 #include "../../../include/rpg.h"
 
+int	free_object(object_t *obj)
+{
+	//if (obj->sprite != NULL)
+	//	sfSprite_destroy(obj->sprite);
+	free(obj);
+	return (0);
+}
+
 char **malloc_txtre_list(char *txts[])
 {
 	int nb = 0;
@@ -52,5 +60,7 @@ list_t *init_objects(void)
 	TILE_WATER_ID));
 	list_add(&objs, create_obj((char*[])TXTRE_LIST_WATER_WAVE, 0.015, TILE,
 	TILE_WATER_ID));
+	list_add(&objs, create_obj((char*[])TXTRE_LIST_WOODEN_HOUSE, 0.001, TILE,
+	TILE_GRASS_ID));
 	return (objs);
 }

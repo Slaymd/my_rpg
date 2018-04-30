@@ -38,11 +38,15 @@ int	generate_object(map_t *map, object_stats_t *obj_stats, pos_t pos)
 	object_t *obj = (object_t*)malloc(sizeof(object_t));
 	int freq = obj_stats->freq*1000;
 	int rd_freq = rand_time(0, 1001);
+	float scale = (float)TILE_SIZE/16;
 
 	if (rd_freq > freq)
-		return (0);
+		return (free_object(obj));
 	obj->txt_path = get_object_texture_path(obj_stats);
 	obj->sprite = get_sprite_from_texture_path(obj->txt_path);
+	sfSprite_setScale(obj->sprite, (sfVector2f){scale,scale});
+	if (!can_be_placed_here(map, obj->sprite, pos))
+		return (free_object(obj));
 	obj->pos = (pos_t){pos.x+0.5, pos.y+0.5, 0};
 	obj->type = WALKABLE;
 	list_add(&map->objects, obj);
@@ -62,8 +66,3 @@ int	generate_tile_objects(map_t *map, pos_t pos, int txt_id)
 	}
 	return (0);
 }
-
-/*int	generate_object_of_type(map_t *map, freq_type spawn_type, pos_t pos)
-{
-
-}*/
