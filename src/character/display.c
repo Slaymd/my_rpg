@@ -9,7 +9,7 @@
 
 void display_character_hp(rpg_t *rpg, character_t *character)
 {
-	float hp = 50 * (character->hp / 100.0);
+	float hp = 50 * (character->stat->hp / 100.0) * ZOOM;
 
 	sfRectangleShape_setSize(character->hp_bar, (V2F){hp, 5});
 	sfRenderWindow_setView(rpg->wd, rpg->view->v_screen);
@@ -21,7 +21,7 @@ void display_character(rpg_t *rpg, character_t *character)
 	character->time = sfClock_getElapsedTime(character->clock);
 	character->seconds = character->time.microseconds / 1000000.0;
 	move_character(character, rpg);
-	if (character->hp > 0)
+	if (character->stat->hp > 0)
 		display_character_hp(rpg, character);
 	else
 		sfRenderWindow_close(rpg->wd);
