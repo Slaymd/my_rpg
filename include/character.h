@@ -17,8 +17,15 @@
 	struct main_stat_s {
 		float hp;
 		float mana;
+		float hp_r;
+		float mana_r;
+		float hp_max;
+		float mana_max;
 		float xp;
 		float crit;
+		sfClock *clock;
+		sfTime time;
+		float seconds;
 	};
 
 	struct character_s {
@@ -33,6 +40,11 @@
 		pos_t pos;
 		main_stat_t *stat;
 		sfRectangleShape *hp_bar;
+		sfRectangleShape *mana_bar;
 	};
 
+	//STAT
+	void display_character_bar(rpg_t *, float, float max,
+	sfRectangleShape *);
+	void character_regen(character_t *);
 #endif

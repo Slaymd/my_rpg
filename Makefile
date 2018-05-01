@@ -12,11 +12,13 @@ SRC_MAIN		=	src/main.c
 SRC_TEST		=	\
 
 SRC			=	./src/main.c				\
+				./src/NIK_LA_LIB/v_sync.c				\
 				./src/lib.c				\
 				./src/init.c				\
 				./src/destroy.c				\
 				./src/character/create.c		\
 				./src/character/move.c			\
+				./src/character/stat.c			\
 				./src/character/display.c		\
 				./src/particle/particle.c		\
 				./src/particle/effect.c			\

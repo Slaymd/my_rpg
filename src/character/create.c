@@ -18,7 +18,11 @@ void set_character(character_t *character, int x, int y)
 	sfRectangleShape_setSize(character->hp_bar, (V2F){50, 5});
 	sfRectangleShape_setFillColor(character->hp_bar, sfGreen);
 	sfRectangleShape_setPosition(character->hp_bar,
-	(V2F){x - (SIZE_C_X / 3.6), y - 55});
+	(V2F){x - (SIZE_C_X / 3.4), y - 63});
+	sfRectangleShape_setSize(character->mana_bar, (V2F){50, 5});
+	sfRectangleShape_setFillColor(character->mana_bar, sfBlue);
+	sfRectangleShape_setPosition(character->mana_bar,
+	(V2F){x - (SIZE_C_X / 3.4), y - 55});
 }
 
 main_stat_t *init_character_stat(void)
@@ -27,8 +31,15 @@ main_stat_t *init_character_stat(void)
 
 	stat->hp = 100;
 	stat->mana = 100;
+	stat->hp_r = 2;
+	stat->mana_r = 2;
+	stat->hp_max = 100;
+	stat->mana_max = 100;
 	stat->xp = 0;
 	stat->crit = 0;
+	stat->clock = sfClock_create();
+	stat->time = sfClock_getElapsedTime(stat->clock);
+	stat->seconds = 0;
 	return (stat);
 }
 
@@ -50,6 +61,7 @@ character_t *init_character(void)
 	character->pos_screen = (V2F){x, y};
 	character->stat = init_character_stat();
 	character->hp_bar = sfRectangleShape_create();
+	character->mana_bar = sfRectangleShape_create();
 	set_character(character, x, y);
 	return (character);
 }
