@@ -29,7 +29,7 @@ void display_fairy(rpg_t *rpg, sfEvent event)
 	rpg->fairy->seconds = rpg->fairy->time.microseconds / 1000000.0;
 	move_fairy(rpg->fairy, rpg, event);
 	fairy_fight(rpg->fairy, rpg);
-	display_fairy_line(rpg->fairy, rpg);
+	// display_fairy_line(rpg->fairy, rpg);
 	display_particle(rpg->fairy->particle, rpg->wd, (V2F){rpg->fairy->pos.x,
 	rpg->fairy->pos.y - SIZE_C_Y / 3}, rpg->fairy->seconds >= 0.05 ? 1 : 0);
 	sfSprite_setPosition(rpg->fairy->sprite, (V2F){rpg->fairy->pos.x,
