@@ -26,6 +26,7 @@ void physic_fairy_move(fairy_t *fairy, sfEvent event)
 {
 	V2F ep = (V2F){0, 0};
 
+	event = event;
 	if (KeyPressed(sfKeyUp)) {
 		if (fairy->pos.y < HEIGHT / 2 + MOVE_F_Y)
 			fairy->ec.y += 0.5;
