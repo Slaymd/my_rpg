@@ -53,6 +53,7 @@ SRC			=	./src/main.c				\
 				src/map/tile_getter.c			\
 				src/map/generation/pos_gen.c		\
 				src/map/generation/texture_table.c	\
+				src/map/generation/texture_manager.c	\
 				src/map/objects/init_objects.c	\
 				src/map/objects/object_gen.c		\
 				src/map/objects/object_disp.c		\

@@ -7,15 +7,6 @@
 
 #include "../../../include/rpg.h"
 
-int	is_txt_var_table_match(float adjtxt[9], float txtvar[9])
-{
-	for (int i = 0; i < 9; i++) {
-		if (txtvar[i] != -1.0 && adjtxt[i] != txtvar[i])
-			return (0);
-	}
-	return (1);
-}
-
 int	get_sand_variation(float adjtxt[9])
 {
 	float txtvars[][9] = {S_N1NE1E1, S_E1SE1S1, S_W1SW1S1, S_N1NW1W1, S_SE1,
@@ -25,6 +16,23 @@ int	get_sand_variation(float adjtxt[9])
 		TILE_SAND_S1_ID, TILE_SAND_SW1_ID, TILE_SAND_W1_ID,
 		TILE_SAND_NW1_ID, TILE_SAND_N1_ID, TILE_SAND_NE1_ID,
 		TILE_SAND_E1_ID};
+
+	for (int i = 0; txtvars[i][0] != -2.0; i++) {
+		if (is_txt_var_table_match(adjtxt, txtvars[i]))
+			return (txts[i]);
+	}
+	return (adjtxt[4]);
+}
+
+int	get_grass_variation3(float adjtxt[9])
+{
+	float txtvars[][9] = {G_N4NE4E4, G_E4SE4S4, G_W4SW4S4, G_N4NW4W4, G_SE4,
+		G_S4, G_SW4, G_W4, G_NW4, G_N4, G_NE4, G_E4, DSTP};
+	int txts[] = {TILE_GRASS_N4NE4E4_ID, TILE_GRASS_E4SE4S4_ID,
+		TILE_GRASS_W4SW4S4_ID, TILE_GRASS_N4NW4W4_ID, TILE_GRASS_SE4_ID,
+		TILE_GRASS_S4_ID, TILE_GRASS_SW4_ID, TILE_GRASS_W4_ID,
+		TILE_GRASS_NW4_ID, TILE_GRASS_N4_ID, TILE_GRASS_NE4_ID,
+		TILE_GRASS_E4_ID};
 
 	for (int i = 0; txtvars[i][0] != -2.0; i++) {
 		if (is_txt_var_table_match(adjtxt, txtvars[i]))
@@ -47,7 +55,7 @@ int	get_grass_variation2(float adjtxt[9])
 		if (is_txt_var_table_match(adjtxt, txtvars[i]))
 			return (txts[i]);
 	}
-	return (adjtxt[4]);
+	return (get_grass_variation3(adjtxt));
 }
 
 int	get_grass_variation(float adjtxt[9])
@@ -79,12 +87,4 @@ int	get_texture_variation(float adjtxt[9])
 			return (pf[i](adjtxt));
 	}
 	return (main_id);
-}
-
-int	get_texture_id(float adjtxt[9])
-{
-	int txtid = 1;
-
-	txtid = get_texture_variation(adjtxt);
-	return (txtid);
 }
