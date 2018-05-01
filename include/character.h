@@ -33,6 +33,7 @@
 		pos_t pos;
 		main_stat_t *stat;
 		sfRectangleShape *hp_bar;
+		sfRectangleShape *mana_bar;
 	};
 
 #endif
