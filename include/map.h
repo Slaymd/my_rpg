@@ -159,6 +159,8 @@ sfSprite	*get_tile_sprite(map_t *map, tile_t *tile);
 
 //TILE TEXTURES
 int	get_texture_id(float adjtxt[9]);
+int	is_txt_var_table_match(float adjtxt[9], float txtvar[9]);
+int	get_texture_variation(float adjtxt[9]);
 
 //DISP
 int	disp_map(rpg_t *rpg);
