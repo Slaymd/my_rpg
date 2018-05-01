@@ -17,6 +17,7 @@ SRC			=	./src/main.c				\
 				./src/destroy.c				\
 				./src/character/create.c		\
 				./src/character/move.c			\
+				./src/character/stat.c			\
 				./src/character/display.c		\
 				./src/particle/particle.c		\
 				./src/particle/effect.c			\

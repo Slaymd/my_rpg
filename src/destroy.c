@@ -30,6 +30,8 @@ void free_character(character_t *character)
 	sfTexture_destroy(character->texture);
 	sfClock_destroy(character->clock);
 	sfRectangleShape_destroy(character->hp_bar);
+	sfClock_destroy(character->stat->clock);
+	free(character->stat);
 	free(character);
 }
 
