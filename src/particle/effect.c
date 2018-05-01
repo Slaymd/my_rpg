@@ -10,20 +10,19 @@
 effect_tab_t const effect_tab[] = {{NONE, no_effect},
 	{RADIAL, radial_gradiant}};
 
-void no_effect(particle_t *particle, sfVector2i pos, int refresh)
+void no_effect(particle_t *particle, sfVector2i pos, int refresh, sfColor color)
 {
-	put_pixel(particle, pos.x, pos.y, particle->color);
+	if (refresh == 1)
+		put_pixel(particle, pos.x, pos.y, color);
 }
 
-void radial_gradiant(particle_t *particle, sfVector2i pos, int refresh)
+void radial_gradiant(particle_t *particle, sfVector2i pos, int refresh, sfColor color)
 {
-	static sfColor color;
 	sfVector2f og;
 	float d;
 	float a;
 
 	if (refresh == 1) {
-		color = sfBlue;
 		if (rand() % 2 == 1)
 			color = sfGreen;
 		og = (V2F){particle->x * 0.5, particle->y * 0.5};
@@ -34,13 +33,13 @@ void radial_gradiant(particle_t *particle, sfVector2i pos, int refresh)
 	}
 }
 
-void select_effect(particle_t *particle, sfVector2i pos, int refresh)
+void select_effect(particle_t *particle, sfVector2i pos, int refresh, sfColor color)
 {
 	int i = 0;
 
 	while (i < NB_EFFECT) {
 		if (particle->effect == effect_tab[i].effect) {
-			effect_tab[i].func(particle, pos, refresh);
+			effect_tab[i].func(particle, pos, refresh, color);
 			return;
 		}
 		i++;

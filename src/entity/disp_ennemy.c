@@ -21,7 +21,7 @@ void reinit_var(rpg_t *rpg, entity_t *ent, map_t *map)
 	sfRenderWindow_setView(rpg->wd, rpg->view->v_screen);
 	sfRectangleShape_setOrigin(ent->hp_bar, (V2F){ent->movement / 4, 2.5});
 	disp_rect_at(rpg->wd, map, ent->hp_bar, ent->pos);
-	printf("x = %f, y = %f\n", ent->pos.x, ent->pos.y);
+	// printf("x = %f, y = %f\n", ent->pos.x, ent->pos.y);
 }
 
 void display_ennemy(rpg_t *rpg, entity_t *ent, map_t *map, int count)
