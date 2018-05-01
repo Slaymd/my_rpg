@@ -11,8 +11,16 @@ void free_fairy(fairy_t *fairy)
 {
 	sfSprite_destroy(fairy->sprite);
 	sfTexture_destroy(fairy->texture);
+	sfSprite_destroy(fairy->s_explo);
+	sfTexture_destroy(fairy->t_explo);
+	sfSprite_destroy(fairy->s_rocket);
+	sfTexture_destroy(fairy->t_rocket);
 	sfClock_destroy(fairy->clock);
 	sfMusic_destroy(fairy->shhh);
+	sfVertexArray_destroy(fairy->line);
+	destroy_particle(fairy->particle);
+	if (fairy->shoot)
+		free(fairy->shoot);
 	free(fairy);
 }
 
@@ -21,6 +29,7 @@ void free_character(character_t *character)
 	sfSprite_destroy(character->sprite);
 	sfTexture_destroy(character->texture);
 	sfClock_destroy(character->clock);
+	sfRectangleShape_destroy(character->hp_bar);
 	free(character);
 }
 

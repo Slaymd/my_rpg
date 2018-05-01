@@ -31,7 +31,7 @@ void put_pixel(particle_t *particle, int x, int y, sfColor color)
 {
 	int position = (y * particle->x + x) * 4;
 
-	if (position >= 0 && position <= particle->x * particle->y * 4 &&
+	if (position >= 0 && position + 3 <= particle->x * particle->y * 4 &&
 	x <= particle->x && y <= particle->y) {
 		particle->pixels[position + 0] = color.r;
 		particle->pixels[position + 1] = color.g;
@@ -51,6 +51,8 @@ void display_particle(particle_t *particle, sfRenderWindow *window, V2F pos, int
 
 void destroy_particle(particle_t *particle)
 {
+	sfSprite_destroy(particle->sprite);
+	sfTexture_destroy(particle->texture);
 	free(particle->pixels);
 	free(particle);
 }
