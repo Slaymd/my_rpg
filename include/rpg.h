@@ -57,6 +57,7 @@
 		int state;
 		sfRenderWindow *wd;
 		sfEvent event;
+		sfMusic *music;
 		view_t *view;
 		scene_t *scene;
 		window_t *oldwin;

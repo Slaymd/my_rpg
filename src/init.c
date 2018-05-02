@@ -64,6 +64,9 @@ rpg_t *init_rpg(void)
 	if (!rpg)
 		return (NULL);
 	rpg->state = 0;
+	rpg->music = sfMusic_createFromFile("assets/musics/maintheme.ogg");
+	sfMusic_setLoop(rpg->music, 1);
+	sfMusic_play(rpg->music);
 	rpg->wd = create_window();
 	rpg->view = create_view();
 	rpg->character = init_character();
