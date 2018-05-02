@@ -10,6 +10,9 @@
 
 #include "rpg.h"
 
+#define C_F5F6FA	(sfColor){245, 246, 250, 255}
+#define C_8C7AE6	(sfColor){140, 122, 230, 255}
+
 #define FONT_UBUMED "assets/fonts/Ubuntu-M.ttf"
 #define FONT_UBUREG "assets/fonts/Ubuntu-R.ttf"
 
@@ -22,7 +25,8 @@
 #define TXTRE_LITTLE_STONE2 "assets/textures/objects/little_stone_2.png"
 
 #define TXTRE_LITTLE_BUSH "assets/textures/objects/little_bush.png"
-#define TXTRE_BIG_BUSH "assets/textures/objects/big_bush.png"
+#define TXTRE_BIG_BUSH1 "assets/textures/objects/big_bush_1.png"
+#define TXTRE_BIG_BUSH2 "assets/textures/objects/big_bush_2.png"
 
 #define TXTRE_FLOWERS1 "assets/textures/objects/flowers_1.png"
 #define TXTRE_FLOWERS2 "assets/textures/objects/flowers_2.png"
@@ -35,16 +39,18 @@
 #define TXTRE_LOG "assets/textures/objects/log.png"
 
 #define TXTRE_WOODEN_HOUSE "assets/textures/objects/wooden_house.png"
+#define TXTRE_VILLAGE1 "assets/textures/objects/village_1.png"
 
 #define TXTRE_LIST_LITTLE_STONE {TXTRE_LITTLE_STONE1,\
 	TXTRE_LITTLE_STONE2, NULL}
 #define TXTRE_LIST_FLOWERS {TXTRE_FLOWERS1, TXTRE_FLOWERS2, TXTRE_FLOWERS3,\
 	NULL}
+#define TXTRE_LIST_VILLAGE {TXTRE_VILLAGE1, NULL}
 #define TXTRE_LIST_LILY_PAD {TXTRE_LILY_PAD1, NULL}
 #define TXTRE_LIST_WOODEN_HOUSE {TXTRE_WOODEN_HOUSE, NULL}
 #define TXTRE_LIST_WATER_WAVE {TXTRE_WATER_WAVE, NULL}
 #define TXTRE_LIST_LITTLE_BUSH {TXTRE_LITTLE_BUSH, NULL}
-#define TXTRE_LIST_BIG_BUSH {TXTRE_BIG_BUSH, NULL}
+#define TXTRE_LIST_BIG_BUSH {TXTRE_BIG_BUSH1, TXTRE_BIG_BUSH2, NULL}
 #define TXTRE_LIST_LOG {TXTRE_LOG, NULL}
 
 //Textures variations
