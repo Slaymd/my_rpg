@@ -32,7 +32,7 @@ main_stat_t *init_character_stat(void)
 	stat->hp = 100;
 	stat->mana = 100;
 	stat->hp_r = 2;
-	stat->mana_r = 2;
+	stat->mana_r = 5;
 	stat->hp_max = 100;
 	stat->mana_max = 100;
 	stat->xp = 0;

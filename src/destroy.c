@@ -55,6 +55,7 @@ void free_entity(rpg_t *rpg)
 void free_rpg(rpg_t *rpg)
 {
 	sfRenderWindow_destroy(rpg->wd);
+	sfMusic_destroy(rpg->music);
 	free_fairy(rpg->fairy);
 	free_entity(rpg);
 	free_character(rpg->character);
