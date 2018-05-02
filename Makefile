@@ -55,6 +55,7 @@ SRC			=	./src/main.c				\
 				src/map/objects/init_objects.c	\
 				src/map/objects/object_gen.c		\
 				src/map/objects/object_disp.c		\
+				src/entity/deplacement_lycan.c
 
 CFLAGS		=	-W -Wall -Wextra -I./include -g3 -lm
 

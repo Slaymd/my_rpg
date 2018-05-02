@@ -13,7 +13,10 @@ entity_infos_t get_entity_infos(entity_type type)
 	108, TXTRE_OSTRICH, 1, (pos_t){16020, 16010, 0}, 0, 430,
 	"assets/musics/aer.ogg", 30}, {STONE_OGRE, {0, 150, 140, 155}, 1, 1, 644
 	, 144, TXTRE_STONE_OGRE, 2, (pos_t){16010, 16010, 0}, 0, 720,
-	"assets/musics/aer.ogg", 150}, {UNKNOWN, {0, 0, 0, 0}, 0, 0, 0, 0, "", 0
+	"assets/musics/aer.ogg", 150},
+	{LYCANTHROPE, {0, 220, 180, 175}, 1, 1, 1440, 180, TXTRE_LYCANTHROPE,
+	3, (pos_t){15980, 15980, 0}, 0, 720,
+	"assets/musics/cry.ogg", 270}, {UNKNOWN, {0, 0, 0, 0}, 0, 0, 0, 0, "", 0
 	, (pos_t){0, 0, 0}, 0, 0, "", 0}};
 	for (int i = 0; ents_infos[i].type != UNKNOWN; i++) {
 		if (ents_infos[i].type == type)
@@ -72,4 +75,5 @@ void init_sprite(rpg_t *rpg)
 	rpg->entities = NULL;
 	list_add(&rpg->entities, create_entity(rpg->map, OSTRICH));
 	list_add(&rpg->entities, create_entity(rpg->map, STONE_OGRE));
+	list_add(&rpg->entities, create_entity(rpg->map, LYCANTHROPE));
 }

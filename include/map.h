@@ -45,7 +45,7 @@ typedef enum collision_type_e collision_type;
 typedef enum freq_type_e freq_type;
 typedef enum tile_type_e tile_type;
 
-enum entity_type_e { NO_AI, OSTRICH, STONE_OGRE, UNKNOWN };
+enum entity_type_e { NO_AI, OSTRICH, STONE_OGRE, LYCANTHROPE, UNKNOWN };
 
 enum collision_type_e { WALKABLE, NON_WALKABLE };
 

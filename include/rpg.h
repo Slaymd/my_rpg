@@ -111,6 +111,8 @@
 	void free_rpg(rpg_t *rpg);
 
 	//ENNEMY
+	void follow_lycan(entity_t *ent, map_t *map, character_t *character);
+	void deplacement_lycan(rpg_t *rpg, map_t *map, entity_t *ent);
 	int detect_ennemy(entity_t *ent, map_t *map);
 	void follow_ogre(entity_t *ent, map_t *map, character_t *character);
 	void follow_ostrich(entity_t *ent, map_t *map);
