@@ -45,22 +45,20 @@ object_stats_t *create_obj(char *txts[], float freq, freq_type type, int data)
 list_t *init_objects(void)
 {
 	list_t *objs = NULL;
+	object_stats_t objst[] = {{(char*[])TXTRE_LIST_LITTLE_STONE, 0.015, 1,
+	TILE_GRASS_ID, TILE},{(char*[])TXTRE_LIST_FLOWERS, 0.05, 2, TILE_GRASS_ID
+	, TILE},{(char*[])TXTRE_LIST_LOG, 0.02, 3, TILE_DARKGRASS_ID, TILE},
+	{(char*[])TXTRE_LIST_LITTLE_BUSH, 0.01, 4, TILE_GRASS_ID, TILE},
+	{(char*[])TXTRE_LIST_BIG_BUSH, 0.005, 5, TILE_GRASS_ID, TILE},
+	{(char*[])TXTRE_LIST_LILY_PAD, 0.015, 6, TILE_WATER_ID, TILE},
+	{(char*[])TXTRE_LIST_WATER_WAVE, 0.015, 7, TILE_WATER_ID, TILE},
+	{(char*[])TXTRE_LIST_WOODEN_HOUSE, 0.001, 8, TILE_GRASS_ID, TILE},
+	{(char*[])TXTRE_LIST_VILLAGE, 0.0005, 9, TILE_GRASS_ID, TILE},
+	{NULL, 0, 0, 0, TILE}};
 
-	list_add(&objs, create_obj((char*[])TXTRE_LIST_LITTLE_STONE, 0.015,
-	TILE, TILE_GRASS_ID));
-	list_add(&objs, create_obj((char*[])TXTRE_LIST_FLOWERS, 0.05, TILE,
-	TILE_GRASS_ID));
-	list_add(&objs, create_obj((char*[])TXTRE_LIST_LOG, 0.02,
-	TILE, TILE_DARKGRASS_ID));
-	list_add(&objs, create_obj((char*[])TXTRE_LIST_LITTLE_BUSH, 0.01, TILE,
-	TILE_GRASS_ID));
-	list_add(&objs, create_obj((char*[])TXTRE_LIST_BIG_BUSH, 0.005, TILE,
-	TILE_GRASS_ID));
-	list_add(&objs, create_obj((char*[])TXTRE_LIST_LILY_PAD, 0.015, TILE,
-	TILE_WATER_ID));
-	list_add(&objs, create_obj((char*[])TXTRE_LIST_WATER_WAVE, 0.015, TILE,
-	TILE_WATER_ID));
-	list_add(&objs, create_obj((char*[])TXTRE_LIST_WOODEN_HOUSE, 0.001, TILE,
-	TILE_GRASS_ID));
+	for (int i = 0; objst[i].txt_paths != NULL; i++) {
+		list_add(&objs, create_obj(objst[i].txt_paths, objst[i].freq,
+		objst[i].spawn_type, objst[i].data));
+	}
 	return (objs);
 }

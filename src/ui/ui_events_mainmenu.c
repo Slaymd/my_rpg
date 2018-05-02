@@ -24,3 +24,10 @@ void click_map_settings_button(void *data)
 	rpg->scene = init_mapeditor(rpg);
 	rpg->state = 1;
 }
+
+void click_exit_button(void *data)
+{
+	rpg_t *rpg = (rpg_t*)data;
+
+	sfRenderWindow_close(rpg->wd);
+}

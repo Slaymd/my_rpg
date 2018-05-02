@@ -75,5 +75,18 @@ list_t	*init_textures(void)
 	list_add(&txts, init_texture(TILE_GRASS_N2NW2W2_ID, TXTRE_GRASS_N2NW2W2, sfGreen));
 	list_add(&txts, init_texture(TILE_GRASS_W2SW2S2_ID, TXTRE_GRASS_W2SW2S2, sfGreen));
 	list_add(&txts, init_texture(TILE_GRASS_E2SE2S2_ID, TXTRE_GRASS_E2SE2S2, sfGreen));
+
+	list_add(&txts, init_texture(TILE_GRASS_SE4_ID, TXTRE_GRASS_SE4, sfGreen));
+	list_add(&txts, init_texture(TILE_GRASS_S4_ID, TXTRE_GRASS_S4, sfGreen));
+	list_add(&txts, init_texture(TILE_GRASS_SW4_ID, TXTRE_GRASS_SW4, sfGreen));
+	list_add(&txts, init_texture(TILE_GRASS_W4_ID, TXTRE_GRASS_W4, sfGreen));
+	list_add(&txts, init_texture(TILE_GRASS_NW4_ID, TXTRE_GRASS_NW4, sfGreen));
+	list_add(&txts, init_texture(TILE_GRASS_N4_ID, TXTRE_GRASS_N4, sfGreen));
+	list_add(&txts, init_texture(TILE_GRASS_NE4_ID, TXTRE_GRASS_NE4, sfGreen));
+	list_add(&txts, init_texture(TILE_GRASS_E4_ID, TXTRE_GRASS_E4, sfGreen));
+	list_add(&txts, init_texture(TILE_GRASS_N4NE4E4_ID, TXTRE_GRASS_N4NE4E4, sfGreen));
+	list_add(&txts, init_texture(TILE_GRASS_N4NW4W4_ID, TXTRE_GRASS_N4NW4W4, sfGreen));
+	list_add(&txts, init_texture(TILE_GRASS_W4SW4S4_ID, TXTRE_GRASS_W4SW4S4, sfGreen));
+	list_add(&txts, init_texture(TILE_GRASS_E4SE4S4_ID, TXTRE_GRASS_E4SE4S4, sfGreen));
 	return (txts);
 }

@@ -57,6 +57,7 @@
 		int state;
 		sfRenderWindow *wd;
 		sfEvent event;
+		sfMusic *music;
 		view_t *view;
 		scene_t *scene;
 		window_t *oldwin;
@@ -81,6 +82,7 @@
 	void click_play_button(void *data);
 	void click_save_button(void *data);
 	void click_map_settings_button(void *data);
+	void click_exit_button(void *data);
 
 	//CREATE
 	rpg_t *init_rpg(void);

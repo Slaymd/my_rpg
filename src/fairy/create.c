@@ -36,10 +36,7 @@ void end_shoot(list_shoot_t *list)
 	while (tmp && tmp->next) {
 		if (tmp->next->rect.left >= 4800) {
 			delete = tmp->next;
-			if (tmp->next->next)
-				tmp->next = tmp->next->next;
-			else
-				tmp->next = NULL;
+			tmp->next = (tmp->next->next) ? tmp->next->next : NULL;
 			free(delete);
 		}
 		tmp = tmp->next;
@@ -51,8 +48,8 @@ void set_fairy(fairy_t *fairy)
 	sfSprite_setTexture(fairy->sprite, fairy->texture, sfTrue);
 	sfSprite_setPosition(fairy->sprite, fairy->pos);
 	sfSprite_setTextureRect(fairy->sprite, fairy->rect);
-	sfSprite_setScale(fairy->sprite, (V2F){ZOOM, ZOOM});
 	sfSprite_setOrigin(fairy->sprite, (V2F){SIZE_F_X / 2, SIZE_F_Y / 2});
+	sfSprite_setScale(fairy->sprite, (V2F){ZOOM, ZOOM});
 	sfSprite_setTexture(fairy->s_explo, fairy->t_explo, sfTrue);
 	sfSprite_setOrigin(fairy->s_explo, (V2F){EXPLO_X / 2, EXPLO_Y / 2});
 	sfSprite_setScale(fairy->s_explo, (V2F){0.5, 0.5});
@@ -79,7 +76,8 @@ fairy_t *init_fairy(void)
 	fairy->t_rocket = sfTexture_createFromFile("./img/rocket.png", NULL);
 	fairy->s_rocket = sfSprite_create();
 	fairy->shoot = malloc(sizeof(list_shoot_t));
-	fairy->particle = create_particle(76, 76);
+	fairy->particle = create_particle((sfVector2i){76, 76}, sfBlue, TRIANGLE,
+	RADIAL);
 	fairy->line = sfVertexArray_create();
 	fairy->shhh = sfMusic_createFromFile("assets/musics/shhh.ogg");
 	set_fairy(fairy);

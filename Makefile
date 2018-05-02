@@ -12,14 +12,17 @@ SRC_MAIN		=	src/main.c
 SRC_TEST		=	\
 
 SRC			=	./src/main.c				\
+				./src/NIK_LA_LIB/v_sync.c				\
 				./src/lib.c				\
 				./src/init.c				\
 				./src/destroy.c				\
 				./src/character/create.c		\
 				./src/character/move.c			\
+				./src/character/stat.c			\
 				./src/character/display.c		\
 				./src/particle/particle.c		\
-				./src/particle/animation.c		\
+				./src/particle/effect.c			\
+				./src/particle/form.c			\
 				./src/fairy/create.c			\
 				./src/fairy/move.c			\
 				./src/fairy/display.c			\
@@ -52,6 +55,7 @@ SRC			=	./src/main.c				\
 				src/map/tile_getter.c			\
 				src/map/generation/pos_gen.c		\
 				src/map/generation/texture_table.c	\
+				src/map/generation/texture_manager.c	\
 				src/map/objects/init_objects.c	\
 				src/map/objects/object_gen.c		\
 				src/map/objects/object_disp.c		\

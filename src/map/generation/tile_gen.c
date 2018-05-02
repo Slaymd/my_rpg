@@ -7,17 +7,6 @@
 
 #include "../../../include/rpg.h"
 
-/*tile_t init_tile(float x, float y, float noisevalue)
-{
-	tile_t tile;
-
-	tile.pos = (pos_t){x, y, 0};
-	tile.type = WALKABLE;
-	tile.texture_id = get_texture_from_noise(noisevalue);
-	tile.sprite = NULL;
-	return (tile);
-}*/
-
 int get_tile_adjacent_texture_id(map_t *map, float adjtxt[9], pos_t apos)
 {
 	adjtxt[0] = get_perlin_value(map, (pos_t){apos.x-1, apos.y-1, 0},

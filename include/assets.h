@@ -10,6 +10,9 @@
 
 #include "rpg.h"
 
+#define C_F5F6FA	(sfColor){245, 246, 250, 255}
+#define C_8C7AE6	(sfColor){140, 122, 230, 255}
+
 #define FONT_UBUMED "assets/fonts/Ubuntu-M.ttf"
 #define FONT_UBUREG "assets/fonts/Ubuntu-R.ttf"
 
@@ -22,7 +25,8 @@
 #define TXTRE_LITTLE_STONE2 "assets/textures/objects/little_stone_2.png"
 
 #define TXTRE_LITTLE_BUSH "assets/textures/objects/little_bush.png"
-#define TXTRE_BIG_BUSH "assets/textures/objects/big_bush.png"
+#define TXTRE_BIG_BUSH1 "assets/textures/objects/big_bush_1.png"
+#define TXTRE_BIG_BUSH2 "assets/textures/objects/big_bush_2.png"
 
 #define TXTRE_FLOWERS1 "assets/textures/objects/flowers_1.png"
 #define TXTRE_FLOWERS2 "assets/textures/objects/flowers_2.png"
@@ -35,16 +39,18 @@
 #define TXTRE_LOG "assets/textures/objects/log.png"
 
 #define TXTRE_WOODEN_HOUSE "assets/textures/objects/wooden_house.png"
+#define TXTRE_VILLAGE1 "assets/textures/objects/village_1.png"
 
 #define TXTRE_LIST_LITTLE_STONE {TXTRE_LITTLE_STONE1,\
 	TXTRE_LITTLE_STONE2, NULL}
 #define TXTRE_LIST_FLOWERS {TXTRE_FLOWERS1, TXTRE_FLOWERS2, TXTRE_FLOWERS3,\
 	NULL}
+#define TXTRE_LIST_VILLAGE {TXTRE_VILLAGE1, NULL}
 #define TXTRE_LIST_LILY_PAD {TXTRE_LILY_PAD1, NULL}
 #define TXTRE_LIST_WOODEN_HOUSE {TXTRE_WOODEN_HOUSE, NULL}
 #define TXTRE_LIST_WATER_WAVE {TXTRE_WATER_WAVE, NULL}
 #define TXTRE_LIST_LITTLE_BUSH {TXTRE_LITTLE_BUSH, NULL}
-#define TXTRE_LIST_BIG_BUSH {TXTRE_BIG_BUSH, NULL}
+#define TXTRE_LIST_BIG_BUSH {TXTRE_BIG_BUSH1, TXTRE_BIG_BUSH2, NULL}
 #define TXTRE_LIST_LOG {TXTRE_LOG, NULL}
 
 //Textures variations
@@ -91,6 +97,20 @@
 #define TXTRE_GRASS_W2SW2S2 "assets/textures/tiles/grass_varW2SW2S2.png"
 #define TXTRE_GRASS_N2NW2W2 "assets/textures/tiles/grass_varN2NW2W2.png"
 
+#define TXTRE_GRASS_SE4 "assets/textures/tiles/grass_varSE4.png"
+#define TXTRE_GRASS_S4 "assets/textures/tiles/grass_varS4.png"
+#define TXTRE_GRASS_SW4 "assets/textures/tiles/grass_varSW4.png"
+#define TXTRE_GRASS_W4 "assets/textures/tiles/grass_varW4.png"
+#define TXTRE_GRASS_NW4 "assets/textures/tiles/grass_varNW4.png"
+#define TXTRE_GRASS_N4 "assets/textures/tiles/grass_varN4.png"
+#define TXTRE_GRASS_NE4 "assets/textures/tiles/grass_varNE4.png"
+#define TXTRE_GRASS_E4 "assets/textures/tiles/grass_varE4.png"
+
+#define TXTRE_GRASS_N4NE4E4 "assets/textures/tiles/grass_varN4NE4E4.png"
+#define TXTRE_GRASS_E4SE4S4 "assets/textures/tiles/grass_varE4SE4S4.png"
+#define TXTRE_GRASS_W4SW4S4 "assets/textures/tiles/grass_varW4SW4S4.png"
+#define TXTRE_GRASS_N4NW4W4 "assets/textures/tiles/grass_varN4NW4W4.png"
+
 #define TXTRE_OSTRICH "assets/entities/ostrich.png"
 #define TXTRE_STONE_OGRE "assets/entities/stone_ogre.png"
 #define TXTRE_LYCANTHROPE "assets/entities/lycanthrope.png"
@@ -129,6 +149,19 @@
 #define TILE_GRASS_E2SE2S2_ID 322
 #define TILE_GRASS_W2SW2S2_ID 323
 #define TILE_GRASS_N2NW2W2_ID 324
+
+#define TILE_GRASS_SE4_ID 325
+#define TILE_GRASS_S4_ID 326
+#define TILE_GRASS_SW4_ID 327
+#define TILE_GRASS_W4_ID 328
+#define TILE_GRASS_NW4_ID 329
+#define TILE_GRASS_N4_ID 330
+#define TILE_GRASS_NE4_ID 331
+#define TILE_GRASS_E4_ID 332
+#define TILE_GRASS_N4NE4E4_ID 333
+#define TILE_GRASS_E4SE4S4_ID 334
+#define TILE_GRASS_W4SW4S4_ID 335
+#define TILE_GRASS_N4NW4W4_ID 336
 
 #define TILE_SAND_SE1_ID 201
 #define TILE_SAND_S1_ID 202
@@ -184,6 +217,20 @@
 #define G_E2SE2S2 {-1.0, -1.0, -1.0, -1.0, 3.0, 2.0, -1.0, 2.0, 2.0}
 #define G_W2SW2S2 {-1.0, -1.0, -1.0, 2.0, 3.0, -1.0, 2.0, 2.0, -1.0}
 #define G_N2NW2W2 {2.0, 2.0, -1.0, 2.0, 3.0, -1.0, -1.0, -1.0, -1.0}
+
+#define G_SE4 {-1.0, -1.0, -1.0, -1.0, 3.0, 3.0, -1.0, 3.0, 4.0}
+#define G_S4 {-1.0, -1.0, -1.0, -1.0, 3.0, -1.0, -1.0, 4.0, -1.0}
+#define G_SW4 {-1.0, -1.0, -1.0, 3.0, 3.0, -1.0, 4.0, 3.0, -1.0}
+#define G_W4 {-1.0, -1.0, -1.0, 4.0, 3.0, -1.0, -1.0, -1.0, -1.0}
+#define G_NW4 {4.0, 3.0, -1.0, 3.0, 3.0, -1.0, -1.0, -1.0, -1.0}
+#define G_N4 {-1.0, 4.0, -1.0, -1.0, 3.0, -1.0, -1.0, -1.0, -1.0}
+#define G_NE4 {-1.0, 3.0, 4.0, -1.0, 3.0, 3.0, -1.0, -1.0, -1.0}
+#define G_E4 {-1.0, -1.0, -1.0, -1.0, 3.0, 4.0, -1.0, -1.0, -1.0}
+
+#define G_N4NE4E4 {-1.0, 4.0, 4.0, -1.0, 3.0, 4.0, -1.0, -1.0, -1.0}
+#define G_E4SE4S4 {-1.0, -1.0, -1.0, -1.0, 3.0, 4.0, -1.0, 4.0, 4.0}
+#define G_W4SW4S4 {-1.0, -1.0, -1.0, 4.0, 3.0, -1.0, 4.0, 4.0, -1.0}
+#define G_N4NW4W4 {4.0, 4.0, -1.0, 4.0, 3.0, -1.0, -1.0, -1.0, -1.0}
 
 #define DSTP {-2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0}
 

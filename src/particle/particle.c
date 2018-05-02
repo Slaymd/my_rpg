@@ -7,20 +7,23 @@
 
 #include "rpg.h"
 
-particle_t *create_particle(int x, int y)
+particle_t *create_particle(sfVector2i size, sfColor color, form_type_t form, effect_type_t effect)
 {
 	particle_t *particle = malloc(sizeof(particle_t));
-	sfUint8 *pixels = malloc(sizeof(sfUint8) * x * y * 4);
+	sfUint8 *pixels = malloc(sizeof(sfUint8) * size.x * size.y * 4);
 
-	for (int i = 0; i < x * y * 4; i++)
+	for (int i = 0; i < size.x * size.y * 4; i++)
 		pixels[i] = 0;
-	particle->texture = sfTexture_create(x, y);
+	particle->texture = sfTexture_create(size.x, size.y);
 	particle->sprite = sfSprite_create();
-	particle->x = x;
-	particle->y = y;
+	particle->x = size.x;
+	particle->y = size.y;
 	particle->pixels = pixels;
+	particle->color = color;
+	particle->form = form;
+	particle->effect = effect;
 	sfSprite_setTexture(particle->sprite, particle->texture, sfTrue);
-	sfSprite_setOrigin(particle->sprite, (V2F){x / 2, y / 2});
+	sfSprite_setOrigin(particle->sprite, (V2F){size.x / 2, size.y / 2});
 	return (particle);
 }
 
@@ -28,7 +31,7 @@ void put_pixel(particle_t *particle, int x, int y, sfColor color)
 {
 	int position = (y * particle->x + x) * 4;
 
-	if (position >= 0 && position <= particle->x * particle->y * 4 &&
+	if (position >= 0 && position + 3 <= particle->x * particle->y * 4 &&
 	x <= particle->x && y <= particle->y) {
 		particle->pixels[position + 0] = color.r;
 		particle->pixels[position + 1] = color.g;
@@ -37,25 +40,9 @@ void put_pixel(particle_t *particle, int x, int y, sfColor color)
 	}
 }
 
-void display_circle(particle_t *p, int refresh)
-{
-	sfVector2i pos = {p->x / 2 - p->x / 2, p->y / 2 - p->y / 2};
-
-	while (pos.x != p->x / 2 + p->x / 2 || pos.y != p->y / 2 + p->y / 2) {
-		if ((((pos.x - p->x / 2) * (pos.x - p->x / 2)) + ((pos.y - p->y
-		/ 2) * (pos.y - p->y / 2))) <= (p->x / 2 * p->y / 2))
-			radial_gradiant(p, pos, refresh);
-		pos.x += 1;
-		if (pos.x > p->x / 2 + p->x / 2) {
-			pos.x = 0;
-			pos.y += 1;
-		}
-	}
-}
-
 void display_particle(particle_t *particle, sfRenderWindow *window, V2F pos, int refresh)
 {
-	display_circle(particle, refresh);
+	select_form(particle, refresh);
 	sfTexture_updateFromPixels(particle->texture, particle->pixels,
 	particle->x, particle->y, 0, 0);
 	sfSprite_setPosition(particle->sprite, pos);
@@ -64,6 +51,8 @@ void display_particle(particle_t *particle, sfRenderWindow *window, V2F pos, int
 
 void destroy_particle(particle_t *particle)
 {
+	sfSprite_destroy(particle->sprite);
+	sfTexture_destroy(particle->texture);
 	free(particle->pixels);
 	free(particle);
 }
