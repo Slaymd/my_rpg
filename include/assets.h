@@ -13,6 +13,7 @@
 #define C_F5F6FA	(sfColor){245, 246, 250, 255}
 #define C_8C7AE6	(sfColor){140, 122, 230, 255}
 
+#define FONT_HUD "assets/fonts/legend.ttf"
 #define FONT_UBUMED "assets/fonts/Ubuntu-M.ttf"
 #define FONT_UBUREG "assets/fonts/Ubuntu-R.ttf"
 

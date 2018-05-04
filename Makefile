@@ -23,6 +23,8 @@ SRC			=	./src/main.c				\
 				./src/particle/particle.c		\
 				./src/particle/effect.c			\
 				./src/particle/form.c			\
+				./src/hud/create.c			\
+				./src/hud/hud.c				\
 				./src/fairy/create.c			\
 				./src/fairy/move.c			\
 				./src/fairy/display.c			\
