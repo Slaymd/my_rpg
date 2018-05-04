@@ -71,7 +71,6 @@ void refresh_time(cycle_t *cycle, rpg_t *rpg)
 		cycle->h++;
 	} if (cycle->h >= 24) {
 		cycle->h = 0;
-		change_cycle(rpg);
 	} if (cycle->seconds >= 0.1) {
 		run_cycle(rpg);
 		sfSprite_setRotation(cycle->sprite, clock_rotation(cycle));

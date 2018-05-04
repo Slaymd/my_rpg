@@ -18,9 +18,9 @@ void change_sprite_color(sfSprite *sprite)
 
 void run_cycle(rpg_t *rpg)
 {
-	while ("JE C PA") {
-		change_sprite_color(tmp->sprite)
-	}
+	// while ("JE C PA") {
+		// change_sprite_color();
+	// }
 }
 
 void cycle_handler(rpg_t *rpg)
