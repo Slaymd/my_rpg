@@ -41,7 +41,8 @@ int	game_loop(rpg_t *rpg)
 		sfRenderWindow_setView(rpg->wd, rpg->view->v_screen);
 		disp_game(rpg);
 		sfRenderWindow_setView(rpg->wd, rpg->view->v_map);
-		disp_game(rpg);
+		disp_map(rpg);
+		cycle_handler(rpg);
 		ennemy_handling(rpg, rpg->map);
 		display_character(rpg, rpg->character);
 		display_fairy(rpg, event);
@@ -55,6 +56,7 @@ int	main(void)
 	rpg_t *rpg = init_rpg();
 	srand(time(NULL));
 
+	rpg->state = 3;
 	init_sprite(rpg);
 	while (sfRenderWindow_isOpen(rpg->wd)) {
 		game_loop(rpg);

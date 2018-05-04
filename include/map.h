@@ -11,7 +11,7 @@
 #include "list.h"
 
 #define TILE_SIZE 22
-#define MOVE_SPEED 0.12
+#define MOVE_SPEED 0.20
 
 #define DEPTH 2
 #define FREQ 0.06

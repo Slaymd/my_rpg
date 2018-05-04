@@ -69,6 +69,7 @@ rpg_t *init_rpg(void)
 	sfMusic_play(rpg->music);
 	rpg->wd = create_window();
 	rpg->view = create_view();
+	rpg->cycle = create_cycle();
 	rpg->character = init_character();
 	rpg->fairy = init_fairy();
 	rpg->map = init_map(NULL, SEED);
