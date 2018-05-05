@@ -73,7 +73,7 @@ entity_t *create_entity(map_t *map, entity_type type)
 void init_sprite(rpg_t *rpg)
 {
 	rpg->entities = NULL;
-	list_add(&rpg->entities, create_entity(rpg->map, OSTRICH));
-	list_add(&rpg->entities, create_entity(rpg->map, STONE_OGRE));
+	// list_add(&rpg->entities, create_entity(rpg->map, OSTRICH));
+	// list_add(&rpg->entities, create_entity(rpg->map, STONE_OGRE));
 	list_add(&rpg->entities, create_entity(rpg->map, LYCANTHROPE));
 }

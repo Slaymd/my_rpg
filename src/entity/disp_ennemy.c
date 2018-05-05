@@ -33,6 +33,10 @@ void display_ennemy(rpg_t *rpg, entity_t *ent, map_t *map, int count)
 		ent->square.left = ent->square.left + ent->movement >= ent->lvl
 		? ent->max : ent->square.left + ent->movement;
 		sfSprite_setTextureRect(ent->sprite, ent->square);
+	} else if (ent->mirror == 2 && count == 5) {
+		ent->square.left = ent->square.left + ent->movement >= 2500 ?
+		2500 : ent->square.left + 177;
+		sfSprite_setTextureRect(ent->sprite, ent->square);
 	}
 	reinit_var(rpg, ent, map);
 }
