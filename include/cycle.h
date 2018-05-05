@@ -34,5 +34,5 @@
 
 	//TIME
 	void display_time(cycle_t *cycle, sfRenderWindow *window);
-	void refresh_time(cycle_t *cycle, rpg_t *rpg);
+	void refresh_time(cycle_t *cycle);
 #endif
