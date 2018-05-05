@@ -65,15 +65,15 @@ void refresh_time(cycle_t *cycle, rpg_t *rpg)
 {
 	cycle->time = sfClock_getElapsedTime(cycle->clock);
 	cycle->seconds = cycle->time.microseconds / 1000000.0;
-	(cycle->seconds >= 0.1) ? cycle->m ++ : 0;
+	(cycle->seconds >= 0.001) ? cycle->m ++ : 0;
 	if (cycle->m >= 60) {
 		cycle->m = 0;
 		cycle->h++;
 	} if (cycle->h >= 24) {
 		cycle->h = 0;
-	} if (cycle->seconds >= 0.1) {
-		run_cycle(rpg);
-		sfSprite_setRotation(cycle->sprite, clock_rotation(cycle));
+	} if (cycle->seconds >= 0.001) {
+		run_cycle(cycle);
+		sfSprite_setRotation(cycle->s_clock, clock_rotation(cycle));
 		sfClock_restart(cycle->clock);
 	}
 }
@@ -85,7 +85,7 @@ void display_time(cycle_t *cycle, sfRenderWindow *window)
 	char *h;
 	char *m = my_itoa(cycle->m);
 
-	sfRenderWindow_drawSprite(window, cycle->sprite, NULL);
+	sfRenderWindow_drawSprite(window, cycle->s_clock, NULL);
 	if (cycle->h < 10) {
 		h = my_itoa(cycle->h);
 		str = my_strcat_no_free(tmp, h);

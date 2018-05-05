@@ -8,6 +8,8 @@
 #ifndef _CYCLE_H_
 	#define _CYCLE_H_
 
+	#include "particle.h"
+
 	typedef struct cycle_s cycle_t;
 
 	struct cycle_s {
@@ -18,8 +20,9 @@
 		sfClock *clock;
 		sfTime time;
 		float seconds;
-		sfSprite *sprite;
-		sfTexture *texture;
+		sfSprite *s_clock;
+		sfTexture *t_clock;
+		particle_t *cycle;
 	};
 
 	//CREATE
@@ -27,7 +30,7 @@
 
 	//CYCLE
 	void cycle_handler(rpg_t *rpg);
-	void run_cycle(rpg_t *rpg);
+	void run_cycle(cycle_t *cycle);
 
 	//TIME
 	void display_time(cycle_t *cycle, sfRenderWindow *window);

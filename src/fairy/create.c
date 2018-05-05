@@ -76,8 +76,8 @@ fairy_t *init_fairy(void)
 	fairy->t_rocket = sfTexture_createFromFile("./img/rocket.png", NULL);
 	fairy->s_rocket = sfSprite_create();
 	fairy->shoot = malloc(sizeof(list_shoot_t));
-	fairy->particle = create_particle((sfVector2i){76, 76}, sfBlue, TRIANGLE,
-	RADIAL);
+	fairy->particle = create_particle((sfVector2i){76, 76}, sfBlue,
+	CIRCLE, RADIAL);
 	fairy->line = sfVertexArray_create();
 	fairy->shhh = sfMusic_createFromFile("assets/musics/shhh.ogg");
 	set_fairy(fairy);

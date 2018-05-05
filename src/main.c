@@ -42,10 +42,10 @@ int	game_loop(rpg_t *rpg)
 		disp_game(rpg);
 		sfRenderWindow_setView(rpg->wd, rpg->view->v_map);
 		disp_map(rpg);
-		cycle_handler(rpg);
 		ennemy_handling(rpg, rpg->map);
 		display_character(rpg, rpg->character);
 		display_fairy(rpg, event);
+		cycle_handler(rpg);
 	}
 	sfRenderWindow_display(rpg->wd);
 	return (0);
