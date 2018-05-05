@@ -21,10 +21,12 @@ cycle_t *create_cycle(void)
 	cycle->clock = sfClock_create();
 	cycle->time = sfClock_getElapsedTime(cycle->clock);
 	cycle->seconds = 0;
-	cycle->texture = sfTexture_createFromFile("./img/clock.png", NULL);
-	cycle->sprite = sfSprite_create();
-	sfSprite_setTexture(cycle->sprite, cycle->texture, sfTrue);
-	sfSprite_setPosition(cycle->sprite, (V2F){42.5, 42.5});
-	sfSprite_setOrigin(cycle->sprite, (V2F){37.5, 37.5});
+	cycle->t_clock = sfTexture_createFromFile("./img/clock.png", NULL);
+	cycle->s_clock = sfSprite_create();
+	cycle->cycle = create_particle((V2I){WIDTH, HEIGHT}, sfBlue, SQUARE,
+	NONE);
+	sfSprite_setTexture(cycle->s_clock, cycle->t_clock, sfTrue);
+	sfSprite_setPosition(cycle->s_clock, (V2F){42.5, 42.5});
+	sfSprite_setOrigin(cycle->s_clock, (V2F){37.5, 37.5});
 	return (cycle);
 }
