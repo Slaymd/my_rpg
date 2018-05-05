@@ -28,6 +28,7 @@
 	#include "my.h"
 	#include "assets.h"
 	#include "uilib.h"
+	#include "inventory.h"
 
 	#define WIDTH 900
 	#define HEIGHT 600
@@ -67,6 +68,7 @@
 		character_t *character;
 		fairy_t *fairy;
 		entity_t *ennemy[20];
+		item_t *slot[20];
 		list_t *entities;
 	};
 
@@ -91,6 +93,9 @@
 	character_t *init_character(void);
 	void set_window(window_t *window);
 	window_t *init_window(void);
+
+	//INVENTAIRE
+	void inventory(rpg_t *rpg);
 
 	//ACTION
 	void verif_action(rpg_t *rpg);
