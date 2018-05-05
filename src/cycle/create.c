@@ -11,7 +11,7 @@ cycle_t *create_cycle(void)
 {
 	cycle_t *cycle = malloc(sizeof(cycle_t));
 
-	cycle->h = 0;
+	cycle->h = 3;
 	cycle->m = 0;
 	cycle->font = sfFont_createFromFile(FONT_UBUREG);
 	cycle->text = sfText_create();
