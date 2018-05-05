@@ -48,7 +48,7 @@ int	generate_object(map_t *map, object_stats_t *obj_stats, pos_t pos)
 	if (!can_be_placed_here(map, obj->sprite, pos))
 		return (free_object(obj));
 	obj->pos = (pos_t){pos.x+0.5, pos.y+0.5, 0};
-	obj->type = WALKABLE;
+	obj->type = obj_stats->type;
 	list_add(&map->objects, obj);
 	return (1);
 }

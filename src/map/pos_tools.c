@@ -45,3 +45,8 @@ sfVector2f	get_relative_pixel_pos(pos_t ref, chunk_t *chk, pos_t pos)
 	relat_pos.y = (absol_pos.y-ref.y)*TILE_SIZE;
 	return (relat_pos);
 }
+
+float	distance_between(pos_t pos1, pos_t pos2)
+{
+	return (sqrt(pow(pos1.x-pos2.x, 2)+pow(pos1.y-pos2.y, 2)));
+}
