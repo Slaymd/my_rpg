@@ -69,6 +69,7 @@ void deplacement_lycan(rpg_t *rpg, map_t *map, entity_t *ent)
 	static int x = 0;
 	static int first = -1;
 
+	ent->pos.x = 16020;
 	detect_ennemy(ent, map) == 1 && first == -1 ? first++ : 0;
 	if (first >= 0 && first < 200) {
 		lycan_cry(rpg, ent, count);
