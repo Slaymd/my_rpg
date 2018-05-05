@@ -38,13 +38,16 @@ int	game_loop(rpg_t *rpg)
 	if (rpg->state < 3)
 		disp_mainmenu(rpg);
 	else if (rpg->state == 3) {
+		if (sfKeyboard_isKeyPressed(sfKeyE))
+			inventory(rpg);
 		sfRenderWindow_setView(rpg->wd, rpg->view->v_screen);
 		disp_game(rpg);
 		sfRenderWindow_setView(rpg->wd, rpg->view->v_map);
-		disp_game(rpg);
+		disp_map(rpg);
 		ennemy_handling(rpg, rpg->map);
 		display_character(rpg, rpg->character);
 		display_fairy(rpg, event);
+		cycle_handler(rpg);
 	}
 	sfRenderWindow_display(rpg->wd);
 	return (0);
@@ -55,6 +58,7 @@ int	main(void)
 	rpg_t *rpg = init_rpg();
 	srand(time(NULL));
 
+	rpg->state = 3;
 	init_sprite(rpg);
 	while (sfRenderWindow_isOpen(rpg->wd)) {
 		game_loop(rpg);

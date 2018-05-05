@@ -16,6 +16,9 @@ SRC			=	./src/main.c				\
 				./src/lib.c				\
 				./src/init.c				\
 				./src/destroy.c				\
+				./src/cycle/create.c			\
+				./src/cycle/cycle.c			\
+				./src/cycle/time.c			\
 				./src/character/create.c		\
 				./src/character/move.c			\
 				./src/character/stat.c			\
@@ -59,6 +62,9 @@ SRC			=	./src/main.c				\
 				src/map/objects/init_objects.c	\
 				src/map/objects/object_gen.c		\
 				src/map/objects/object_disp.c		\
+				src/entity/deplacement_lycan.c		\
+				src/entity/boss.c			\
+				src/inventaire/inventaire.c
 
 CFLAGS		=	-W -Wall -Wextra -I./include -g3 -lm
 

@@ -56,7 +56,7 @@ int	is_occuped_by_object_here(map_t *map, pos_t pos)
 
 int	can_move_here(map_t *map, pos_t pos)
 {
-	int	wrong_tiles[] = {TILE_WATER_ID, -1};
+	int wrong_tiles[] = {TILE_WATER_ID, -1};
 	tile_t *tile = get_tile_at(map, pos);
 
 	if (tile == NULL)

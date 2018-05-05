@@ -11,7 +11,7 @@
 #include "list.h"
 
 #define TILE_SIZE 22
-#define MOVE_SPEED 0.12
+#define MOVE_SPEED 0.20
 
 #define DEPTH 2
 #define FREQ 0.06
@@ -45,7 +45,7 @@ typedef enum collision_type_e collision_type;
 typedef enum freq_type_e freq_type;
 typedef enum tile_type_e tile_type;
 
-enum entity_type_e { NO_AI, OSTRICH, STONE_OGRE, UNKNOWN };
+enum entity_type_e { NO_AI, OSTRICH, STONE_OGRE, LYCANTHROPE, UNKNOWN };
 
 enum collision_type_e { WALKABLE=0, NON_WALKABLE=1 };
 

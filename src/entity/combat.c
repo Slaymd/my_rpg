@@ -26,14 +26,14 @@ void follow_ostrich(entity_t *ent, map_t *map)
 	int y = map->center.y;
 	static int pos = 0;
 
-	ent->seconds >= 1 ? sfMusic_play(ent->song) : 0;
+	//ent->seconds >= 1 ? sfMusic_play(ent->song) : 0;
 	if (ent->pos.x < x) {
 		if (can_move_here(map , ent->pos) == 1) {
 			ent->pos.x += 0.22;
 			pos = x;
 			return;
 		}
-		pos != x && can_move_here(map, ent->pos) == 0 ? ent->pos.x -= 0.22 : 0;
+		pos != x && can_move_here(map, ent->pos) == 1 ? ent->pos.x -= 0.22 : 0;
 		ent->mirror = 4;
 		pos = x;
 	} else if (ent->pos.x > x)
@@ -52,8 +52,8 @@ void follow_ogre(entity_t *ent, map_t *map, character_t *character)
 	if (pos == x) {
 		character->stat->hp -= 0.2;
 	}
-	ent->pos.x <= x + 0.3 ? ent->pos.x += 0.12, ent->mirror = 3 : 0;
-	ent->pos.x >= x + 0.3 ? ent->pos.x -= 0.12, ent->mirror = 4 : 0;
+	ent->pos.x <= x + 0.3 ? ent->pos.x += 0.10, ent->mirror = 3 : 0;
+	ent->pos.x >= x + 0.3 ? ent->pos.x -= 0.10, ent->mirror = 4 : 0;
 	pos = x;
 	ent->pos.y >= y ? ent->pos.y -= 0.16 : 0;
 	ent->pos.y <= y ? ent->pos.y += 0.16 : 0;

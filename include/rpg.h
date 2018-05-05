@@ -20,6 +20,7 @@
 	#include <time.h>
 
 	#include "map.h"
+	#include "cycle.h"
 	#include "character.h"
 	#include "particle.h"
 	#include "fairy.h"
@@ -27,6 +28,7 @@
 	#include "my.h"
 	#include "assets.h"
 	#include "uilib.h"
+	#include "inventory.h"
 
 	#define WIDTH 900
 	#define HEIGHT 600
@@ -59,12 +61,14 @@
 		sfEvent event;
 		sfMusic *music;
 		view_t *view;
+		cycle_t *cycle;
 		scene_t *scene;
 		window_t *oldwin;
 		map_t	*map;
 		character_t *character;
 		fairy_t *fairy;
 		entity_t *ennemy[20];
+		item_t *slot[20];
 		list_t *entities;
 	};
 
@@ -90,6 +94,9 @@
 	void set_window(window_t *window);
 	window_t *init_window(void);
 
+	//INVENTAIRE
+	void inventory(rpg_t *rpg);
+
 	//ACTION
 	void verif_action(rpg_t *rpg);
 	void event_gestion(window_t *window, map_t *map);
@@ -113,6 +120,9 @@
 	void free_rpg(rpg_t *rpg);
 
 	//ENNEMY
+	void lycan_cry(rpg_t *rpg, entity_t *ent, int count);
+	void follow_lycan(entity_t *ent, map_t *map, rpg_t *rpg);
+	void deplacement_lycan(rpg_t *rpg, map_t *map, entity_t *ent);
 	int detect_ennemy(entity_t *ent, map_t *map);
 	void follow_ogre(entity_t *ent, map_t *map, character_t *character);
 	void follow_ostrich(entity_t *ent, map_t *map);
@@ -124,6 +134,7 @@
 	void deplacement_ogre(rpg_t *rpg, map_t *map, entity_t *ent);
 	void deplacement_ostrich(rpg_t *rpg, map_t *map, entity_t *ent);
 	void mirror_sprite(entity_t *ent, int mirror);
+	void reinit_var(rpg_t *rpg, entity_t *ent, map_t *map);
 
 	//CHARACTER
 	character_t *init_character(void);
