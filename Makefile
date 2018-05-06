@@ -63,13 +63,9 @@ SRC			=	./src/main.c				\
 				src/map/objects/object_gen.c		\
 				src/map/objects/object_disp.c		\
 				src/entity/deplacement_lycan.c		\
-<<<<<<< HEAD
 				src/inventory/inventory.c		\
-				src/inventory/fct_for_inventory.c
-=======
+				src/inventory/fct_for_inventory.c	\	
 				src/entity/boss.c			\
-				src/inventaire/inventaire.c
->>>>>>> a055a1fac97a5ae4c48673c4c5a9270207ca465f
 
 CFLAGS		=	-W -Wall -Wextra -I./include -g3 -lm
 
