@@ -59,13 +59,14 @@ SRC			=	./src/main.c				\
 				src/map/generation/pos_gen.c		\
 				src/map/generation/texture_table.c	\
 				src/map/generation/texture_manager.c	\
-				src/map/objects/init_objects.c	\
+				src/map/objects/init_objects.c		\
 				src/map/objects/object_gen.c		\
 				src/map/objects/object_disp.c		\
 				src/entity/deplacement_lycan.c		\
-				src/inventory/inventory.c		\
-				src/inventory/fct_for_inventory.c	\	
 				src/entity/boss.c			\
+				src/inventory/inventory.c		\
+				src/inventory/fct_for_inventory.c	\
+				src/inventory/init_inventory.c
 
 CFLAGS		=	-W -Wall -Wextra -I./include -g3 -lm
 

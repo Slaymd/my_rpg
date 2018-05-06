@@ -41,6 +41,8 @@ void fill_slot(item_t *slot1, item_t *slot2, int i_equip)
 	}
 	slot1->attack = slot2->attack;
 	slot1->def = slot2->def;
+	slot1->conso = slot2->conso;
+	slot1->stack = slot2->stack;
 }
 
 void equip(item_t *slot, item_t **inv)

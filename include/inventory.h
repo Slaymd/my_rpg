@@ -21,6 +21,8 @@
 		int status;
 		int attack;
 		int def;
+		int conso;
+		int stack;
 	} item_t;
 
 #endif

@@ -95,6 +95,7 @@
 	window_t *init_window(void);
 
 	//INVENTAIRE
+	void init_inv(rpg_t *rpg);
 	void inventory(rpg_t *rpg);
 	void unequip(item_t *slot, item_t **inv);
 	void equip(item_t *slot, item_t **inv);
