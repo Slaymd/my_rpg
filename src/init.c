@@ -83,19 +83,19 @@ item_t *create_case_item(sfIntRect pos, const char *sprite, int info[5])
 
 void init_inv(rpg_t *rpg)
 {
-	rpg->slot[0] = create_case_item((sfIntRect){0, 0, 0, 0}, "src/inventaire/sprite/case_empty.png", (int[5]){0, 0, 0, 0, 0});
-	rpg->slot[1] = create_case_item((sfIntRect){10, 10, 700, 500}, "src/inventaire/sprite/inv.png", (int[5]){0, 0, 0, 0, 0});
+	rpg->slot[0] = create_case_item((sfIntRect){0, 0, 0, 0}, "assets/inventory/empty.png", (int[5]){0, 0, 0, 0, 0});
+	rpg->slot[1] = create_case_item((sfIntRect){10, 10, 700, 500}, "assets/inventory/inv.png", (int[5]){0, 0, 0, 0, 0});
 
-	rpg->slot[2] = create_case_item((sfIntRect){70, 200, 50, 50}, "src/inventaire/sprite/amulette.png", (int[5]){0, 2, 1, 2, 0});
-	rpg->slot[3] = create_case_item((sfIntRect){70, 280, 50, 50}, "src/inventaire/sprite/ankh.png", (int[5]){0, 2, 1, 5, 0});
-	rpg->slot[4] = create_case_item((sfIntRect){70, 390, 50, 50}, "src/inventaire/sprite/armure.png", (int[5]){0, 3, 1, 0, 10});
-	rpg->slot[5] = create_case_item((sfIntRect){230, 200, 50, 50}, "src/inventaire/sprite/teeshirt.png", (int[5]){0, 3, 1, 0, 1});
-	rpg->slot[6] = create_case_item((sfIntRect){230, 280, 50, 50}, "src/inventaire/sprite/casquette.png", (int[5]){0, 1, 1, 0, 2});
-	rpg->slot[7] = create_case_item((sfIntRect){230, 390, 50, 50}, "src/inventaire/sprite/casque.png", (int[5]){0, 1, 1, 0, 5});
+	rpg->slot[2] = create_case_item((sfIntRect){70, 200, 50, 50}, "assets/inventory/amulette.png", (int[5]){0, 2, 1, 2, 0});
+	rpg->slot[3] = create_case_item((sfIntRect){70, 280, 50, 50}, "assets/inventory/ankh.png", (int[5]){0, 2, 1, 5, 0});
+	rpg->slot[4] = create_case_item((sfIntRect){70, 390, 50, 50}, "assets/inventory/armure.png", (int[5]){0, 3, 1, 0, 10});
+	rpg->slot[5] = create_case_item((sfIntRect){230, 200, 50, 50}, "assets/inventory/teeshirt.png", (int[5]){0, 3, 1, 0, 1});
+	rpg->slot[6] = create_case_item((sfIntRect){230, 280, 50, 50}, "assets/inventory/casquette.png", (int[5]){0, 1, 1, 0, 2});
+	rpg->slot[7] = create_case_item((sfIntRect){230, 390, 50, 50}, "assets/inventory/casque.png", (int[5]){0, 1, 1, 0, 5});
 
-	rpg->slot[8] = create_case_item((sfIntRect){350, 70, 50, 50}, "src/inventaire/sprite/empty.png", (int[5]){1, 0, 0, 0, 0});
-	rpg->slot[9] = create_case_item((sfIntRect){200, 70, 50, 50}, "src/inventaire/sprite/empty.png", (int[5]){3, 0, 0, 0, 0});
-	rpg->slot[10] = create_case_item((sfIntRect){500, 70, 50, 50}, "src/inventaire/sprite/empty.png", (int[5]){2, 0, 0, 0, 0});
+	rpg->slot[8] = create_case_item((sfIntRect){350, 70, 50, 50}, "assets/inventory/empty.png", (int[5]){1, 0, 0, 0, 0});
+	rpg->slot[9] = create_case_item((sfIntRect){200, 70, 50, 50}, "assets/inventory/empty.png", (int[5]){3, 0, 0, 0, 0});
+	rpg->slot[10] = create_case_item((sfIntRect){500, 70, 50, 50}, "assets/inventory/empty.png", (int[5]){2, 0, 0, 0, 0});
 	rpg->slot[11] = NULL;
 }
 
