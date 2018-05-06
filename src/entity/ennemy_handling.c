@@ -29,8 +29,8 @@ int detect_ennemy(entity_t *ent, map_t *map)
 void detect_damage(rpg_t *rpg, entity_t *ent)
 {
 	if (rpg->fairy->shoot->first != NULL) {
-		printf("shoot = %f | %f\n", rpg->fairy->shoot->first->pos_e.x, rpg->fairy->shoot->first->pos_e.y);
-		printf("ent   = %f | %f\n", ent->pos.x, ent->pos.y);
+		// printf("shoot = %f | %f\n", rpg->fairy->shoot->first->pos_e.x, rpg->fairy->shoot->first->pos_e.y);
+		// printf("ent   = %f | %f\n", ent->pos.x, ent->pos.y);
 	}
 }
 

@@ -47,9 +47,9 @@ typedef enum tile_type_e tile_type;
 
 enum entity_type_e { NO_AI, OSTRICH, STONE_OGRE, LYCANTHROPE, UNKNOWN };
 
-enum collision_type_e { WALKABLE, NON_WALKABLE };
+enum collision_type_e { WALKABLE=0, NON_WALKABLE=1 };
 
-enum freq_type_e { MAP, CHUNK, TILE };
+enum freq_type_e { MAP=0, CHUNK=1, TILE=2 };
 
 struct pos_s {
 	float		x;
@@ -63,6 +63,7 @@ struct object_stats_s {
 	int		object_id;
 	int		data;
 	freq_type	spawn_type;
+	collision_type	type;
 };
 
 struct object_s {
@@ -177,6 +178,7 @@ sfVector2f	get_relative_pixel_pos(pos_t ref, chunk_t *chk, pos_t pos);
 pos_t	get_absolute_pos(chunk_t *chunk, pos_t pos);
 chunk_t *get_chunk_at(map_t *map, pos_t pos);
 tile_t *get_tile_at(map_t *map, pos_t pos);
+float	distance_between(pos_t pos1, pos_t pos2);
 
 //POS GEN
 pos_t generate_pos_near(map_t *map, pos_t pos, int minradius);
@@ -184,6 +186,7 @@ pos_t generate_pos_near(map_t *map, pos_t pos, int minradius);
 //COLLISIONS
 int	can_move_here(map_t *map, pos_t pos);
 int	can_be_placed_here(map_t *map, sfSprite *sprite, pos_t pos);
+int	is_occuped_by_object_here(map_t *map, pos_t pos);
 
 //EVENTS
 int	map_event_handler(window_t *window, map_t *map);
