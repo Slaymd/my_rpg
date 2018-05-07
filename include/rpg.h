@@ -120,6 +120,7 @@
 	void free_rpg(rpg_t *rpg);
 
 	//ENNEMY
+	void deplacement_villager(rpg_t *rpg, map_t *map, entity_t *ent);
 	void lycan_cry(rpg_t *rpg, entity_t *ent, int count);
 	void follow_lycan(entity_t *ent, map_t *map, rpg_t *rpg);
 	void deplacement_lycan(rpg_t *rpg, map_t *map, entity_t *ent);

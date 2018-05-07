@@ -114,6 +114,7 @@
 #define TXTRE_OSTRICH "assets/entities/ostrich.png"
 #define TXTRE_STONE_OGRE "assets/entities/stone_ogre.png"
 #define TXTRE_LYCANTHROPE "assets/entities/lycanthrope.png"
+#define TXTRE_VILLAGER "assets/entities/villager.png"
 
 //Textures ID
 

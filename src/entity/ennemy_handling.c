@@ -7,10 +7,11 @@
 
 #include "../../include/rpg.h"
 
-ptr_t func[4] = {
+ptr_t func[5] = {
 	{1, &deplacement_ostrich},
 	{2, &deplacement_ogre},
 	{3, &deplacement_lycan},
+	{4, &deplacement_villager},
 	{0, NULL}
 };
 
@@ -43,7 +44,7 @@ void ennemy_handling(rpg_t *rpg, map_t *map)
 		sfClock_getElapsedTime(((entity_t *)tmp->data)->clock);
 		((entity_t *)tmp->data)->seconds =
 		((entity_t *)tmp->data)->time.microseconds / 1000000.0;
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 5; i++) {
 			if (((entity_t *)tmp->data)->num == func[i].balise) {
 				func[i].callback(rpg, map, (entity_t *)
 				{tmp->data});

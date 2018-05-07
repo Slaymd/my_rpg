@@ -64,7 +64,8 @@ SRC			=	./src/main.c				\
 				src/map/objects/object_disp.c		\
 				src/entity/deplacement_lycan.c		\
 				src/entity/boss.c			\
-				src/inventaire/inventaire.c
+				src/inventaire/inventaire.c		\
+				src/entity/deplacement_villager.c
 
 CFLAGS		=	-W -Wall -Wextra -I./include -g3 -lm
 
