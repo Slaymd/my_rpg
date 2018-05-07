@@ -20,6 +20,7 @@
 	#include <time.h>
 
 	#include "map.h"
+	#include "npc.h"
 	#include "cycle.h"
 	#include "character.h"
 	#include "particle.h"
@@ -61,6 +62,7 @@
 		sfEvent event;
 		sfMusic *music;
 		view_t *view;
+		npc_t *npc;
 		cycle_t *cycle;
 		scene_t *scene;
 		window_t *oldwin;
