@@ -57,48 +57,6 @@ view_t *create_view(void)
 	return (view);
 }
 
-item_t *create_case_item(sfIntRect pos, const char *sprite, int info[5])
-{
-	item_t *item = malloc(sizeof(item_t));
-	sfVector2f hard_pos = (sfVector2f){pos.left, pos.top};
-	sfVector2f hard_size = (sfVector2f){pos.width, pos.height};
-
-	item->in_body = info[0];
-	item->can_e = info[1];
-	item->status = info[2];
-	item->attack = info[3];
-	item->def = info[4];
-	item->sitem = sfSprite_create();
-	item->titem = sfTexture_createFromFile(sprite, NULL);
-	sfSprite_setTexture (item->sitem, item->titem, sfTrue);
-	item->pitem = hard_pos;
-	item->ritem.left = 0;
-	item->ritem.top = 0;
-	item->ritem.width = hard_size.x;
-	item->ritem.height = hard_size.y;
-	sfSprite_setTextureRect(item->sitem, item->ritem);
-	sfSprite_setPosition(item->sitem, hard_pos);
-	return (item);
-}
-
-void init_inv(rpg_t *rpg)
-{
-	rpg->slot[0] = create_case_item((sfIntRect){0, 0, 0, 0}, "src/inventaire/sprite/case_empty.png", (int[5]){0, 0, 0, 0, 0});
-	rpg->slot[1] = create_case_item((sfIntRect){10, 10, 700, 500}, "src/inventaire/sprite/inv.png", (int[5]){0, 0, 0, 0, 0});
-
-	rpg->slot[2] = create_case_item((sfIntRect){70, 200, 50, 50}, "src/inventaire/sprite/amulette.png", (int[5]){0, 2, 1, 2, 0});
-	rpg->slot[3] = create_case_item((sfIntRect){70, 280, 50, 50}, "src/inventaire/sprite/ankh.png", (int[5]){0, 2, 1, 5, 0});
-	rpg->slot[4] = create_case_item((sfIntRect){70, 390, 50, 50}, "src/inventaire/sprite/armure.png", (int[5]){0, 3, 1, 0, 10});
-	rpg->slot[5] = create_case_item((sfIntRect){230, 200, 50, 50}, "src/inventaire/sprite/teeshirt.png", (int[5]){0, 3, 1, 0, 1});
-	rpg->slot[6] = create_case_item((sfIntRect){230, 280, 50, 50}, "src/inventaire/sprite/casquette.png", (int[5]){0, 1, 1, 0, 2});
-	rpg->slot[7] = create_case_item((sfIntRect){230, 390, 50, 50}, "src/inventaire/sprite/casque.png", (int[5]){0, 1, 1, 0, 5});
-
-	rpg->slot[8] = create_case_item((sfIntRect){350, 70, 50, 50}, "src/inventaire/sprite/empty.png", (int[5]){1, 0, 0, 0, 0});
-	rpg->slot[9] = create_case_item((sfIntRect){200, 70, 50, 50}, "src/inventaire/sprite/empty.png", (int[5]){3, 0, 0, 0, 0});
-	rpg->slot[10] = create_case_item((sfIntRect){500, 70, 50, 50}, "src/inventaire/sprite/empty.png", (int[5]){2, 0, 0, 0, 0});
-	rpg->slot[11] = NULL;
-}
-
 rpg_t *init_rpg(void)
 {
 	rpg_t *rpg = (rpg_t*)malloc(sizeof(rpg_t));

@@ -12,7 +12,7 @@ SRC_MAIN		=	src/main.c
 SRC_TEST		=	\
 
 SRC			=	./src/main.c				\
-				./src/NIK_LA_LIB/v_sync.c				\
+				./src/NIK_LA_LIB/v_sync.c		\
 				./src/lib.c				\
 				./src/init.c				\
 				./src/destroy.c				\
@@ -59,12 +59,14 @@ SRC			=	./src/main.c				\
 				src/map/generation/pos_gen.c		\
 				src/map/generation/texture_table.c	\
 				src/map/generation/texture_manager.c	\
-				src/map/objects/init_objects.c	\
+				src/map/objects/init_objects.c		\
 				src/map/objects/object_gen.c		\
 				src/map/objects/object_disp.c		\
 				src/entity/deplacement_lycan.c		\
 				src/entity/boss.c			\
-				src/inventaire/inventaire.c		\
+				src/inventory/inventory.c		\
+				src/inventory/fct_for_inventory.c	\
+				src/inventory/init_inventory.c		\
 				src/entity/deplacement_villager.c
 
 CFLAGS		=	-W -Wall -Wextra -I./include -g3 -lm

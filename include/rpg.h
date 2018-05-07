@@ -95,7 +95,14 @@
 	window_t *init_window(void);
 
 	//INVENTAIRE
+	void init_inv(rpg_t *rpg);
 	void inventory(rpg_t *rpg);
+	void unequip(item_t *slot, item_t **inv);
+	void equip(item_t *slot, item_t **inv);
+	void fill_slot(item_t *slot1, item_t *slot2, int i_equip);
+	int if_m_in_sprite(sfVector2i pos_m, item_t **slot);
+	void draw_all(rpg_t *rpg);
+
 
 	//ACTION
 	void verif_action(rpg_t *rpg);
