@@ -129,10 +129,11 @@
 	void free_rpg(rpg_t *rpg);
 
 	//ENNEMY
+	void attack_ogre(entity_t *ent, rpg_t *rpg);
 	int go_left_lycan(entity_t *ent, int count, map_t *map);
 	int go_right_lycan(entity_t *ent, int count, map_t *map);
 	int my_if_lycan(entity_t *ent, int x);
-	void attack_lycan(entity_t *ent, map_t *map, rpg_t *rpg);
+	void attack_lycan(entity_t *ent, rpg_t *rpg);
 	void deplacement_villager(rpg_t *rpg, map_t *map, entity_t *ent);
 	void lycan_cry(rpg_t *rpg, entity_t *ent, int count);
 	void follow_lycan(entity_t *ent, map_t *map, rpg_t *rpg);

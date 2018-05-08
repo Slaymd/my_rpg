@@ -70,7 +70,8 @@ SRC			=	./src/main.c				\
 				src/inventory/inventory.c		\
 				src/inventory/fct_for_inventory.c	\
 				src/inventory/init_inventory.c		\
-				src/entity/deplacement_villager.c
+				src/entity/deplacement_villager.c	\
+				lib/my/my_strcmp.c
 
 CFLAGS		=	-W -Wall -Wextra -I./include -g3 -lm
 

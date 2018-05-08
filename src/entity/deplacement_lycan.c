@@ -78,7 +78,7 @@ void deplacement_lycan(rpg_t *rpg, map_t *map, entity_t *ent)
 	}
 	detect_ennemy(ent, map) == 1 && atk == -1 ? atk = 0 : 0;
 	if (atk < 120 && atk >= 0) {
-		attack_lycan(ent, map, rpg);
+		attack_lycan(ent, rpg);
 		atk++;
 		return;
 	}
