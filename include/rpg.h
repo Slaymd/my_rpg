@@ -69,7 +69,6 @@
 		map_t	*map;
 		character_t *character;
 		fairy_t *fairy;
-		entity_t *ennemy[20];
 		item_t *slot[20];
 		list_t *entities;
 	};
