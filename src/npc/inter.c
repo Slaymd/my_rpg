@@ -11,9 +11,9 @@ void display_arrow(rpg_t *rpg, int choices, dial_t dial)
 {
 	float x;
 
-	if (KeyPressed(sfKeyRight) && rpg->npc->seconds >= 0.5)
+	if (KeyPressed(sfKeyRight) && rpg->npc->seconds >= 0.3)
 		rpg->npc->select ++;
-	if (KeyPressed(sfKeyLeft) && rpg->npc->seconds >= 0.5)
+	if (KeyPressed(sfKeyLeft) && rpg->npc->seconds >= 0.3)
 		rpg->npc->select --;
 	(rpg->npc->select < 0) ? rpg->npc->select = choices - 1 : 0;
 	(rpg->npc->select > choices - 1) ? rpg->npc->select = 0 : 0;
@@ -21,7 +21,7 @@ void display_arrow(rpg_t *rpg, int choices, dial_t dial)
 	x -= (rpg->npc->select == 0) ? (float)my_strlen(dial.f_ch) * 10 + 20: 0;
 	x -= (rpg->npc->select == 1) ? (float)my_strlen(dial.s_ch) * 10 + 20: 0;
 	x -= (rpg->npc->select == 2) ? (float)my_strlen(dial.t_ch) * 10 + 20: 0;
-	sfSprite_setPosition(rpg->npc->s_arrow, (V2F){x, HEIGHT / 6 * 5 + 62.5});
+	sfSprite_setPosition(rpg->npc->s_arrow, (V2F){x, HEIGHT / 6 * 5 + 62});
 	sfRenderWindow_drawSprite(rpg->wd, rpg->npc->s_arrow, NULL);
 }
 
@@ -43,19 +43,22 @@ void manage_inter(rpg_t *rpg)
 {
 	int next = 0;
 
-	if (rpg->character->inter == 0) {
-		sfClock_restart(rpg->npc->clock);
-		return;
-	}
 	rpg->npc->time = sfClock_getElapsedTime(rpg->npc->clock);
 	rpg->npc->seconds = rpg->npc->time.microseconds / 1000000.0;
+	if (rpg->character->inter == 0) {
+		if (KeyPressed(sfKeyReturn) && rpg->npc->seconds >= 0.3) {
+			rpg->character->inter = 1;
+			sfClock_restart(rpg->npc->clock);
+		} else
+			return;
+	}
 	sfRenderWindow_setView(rpg->wd, rpg->view->v_normal);
 	sfRenderWindow_drawRectangleShape(rpg->wd, rpg->npc->box, NULL);
-	if (KeyPressed(sfKeyReturn)) {
-		if (rpg->npc->seconds >= 0.5) {
-			next = 1;
+	if (rpg->npc->seconds >= 0.3) {
+		if (KeyPressed(sfKeyReturn) || KeyPressed(sfKeyRight) ||
+		KeyPressed(sfKeyLeft))
 			sfClock_restart(rpg->npc->clock);
-		}
+		(KeyPressed(sfKeyReturn)) ? next = 1 : 0;
 	}
 	npc_game(rpg, next);
 }

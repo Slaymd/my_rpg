@@ -7,11 +7,24 @@
 
 #include "rpg.h"
 
-dial_t dial_game[] = {{"Do you want to play a game for an item ?", 2, "OK!", "No", NULL}, {NULL}};
+dial_t dial_game[] = {
+	{"Do you want to play a game for an item ?", 2, "OK!", "No", NULL},
+	{NULL}};
 
 void play_chifoumi(void)
 {
 	// int choice = rand() % 3;
+}
+
+int manage_npc_game(npc_t *npc, int *i, int next)
+{
+	if (*i == 0 && npc->select == 1 && next == 1)
+		return (1);
+	(next == 1) ? *i++ : 0;
+	if (!dial_game[*i].dial) {
+		return (1);
+	}
+	return (0);
 }
 
 void npc_game(rpg_t *rpg, int next)
@@ -27,13 +40,10 @@ void npc_game(rpg_t *rpg, int next)
 	sfRenderWindow_drawText(rpg->wd, rpg->npc->text, NULL);
 	if (dial_game[i].ask != 0)
 		display_arrow(rpg, dial_game[i].ask, dial_game[i]);
-	for (int j = 1; j < dial_game[i].ask + 1; j++) {
+	for (int j = 1; j < dial_game[i].ask + 1; j++)
 		display_question(rpg, rpg->npc->text, dial_game[i], j);
-	}
-	if (next == 1)
-		i++;
-	if (!dial_game[i].dial) {
-		i = 0;
+	if (manage_npc_game(rpg->npc, &i, next) == 1) {
 		rpg->character->inter = 0;
+		i = 0;
 	}
 }
