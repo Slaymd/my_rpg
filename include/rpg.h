@@ -150,6 +150,7 @@
 	void deplacement_ostrich(rpg_t *rpg, map_t *map, entity_t *ent);
 	void mirror_sprite(entity_t *ent, int mirror);
 	void reinit_var(rpg_t *rpg, entity_t *ent, map_t *map);
+	entity_t *create_entity(map_t *map, entity_type type);
 
 	//CHARACTER
 	character_t *init_character(void);
