@@ -49,6 +49,7 @@ void manage_inter(rpg_t *rpg)
 		if (KeyPressed(sfKeyReturn) && rpg->npc->seconds >= 0.3) {
 			rpg->character->inter = 1;
 			sfClock_restart(rpg->npc->clock);
+			rpg->npc->seconds = 0;
 		} else
 			return;
 	}
