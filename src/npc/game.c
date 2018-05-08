@@ -9,7 +9,7 @@
 
 dial_t dial_game[] = {
 	{"Do you want to play a game for an item ?", 2, "OK!", "No", NULL},
-	{NULL}};
+	{NULL, 0, NULL, NULL, NULL}};
 
 void play_chifoumi(void)
 {
@@ -20,7 +20,7 @@ int manage_npc_game(npc_t *npc, int *i, int next)
 {
 	if (*i == 0 && npc->select == 1 && next == 1)
 		return (1);
-	(next == 1) ? *i++ : 0;
+	(next == 1) ? *i = *i + 1 : 0;
 	if (!dial_game[*i].dial) {
 		return (1);
 	}
