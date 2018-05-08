@@ -35,6 +35,7 @@
 		sfClock *clock;
 		sfTime time;
 		float seconds;
+		int inter;
 		int speed;
 		sfVector2f pos_screen;
 		pos_t pos;

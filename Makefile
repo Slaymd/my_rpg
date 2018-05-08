@@ -26,6 +26,9 @@ SRC			=	./src/main.c				\
 				./src/particle/particle.c		\
 				./src/particle/effect.c			\
 				./src/particle/form.c			\
+				./src/npc/create.c			\
+				./src/npc/inter.c			\
+				./src/npc/game.c			\
 				./src/fairy/create.c			\
 				./src/fairy/move.c			\
 				./src/fairy/display.c			\

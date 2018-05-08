@@ -56,6 +56,7 @@ character_t *init_character(void)
 	character->clock = sfClock_create();
 	character->time = sfClock_getElapsedTime(character->clock);
 	character->seconds = 0;
+	character->inter = 0;
 	character->rect = (sfIntRect){0,0, SIZE_C_X, SIZE_C_Y};
 	character->speed = 4;
 	character->pos_screen = (V2F){x, y};
