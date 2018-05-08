@@ -24,10 +24,10 @@ int go_left_ogre(entity_t *ent, int count, map_t *map)
 {
 	if (count >= 5) {
 		if (can_move_here(map, ent->pos) == 1) {
-			ent->pos.x += 0.25;
+			ent->pos.x += 0.15;
 			return (0);
 		}
-		ent->pos.x -= 0.25;
+		ent->pos.x -= 0.15;
 		count = 0;
 	}
 	return (count);
@@ -37,10 +37,10 @@ int go_right_ogre(entity_t *ent, int count, map_t *map)
 {
 	if (count >= 5) {
 		if (can_move_here(map, ent->pos) == 1) {
-			ent->pos.x -= 0.25;
+			ent->pos.x -= 0.15;
 			return (0);
 		}
-		ent->pos.x += 0.25;
+		ent->pos.x += 0.15;
 		count = 0;
 	}
 	return (count);
@@ -67,8 +67,19 @@ void deplacement_ogre(rpg_t *rpg, map_t *map, entity_t *ent)
 {
 	static int count = 0;
 	static int x = 0;
+	static int atk = -1;
+	int xx = map->center.x;
+	int yy = map->center.y;
 
-	detect_ennemy(ent, map) == 1 ? follow_ogre(ent, map, rpg->character) : 0;
+	if (atk >= 0 && atk < 100) {
+		attack_ogre(ent, rpg);
+		atk++;
+		return;
+	}
+	detect_ennemy(ent, map) == 1 ?
+	follow_ogre(ent, map, rpg->character) : 0;
+	(int)ent->pos.x == xx && (int)ent->pos.y == yy
+	&& atk == -1 ? atk = 0 : 0;
 	ent->seconds >= 0.10 ? count += 1 : 0;
 	ent->mirror == 0 && count == 5 ? x++ : 0;
 	ent->mirror == 1 && count == 5 ? x-- : 0;
@@ -76,4 +87,5 @@ void deplacement_ogre(rpg_t *rpg, map_t *map, entity_t *ent)
 	display_ennemy(rpg, ent, map, (int) count);
 	count = ent->mirror == 1 ? go_left_ogre(ent, count, map) :
 	go_right_ogre(ent, count, map);
+	atk >= 100 ? atk = -1 : 0;
 }

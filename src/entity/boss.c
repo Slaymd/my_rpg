@@ -27,13 +27,15 @@ void display_attack(rpg_t *rpg, entity_t *ent, map_t *map, int count)
 	}
 	reinit_var(rpg, ent, map);
 }
-void attack_lycan(entity_t *ent, map_t *map, rpg_t *rpg)
+void attack_lycan(entity_t *ent, rpg_t *rpg)
 {
 	static int verif = 0;
 	static int count = 0;
 
-	verif == 0 ? ent->square.left = 0, ent->square.top = 620,
-	ent->square.width = 400 : 0;
+	verif == 0 && ent->mirror == 0 ? ent->square.left = 0, ent->square.top
+	= 620, ent->square.width = 400 : 0;
+	verif == 0 && ent->mirror == 1 ? ent->square.left = 0, ent->square.top
+	= 1020, ent->square.width = 400 : 0;
 	count++;
 	display_attack(rpg, ent, rpg->map, count);
 	verif++;

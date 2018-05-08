@@ -11,15 +11,15 @@ entity_infos_t get_entity_infos(entity_type type)
 {
 	entity_infos_t ents_infos[] = {{OSTRICH, {0, 150, 108, 120}, 1, 1, 850,
 	108, TXTRE_OSTRICH, 1, (pos_t){16020, 16010, 0}, 0, 430,
-	"assets/musics/aer.ogg", 30}, {STONE_OGRE, {0, 150, 140, 155}, 1, 1, 644
+	"0", 30}, {STONE_OGRE, {0, 150, 140, 155}, 1, 1, 644
 	, 144, TXTRE_STONE_OGRE, 2, (pos_t){16010, 16010, 0}, 0, 720,
-	"assets/musics/aer.ogg", 150},
+	"0", 150},
 	{LYCANTHROPE, {0, 220, 180, 175}, 1, 1, 1440, 180, TXTRE_LYCANTHROPE,
 	3, (pos_t){15980, 15980, 0}, 0, 720,
 	"assets/musics/cry.ogg", 270}, {VILLAGER, {0, 0, 50, 80}, 1, 1, 1,
-	110, TXTRE_VILLAGER, 4, (pos_t){16010, 16010, 0}, 0, 720, "", 220},
-	{UNKNOWN, {0, 0, 0, 0}, 0, 0, 0, 0, "", 0
-	, (pos_t){0, 0, 0}, 0, 0, "", 0}};
+	110, TXTRE_VILLAGER, 4, (pos_t){16010, 16010, 0}, 0, 720, "0", 220},
+	{UNKNOWN, {0, 0, 0, 0}, 0, 0, 0, 0, "0", 0
+	, (pos_t){0, 0, 0}, 0, 0, "0", 0}};
 	for (int i = 0; ents_infos[i].type != UNKNOWN; i++) {
 		if (ents_infos[i].type == type)
 			return (ents_infos[i]);
@@ -30,7 +30,7 @@ entity_infos_t get_entity_infos(entity_type type)
 
 entity_t *init_entity(entity_t *ent, entity_infos_t infos)
 {
-	ent->song = sfMusic_createFromFile(infos.song);
+	infos.song[0] != '0' ? ent->song = sfMusic_createFromFile(infos.song) : 0;
 	ent->texture = sfTexture_createFromFile(infos.tex_path, NULL);
 	sfSprite_setTexture(ent->sprite, ent->texture, sfTrue);
 	sfSprite_setTextureRect(ent->sprite, ent->square);
@@ -42,7 +42,6 @@ entity_t *init_entity(entity_t *ent, entity_infos_t infos)
 	ent->clock = sfClock_create();
 	ent->time = sfClock_getElapsedTime(ent->clock);
 	ent->seconds = 0;
-	ent->hp = infos.hp;
 	ent->hp_bar = sfRectangleShape_create();
 	sfSprite_setOrigin(ent->sprite, (V2F){ent->square.width / 2,
 	ent->square.height / 2});
@@ -69,14 +68,15 @@ entity_t *create_entity(map_t *map, entity_type type)
 	ent->max = infos.max;
 	ent->num = infos.num;
 	ent->type = type;
+	ent->hp = infos.hp;
 	return (init_entity(ent, infos));
 }
 
 void init_sprite(rpg_t *rpg)
 {
 	rpg->entities = NULL;
-	// list_add(&rpg->entities, create_entity(rpg->map, OSTRICH));
-	// list_add(&rpg->entities, create_entity(rpg->map, STONE_OGRE));
+	list_add(&rpg->entities, create_entity(rpg->map, OSTRICH));
+	list_add(&rpg->entities, create_entity(rpg->map, STONE_OGRE));
 	list_add(&rpg->entities, create_entity(rpg->map, LYCANTHROPE));
 	list_add(&rpg->entities, create_entity(rpg->map, VILLAGER));
 }
