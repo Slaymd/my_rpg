@@ -65,11 +65,10 @@ int my_if_lycan(entity_t *ent, int x)
 
 void deplacement_lycan(rpg_t *rpg, map_t *map, entity_t *ent)
 {
-	static int count = 0;
-	static int x = 0;
+	static int count;
 	static int first = -1;
+	static int atk = -1;
 
-	ent->pos.x = 16020;
 	detect_ennemy(ent, map) == 1 && first == -1 ? first++ : 0;
 	if (first >= 0 && first < 200) {
 		lycan_cry(rpg, ent, count);
@@ -77,12 +76,12 @@ void deplacement_lycan(rpg_t *rpg, map_t *map, entity_t *ent)
 		count = count >= 5 ? 0 : count + 1;
 		return;
 	}
-	detect_ennemy(ent, map) == 1 ? follow_lycan(ent, map, rpg) : 0;
-	ent->seconds >= 0.10 ? count += 1 : 0;
-	ent->mirror == 0 && count == 15 ? x++ : 0;
-	ent->mirror == 1 && count == 15 ? x-- : 0;
-	count = ent->mirror == 1 ? go_left_lycan(ent, count, map) :
-	go_right_lycan(ent, count, map);
-	x = my_if_lycan(ent, x);
-	display_ennemy(rpg, ent, map, (int) count);
+	detect_ennemy(ent, map) == 1 && atk == -1 ? atk = 0 : 0;
+	if (atk < 120 && atk >= 0) {
+		attack_lycan(ent, map, rpg);
+		atk++;
+		return;
+	}
+	atk >= 120 ? atk = -1 : 0;
+	follow_lycan(ent, map, rpg);
 }
