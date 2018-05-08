@@ -39,22 +39,28 @@ void display_question(rpg_t *rpg, sfText *text, dial_t dial, int nbr)
 	sfRenderWindow_drawText(rpg->wd, text, NULL);
 }
 
-int talk_villager(rpg_t *rpg)
+int check_villager(rpg_t *rpg)
 {
 	list_t *tmp = rpg->entities;
 
-	if (rpg->character->inter == 0) {
-		// for (; tmp != NULL; tmp = tmp->next) {
-		// 	if (((entity_t *)tmp->data)->num == 4) {
-		if (KeyPressed(sfKeyReturn) && rpg->npc->seconds >= 0.3) {
-		// detect_villager(rpg->entities, rpg->map) == 1) {
+	for (; tmp != NULL; tmp = tmp->next) {
+		if (((entity_t *)tmp->data)->num == 4 && KeyPressed(sfKeyReturn)
+		&& rpg->npc->seconds >= 0.3 &&
+		detect_villager((entity_t *){tmp->data}, rpg->map) == 1) {
 			rpg->character->inter = 1;
 			sfClock_restart(rpg->npc->clock);
 			rpg->npc->seconds = 0;
-			// return (0);
-			// 	}
-			// }
-		} else
+			return (1);
+		}
+	}
+	return (0);
+}
+
+int talk_villager(rpg_t *rpg)
+{
+	if (rpg->character->inter == 0) {
+		if (check_villager(rpg) == 1)
+			return (0);
 		return (1);
 	}
 	return (0);

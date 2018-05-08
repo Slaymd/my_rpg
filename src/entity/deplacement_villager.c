@@ -21,7 +21,5 @@ int detect_villager(entity_t *ent, map_t *map)
 
 void deplacement_villager(rpg_t *rpg, map_t *map, entity_t *ent)
 {
-	static int x = 0;
-
 	display_ennemy(rpg, ent, map, 5);
 }
