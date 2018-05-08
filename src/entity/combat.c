@@ -64,8 +64,9 @@ void attack_ogre(entity_t *ent, rpg_t *rpg)
 	display_attack_ogre(rpg, ent, rpg->map, count);
 	verif++;
 	count >= 5 ? count = 0 : 0;
-	verif >= 100 ? verif = 0, ent->square.width = 140,
-	ent->square.top = 150, ent->square.left = 0 : 0;
+	verif >= 100 ? verif = 0, rpg->character->stat->hp -= 20,
+	ent->square.width = 140, ent->square.top = 150,
+	ent->square.left = 0 : 0;
 }
 
 void follow_ogre(entity_t *ent, map_t *map, character_t *character)
