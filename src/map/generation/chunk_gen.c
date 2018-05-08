@@ -7,6 +7,18 @@
 
 #include "../../../include/rpg.h"
 
+int	chunk_entities_gen(map_t *map, pos_t apos)
+{
+	entity_t *ent = NULL;
+
+	if (rand_time(0, 6) != 1)
+		return (0);
+	ent = create_entity(map, LYCANTHROPE);
+	ent->pos = generate_pos_near(map, apos, 5);
+	list_append(&map->entities, ent);
+	return (0);
+}
+
 chunk_t	*chunk_gen(map_t *map, pos_t pos)
 {
 	chunk_t	*chunk = init_chunk(pos);
@@ -20,5 +32,6 @@ chunk_t	*chunk_gen(map_t *map, pos_t pos)
 			chunk->tiles[y][x] = generate_tile_at(map,apos,tpos);
 		}
 	}
+	chunk_entities_gen(map, apos);
 	return (chunk);
 }
