@@ -18,6 +18,7 @@
 
 #define NPC_GAME "assets/textures/objects/little_stone_2.png"
 #define NPC_KID "assets/textures/objects/little_stone_2.png"
+#define TXTR_ARROW "img/arrow.png"
 
 #define TXTRE_GRASS "assets/textures/tiles/grass.png"
 #define TXTRE_WATER "assets/textures/tiles/water.png"

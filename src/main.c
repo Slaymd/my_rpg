@@ -49,7 +49,6 @@ int	game_loop(rpg_t *rpg)
 		display_fairy(rpg, event);
 		cycle_handler(rpg);
 		manage_inter(rpg);
-		npc_game(rpg);
 	}
 	sfRenderWindow_display(rpg->wd);
 	return (0);

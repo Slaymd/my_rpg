@@ -21,4 +21,6 @@ void display_character(rpg_t *rpg, character_t *c)
 	} else
 		sfRenderWindow_close(rpg->wd);
 	display_minimap(c->sprite, rpg);
+	if (KeyPressed(sfKeyReturn))
+		c->inter = 1;
 }

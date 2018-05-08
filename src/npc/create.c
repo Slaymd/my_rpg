@@ -17,24 +17,34 @@ sfSprite *npc_sprite(char *path)
 	return (sprite);
 }
 
-npc_t *create_npc(void)
+void set_npc(npc_t *npc)
 {
-	npc_t *npc = malloc(sizeof(npc_t));
-
-	npc->sprite[0] = npc_sprite(NPC_GAME);
-	npc->sprite[1] = npc_sprite(NPC_KID);
-	npc->box = sfRectangleShape_create();
 	sfRectangleShape_setSize(npc->box, (V2F){WIDTH - 8, HEIGHT / 6 - 8});
 	sfRectangleShape_setPosition(npc->box, (V2F){4, HEIGHT / 6 * 5 + 4});
 	sfRectangleShape_setOutlineThickness(npc->box, 5);
 	sfRectangleShape_setOutlineColor(npc->box, sfBlack);
-	npc->text = sfText_create();
-	npc->font = sfFont_createFromFile(FONT_UBUREG);
 	sfText_setFont(npc->text, npc->font);
 	sfText_setCharacterSize(npc->text, 20);
 	sfText_setColor(npc->text, sfBlack);
+	sfSprite_setTexture(npc->s_arrow, npc->t_arrow, sfTrue);
+	sfSprite_setOrigin(npc->s_arrow, (V2F){15 / 2, 15 / 2});
+}
+
+npc_t *create_npc(void)
+{
+	npc_t *npc = malloc(sizeof(npc_t));
+
+	npc->s_npc[0] = npc_sprite(NPC_GAME);
+	npc->s_npc[1] = npc_sprite(NPC_KID);
+	npc->box = sfRectangleShape_create();
+	npc->text = sfText_create();
+	npc->s_arrow = sfSprite_create();
+	npc->t_arrow = sfTexture_createFromFile(TXTR_ARROW, NULL);
+	npc->select = 0;
+	npc->font = sfFont_createFromFile(FONT_UBUREG);
 	npc->clock = sfClock_create();
 	npc->time = sfClock_getElapsedTime(npc->clock);
 	npc->seconds = 0;
+	set_npc(npc);
 	return (npc);
 }
