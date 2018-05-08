@@ -24,10 +24,10 @@ int go_left_ostrich(entity_t *ent, int count, map_t *map)
 {
 	if (count >= 5) {
 		if (can_move_here(map, ent->pos) == 1) {
-			ent->pos.x += 0.5;
+			ent->pos.x += 0.3;
 			return (0);
 		}
-		ent->pos.x -= 0.5;
+		ent->pos.x -= 0.3;
 		count = 0;
 	}
 	return (count);
@@ -37,10 +37,10 @@ int go_right_ostrich(entity_t *ent, int count, map_t *map)
 {
 	if (count >= 5) {
 		if (can_move_here(map, ent->pos) == 1) {
-			ent->pos.x -= 0.5;
+			ent->pos.x -= 0.3;
 			return (0);
 		}
-		ent->pos.x += 0.5;
+		ent->pos.x += 0.3;
 		count = 0;
 	}
 	return (count);
@@ -56,7 +56,7 @@ int my_if_ostrich(entity_t *ent, int x)
 	} else if (x <= 0) {
 		ent->mirror = 0;
 		mirror_ostrich(ent, 0);
-	} else if (x >= 20) {
+	} else if (x >= 100) {
 		ent->mirror = 1;
 		mirror_ostrich(ent, 1);
 	}

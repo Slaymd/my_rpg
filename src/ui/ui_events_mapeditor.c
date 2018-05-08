@@ -39,7 +39,6 @@ void regen_map_from_ui(void *data)
 		return;
 	rpg->map = init_map(NULL, seed);
 	rpg->map = generate_map(seed);
-	my_printf("$seed: %s\n", get_text_string(seedtb->text));
 }
 
 void swap_state_maptravelling(rpg_t *rpg)
