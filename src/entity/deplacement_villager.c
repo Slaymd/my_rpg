@@ -28,7 +28,6 @@ void deplacement_villager(rpg_t *rpg, map_t *map, entity_t *ent)
 {
 	static int x = 0;
 
-	detect_villager(ent, map) == 1 ? speak_villager(ent, map, rpg->character)
-	: 0;
+	detect_villager(ent, map) == 1 ? speak_villager(ent, map, rpg->character) : 0;
 	display_ennemy(rpg, ent, map, 5);
 }
