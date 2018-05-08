@@ -66,6 +66,7 @@ SRC			=	./src/main.c				\
 				src/entity/boss.c			\
 				src/inventory/inventory.c		\
 				src/inventory/fct_for_inventory.c	\
+				src/inventory/fct_for_inventory2.c	\
 				src/inventory/init_inventory.c		\
 				src/entity/deplacement_villager.c
 

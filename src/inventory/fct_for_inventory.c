@@ -11,10 +11,13 @@ void draw_all(rpg_t *rpg)
 {
 	sfRenderWindow_clear(rpg->wd, sfBlack);
 	disp_map(rpg);
-	sfRenderWindow_drawSprite(rpg->wd, rpg->slot[1]->sitem, NULL);
-	for (int cpt = 2; rpg->slot[cpt] != NULL; cpt++) {
-		sfSprite_setPosition(rpg->slot[cpt]->sitem, rpg->slot[cpt]->pitem);
-		sfRenderWindow_drawSprite(rpg->wd, rpg->slot[cpt]->sitem, NULL);
+	cycle_handler(rpg);
+	sfRenderWindow_drawSprite(rpg->wd, rpg->inv->slot[1]->sitem, NULL);
+	sfRenderWindow_drawText(rpg->wd, rpg->inv->att->text, NULL);
+	sfRenderWindow_drawText(rpg->wd, rpg->inv->def->text, NULL);
+	for (int cpt = 2; rpg->inv->slot[cpt] != NULL; cpt++) {
+		sfSprite_setPosition(rpg->inv->slot[cpt]->sitem, rpg->inv->slot[cpt]->pitem);
+		sfRenderWindow_drawSprite(rpg->wd, rpg->inv->slot[cpt]->sitem, NULL);
 	}
 	sfRenderWindow_display(rpg->wd);
 }

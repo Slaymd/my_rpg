@@ -68,7 +68,7 @@
 		character_t *character;
 		fairy_t *fairy;
 		entity_t *ennemy[20];
-		item_t *slot[20];
+		inv_t *inv;
 		list_t *entities;
 	};
 
@@ -102,7 +102,8 @@
 	void fill_slot(item_t *slot1, item_t *slot2, int i_equip);
 	int if_m_in_sprite(sfVector2i pos_m, item_t **slot);
 	void draw_all(rpg_t *rpg);
-
+	text_t *create_inv_text(char *info, int size, sfVector2f pos, sfColor color);
+	void consom(item_t *slot);
 
 	//ACTION
 	void verif_action(rpg_t *rpg);
