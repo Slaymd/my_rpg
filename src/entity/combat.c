@@ -44,8 +44,8 @@ void follow_ostrich(entity_t *ent, map_t *map)
 void display_attack_ogre(rpg_t *rpg, entity_t *ent, map_t *map, int count)
 {
 	if (count == 5) {
-		ent->square.left = ent->square.left + 400 >= 4400 ?
-		0 : ent->square.left + 400;
+		ent->square.left = ent->square.left + 200 >= 1800 ?
+		0 : ent->square.left + 200;
 		sfSprite_setTextureRect(ent->sprite, ent->square);
 	}
 	reinit_var(rpg, ent, map);
@@ -57,15 +57,15 @@ void attack_ogre(entity_t *ent, rpg_t *rpg)
 	static int count = 0;
 
 	verif == 0 && ent->mirror == 0 ? ent->square.left = 0, ent->square.top
-	= 620, ent->square.width = 400 : 0;
+	= 440, ent->square.width = 180 : 0;
 	verif == 0 && ent->mirror == 1 ? ent->square.left = 0, ent->square.top
-	= 1020, ent->square.width = 400 : 0;
+	= 660, ent->square.width = 180 : 0;
 	count++;
 	display_attack_ogre(rpg, ent, rpg->map, count);
 	verif++;
 	count >= 5 ? count = 0 : 0;
-	verif >= 120 ? verif = 0, ent->square.width = 180,
-	ent->square.top = 220, ent->square.left = 0 : 0;
+	verif >= 100 ? verif = 0, ent->square.width = 140,
+	ent->square.top = 150, ent->square.left = 0 : 0;
 }
 
 void follow_ogre(entity_t *ent, map_t *map, character_t *character)
