@@ -57,25 +57,6 @@ int map_move_down(map_t *map)
 
 int map_move(sfEvent event, map_t *map)
 {
-	// if (event.type == sfEvtKeyPressed) {
-	// 	switch (event.key.code) {
-	// 	case sfKeyLeft:
-	// 		map_move_left(map);
-	// 		return (1);
-	// 	case sfKeyRight:
-	// 		map_move_right(map);
-	// 		return (1);
-	// 	case sfKeyUp:
-	// 		map_move_up(map);
-	// 		return (1);
-	// 	case sfKeyDown:
-	// 		map_move_down(map);
-	// 		return (1);
-	// 	default:
-	// 		return (0);
-	// 	}
-	// }
-	// return (0);
 	event = event;
 	if (KeyPressed(sfKeyUp)) {
 		map_move_up(map);

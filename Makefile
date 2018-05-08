@@ -70,7 +70,13 @@ SRC			=	./src/main.c				\
 				src/inventory/inventory.c		\
 				src/inventory/fct_for_inventory.c	\
 				src/inventory/init_inventory.c		\
-				src/entity/deplacement_villager.c
+				src/entity/deplacement_villager.c	\
+				src/matchstick/main.c			\
+				src/matchstick/init.c			\
+				src/matchstick/ai.c			\
+				src/matchstick/display_match.c		\
+				src/matchstick/player.c			\
+				src/matchstick/event_end_error.c
 
 CFLAGS		=	-W -Wall -Wextra -I./include -g3 -lm
 

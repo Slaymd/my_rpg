@@ -20,6 +20,7 @@
 	#include <time.h>
 
 	#include "map.h"
+	#include "matchstick.h"
 	#include "npc.h"
 	#include "cycle.h"
 	#include "character.h"
