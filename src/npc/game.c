@@ -7,14 +7,11 @@
 
 #include "rpg.h"
 
-dial_t dial_game[] = {
+const dial_t dial_game[] = {
 	{"Do you want to play a game for an item ?", 2, "OK!", "No", NULL},
-	{NULL, 0, NULL, NULL, NULL}};
-
-void play_chifoumi(void)
-{
-	// int choice = rand() % 3;
-}
+	{"Not me.", 0, NULL, NULL, NULL},
+	{NULL, 0, NULL, NULL, NULL}
+};
 
 int manage_npc_game(npc_t *npc, int *i, int next)
 {

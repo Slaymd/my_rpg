@@ -39,20 +39,35 @@ void display_question(rpg_t *rpg, sfText *text, dial_t dial, int nbr)
 	sfRenderWindow_drawText(rpg->wd, text, NULL);
 }
 
+int talk_villager(rpg_t *rpg)
+{
+	list_t *tmp = rpg->entities;
+
+	if (rpg->character->inter == 0) {
+		// for (; tmp != NULL; tmp = tmp->next) {
+		// 	if (((entity_t *)tmp->data)->num == 4) {
+		if (KeyPressed(sfKeyReturn) && rpg->npc->seconds >= 0.3) {
+		// detect_villager(rpg->entities, rpg->map) == 1) {
+			rpg->character->inter = 1;
+			sfClock_restart(rpg->npc->clock);
+			rpg->npc->seconds = 0;
+			// return (0);
+			// 	}
+			// }
+		} else
+		return (1);
+	}
+	return (0);
+}
+
 void manage_inter(rpg_t *rpg)
 {
 	int next = 0;
 
 	rpg->npc->time = sfClock_getElapsedTime(rpg->npc->clock);
 	rpg->npc->seconds = rpg->npc->time.microseconds / 1000000.0;
-	if (rpg->character->inter == 0) {
-		if (KeyPressed(sfKeyReturn) && rpg->npc->seconds >= 0.3) {
-			rpg->character->inter = 1;
-			sfClock_restart(rpg->npc->clock);
-			rpg->npc->seconds = 0;
-		} else
-			return;
-	}
+	if (talk_villager(rpg) == 1)
+		return;
 	sfRenderWindow_setView(rpg->wd, rpg->view->v_normal);
 	sfRenderWindow_drawRectangleShape(rpg->wd, rpg->npc->box, NULL);
 	if (rpg->npc->seconds >= 0.3) {

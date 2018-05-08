@@ -37,6 +37,11 @@ void radial_gradiant(particle_t *particle, sfVector2i pos, int refresh, sfColor 
 	}
 }
 
+// void rain(particle_t *particle, sfVector2i pos, int refresh, sfColor color)
+// {
+//
+// }
+
 void select_effect(particle_t *particle, sfVector2i pos, int refresh, sfColor color)
 {
 	int i = 0;
