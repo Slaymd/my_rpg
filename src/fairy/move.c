@@ -24,7 +24,7 @@ void apply_physic_move(fairy_t *fairy, V2F ep)
 
 void physic_fairy_move_x(fairy_t *fairy, sfEvent event, V2F *ep)
 {
-	event = event;
+	(void)event;
 	if (KeyPressed(sfKeyRight)) {
 		if (fairy->pos.x > WIDTH / 2 - MOVE_F_X)
 			fairy->ec.x -= 0.5;
@@ -70,7 +70,7 @@ void physic_fairy_move(fairy_t *fairy, sfEvent event)
 
 void move_fairy(fairy_t *fairy, rpg_t *rpg, sfEvent event)
 {
-	rpg = rpg;
+	(void)event;
 	physic_fairy_move(fairy, event);
 	(fairy->pos.x > WIDTH / 2 + MOVE_F_X) ?
 	fairy->pos.x = WIDTH / 2 + MOVE_F_X : 0;

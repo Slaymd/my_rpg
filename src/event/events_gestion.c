@@ -57,7 +57,7 @@ int map_move_down(map_t *map)
 
 int map_move(sfEvent event, map_t *map)
 {
-	event = event;
+	(void)event;
 	if (KeyPressed(sfKeyUp)) {
 		map_move_up(map);
 		return (1);

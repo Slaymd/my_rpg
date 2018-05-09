@@ -30,7 +30,7 @@ entity_infos_t get_entity_infos(entity_type type)
 
 entity_t *init_entity(entity_t *ent, entity_infos_t infos)
 {
-	ent->song = infos.song[0] != '0' ? sfMusic_createFromFile(infos.song) : 
+	ent->song = infos.song[0] != '0' ? sfMusic_createFromFile(infos.song) :
 	NULL;
 	ent->texture = sfTexture_createFromFile(infos.tex_path, NULL);
 	sfSprite_setTexture(ent->sprite, ent->texture, sfTrue);
