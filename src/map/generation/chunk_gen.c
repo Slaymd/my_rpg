@@ -32,6 +32,5 @@ chunk_t	*chunk_gen(map_t *map, pos_t pos)
 			chunk->tiles[y][x] = generate_tile_at(map,apos,tpos);
 		}
 	}
-	//chunk_entities_gen(map, apos);
 	return (chunk);
 }
