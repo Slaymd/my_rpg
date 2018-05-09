@@ -20,9 +20,7 @@ void lycan_cry(rpg_t *rpg, entity_t *ent, int count)
 	ent->mirror = 0;
 	verif = 1;
 	first++;
-	first >= 199 ? sfMusic_setVolume(rpg->music, 100),
-	ent->square.top += 20, ent->square.height -= 50 : 0;
-	ent->hp = 0;
+	first >= 199 ? sfMusic_setVolume(rpg->music, 100) : 0;
 }
 
 void display_attack(rpg_t *rpg, entity_t *ent, map_t *map, int count)
@@ -71,10 +69,8 @@ void follow_lycan(entity_t *ent, map_t *map, rpg_t *rpg, int first)
 	int yy = map->center.y;
 	static int count = 0;
 	static int x = 0;
-	static int dead = -1;
 
 	if (ent->hp <= 0) {
-		dead == -1 ? dead = 0 : 0;
 		lycan_die(ent, map, rpg);
 		return;
 	}

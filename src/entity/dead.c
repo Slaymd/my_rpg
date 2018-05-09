@@ -27,7 +27,7 @@ void lycan_die(entity_t *ent, map_t *map, rpg_t *rpg)
 	static int verif = 0;
 	static int count = 0;
 
-	verif == 0 && ent->mirror == 0 ? ent->square.left = 0, ent->square.top
+	verif == 0 ? ent->square.left = 0, ent->square.top
 	= 1300, ent->square.width = 400, ent->square.height = 300 : 0;
 	count++;
 	display_dead(rpg, ent, rpg->map, count);
