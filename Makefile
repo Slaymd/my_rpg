@@ -75,7 +75,8 @@ SRC			=	./src/main.c				\
 				src/matchstick/display_match.c		\
 				src/matchstick/player.c			\
 				src/matchstick/event_end_error.c	\
-				src/entity/boss_deg.c
+				src/entity/boss_deg.c			\
+				src/entity/dead.c
 
 CFLAGS		=	-W -Wall -Wextra -I./include -g3 -lm
 
