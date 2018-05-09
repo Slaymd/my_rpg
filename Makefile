@@ -17,6 +17,7 @@ SRC			=	./src/main.c				\
 				./src/cycle/create.c			\
 				./src/cycle/cycle.c			\
 				./src/cycle/time.c			\
+				./src/cycle/destroy.c			\
 				./src/character/create.c		\
 				./src/character/move.c			\
 				./src/character/stat.c			\

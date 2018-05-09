@@ -30,6 +30,7 @@ void free_character(character_t *character)
 	sfTexture_destroy(character->texture);
 	sfClock_destroy(character->clock);
 	sfRectangleShape_destroy(character->hp_bar);
+	sfRectangleShape_destroy(character->mana_bar);
 	sfClock_destroy(character->stat->clock);
 	free(character->stat);
 	free(character);
@@ -53,12 +54,23 @@ void free_entity(rpg_t *rpg)
 	}
 }
 
+void free_view(view_t *view)
+{
+	sfView_destroy(view->v_screen);
+	sfView_destroy(view->v_map);
+	sfView_destroy(view->v_normal);
+	free(view);
+}
+
 void free_rpg(rpg_t *rpg)
 {
 	sfRenderWindow_destroy(rpg->wd);
 	sfMusic_destroy(rpg->music);
 	free_fairy(rpg->fairy);
+	free_cycle(rpg->cycle);
+	free_view(rpg->view);
 	free_entity(rpg);
 	free_character(rpg->character);
 	free_npc(rpg->npc);
+	free(rpg);
 }
