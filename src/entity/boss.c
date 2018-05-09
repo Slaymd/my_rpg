@@ -10,12 +10,16 @@
 void lycan_cry(rpg_t *rpg, entity_t *ent, int count)
 {
 	static int verif = 0;
+	static int first = 0;
 
+	first == 0 ? sfMusic_setVolume(rpg->music, 30) : 0;
 	verif == 0 ? ent->square.left = 1270, sfMusic_play(ent->song) : 0;
 	ent->mirror = 2;
 	display_ennemy(rpg, ent, rpg->map, count);
 	ent->mirror = 0;
 	verif = 1;
+	first++;
+	first >= 199 ? sfMusic_setVolume(rpg->music, 100) : 0;
 }
 
 void display_attack(rpg_t *rpg, entity_t *ent, map_t *map, int count)
@@ -62,12 +66,12 @@ void follow_lycan(entity_t *ent, map_t *map, rpg_t *rpg, int first)
 {
 	int xx = map->center.x;
 	int yy = map->center.y;
-	static int pos = 0;
+	//static int pos = 0;
 	static int count = 0;
 	static int x = 0;
 
 	if (detect_char(ent, map) == 1 && first >= 200)
-		pos = run_char(ent, map, xx, yy);
+		/*pos = */run_char(ent, map, xx, yy);
 	ent->seconds >= 0.10 ? count += 1 : 0;
 	ent->mirror == 0 && count == 15 ? x++ : 0;
 	ent->mirror == 1 && count == 15 ? x-- : 0;
