@@ -13,8 +13,11 @@ void draw_all(rpg_t *rpg)
 	disp_map(rpg);
 	cycle_handler(rpg);
 	sfRenderWindow_drawSprite(rpg->wd, rpg->inv->slot[1]->sitem, NULL);
-	sfRenderWindow_drawText(rpg->wd, rpg->inv->att->text, NULL);
-	sfRenderWindow_drawText(rpg->wd, rpg->inv->def->text, NULL);
+	// sfRenderWindow_drawText(rpg->wd, rpg->inv->stat->attt->text, NULL);
+	// sfRenderWindow_drawText(rpg->wd, rpg->inv->stat->lifet->text, NULL);
+	// sfRenderWindow_drawText(rpg->wd, rpg->inv->stat->r_lifet->text, NULL);
+	// sfRenderWindow_drawText(rpg->wd, rpg->inv->stat->r_manat->text, NULL);
+	sfRenderWindow_drawText(rpg->wd, rpg->inv->stat->deft->text, NULL);
 	for (int cpt = 2; rpg->inv->slot[cpt] != NULL; cpt++) {
 		sfSprite_setPosition(rpg->inv->slot[cpt]->sitem, rpg->inv->slot[cpt]->pitem);
 		sfRenderWindow_drawSprite(rpg->wd, rpg->inv->slot[cpt]->sitem, NULL);
@@ -44,6 +47,9 @@ void fill_slot(item_t *slot1, item_t *slot2, int i_equip)
 	}
 	slot1->attack = slot2->attack;
 	slot1->def = slot2->def;
+	slot1->life = slot2->life;
+	slot1->r_life = slot2->r_life;
+	slot1->r_mana = slot2->r_mana;
 	slot1->conso = slot2->conso;
 	slot1->stack = slot2->stack;
 }

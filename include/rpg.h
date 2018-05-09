@@ -71,6 +71,7 @@
 		fairy_t *fairy;
 		entity_t *ennemy[20];
 		inv_t *inv;
+		item_t *slot[20];
 		list_t *entities;
 	};
 
@@ -105,6 +106,7 @@
 	int if_m_in_sprite(sfVector2i pos_m, item_t **slot);
 	void draw_all(rpg_t *rpg);
 	text_t *create_inv_text(char *info, int size, sfVector2f pos, sfColor color);
+	void recup_info(inv_t *inv);
 	void consom(item_t *slot);
 
 	//ACTION
@@ -151,6 +153,7 @@
 	void deplacement_ostrich(rpg_t *rpg, map_t *map, entity_t *ent);
 	void mirror_sprite(entity_t *ent, int mirror);
 	void reinit_var(rpg_t *rpg, entity_t *ent, map_t *map);
+	entity_t *create_entity(map_t *map, entity_type type);
 
 	//CHARACTER
 	character_t *init_character(void);

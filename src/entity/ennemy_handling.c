@@ -45,10 +45,9 @@ void ennemy_handling(rpg_t *rpg, map_t *map)
 		((entity_t *)tmp->data)->seconds =
 		((entity_t *)tmp->data)->time.microseconds / 1000000.0;
 		for (int i = 0; i < 5; i++) {
-			if (((entity_t *)tmp->data)->num == func[i].balise) {
-				func[i].callback(rpg, map, (entity_t *)
-				{tmp->data});
-			}
+			((entity_t *)tmp->data)->num == func[i].balise ?
+			func[i].callback(rpg, map, (entity_t *)
+			{tmp->data}) : 0;
 		}
 		detect_damage(rpg, (entity_t *) {tmp->data});
 	}

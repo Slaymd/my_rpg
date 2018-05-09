@@ -79,4 +79,5 @@ void init_sprite(rpg_t *rpg)
 	list_add(&rpg->entities, create_entity(rpg->map, STONE_OGRE));
 	list_add(&rpg->entities, create_entity(rpg->map, LYCANTHROPE));
 	list_add(&rpg->entities, create_entity(rpg->map, VILLAGER));
+	rpg->map->entities = rpg->entities;
 }

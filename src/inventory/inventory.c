@@ -14,7 +14,7 @@ void equip_item(inv_t *inv, item_t **slot)
 
 	if (sfKeyboard_isKeyPressed(sfKeyE)) {
 		num_slot1 = if_m_in_sprite(inv->pos_m, slot);
-		if (slot[num_slot1]->conso > 0)
+		if (slot[num_slot1]->conso > 0 && slot[num_slot1]->stack > 0)
 			consom(slot[num_slot1]);
 		else if (slot[num_slot1]->status == 1 && slot[num_slot1]->can_e > 0)
 			equip(slot[num_slot1], slot);
@@ -68,15 +68,18 @@ void exchange_slot(rpg_t *rpg, inv_t *inv)
 void inv_event(rpg_t *rpg)
 {
 	draw_all(rpg);
+	rpg->inv->timei = sfClock_getElapsedTime(rpg->inv->clocki);
+	rpg->inv->seconds = rpg->inv->timei.microseconds / 1000000.0;
 	if (rpg->event.type == sfEvtClosed) {
 		sfRenderWindow_close(rpg->wd);
 		rpg->inv->quit = 1;
 		return;
 	}
 	rpg->inv->pos_m = sfMouse_getPosition((sfWindow*) rpg->wd);
-	// if (rpg->inv->seconds > 0.5)
-	// 	sfClock_restart(rpg->inv->clocki);
-	equip_item(rpg->inv, rpg->inv->slot);
+	if (rpg->inv->seconds > 0.05) {
+		equip_item(rpg->inv, rpg->inv->slot);
+		sfClock_restart(rpg->inv->clocki);
+	}
 	exchange_slot(rpg, rpg->inv);
 	inv_info(rpg->inv, rpg->inv->slot);
 }
@@ -90,6 +93,7 @@ void inventory(rpg_t *rpg)
 	while (rpg->inv->quit == 0) {
 		while (sfRenderWindow_pollEvent(rpg->wd, &rpg->event)) {
 			inv_event(rpg);
+			recup_info(rpg->inv);
 		}
 	}
 	rpg->inv->quit = 0;
