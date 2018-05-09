@@ -61,7 +61,7 @@ void display_shoot(list_shoot_t *shoot, fairy_t *fairy, rpg_t *rpg)
 			// disp_shoot_at(rpg->wd, rpg->map, fairy->s_explo,
 			// tmp->pos_e);
 			disp_sprite_at(rpg->wd, rpg->map, fairy->s_explo,
-			(pos_t){tmp->pos_e.x + WIDTH / 2, tmp->pos_e.y + HEIGHT / 2, 0});
+			(pos_t){tmp->pos_e.x - WIDTH / 2, tmp->pos_e.y - HEIGHT / 2, 0});
 		}
 		tmp = tmp->next;
 	}
