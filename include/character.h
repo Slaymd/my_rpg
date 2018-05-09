@@ -15,6 +15,7 @@
 	typedef struct main_stat_s main_stat_t;
 
 	struct main_stat_s {
+		float attack;
 		float hp;
 		float mana;
 		float hp_r;
@@ -22,7 +23,6 @@
 		float hp_max;
 		float mana_max;
 		float xp;
-		float crit;
 		sfClock *clock;
 		sfTime time;
 		float seconds;
