@@ -14,6 +14,7 @@ sfSprite *npc_sprite(char *path)
 
 	sfSprite_setTexture(sprite, texture, sfTrue);
 	sfSprite_setPosition(sprite, (V2F){200, 200});
+	sfTexture_destroy(texture);
 	return (sprite);
 }
 

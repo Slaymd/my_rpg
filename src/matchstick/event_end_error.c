@@ -20,16 +20,19 @@ void matchstick_gestion(rpg_t *rpg, match_t *match)
 	sfRenderWindow_clear(rpg->wd, sfWhite);
 }
 
-void free_match(match_t *match, stick_t *stick)
+void free_ms(ms_t *ms)
 {
-	sfTexture_destroy(match->tmatch);
-	sfSprite_destroy(match->smatch);
-	sfTexture_destroy(match->tarrow);
-	sfSprite_destroy(match->sarrow);
-	sfClock_destroy(match->clock);
-	free(match);
-	free(stick->line);
-	free(stick);
+	sfTexture_destroy(ms->match->tmatch);
+	sfSprite_destroy(ms->match->smatch);
+	sfSprite_destroy(ms->match->sred_match);
+	sfTexture_destroy(ms->match->tarrow);
+	sfSprite_destroy(ms->match->sarrow);
+	sfClock_destroy(ms->match->clock);
+	free(ms->match);
+	free(ms->stick->line);
+	free(ms->stick);
+	free(ms);
+
 }
 
 int my_end(stick_t *stick)

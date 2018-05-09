@@ -51,7 +51,7 @@
 	void draw_match(rpg_t *rpg, match_t *match, stick_t *stick,
 	sfVector2f pos);
 	void matchstick_gestion(rpg_t *rpg, match_t *match);
-	void free_match(match_t *match, stick_t *stick);
+	void free_ms(ms_t *ms);
 	int my_end(stick_t *stick);
 	int play_matchstick(rpg_t *rpg, ms_t *ms);
 	ms_t *create_ms(void);

@@ -60,4 +60,5 @@ void free_rpg(rpg_t *rpg)
 	free_fairy(rpg->fairy);
 	free_entity(rpg);
 	free_character(rpg->character);
+	free_npc(rpg->npc);
 }
