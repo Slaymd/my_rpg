@@ -54,5 +54,6 @@
 	void free_match(match_t *match, stick_t *stick);
 	int my_end(stick_t *stick);
 	int play_matchstick(rpg_t *rpg, ms_t *ms);
+	ms_t *create_ms(void);
 
 #endif
