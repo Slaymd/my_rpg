@@ -11,10 +11,15 @@ int	my_strlen(char *);
 
 int	add_char_in_textbox(textbox_t *textbox, char *str, char c)
 {
+	int len = my_strlen(str);
+
 	if (c == -2)
-		str[my_strlen(str)-1] = '\0';
-	else
-		str[my_strlen(str)] = (c >= 'A' && c <= 'Z') ? c + 32 : c;
+		str[len-1] = '\0';
+	else {
+		str[len] = (c >= 'A' && c <= 'Z') ? c + 32 : c;
+		str[len+1] = '\0';
+	}
+	printf("%s\n", str);
 	set_text_string(textbox->text, str);
 	textbox->entry_state = NORMAL;
 	return (0);

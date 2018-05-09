@@ -58,7 +58,7 @@ int	main(void)
 	rpg_t *rpg = init_rpg();
 	srand(time(NULL));
 
-	//rpg->state = 3;
+	rpg->state = 3;
 	init_sprite(rpg);
 	while (sfRenderWindow_isOpen(rpg->wd)) {
 		game_loop(rpg);
