@@ -9,7 +9,7 @@
 	#define _PARTICLE_H_
 
 	#define NB_FORM 3
-	#define NB_EFFECT 2
+	#define NB_EFFECT 3
 
 	typedef struct particle_s particle_t;
 
@@ -21,7 +21,8 @@
 
 	typedef enum effect_type_s {
 		NONE,
-		RADIAL
+		RADIAL,
+		RAIN
 	} effect_type_t;
 
 	typedef struct form_tab_s {

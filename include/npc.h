@@ -31,6 +31,7 @@
 	struct npc_s {
 		sfSprite *s_npc[2];
 		sfRectangleShape *box;
+		ms_t *ms;
 		sfSprite *s_arrow;
 		sfTexture *t_arrow;
 		sfText *text;
@@ -46,6 +47,11 @@
 
 	//DISPLAY
 	void manage_inter(rpg_t *rpg);
+	void display_question(rpg_t *rpg, sfText *text, dial_t dial, int nbr);
+	void display_arrow(rpg_t *rpg, int choices, dial_t dial);
+
+	//DETECT
+	int detect_villager(entity_t *ent, map_t *map);
 
 	//TYPES
 	void npc_game(rpg_t *rpg, int next);

@@ -70,14 +70,17 @@ void deplacement_ogre(rpg_t *rpg, map_t *map, entity_t *ent)
 	static int atk = -1;
 	int xx = map->center.x;
 	int yy = map->center.y;
+	static int one = -1;
+
+	one == -1 ? ent->pos.y = 16030, ent->pos.x = 15990 : 0;
+	one = 0;
 
 	if (atk >= 0 && atk < 100) {
 		attack_ogre(ent, rpg);
 		atk++;
 		return;
 	}
-	detect_ennemy(ent, map) == 1 ?
-	follow_ogre(ent, map, rpg->character) : 0;
+	detect_ennemy(ent, map) == 1 ? follow_ogre(ent, map) : 0;
 	(int)ent->pos.x == xx && (int)ent->pos.y == yy
 	&& atk == -1 ? atk = 0 : 0;
 	ent->seconds >= 0.10 ? count += 1 : 0;

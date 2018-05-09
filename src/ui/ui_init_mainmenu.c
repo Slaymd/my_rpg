@@ -27,6 +27,7 @@ int	init_mainmenu_buttons(rpg_t *rpg, scene_t *scene)
 	list_add(&scene->buttons, play);
 	list_add(&scene->buttons, stgs);
 	list_add(&scene->buttons, exi);
+	return (0);
 }
 
 scene_t *init_mainmenu(rpg_t *rpg)

@@ -19,6 +19,7 @@ button_t	*create_void_button(void)
 	button->text = NULL;
 	button->sprite = NULL;
 	button->tooltip = NULL;
+	button->states = NULL;
 	button->state = 0;
 	return (button);
 }

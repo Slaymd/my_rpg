@@ -69,7 +69,7 @@ void attack_ogre(entity_t *ent, rpg_t *rpg)
 	ent->square.left = 0 : 0;
 }
 
-void follow_ogre(entity_t *ent, map_t *map, character_t *character)
+void follow_ogre(entity_t *ent, map_t *map)
 {
 	int x = map->center.x;
 	int y = map->center.y;

@@ -16,8 +16,8 @@ entity_infos_t get_entity_infos(entity_type type)
 	"0", 150},
 	{LYCANTHROPE, {0, 220, 180, 175}, 1, 1, 1440, 180, TXTRE_LYCANTHROPE,
 	3, (pos_t){15980, 15980, 0}, 0, 720,
-	"assets/musics/cry.ogg", 270}, {VILLAGER, {0, 0, 50, 80}, 1, 1, 1,
-	110, TXTRE_VILLAGER, 4, (pos_t){16010, 16010, 0}, 0, 720, "0", 220},
+	"assets/musics/cry.ogg", 270}, {VILLAGER, {0, 0, 60, 100}, 1, 1, 1,
+	110, TXTRE_VILLAGER, 4, (pos_t){16010, 16010, 0}, 0, 720, "0", 0},
 	{UNKNOWN, {0, 0, 0, 0}, 0, 0, 0, 0, "0", 0
 	, (pos_t){0, 0, 0}, 0, 0, "0", 0}};
 	for (int i = 0; ents_infos[i].type != UNKNOWN; i++) {
@@ -30,7 +30,8 @@ entity_infos_t get_entity_infos(entity_type type)
 
 entity_t *init_entity(entity_t *ent, entity_infos_t infos)
 {
-	infos.song[0] != '0' ? ent->song = sfMusic_createFromFile(infos.song) : 0;
+	ent->song = infos.song[0] != '0' ? sfMusic_createFromFile(infos.song) :
+	NULL;
 	ent->texture = sfTexture_createFromFile(infos.tex_path, NULL);
 	sfSprite_setTexture(ent->sprite, ent->texture, sfTrue);
 	sfSprite_setTextureRect(ent->sprite, ent->square);

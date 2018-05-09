@@ -20,6 +20,7 @@
 	#include <time.h>
 
 	#include "map.h"
+	#include "matchstick.h"
 	#include "npc.h"
 	#include "cycle.h"
 	#include "character.h"
@@ -132,6 +133,9 @@
 	void free_rpg(rpg_t *rpg);
 
 	//ENNEMY
+	int run_char(entity_t *ent, map_t *map, int xx, int yy);
+	int detect_attack_char(entity_t *ent, map_t *map);
+	int detect_villager(entity_t *ent, map_t *map);
 	void attack_ogre(entity_t *ent, rpg_t *rpg);
 	int go_left_lycan(entity_t *ent, int count, map_t *map);
 	int go_right_lycan(entity_t *ent, int count, map_t *map);
@@ -139,10 +143,10 @@
 	void attack_lycan(entity_t *ent, rpg_t *rpg);
 	void deplacement_villager(rpg_t *rpg, map_t *map, entity_t *ent);
 	void lycan_cry(rpg_t *rpg, entity_t *ent, int count);
-	void follow_lycan(entity_t *ent, map_t *map, rpg_t *rpg);
+	void follow_lycan(entity_t *ent, map_t *map, rpg_t *rpg, int first);
 	void deplacement_lycan(rpg_t *rpg, map_t *map, entity_t *ent);
 	int detect_ennemy(entity_t *ent, map_t *map);
-	void follow_ogre(entity_t *ent, map_t *map, character_t *character);
+	void follow_ogre(entity_t *ent, map_t *map);
 	void follow_ostrich(entity_t *ent, map_t *map);
 	void ennemy_handling(rpg_t *rpg, map_t *map);
 	entity_t *add_ennemy_class_1(const char *path_sprite, sfIntRect square);

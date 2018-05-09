@@ -36,6 +36,7 @@ npc_t *create_npc(void)
 
 	npc->s_npc[0] = npc_sprite(NPC_GAME);
 	npc->s_npc[1] = npc_sprite(NPC_KID);
+	npc->ms = create_ms();
 	npc->box = sfRectangleShape_create();
 	npc->text = sfText_create();
 	npc->s_arrow = sfSprite_create();

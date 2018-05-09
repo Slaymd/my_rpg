@@ -45,6 +45,21 @@
 #define TXTRE_WOODEN_HOUSE "assets/textures/objects/wooden_house.png"
 #define TXTRE_VILLAGE1 "assets/textures/objects/village_1.png"
 
+
+#define LIST_LITTLE_STONE "assets/textures/objects/little_stone_1.png:\
+assets/textures/objects/little_stone_2.png"
+#define LIST_FLOWERS "assets/textures/objects/flowers_1.png:\
+assets/textures/objects/flowers_2.png:\
+assets/textures/objects/flowers_3.png"
+#define LIST_VILLAGE "assets/textures/objects/village_1.png"
+#define LIST_LILY_PAD "assets/textures/objects/lily_pad_1.png"
+#define LIST_WOODEN_HOUSE "assets/textures/objects/wooden_house.png"
+#define LIST_WATER_WAVE "assets/textures/objects/water_wave.png"
+#define LIST_LITTLE_BUSH "assets/textures/objects/little_bush.png"
+#define LIST_BIG_BUSH "assets/textures/objects/big_bush_1.png:\
+assets/textures/objects/big_bush_2.png"
+#define LIST_LOG "assets/textures/objects/log.png"
+
 #define TXTRE_LIST_LITTLE_STONE {TXTRE_LITTLE_STONE1,\
 	TXTRE_LITTLE_STONE2, NULL}
 #define TXTRE_LIST_FLOWERS {TXTRE_FLOWERS1, TXTRE_FLOWERS2, TXTRE_FLOWERS3,\
@@ -118,7 +133,7 @@
 #define TXTRE_OSTRICH "assets/entities/ostrich.png"
 #define TXTRE_STONE_OGRE "assets/entities/stone_ogre.png"
 #define TXTRE_LYCANTHROPE "assets/entities/lycanthrope.png"
-#define TXTRE_VILLAGER "assets/entities/villager.png"
+#define TXTRE_VILLAGER "assets/entities/npc_game.png"
 
 //Textures ID
 

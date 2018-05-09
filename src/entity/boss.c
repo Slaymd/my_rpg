@@ -10,12 +10,16 @@
 void lycan_cry(rpg_t *rpg, entity_t *ent, int count)
 {
 	static int verif = 0;
+	static int first = 0;
 
+	first == 0 ? sfMusic_setVolume(rpg->music, 30) : 0;
 	verif == 0 ? ent->square.left = 1270, sfMusic_play(ent->song) : 0;
 	ent->mirror = 2;
 	display_ennemy(rpg, ent, rpg->map, count);
 	ent->mirror = 0;
 	verif = 1;
+	first++;
+	first >= 199 ? sfMusic_setVolume(rpg->music, 100) : 0;
 }
 
 void display_attack(rpg_t *rpg, entity_t *ent, map_t *map, int count)
@@ -23,6 +27,8 @@ void display_attack(rpg_t *rpg, entity_t *ent, map_t *map, int count)
 	if (count == 5) {
 		ent->square.left = ent->square.left + 400 >= 4400 ?
 		0 : ent->square.left + 400;
+		detect_attack_char(ent, map) == 1 ?
+		rpg->character->stat->hp -= 10 : 0;
 		sfSprite_setTextureRect(ent->sprite, ent->square);
 	}
 	reinit_var(rpg, ent, map);
@@ -44,20 +50,28 @@ void attack_lycan(entity_t *ent, rpg_t *rpg)
 	ent->square.top = 220, ent->square.left = 0 : 0;
 }
 
-void follow_lycan(entity_t *ent, map_t *map, rpg_t *rpg)
+int detect_char(entity_t *ent, map_t *map)
+{
+	int x = map->center.x;
+	int y = map->center.y;
+
+	if (x >= ent->pos.x - 19 && x <= ent->pos.x + 19 && y >= ent->pos.y - 19
+	&& y <= ent->pos.y + 19) {
+		return (1);
+	}
+	return (0);
+}
+
+void follow_lycan(entity_t *ent, map_t *map, rpg_t *rpg, int first)
 {
 	int xx = map->center.x;
 	int yy = map->center.y;
-	static int pos = 0;
+	//static int pos = 0;
 	static int count = 0;
 	static int x = 0;
 
-	ent->pos.x <= xx + 0.3 ? ent->pos.x += 0.12, ent->mirror = 3 : 0;
-	ent->pos.x >= xx + 0.3 ? ent->pos.x -= 0.12, ent->mirror = 4 : 0;
-	pos = xx;
-	ent->pos.y >= yy ? ent->pos.y -= 0.16 : 0;
-	ent->pos.y <= yy ? ent->pos.y += 0.16 : 0;
-
+	if (detect_char(ent, map) == 1 && first >= 200)
+		/*pos = */run_char(ent, map, xx, yy);
 	ent->seconds >= 0.10 ? count += 1 : 0;
 	ent->mirror == 0 && count == 15 ? x++ : 0;
 	ent->mirror == 1 && count == 15 ? x-- : 0;

@@ -20,10 +20,10 @@ int	check_pos_in_button(button_t *button, sfVector2f pos)
 
 int	send_click_action(button_t *button)
 {
-	if (button->action != NULL)
-		button->action(button->params);
 	if (button->nb_states > 0)
 		switch_button_state(button);
+	if (button->action != NULL && button->params != NULL)
+		button->action(button->params);
 	return (1);
 }
 

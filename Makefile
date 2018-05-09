@@ -7,8 +7,6 @@
 
 CC			=	gcc
 
-SRC_MAIN		=	src/main.c
-
 SRC_TEST		=	\
 
 SRC			=	./src/main.c				\
@@ -71,7 +69,14 @@ SRC			=	./src/main.c				\
 				src/inventory/fct_for_inventory.c	\
 				src/inventory/fct_for_inventory2.c	\
 				src/inventory/init_inventory.c		\
-				src/entity/deplacement_villager.c
+				src/entity/deplacement_villager.c	\
+				src/matchstick/main.c			\
+				src/matchstick/init.c			\
+				src/matchstick/ai.c			\
+				src/matchstick/display_match.c		\
+				src/matchstick/player.c			\
+				src/matchstick/event_end_error.c	\
+				src/entity/boss_deg.c
 
 CFLAGS		=	-W -Wall -Wextra -I./include -g3 -lm
 
@@ -81,11 +86,9 @@ LIB_TEST		=	-lcriterion
 
 LIB_CSFML		=	-lcsfml-graphics -lcsfml-system -lcsfml-audio -lcsfml-window
 
-LIB_EPICSFML	=	-lc_graph_prog
+LIB_EPICSFML		=	-lc_graph_prog
 
 OBJ			=	$(SRC:.c=.o)
-
-OBJ_MAIN		=	$(SRC_MAIN:.c=.o)
 
 OBJ_TEST		=	$(SRC_TEST:.c=.o)
 
@@ -101,11 +104,11 @@ MAKE_LIBUI	=	make -C./lib/ui
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(OBJ_MAIN)
+$(NAME): $(OBJ)
 	$(MAKE_LIBMY)
 	$(MAKE_LIBLIST)
 	$(MAKE_LIBUI)
-	$(CC) $(OBJ) $(OBJ_MAIN) $(CFLAGS) $(LIB_EPICSFML) $(LIB) -o $(NAME)
+	$(CC) $(OBJ) $(CFLAGS) $(LIB_EPICSFML) $(LIB) -o $(NAME)
 
 my: $(OBJ)
 	$(MAKE_LIBMY)
