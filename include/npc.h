@@ -31,7 +31,7 @@
 	struct npc_s {
 		sfSprite *s_npc[2];
 		sfRectangleShape *box;
-		int used;
+		ms_t *ms;
 		sfSprite *s_arrow;
 		sfTexture *t_arrow;
 		sfText *text;

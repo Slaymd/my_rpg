@@ -57,7 +57,6 @@ void display_shoot(list_shoot_t *shoot, fairy_t *fairy, rpg_t *rpg)
 			disp_shoot_at(rpg->wd, rpg->map, fairy->s_rocket,
 			tmp->pos_r);
 		else {
-			printf("Add = %f & %f\n\n", tmp->pos_e.x - rpg->map->center.x, tmp->pos_e.y - rpg->map->center.y);
 			disp_shoot_at(rpg->wd, rpg->map, fairy->s_explo,
 			tmp->pos_e);
 		}
