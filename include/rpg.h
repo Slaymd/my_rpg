@@ -129,6 +129,9 @@
 	void free_rpg(rpg_t *rpg);
 
 	//ENNEMY
+	int run_char(entity_t *ent, map_t *map, int xx, int yy);
+	int detect_attack_char(entity_t *ent, map_t *map);
+	int detect_villager(entity_t *ent, map_t *map);
 	void attack_ogre(entity_t *ent, rpg_t *rpg);
 	int go_left_lycan(entity_t *ent, int count, map_t *map);
 	int go_right_lycan(entity_t *ent, int count, map_t *map);

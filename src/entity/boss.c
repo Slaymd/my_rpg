@@ -23,6 +23,8 @@ void display_attack(rpg_t *rpg, entity_t *ent, map_t *map, int count)
 	if (count == 5) {
 		ent->square.left = ent->square.left + 400 >= 4400 ?
 		0 : ent->square.left + 400;
+		detect_attack_char(ent, map) == 1 ?
+		rpg->character->stat->hp -= 10 : 0;
 		sfSprite_setTextureRect(ent->sprite, ent->square);
 	}
 	reinit_var(rpg, ent, map);
@@ -64,13 +66,8 @@ void follow_lycan(entity_t *ent, map_t *map, rpg_t *rpg, int first)
 	static int count = 0;
 	static int x = 0;
 
-	if (detect_char(ent, map) == 1 && first >= 200) {
-		ent->pos.x <= xx + 0.3 ? ent->pos.x += 0.12, ent->mirror = 3 : 0;
-		ent->pos.x >= xx + 0.3 ? ent->pos.x -= 0.12, ent->mirror = 4 : 0;
-		pos = xx;
-		ent->pos.y >= yy ? ent->pos.y -= 0.16 : 0;
-		ent->pos.y <= yy ? ent->pos.y += 0.16 : 0;
-	}
+	if (detect_char(ent, map) == 1 && first >= 200)
+		pos = run_char(ent, map, xx, yy);
 	ent->seconds >= 0.10 ? count += 1 : 0;
 	ent->mirror == 0 && count == 15 ? x++ : 0;
 	ent->mirror == 1 && count == 15 ? x-- : 0;

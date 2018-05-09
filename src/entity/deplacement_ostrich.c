@@ -23,7 +23,8 @@ void mirror_ostrich(entity_t *ent, int mirror)
 int go_left_ostrich(entity_t *ent, int count, map_t *map)
 {
 	if (count >= 5) {
-		if (can_move_here(map, ent->pos) == 1) {
+		if (can_move_here(map, (pos_t){ent->pos.x + 0.3,
+		ent->pos.y, ent->pos.z}) == 1) {
 			ent->pos.x += 0.3;
 			return (0);
 		}
@@ -67,6 +68,10 @@ void deplacement_ostrich(rpg_t *rpg, map_t *map, entity_t *ent)
 {
 	static int count = 0;
 	static int x = 0;
+	static int one = -1;
+
+	one == -1 ? ent->pos.x = 15990 : 0;
+	one = 0;
 
 	detect_ennemy(ent, map) == 1 ? follow_ostrich(ent, map) : 0;
 	ent->seconds >= 0.10 ? count += 1 : 0;
