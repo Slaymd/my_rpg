@@ -17,8 +17,13 @@ void play_match(rpg_t *rpg, match_t *match, stick_t *stick)
 	calcul_match(rpg, match, stick);
 }
 
-void reset_stick(stick_t *stick)
+void reset_ms(stick_t *stick, match_t *match)
 {
+	match->x = 0;
+	match->y = 2;
+	match->seconds = 0;
+	sfClock_restart(match->clock);
+	match->mode = 1;
 	stick->lines = 4;
 	stick->len = stick->lines * 2 - 1;
 	stick->max = 3;
@@ -29,7 +34,7 @@ void reset_stick(stick_t *stick)
 
 int play_matchstick(rpg_t *rpg, ms_t *ms)
 {
-	reset_stick(ms->stick);
+	reset_ms(ms->stick, ms->match);
 	sfRenderWindow_setView(rpg->wd, rpg->view->v_normal);
 	while (sfRenderWindow_isOpen(rpg->wd) && my_end(ms->stick) == 0) {
 		matchstick_gestion(rpg, ms->match);
