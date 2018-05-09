@@ -32,7 +32,6 @@ void second_init_match(match_t *match)
 	sfSprite_setScale(match->smatch,
 	(sfVector2f){match->scale, match->scale});
 	sfSprite_setTexture(match->smatch, match->tmatch, sfTrue);
-	match->sred_match = sfSprite_create();
 	sfSprite_setScale(match->sred_match,
 	(sfVector2f){match->scale, match->scale});
 	sfSprite_setTexture(match->sred_match, match->tmatch, sfTrue);
@@ -49,6 +48,7 @@ match_t *init_match(void)
 	match->scale = 0.24;
 	match->tmatch = sfTexture_createFromFile("./img/match.png", NULL);
 	match->smatch = sfSprite_create();
+	match->sred_match = sfSprite_create();
 	match->mode = 1;
 	match->x = 0;
 	match->y = 2;

@@ -17,6 +17,7 @@ SRC			=	./src/main.c				\
 				./src/cycle/create.c			\
 				./src/cycle/cycle.c			\
 				./src/cycle/time.c			\
+				./src/cycle/destroy.c			\
 				./src/character/create.c		\
 				./src/character/move.c			\
 				./src/character/stat.c			\
@@ -27,6 +28,7 @@ SRC			=	./src/main.c				\
 				./src/npc/create.c			\
 				./src/npc/inter.c			\
 				./src/npc/game.c			\
+				./src/npc/destroy.c			\
 				./src/fairy/create.c			\
 				./src/fairy/move.c			\
 				./src/fairy/display.c			\

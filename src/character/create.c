@@ -29,6 +29,7 @@ main_stat_t *init_character_stat(void)
 {
 	main_stat_t *stat = malloc(sizeof(main_stat_t));
 
+	stat->attack = 10;
 	stat->hp = 100;
 	stat->mana = 100;
 	stat->hp_r = 2;
@@ -36,7 +37,6 @@ main_stat_t *init_character_stat(void)
 	stat->hp_max = 100;
 	stat->mana_max = 100;
 	stat->xp = 0;
-	stat->crit = 0;
 	stat->clock = sfClock_create();
 	stat->time = sfClock_getElapsedTime(stat->clock);
 	stat->seconds = 0;

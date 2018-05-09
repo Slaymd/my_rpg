@@ -56,4 +56,7 @@
 	//TYPES
 	void npc_game(rpg_t *rpg, int next);
 
+	//DESTROY
+	void free_npc(npc_t *npc);
+
 #endif
