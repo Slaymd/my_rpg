@@ -68,7 +68,11 @@ void deplacement_lycan(rpg_t *rpg, map_t *map, entity_t *ent)
 	static int count;
 	static int first = -1;
 	static int atk = -1;
-
+	static int one = -1;
+//
+	one == -1 ? ent->pos.x = 16080 : 0;
+	one = 1;
+//
 	detect_ennemy(ent, map) == 1 && first == -1 ? first++ : 0;
 	if (first >= 0 && first < 200) {
 		lycan_cry(rpg, ent, count);
@@ -83,5 +87,5 @@ void deplacement_lycan(rpg_t *rpg, map_t *map, entity_t *ent)
 		return;
 	}
 	atk >= 120 ? atk = -1 : 0;
-	follow_lycan(ent, map, rpg);
+	follow_lycan(ent, map, rpg, first);
 }

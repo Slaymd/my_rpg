@@ -136,7 +136,7 @@
 	void attack_lycan(entity_t *ent, rpg_t *rpg);
 	void deplacement_villager(rpg_t *rpg, map_t *map, entity_t *ent);
 	void lycan_cry(rpg_t *rpg, entity_t *ent, int count);
-	void follow_lycan(entity_t *ent, map_t *map, rpg_t *rpg);
+	void follow_lycan(entity_t *ent, map_t *map, rpg_t *rpg, int first);
 	void deplacement_lycan(rpg_t *rpg, map_t *map, entity_t *ent);
 	int detect_ennemy(entity_t *ent, map_t *map);
 	void follow_ogre(entity_t *ent, map_t *map, character_t *character);

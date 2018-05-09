@@ -44,7 +44,19 @@ void attack_lycan(entity_t *ent, rpg_t *rpg)
 	ent->square.top = 220, ent->square.left = 0 : 0;
 }
 
-void follow_lycan(entity_t *ent, map_t *map, rpg_t *rpg)
+int detect_char(entity_t *ent, map_t *map)
+{
+	int x = map->center.x;
+	int y = map->center.y;
+
+	if (x >= ent->pos.x - 19 && x <= ent->pos.x + 19 && y >= ent->pos.y - 19
+	&& y <= ent->pos.y + 19) {
+		return (1);
+	}
+	return (0);
+}
+
+void follow_lycan(entity_t *ent, map_t *map, rpg_t *rpg, int first)
 {
 	int xx = map->center.x;
 	int yy = map->center.y;
@@ -52,12 +64,13 @@ void follow_lycan(entity_t *ent, map_t *map, rpg_t *rpg)
 	static int count = 0;
 	static int x = 0;
 
-	ent->pos.x <= xx + 0.3 ? ent->pos.x += 0.12, ent->mirror = 3 : 0;
-	ent->pos.x >= xx + 0.3 ? ent->pos.x -= 0.12, ent->mirror = 4 : 0;
-	pos = xx;
-	ent->pos.y >= yy ? ent->pos.y -= 0.16 : 0;
-	ent->pos.y <= yy ? ent->pos.y += 0.16 : 0;
-
+	if (detect_char(ent, map) == 1 && first >= 200) {
+		ent->pos.x <= xx + 0.3 ? ent->pos.x += 0.12, ent->mirror = 3 : 0;
+		ent->pos.x >= xx + 0.3 ? ent->pos.x -= 0.12, ent->mirror = 4 : 0;
+		pos = xx;
+		ent->pos.y >= yy ? ent->pos.y -= 0.16 : 0;
+		ent->pos.y <= yy ? ent->pos.y += 0.16 : 0;
+	}
 	ent->seconds >= 0.10 ? count += 1 : 0;
 	ent->mirror == 0 && count == 15 ? x++ : 0;
 	ent->mirror == 1 && count == 15 ? x-- : 0;
