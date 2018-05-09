@@ -71,6 +71,7 @@ void physic_fairy_move(fairy_t *fairy, sfEvent event)
 void move_fairy(fairy_t *fairy, rpg_t *rpg, sfEvent event)
 {
 	(void)event;
+	(void)rpg;
 	physic_fairy_move(fairy, event);
 	(fairy->pos.x > WIDTH / 2 + MOVE_F_X) ?
 	fairy->pos.x = WIDTH / 2 + MOVE_F_X : 0;

@@ -29,9 +29,14 @@ int detect_ennemy(entity_t *ent, map_t *map)
 
 void detect_damage(rpg_t *rpg, entity_t *ent)
 {
-	if (rpg->fairy->shoot->first != NULL) {
-		// printf("shoot = %f | %f\n", rpg->fairy->shoot->first->pos_e.x, rpg->fairy->shoot->first->pos_e.y);
-		// printf("ent   = %f | %f\n", ent->pos.x, ent->pos.y);
+	float x = ent->pos.x + (WIDTH / TILE_SIZE / 2);
+	float y = ent->pos.y + (HEIGHT / TILE_SIZE / 2);
+	shoot_t *tmp = rpg->fairy->shoot->first;
+
+	while (tmp) {
+		if (tmp->state != 0 && tmp->rect.left < 4800)
+			// if (x == tmp->pos_e.x && y == tmp->pos_e.y)
+		tmp = tmp->next;
 	}
 }
 
