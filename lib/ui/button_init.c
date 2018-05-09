@@ -21,6 +21,9 @@ button_t	*create_void_button(void)
 	button->tooltip = NULL;
 	button->states = NULL;
 	button->state = 0;
+	button->nb_states = 0;
+	button->action = NULL;
+	button->params = NULL;
 	return (button);
 }
 
