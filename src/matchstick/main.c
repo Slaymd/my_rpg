@@ -9,7 +9,7 @@
 
 void play_match(rpg_t *rpg, match_t *match, stick_t *stick)
 {
-	if (match->seconds > 0.05 && stick->turn % 2 == 0)
+	if (match->seconds > 0.075 && stick->turn % 2 == 0)
 		player_play(match, stick);
 	else if (match->mode == 1 && match->seconds > 0.75 &&
 	stick->turn % 2 != 0)

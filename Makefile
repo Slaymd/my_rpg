@@ -7,8 +7,6 @@
 
 CC			=	gcc
 
-SRC_MAIN		=	src/main.c
-
 SRC_TEST		=	\
 
 SRC			=	./src/main.c				\
@@ -87,11 +85,9 @@ LIB_TEST		=	-lcriterion
 
 LIB_CSFML		=	-lcsfml-graphics -lcsfml-system -lcsfml-audio -lcsfml-window
 
-LIB_EPICSFML	=	-lc_graph_prog
+LIB_EPICSFML		=	-lc_graph_prog
 
 OBJ			=	$(SRC:.c=.o)
-
-OBJ_MAIN		=	$(SRC_MAIN:.c=.o)
 
 OBJ_TEST		=	$(SRC_TEST:.c=.o)
 
@@ -107,11 +103,11 @@ MAKE_LIBUI	=	make -C./lib/ui
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(OBJ_MAIN)
+$(NAME): $(OBJ)
 	$(MAKE_LIBMY)
 	$(MAKE_LIBLIST)
 	$(MAKE_LIBUI)
-	$(CC) $(OBJ) $(OBJ_MAIN) $(CFLAGS) $(LIB_EPICSFML) $(LIB) -o $(NAME)
+	$(CC) $(OBJ) $(CFLAGS) $(LIB_EPICSFML) $(LIB) -o $(NAME)
 
 my: $(OBJ)
 	$(MAKE_LIBMY)

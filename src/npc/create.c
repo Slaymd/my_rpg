@@ -41,6 +41,7 @@ npc_t *create_npc(void)
 	npc->s_arrow = sfSprite_create();
 	npc->t_arrow = sfTexture_createFromFile(TXTR_ARROW, NULL);
 	npc->select = 0;
+	npc->used = 0;
 	npc->font = sfFont_createFromFile(FONT_UBUREG);
 	npc->clock = sfClock_create();
 	npc->time = sfClock_getElapsedTime(npc->clock);
