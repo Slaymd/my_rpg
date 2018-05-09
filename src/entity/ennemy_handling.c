@@ -35,6 +35,8 @@ void detect_damage(rpg_t *rpg, entity_t *ent)
 	float sy = 0;
 	shoot_t *tmp = rpg->fairy->shoot->first;
 
+	// printf("pos->char = %f | %f\n", rpg->character->pos.x, rpg->character->pos.y);
+	// printf("ent %d : x  %f | y  %f\n", ent->num, ent->pos.x, ent->pos.y);
 	while (tmp) {
 		sy = tmp->pos_e.y + (WIDTH / TILE_SIZE / 2);
 		sx = tmp->pos_e.x + (WIDTH / TILE_SIZE / 2);

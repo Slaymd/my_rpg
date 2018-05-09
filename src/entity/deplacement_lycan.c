@@ -72,6 +72,8 @@ void deplacement_lycan(rpg_t *rpg, map_t *map, entity_t *ent)
 //
 	one == -1 ? ent->pos.x = 16080 : 0;
 	one = 1;
+
+	sfMusic_setVolume(rpg->music, 0);
 //
 	detect_ennemy(ent, map) == 1 && first == -1 ? first++ : 0;
 	if (first >= 0 && first < 200) {
@@ -81,7 +83,7 @@ void deplacement_lycan(rpg_t *rpg, map_t *map, entity_t *ent)
 		return;
 	}
 	detect_ennemy(ent, map) == 1 && atk == -1 ? atk = 0 : 0;
-	if (atk < 120 && atk >= 0) {
+	if (atk < 120 && atk >= 0 && ent->hp > 0) {
 		attack_lycan(ent, rpg);
 		atk++;
 		return;

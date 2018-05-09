@@ -129,6 +129,7 @@
 	void free_rpg(rpg_t *rpg);
 
 	//ENNEMY
+	void lycan_die(entity_t *ent, map_t *map, rpg_t *rpg);
 	int run_char(entity_t *ent, map_t *map, int xx, int yy);
 	int detect_attack_char(entity_t *ent, map_t *map);
 	int detect_villager(entity_t *ent, map_t *map);
