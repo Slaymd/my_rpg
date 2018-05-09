@@ -49,7 +49,7 @@ void move_character(character_t *character, rpg_t *rpg)
 {
 	move_character_y(character);
 	move_character_x(character);
-	rpg = rpg;
+	(void)rpg;
 	if (character->seconds >= 0.10 && (sfKeyboard_isKeyPressed(sfKeyLeft) ||
 	sfKeyboard_isKeyPressed(sfKeyRight) ||
 	sfKeyboard_isKeyPressed(sfKeyDown) || sfKeyboard_isKeyPressed(sfKeyUp)))

@@ -13,10 +13,12 @@ pos_t generate_hardpos_near(pos_t pos, int minradius)
 	int tries = 0;
 	pos_t hardpos = pos;
 
-	while ((hardpos.x >= pos.x-minradius && hardpos.x <= pos.x+minradius) ||
-	(hardpos.y >= pos.y-minradius && hardpos.y <= pos.y+minradius)) {
+	while ((hardpos.x >= pos.x - minradius && hardpos.x <= pos.x +
+	minradius) || (hardpos.y >= pos.y - minradius && hardpos.y <=
+	pos.y + minradius)) {
 		hardpos.x = rand_time(pos.x-(minradius+1), pos.x+(minradius+1));
-		hardpos.y = rand_time(pos.y-(minradius+1), pos.y+(minradius+1));
+		hardpos.y = rand_time(pos.y - (minradius + 1), pos.y +
+		(minradius + 1));
 		tries++;
 		if (tries >= maxtries) {
 			maxtries *= 2;
