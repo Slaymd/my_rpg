@@ -5,7 +5,7 @@
 ** free
 */
 
-#include "rpg.h"
+#include "../include/rpg.h"
 
 void free_fairy(fairy_t *fairy)
 {
@@ -65,6 +65,7 @@ void free_view(view_t *view)
 void free_rpg(rpg_t *rpg)
 {
 	sfRenderWindow_destroy(rpg->wd);
+	free_map(rpg->map);
 	sfMusic_destroy(rpg->music);
 	free_fairy(rpg->fairy);
 	free_cycle(rpg->cycle);

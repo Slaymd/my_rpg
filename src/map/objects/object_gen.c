@@ -35,18 +35,22 @@ sfSprite *get_sprite_from_texture_path(char *path)
 
 int	generate_object(map_t *map, object_stats_t *obj_stats, pos_t pos)
 {
-	object_t *obj = (object_t*)malloc(sizeof(object_t));
+	object_t *obj = NULL;
 	int freq = obj_stats->freq*1000;
 	int rd_freq = rand_time(0, 1001);
 	float scale = (float)TILE_SIZE/16;
 
 	if (rd_freq > freq)
-		return (free_object(obj));
+		return (0);
+	obj = (object_t*)malloc(sizeof(object_t));
+	obj->sprite = NULL;
 	obj->txt_path = get_object_texture_path(obj_stats);
 	obj->sprite = get_sprite_from_texture_path(obj->txt_path);
 	sfSprite_setScale(obj->sprite, (sfVector2f){scale,scale});
-	if (!can_be_placed_here(map, obj->sprite, pos))
-		return (free_object(obj));
+	if (!can_be_placed_here(map, obj->sprite, pos)) {
+		free_object(obj);
+		return (0);
+	}
 	obj->pos = (pos_t){pos.x+0.5, pos.y+0.5, 0};
 	obj->type = obj_stats->type;
 	list_add(&map->objects, obj);

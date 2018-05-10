@@ -7,14 +7,6 @@
 
 #include "../../../include/rpg.h"
 
-int	free_object(object_t *obj)
-{
-	//if (obj->sprite != NULL)
-	//	sfSprite_destroy(obj->sprite);
-	free(obj);
-	return (0);
-}
-
 object_stats_t *create_obj(object_stats_t *alp, char *txts)
 {
 	object_stats_t *stat = (object_stats_t*)malloc(sizeof(object_stats_t));
