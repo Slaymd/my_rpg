@@ -34,6 +34,7 @@ rpg_t *init_rpg(void)
 	rpg->wd = create_window();
 	rpg->view = create_view();
 	rpg->npc = create_npc();
+	rpg->htp = create_htp();
 	rpg->cycle = create_cycle();
 	rpg->character = init_character();
 	rpg->fairy = init_fairy();
