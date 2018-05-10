@@ -7,7 +7,7 @@
 
 #include "../../include/rpg.h"
 
-int init_pausescreen_buttons(scene_t *scene)
+int init_pausescreen_buttons(rpg_t *rpg, scene_t *scene)
 {
 	button_t *resume = create_flat_button((IR){60, HEIGHT-150, 130, 50},\
 	sfBlack, sfWhite, "resume");
@@ -18,6 +18,12 @@ int init_pausescreen_buttons(scene_t *scene)
 
 	set_text_position(quit->text, (V2F){WIDTH-175, HEIGHT-80});
 	set_text_position(menu->text, (V2F){75, HEIGHT-80});
+	resume->action = &click_pause_resume_button;
+	resume->params = rpg;
+	menu->action = &click_pause_menu_button;
+	menu->params = rpg;
+	quit->action = &click_pause_exit_button;
+	quit->params = rpg;
 	list_add(&scene->buttons, resume);
 	list_add(&scene->buttons, menu);
 	list_add(&scene->buttons, quit);
@@ -44,7 +50,7 @@ scene_t *init_pausescreen(rpg_t *rpg)
 	(void)rpg;
 	set_panel_opacity(bgpanel, 0.4);
 	init_pausescreen_labels(scene);
-	init_pausescreen_buttons(scene);
+	init_pausescreen_buttons(rpg, scene);
 	list_add(&scene->panels, bgpanel);
 	return (scene);
 }
