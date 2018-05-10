@@ -77,9 +77,13 @@
 	//WINDOW TOOLS
 	sfRenderWindow	*create_window(void);
 
+	//SWITCH SCENE EVENTS
+	int pause_screen_events(rpg_t *rpg, sfEvent event);
+
 	//UI
 	scene_t *init_mainmenu(rpg_t *rpg);
 	scene_t *init_mapeditor(rpg_t *rpg);
+	scene_t *init_pausescreen(rpg_t *rpg);
 	void disp_mainmenu(rpg_t *rpg);
 	void swap_state_maptravelling(rpg_t *rpg);
 	void regen_map_from_ui(void *data);

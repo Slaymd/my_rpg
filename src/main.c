@@ -34,6 +34,7 @@ int	game_loop(rpg_t *rpg)
 		if (event.type == sfEvtClosed)
 			sfRenderWindow_close(rpg->wd);
 		scene_events_handler(rpg->wd, event, rpg->scene);
+		pause_screen_events(rpg, event);
 	}
 	if (rpg->state < 3)
 		disp_mainmenu(rpg);
@@ -49,6 +50,9 @@ int	game_loop(rpg_t *rpg)
 		display_fairy(rpg, event);
 		cycle_handler(rpg);
 		manage_inter(rpg);
+	} else if (rpg->state == 4) {
+		my_printf("pause\n");
+		disp_scene(rpg->wd, rpg->scene);
 	}
 	sfRenderWindow_display(rpg->wd);
 	return (0);
@@ -59,7 +63,6 @@ int	main(void)
 	rpg_t *rpg = init_rpg();
 	srand(time(NULL));
 
-	rpg->state = 3;
 	init_sprite(rpg);
 	while (sfRenderWindow_isOpen(rpg->wd)) {
 		game_loop(rpg);

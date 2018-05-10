@@ -31,7 +31,7 @@ rpg_t *init_rpg(void)
 	rpg->state = 0;
 	rpg->music = sfMusic_createFromFile("assets/musics/maintheme.ogg");
 	sfMusic_setLoop(rpg->music, 1);
-	sfMusic_play(rpg->music);
+	//sfMusic_play(rpg->music);
 	rpg->wd = create_window();
 	rpg->view = create_view();
 	rpg->npc = create_npc();
