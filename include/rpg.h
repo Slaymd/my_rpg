@@ -116,7 +116,7 @@
 	int if_m_in_sprite(sfVector2i pos_m, item_t **slot);
 	void draw_all(rpg_t *rpg);
 	text_t *create_inv_text(char *info, int size, sfVector2f pos, sfColor color);
-	void recup_info(inv_t *inv);
+	void recup_info(inv_t *inv, main_stat_t *stat);
 	void consom(item_t *slot);
 
 	//ACTION
