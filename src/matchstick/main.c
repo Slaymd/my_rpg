@@ -17,16 +17,29 @@ void play_match(rpg_t *rpg, match_t *match, stick_t *stick)
 	calcul_match(rpg, match, stick);
 }
 
-int play_matchstick(rpg_t *rpg)
+void reset_ms(stick_t *stick, match_t *match)
 {
-	match_t *match = init_match();
-	stick_t *stick = fill_stick();
+	match->x = 0;
+	match->y = 2;
+	match->seconds = 0;
+	sfClock_restart(match->clock);
+	match->mode = 1;
+	stick->lines = 4;
+	stick->len = stick->lines * 2 - 1;
+	stick->max = 3;
+	stick->turn = 0;
+	for (int i = 0; i < stick->lines; i++)
+		stick->line[i] = 1 + i * 2;
+}
 
+int play_matchstick(rpg_t *rpg, ms_t *ms)
+{
+	reset_ms(ms->stick, ms->match);
 	sfRenderWindow_setView(rpg->wd, rpg->view->v_normal);
-	while (sfRenderWindow_isOpen(rpg->wd) && my_end(stick) == 0) {
-		matchstick_gestion(rpg, match);
-		play_match(rpg, match, stick);
+	while (sfRenderWindow_isOpen(rpg->wd) && my_end(ms->stick) == 0) {
+		matchstick_gestion(rpg, ms->match);
+		play_match(rpg, ms->match, ms->stick);
 		sfRenderWindow_display(rpg->wd);
 	}
-	return (stick->turn % 2);
+	return (ms->stick->turn % 2);
 }

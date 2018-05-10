@@ -35,6 +35,11 @@
 		float seconds;
 	} match_t;
 
+	typedef struct ms_s {
+		match_t *match;
+		stick_t *stick;
+	} ms_t;
+
 	stick_t *fill_stick(void);
 	match_t *init_match(void);
 	void ai_play(match_t *match, stick_t *stick);
@@ -46,8 +51,9 @@
 	void draw_match(rpg_t *rpg, match_t *match, stick_t *stick,
 	sfVector2f pos);
 	void matchstick_gestion(rpg_t *rpg, match_t *match);
-	void free_match(match_t *match, stick_t *stick);
+	void free_ms(ms_t *ms);
 	int my_end(stick_t *stick);
-	int play_matchstick(rpg_t *rpg);
+	int play_matchstick(rpg_t *rpg, ms_t *ms);
+	ms_t *create_ms(void);
 
 #endif

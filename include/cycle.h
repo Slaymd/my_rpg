@@ -35,4 +35,8 @@
 	//TIME
 	void display_time(cycle_t *cycle, sfRenderWindow *window);
 	void refresh_time(cycle_t *cycle);
+
+	//DESTROY
+	void free_cycle(cycle_t *cycle);
+
 #endif

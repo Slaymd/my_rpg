@@ -21,8 +21,7 @@ void match_input(match_t *match, stick_t *stick)
 	match->y -= (sfKeyboard_isKeyPressed(sfKeyLeft)) ? 1 : 0;
 	match->y = (match->y > stick->line[match->x] + 1) ?
 	stick->line[match->x] + 1 : match->y;
-	match->y += (stick->line[match->x] - match->y + 1 > stick->max) ?
-	1 : 0;
+	match->y += (stick->line[match->x] - match->y + 1 > stick->max) ? 1 : 0;
 	match->y = (match->y < 1) ? 1 : match->y;
 }
 

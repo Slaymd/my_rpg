@@ -133,6 +133,12 @@
 	void free_rpg(rpg_t *rpg);
 
 	//ENNEMY
+	void mirror_ogre(entity_t *ent, int mirror);
+	int go_left_ogre(entity_t *ent, int count, map_t *map, rpg_t *rpg);
+	int go_right_ogre(entity_t *ent, int count, map_t *map, rpg_t *rpg);
+	int my_if_ogre(entity_t *ent, int x);
+	void dead_ogre(entity_t *ent, rpg_t *rpg);
+	void lycan_die(entity_t *ent, rpg_t *rpg);
 	int run_char(entity_t *ent, map_t *map, int xx, int yy);
 	int detect_attack_char(entity_t *ent, map_t *map);
 	int detect_villager(entity_t *ent, map_t *map);
@@ -146,7 +152,7 @@
 	void follow_lycan(entity_t *ent, map_t *map, rpg_t *rpg, int first);
 	void deplacement_lycan(rpg_t *rpg, map_t *map, entity_t *ent);
 	int detect_ennemy(entity_t *ent, map_t *map);
-	void follow_ogre(entity_t *ent, map_t *map);
+	void follow_ogre(entity_t *ent, map_t *map, rpg_t *rpg);
 	void follow_ostrich(entity_t *ent, map_t *map);
 	void ennemy_handling(rpg_t *rpg, map_t *map);
 	entity_t *add_ennemy_class_1(const char *path_sprite, sfIntRect square);

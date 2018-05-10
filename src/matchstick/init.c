@@ -20,6 +20,8 @@ stick_t *fill_stick(void)
 	stick->turn = 0;
 	for (; len < stick->lines; len++);
 	stick->line = malloc(sizeof(int) * len);
+	if (!stick->line)
+		return (NULL);
 	for (int i = 0; i < stick->lines; i++)
 		stick->line[i] = 1 + i * 2;
 	return (stick);
@@ -30,7 +32,6 @@ void second_init_match(match_t *match)
 	sfSprite_setScale(match->smatch,
 	(sfVector2f){match->scale, match->scale});
 	sfSprite_setTexture(match->smatch, match->tmatch, sfTrue);
-	match->sred_match = sfSprite_create();
 	sfSprite_setScale(match->sred_match,
 	(sfVector2f){match->scale, match->scale});
 	sfSprite_setTexture(match->sred_match, match->tmatch, sfTrue);
@@ -47,6 +48,7 @@ match_t *init_match(void)
 	match->scale = 0.24;
 	match->tmatch = sfTexture_createFromFile("./img/match.png", NULL);
 	match->smatch = sfSprite_create();
+	match->sred_match = sfSprite_create();
 	match->mode = 1;
 	match->x = 0;
 	match->y = 2;
@@ -57,4 +59,13 @@ match_t *init_match(void)
 	match->seconds = 0;
 	second_init_match(match);
 	return (match);
+}
+
+ms_t *create_ms(void)
+{
+	ms_t *ms = malloc(sizeof(ms_t));
+
+	ms->stick = fill_stick();
+	ms->match = init_match();
+	return (ms);
 }

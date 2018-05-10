@@ -21,7 +21,7 @@ int manage_npc_game(rpg_t *rpg, npc_t *npc, int *i, int next)
 	if (*i == 0 && npc->select == 1 && next == 1)
 		return (1);
 	(*i == 0 && npc->select == 0 && next == 1) ?
-	(play_matchstick(rpg) == 1) ? *i = *i + 1 : 0 : 0;
+	(play_matchstick(rpg, npc->ms) == 1) ? *i = *i + 1 : 0 : 0;
 	(next == 1) ? *i = *i + 1 : 0;
 	if (!dial_game[*i].dial)
 		return (1);

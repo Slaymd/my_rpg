@@ -14,6 +14,7 @@ sfSprite *npc_sprite(char *path)
 
 	sfSprite_setTexture(sprite, texture, sfTrue);
 	sfSprite_setPosition(sprite, (V2F){200, 200});
+	sfTexture_destroy(texture);
 	return (sprite);
 }
 
@@ -36,12 +37,12 @@ npc_t *create_npc(void)
 
 	npc->s_npc[0] = npc_sprite(NPC_GAME);
 	npc->s_npc[1] = npc_sprite(NPC_KID);
+	npc->ms = create_ms();
 	npc->box = sfRectangleShape_create();
 	npc->text = sfText_create();
 	npc->s_arrow = sfSprite_create();
 	npc->t_arrow = sfTexture_createFromFile(TXTR_ARROW, NULL);
 	npc->select = 0;
-	npc->used = 0;
 	npc->font = sfFont_createFromFile(FONT_UBUREG);
 	npc->clock = sfClock_create();
 	npc->time = sfClock_getElapsedTime(npc->clock);
