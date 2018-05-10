@@ -22,7 +22,7 @@ void display_dead(rpg_t *rpg, entity_t *ent, map_t *map, int count)
 	reinit_var(rpg, ent, map);
 }
 
-void lycan_die(entity_t *ent, map_t *map, rpg_t *rpg)
+void lycan_die(entity_t *ent, rpg_t *rpg)
 {
 	static int verif = 0;
 	static int count = 0;

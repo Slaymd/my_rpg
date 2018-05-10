@@ -68,11 +68,11 @@ void deplacement_ostrich(rpg_t *rpg, map_t *map, entity_t *ent)
 {
 	static int count = 0;
 	static int x = 0;
-	static int one = -1;
 
-	one == -1 ? ent->pos.x = 15990 : 0;
-	one = 0;
-
+	if (ent->hp <= 0) {
+		ent->square.left = 1000;
+		return;
+	}
 	detect_ennemy(ent, map) == 1 ? follow_ostrich(ent, map) : 0;
 	ent->seconds >= 0.10 ? count += 1 : 0;
 	ent->mirror == 0 && count == 5 ? x++ : 0;

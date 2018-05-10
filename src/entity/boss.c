@@ -56,8 +56,8 @@ int detect_char(entity_t *ent, map_t *map)
 	int x = map->center.x;
 	int y = map->center.y;
 
-	if (x >= ent->pos.x - 19 && x <= ent->pos.x + 19 && y >= ent->pos.y - 19
-	&& y <= ent->pos.y + 19) {
+	if (x >= ent->pos.x - 19 && x <= ent->pos.x + 19 &&
+	y >= ent->pos.y - 19 && y <= ent->pos.y + 19) {
 		return (1);
 	}
 	return (0);
@@ -71,7 +71,7 @@ void follow_lycan(entity_t *ent, map_t *map, rpg_t *rpg, int first)
 	static int x = 0;
 
 	if (ent->hp <= 0) {
-		lycan_die(ent, map, rpg);
+		lycan_die(ent, rpg);
 		return;
 	}
 	if (detect_char(ent, map) == 1 && first >= 200)

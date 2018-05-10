@@ -38,10 +38,10 @@ void detect_damage(rpg_t *rpg, entity_t *ent)
 	while (tmp) {
 		sy = tmp->pos_e.y;
 		sx = tmp->pos_e.x;
-		if (tmp->state != 0 && tmp->rect.left < 4800 &&
-		x >= sx - 3 && x <= sx + 3 && y  >= sy - 3 && y <= sy  + 3) {
-			ent->hp = ent->hp > 0 ? ent->hp - 2 : 0;
-		}
+		if (tmp->state != 0 && tmp->rect.left == 192 &&
+		x >= sx - 3 && x <= sx + 3 && y  >= sy - 3 && y <= sy  + 3)
+			ent->hp = ent->hp > 0 ? ent->hp -
+			rpg->character->stat->attack : 0;
 		tmp = tmp->next;
 	}
 }

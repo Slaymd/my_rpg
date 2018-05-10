@@ -29,7 +29,7 @@ main_stat_t *init_character_stat(void)
 {
 	main_stat_t *stat = malloc(sizeof(main_stat_t));
 
-	stat->attack = 10;
+	stat->attack = 2;
 	stat->hp = 100;
 	stat->mana = 100;
 	stat->hp_r = 2;
