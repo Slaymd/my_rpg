@@ -57,8 +57,11 @@ int	main(void)
 {
 	rpg_t *rpg = init_rpg();
 	srand(time(NULL));
+//à supprimer
+	rpg->state = 3;
+	sfMusic_setVolume(rpg->music, 0);
 
-	//rpg->state = 3;
+//à supprimer
 	init_sprite(rpg);
 	while (sfRenderWindow_isOpen(rpg->wd)) {
 		game_loop(rpg);

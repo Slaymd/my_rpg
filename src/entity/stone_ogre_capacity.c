@@ -9,20 +9,32 @@
 
 void mirror_ogre(entity_t *ent, int mirror)
 {
-	static int key = 1;
-
-	if (mirror == 1 && key == 1) {
+	if (mirror == 1 && ent->ogrekey == 1) {
 		ent->lvl += ent->lvl;
-		key = 0;
-	} else if (mirror == 0 && key == 0) {
+		ent->ogrekey = 0;
+	} else if (mirror == 0 && ent->ogrekey == 0) {
 		ent->lvl -= (ent->lvl / 2);
-		key = 1;
+		ent->ogrekey = 1;
 	}
+}
+
+void display_ogre(rpg_t *rpg, entity_t *ent, map_t *map, int count)
+{
+	if (count == 5 && ent->mirror == 0) {
+		ent->square.left = ent->square.left + ent->movement >= 716
+		? 0 : ent->square.left + ent->movement;
+		sfSprite_setTextureRect(ent->sprite, ent->square);
+	} else if (count == 5 && ent->mirror == 1) {
+		ent->square.left = ent->square.left + ent->movement >= 1280
+		? 716 : ent->square.left + ent->movement;
+		sfSprite_setTextureRect(ent->sprite, ent->square);
+	}
+	reinit_var(rpg, ent, map);
 }
 
 int go_left_ogre(entity_t *ent, int count, map_t *map, rpg_t *rpg)
 {
-	display_ennemy(rpg, ent, map, (int) count);
+	display_ogre(rpg, ent, map, (int) count);
 	if (count >= 5) {
 		if (can_move_here(map, ent->pos) == 1) {
 			ent->pos.x += 0.15;
@@ -36,7 +48,7 @@ int go_left_ogre(entity_t *ent, int count, map_t *map, rpg_t *rpg)
 
 int go_right_ogre(entity_t *ent, int count, map_t *map, rpg_t *rpg)
 {
-	display_ennemy(rpg, ent, map, (int) count);
+	display_ogre(rpg, ent, map, (int) count);
 	if (count >= 5) {
 		if (can_move_here(map, ent->pos) == 1) {
 			ent->pos.x -= 0.15;

@@ -20,7 +20,7 @@ void lycan_cry(rpg_t *rpg, entity_t *ent, int count)
 	ent->mirror = 0;
 	verif = 1;
 	first++;
-	first >= 199 ? sfMusic_setVolume(rpg->music, 100) : 0;
+	//first >= 199 ? sfMusic_setVolume(rpg->music, 100) : 0;
 }
 
 void display_attack(rpg_t *rpg, entity_t *ent, map_t *map, int count)
