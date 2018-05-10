@@ -58,8 +58,9 @@ int	game_loop(rpg_t *rpg)
 int	main(void)
 {
 	rpg_t *rpg = init_rpg();
-	srand(time(NULL));
 
+	srand(time(NULL));
+	sfMusic_setVolume(rpg->music, 0);
 	init_sprite(rpg);
 	while (sfRenderWindow_isOpen(rpg->wd)) {
 		game_loop(rpg);

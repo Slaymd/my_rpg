@@ -67,7 +67,7 @@ int my_if_lycan(entity_t *ent, int x)
 
 void deplacement_lycan(rpg_t *rpg, map_t *map, entity_t *ent)
 {
-	static int count;
+	static int count = 0;
 	static int first = -1;
 	static int atk = -1;
 
