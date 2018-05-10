@@ -7,6 +7,28 @@
 
 #include "rpg.h"
 
+
+// char *my_itoa_free(int i, char *str)
+// {
+// 	int i = 0;
+//
+// 	if (str != NULL)
+// 		free(str)
+// 	if (number == 0) {
+// 		str = malloc(sizeof(char) * 2);
+// 		str[0] = '0';
+// 		str[1] = '\0';
+// 		return (str);
+// 	}
+// 	for (int tmp = number; tmp > 0; tmp /= 10, i++);
+// 	str = malloc(sizeof(char) * (i + 1));
+// 	str[i] = '\0';
+// 	i --;
+// 	for (int tp = number; tp > 0; tp /= 10, i--)
+// 		str[i] = tp % 10 + 48;
+// 	return (str);
+// }
+
 void fill_str(inv_t *inv)
 {
 	sfText_setString(inv->stat->attt->text, my_itoa(inv->stat->atti));
@@ -18,12 +40,19 @@ void fill_str(inv_t *inv)
 
 void recup_info(inv_t *inv)
 {
-	for (int i = 0; inv->slot[i] != NULL; i++) {
-		inv->stat->atti += inv->slot[i]->attack;
-		inv->stat->defi += inv->slot[i]->def;
-		inv->stat->lifei += inv->slot[i]->life;
-		inv->stat->r_lifei += inv->slot[i]->r_life;
-		inv->stat->r_manai += inv->slot[i]->r_mana;
+	inv->stat->atti = 0;
+	inv->stat->defi = 0;
+	inv->stat->lifei = 0;
+	inv->stat->r_lifei = 0;
+	inv->stat->r_manai = 0;
+	for (int i = 2; inv->slot[i] != NULL; i++) {
+		if (inv->slot[i]->in_body > 0) {
+			inv->stat->atti += inv->slot[i]->attack;
+			inv->stat->defi += inv->slot[i]->def;
+			inv->stat->lifei += inv->slot[i]->life;
+			inv->stat->r_lifei += inv->slot[i]->r_life;
+			inv->stat->r_manai += inv->slot[i]->r_mana;
+		}
 	}
 	fill_str(inv);
 }

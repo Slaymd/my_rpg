@@ -90,6 +90,7 @@ void inventory(rpg_t *rpg)
 
 	printf("inventaire\n");
 	sfRenderWindow_setView(rpg->wd, view);
+	draw_all(rpg);
 	while (rpg->inv->quit == 0) {
 		while (sfRenderWindow_pollEvent(rpg->wd, &rpg->event)) {
 			inv_event(rpg);
