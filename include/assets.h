@@ -12,6 +12,9 @@
 
 #define C_F5F6FA	(sfColor){245, 246, 250, 255}
 #define C_8C7AE6	(sfColor){140, 122, 230, 255}
+#define C_FF7675	(sfColor){255, 118, 117, 255}
+
+#define T_LOGO "The Legend of Groot Haan"
 
 #define FONT_UBUMED "assets/fonts/Ubuntu-M.ttf"
 #define FONT_UBUREG "assets/fonts/Ubuntu-R.ttf"

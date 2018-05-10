@@ -49,6 +49,7 @@
 	#define V2F sfVector2f
 	#define V2I sfVector2i
 	#define FR sfFloatRect
+	#define IR sfIntRect
 	#define KeyPressed sfKeyboard_isKeyPressed
 
 	struct view_s {
@@ -85,6 +86,7 @@
 	scene_t *init_mapeditor(rpg_t *rpg);
 	scene_t *init_pausescreen(rpg_t *rpg);
 	void disp_mainmenu(rpg_t *rpg);
+	int disp_pause_screen(rpg_t *rpg, int ignore_state);
 	void swap_state_maptravelling(rpg_t *rpg);
 	void regen_map_from_ui(void *data);
 

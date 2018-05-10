@@ -16,10 +16,18 @@ void display_minimap(sfSprite *sprite, rpg_t *rpg)
 	sfRenderWindow_setView(rpg->wd, rpg->view->v_screen);
 }
 
-int	disp_game(rpg_t *rpg)
+int	disp_game(rpg_t *rpg, sfEvent event)
 {
+	sfRenderWindow_setView(rpg->wd, rpg->view->v_screen);
 	map_move(rpg->event, rpg->map);
 	disp_map(rpg);
+	sfRenderWindow_setView(rpg->wd, rpg->view->v_map);
+	disp_map(rpg);
+	ennemy_handling(rpg, rpg->map);
+	display_character(rpg, rpg->character);
+	display_fairy(rpg, event);
+	cycle_handler(rpg);
+	manage_inter(rpg);
 	return (0);
 }
 
@@ -40,19 +48,9 @@ int	game_loop(rpg_t *rpg)
 	else if (rpg->state == 3) {
 		if (sfKeyboard_isKeyPressed(sfKeyE))
 			inventory(rpg);
-		sfRenderWindow_setView(rpg->wd, rpg->view->v_screen);
-		disp_game(rpg);
-		sfRenderWindow_setView(rpg->wd, rpg->view->v_map);
-		disp_map(rpg);
-		ennemy_handling(rpg, rpg->map);
-		display_character(rpg, rpg->character);
-		display_fairy(rpg, event);
-		cycle_handler(rpg);
-		manage_inter(rpg);
-	} else if (rpg->state == 4) {
-		my_printf("pause\n");
-		disp_scene(rpg->wd, rpg->scene);
+		disp_game(rpg, event);
 	}
+	disp_pause_screen(rpg, 0);
 	sfRenderWindow_display(rpg->wd);
 	return (0);
 }
