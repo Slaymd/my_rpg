@@ -10,6 +10,8 @@
 void free_chunk(chunk_t *chunk)
 {
 	for (int y = 0; chunk->tiles != NULL && y < TILES_PER_CHUNKS; y++) {
+		for (int x = 0; x < TILES_PER_CHUNKS; x++)
+			sfSprite_destroy(chunk->tiles[y][x].sprite);
 		free(chunk->tiles[y]);
 	}
 	free(chunk->tiles);
