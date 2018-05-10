@@ -50,6 +50,7 @@ SRC			=	src/main.c				\
 				src/ui/ui_init_mainmenu.c		\
 				src/ui/ui_events_mainmenu.c		\
 				src/ui/ui_events_mapeditor.c		\
+				src/ui/ui_events_pause.c			\
 				src/ui/ui_init_mapeditor.c		\
 				src/ui/ui_init_pause.c			\
 				src/entity/disp_ennemy.c		\

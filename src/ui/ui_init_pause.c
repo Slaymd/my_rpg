@@ -9,13 +9,17 @@
 
 int init_pausescreen_buttons(scene_t *scene)
 {
-	button_t *resume = create_flat_button((IR){60, HEIGHT-200, 130, 50},\
+	button_t *resume = create_flat_button((IR){60, HEIGHT-150, 130, 50},\
 	sfBlack, sfWhite, "resume");
-	button_t *quit = create_flat_button((IR){60, HEIGHT-130, 130, 30},\
-	sfBlack, (sfColor){162, 155, 254, 255}, "Quit");
+	button_t *menu = create_flat_button((IR){60, HEIGHT-80, 130, 30},\
+	sfBlack, sfWhite, "main menu");
+	button_t *quit = create_flat_button((IR){WIDTH-190, HEIGHT-80, 130,\
+	30}, sfBlack, (sfColor){162, 155, 254, 255}, "quit game");
 
-	set_text_position(quit->text, (V2F){105, HEIGHT-130});
+	set_text_position(quit->text, (V2F){WIDTH-175, HEIGHT-80});
+	set_text_position(menu->text, (V2F){75, HEIGHT-80});
 	list_add(&scene->buttons, resume);
+	list_add(&scene->buttons, menu);
 	list_add(&scene->buttons, quit);
 	return (0);
 }
