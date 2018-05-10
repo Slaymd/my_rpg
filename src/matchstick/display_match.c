@@ -25,7 +25,7 @@ void calcul_match(rpg_t *rpg, match_t *match, stick_t *stick)
 		for (int j = 0; j < stick->line[h]; j++, i++) {
 			pos.x = (WIDTH / 2 - (36 * match->scale + 100 *
 			match->scale) * stick->len / 2) + i * ((100 + 36)
-			*match->scale);
+			* match->scale);
 			pos.y = 55 + h * ((100 + 436) * match->scale);
 			sfSprite_setPosition(match->smatch, pos);
 			sfSprite_setPosition(match->sred_match, pos);

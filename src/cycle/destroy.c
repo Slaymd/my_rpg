@@ -14,6 +14,6 @@ void free_cycle(cycle_t *cycle)
 	sfText_destroy(cycle->text);
 	sfFont_destroy(cycle->font);
 	sfClock_destroy(cycle->clock);
-	destroy_particle(cycle->cycle);	
+	destroy_particle(cycle->cycle);
 	free(cycle);
 }

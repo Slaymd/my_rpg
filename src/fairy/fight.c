@@ -31,20 +31,6 @@ void move_shoot(list_shoot_t *shoot)
 	}
 }
 
-void disp_shoot_at(sfRenderWindow *wd, map_t *mp, sfSprite *sprite, pos_t p)
-{
-	pos_t relat_ref_pos = {p.x - mp->center.x, p.y - mp->center.y, 0};
-	sfVector2f px = {relat_ref_pos.x, relat_ref_pos.y};
-
-	if (px.x <= -TILE_SIZE || px.x >= WIDTH)
-		return;
-	if (px.y <= -TILE_SIZE || px.y >= HEIGHT)
-		return;
-	sfSprite_setPosition(sprite, px);
-	sfRenderWindow_drawSprite(wd, sprite, NULL);
-	return;
-}
-
 void display_shoot(list_shoot_t *shoot, fairy_t *fairy, rpg_t *rpg)
 {
 	shoot_t *tmp = shoot->first;
