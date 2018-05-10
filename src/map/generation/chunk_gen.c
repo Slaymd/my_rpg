@@ -7,13 +7,25 @@
 
 #include "../../../include/rpg.h"
 
-int	chunk_entities_gen(map_t *map, pos_t apos)
+int	chunk_entities_gen_ostrich(map_t *map, pos_t apos)
 {
 	entity_t *ent = NULL;
 
-	if (rand_time(0, 10) != 1)
+	if (rand_time(0, 7) != 1)
 		return (0);
 	ent = create_entity(map, OSTRICH);
+	ent->pos = generate_pos_near(map, apos, 5);
+	list_append(&map->entities, ent);
+	return (0);
+}
+
+int	chunk_entities_gen_ogre(map_t *map, pos_t apos)
+{
+	entity_t *ent = NULL;
+
+	if (rand_time(0, 7) != 1)
+		return (0);
+	ent = create_entity(map, STONE_OGRE);
 	ent->pos = generate_pos_near(map, apos, 5);
 	list_append(&map->entities, ent);
 	return (0);
@@ -32,5 +44,7 @@ chunk_t	*chunk_gen(map_t *map, pos_t pos)
 			chunk->tiles[y][x] = generate_tile_at(map,apos,tpos);
 		}
 	}
+	chunk_entities_gen_ostrich(map, apos);
+	chunk_entities_gen_ogre(map, apos);
 	return (chunk);
 }

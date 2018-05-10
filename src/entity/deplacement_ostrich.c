@@ -9,14 +9,12 @@
 
 void mirror_ostrich(entity_t *ent, int mirror)
 {
-	static int key = 0;
-
-	if (mirror == 1 && key == 1) {
+	if (mirror == 1 && ent->key == 1) {
 		ent->lvl += ent->lvl;
-		key = 0;
-	} else if (mirror == 0 && key == 0) {
+		ent->key = 0;
+	} else if (mirror == 0 && ent->key == 0) {
 		ent->lvl -= (ent->lvl / 2);
-		key = 1;
+		ent->key = 1;
 	}
 }
 
@@ -66,19 +64,16 @@ int my_if_ostrich(entity_t *ent, int x)
 
 void deplacement_ostrich(rpg_t *rpg, map_t *map, entity_t *ent)
 {
-	static int count = 0;
-	static int x = 0;
-
 	if (ent->hp <= 0) {
 		ent->square.left = 1000;
 		return;
 	}
 	detect_ennemy(ent, map) == 1 ? follow_ostrich(ent, map) : 0;
-	ent->seconds >= 0.10 ? count += 1 : 0;
-	ent->mirror == 0 && count == 5 ? x++ : 0;
-	ent->mirror == 1 && count == 5 ? x-- : 0;
-	x = my_if_ostrich(ent, x);
-	display_ennemy(rpg, ent, map, (int) count);
-	count = ent->mirror == 1 ? go_left_ostrich(ent, count, map) :
-	go_right_ostrich(ent, count, map);
+	ent->seconds >= 0.10 ? ent->count += 1 : 0;
+	ent->mirror == 0 && ent->count == 5 ? ent->x++ : 0;
+	ent->mirror == 1 && ent->count == 5 ? ent->x-- : 0;
+	ent->x = my_if_ostrich(ent, ent->x);
+	display_ennemy(rpg, ent, map, (int) ent->count);
+	ent->count = ent->mirror == 1 ? go_left_ostrich(ent, ent->count, map) :
+	go_right_ostrich(ent, ent->count, map);
 }

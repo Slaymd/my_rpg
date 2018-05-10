@@ -28,6 +28,23 @@ entity_infos_t get_entity_infos(entity_type type)
 	(pos_t){0, 0, 0}, 0, 0, NULL, 0});
 }
 
+entity_t *init_value(entity_t *ent, entity_infos_t infos)
+{
+	ent->key = 0;
+	ent->x = 0;
+	ent->count = 0;
+	ent->top = 0;
+	ent->hp = infos.hp;
+	ent->compt = 0;
+	ent->verif = 0;
+	ent->vogre = 0;
+	ent->atk = -1;
+	ent->ogrekey = 0;
+	ent->cogre = 0;
+	ent->postrich = 0;
+	return (ent);
+}
+
 entity_t *init_entity(entity_t *ent, entity_infos_t infos)
 {
 	ent->song = infos.song[0] != '0' ? sfMusic_createFromFile(infos.song) :
@@ -49,7 +66,7 @@ entity_t *init_entity(entity_t *ent, entity_infos_t infos)
 	sfRectangleShape_setOrigin(ent->hp_bar, (V2F){25, 2.5});
 	sfRectangleShape_setSize(ent->hp_bar, (V2F){50, 5});
 	sfRectangleShape_setFillColor(ent->hp_bar, sfRed);
-	return (ent);
+	return (init_value(ent, infos));
 }
 
 entity_t *create_entity(map_t *map, entity_type type)
@@ -69,7 +86,6 @@ entity_t *create_entity(map_t *map, entity_type type)
 	ent->max = infos.max;
 	ent->num = infos.num;
 	ent->type = type;
-	ent->hp = infos.hp;
 	return (init_entity(ent, infos));
 }
 
