@@ -49,6 +49,7 @@
 	#define V2F sfVector2f
 	#define V2I sfVector2i
 	#define FR sfFloatRect
+	#define IR sfIntRect
 	#define KeyPressed sfKeyboard_isKeyPressed
 
 	struct view_s {
@@ -70,6 +71,8 @@
 		map_t	*map;
 		character_t *character;
 		fairy_t *fairy;
+		entity_t *ennemy[20];
+		inv_t *inv;
 		item_t *slot[20];
 		list_t *entities;
 	};
@@ -77,10 +80,15 @@
 	//WINDOW TOOLS
 	sfRenderWindow	*create_window(void);
 
+	//SWITCH SCENE EVENTS
+	int pause_screen_events(rpg_t *rpg, sfEvent event);
+
 	//UI
 	scene_t *init_mainmenu(rpg_t *rpg);
 	scene_t *init_mapeditor(rpg_t *rpg);
+	scene_t *init_pausescreen(rpg_t *rpg);
 	void disp_mainmenu(rpg_t *rpg);
+	int disp_pause_screen(rpg_t *rpg, int ignore_state);
 	void swap_state_maptravelling(rpg_t *rpg);
 	void regen_map_from_ui(void *data);
 
@@ -89,6 +97,9 @@
 	void click_save_button(void *data);
 	void click_map_settings_button(void *data);
 	void click_exit_button(void *data);
+	void click_pause_resume_button(void *data);
+	void click_pause_menu_button(void *data);
+	void click_pause_exit_button(void *data);
 
 	//CREATE
 	rpg_t *init_rpg(void);
@@ -104,7 +115,9 @@
 	void fill_slot(item_t *slot1, item_t *slot2, int i_equip);
 	int if_m_in_sprite(sfVector2i pos_m, item_t **slot);
 	void draw_all(rpg_t *rpg);
-
+	text_t *create_inv_text(char *info, int size, sfVector2f pos, sfColor color);
+	void recup_info(inv_t *inv);
+	void consom(item_t *slot);
 
 	//ACTION
 	void verif_action(rpg_t *rpg);

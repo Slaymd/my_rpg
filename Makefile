@@ -40,6 +40,7 @@ SRC			=	src/main.c				\
 				src/map/init_textures.c			\
 				src/map/sprite_getter.c			\
 				src/event/events_gestion.c		\
+				src/event/event_scene_switchs.c	\
 				src/map/generation/map_gen.c		\
 				src/map/generation/tile_gen.c		\
 				src/map/generation/chunk_gen.c		\
@@ -49,7 +50,9 @@ SRC			=	src/main.c				\
 				src/ui/ui_init_mainmenu.c		\
 				src/ui/ui_events_mainmenu.c		\
 				src/ui/ui_events_mapeditor.c		\
+				src/ui/ui_events_pause.c			\
 				src/ui/ui_init_mapeditor.c		\
+				src/ui/ui_init_pause.c			\
 				src/entity/disp_ennemy.c		\
 				src/entity/ennemy_handling.c		\
 				src/rand/rand.c				\
@@ -68,6 +71,7 @@ SRC			=	src/main.c				\
 				src/entity/boss.c			\
 				src/inventory/inventory.c		\
 				src/inventory/fct_for_inventory.c	\
+				src/inventory/fct_for_inventory2.c	\
 				src/inventory/init_inventory.c		\
 				src/entity/deplacement_villager.c	\
 				src/matchstick/main.c			\
@@ -77,8 +81,8 @@ SRC			=	src/main.c				\
 				src/matchstick/player.c			\
 				src/matchstick/event_end_error.c	\
 				src/entity/boss_deg.c			\
-				src/entity/dead.c			\
-				src/entity/stone_ogre_capacity.c
+				src/entity/dead.c				\
+				src/entity/stone_ogre_capacity.c	\
 
 CFLAGS		=	-W -Wall -Wextra -I./include
 
