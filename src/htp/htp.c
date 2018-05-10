@@ -8,15 +8,15 @@
 #include "rpg.h"
 
 htp_tab_t htp_tab[] = {
-	{{0, 0, 0, 1, 0}, "You spawn on an infinite map", 3},
+	{{1, 0, 0, 1, 0}, "You spawn on an infinite map", 3},
 	{{1, 0, 0, 0, 1}, "The goal is to save the villagers from the wolf", 3},
-	{{0, 1, 0, 1, 0}, "He's visible only at night and he's verry strong", 3},
-	{{0, 1, 0, 1, 0}, "In order to kill him you need to earn XP", 3},
-	{{0, 1, 0, 1, 0}, "For that you need to kill monsters", 3},
-	{{0, 1, 0, 1, 0}, "Some of then will run away", 3},
-	{{0, 1, 0, 1, 0}, "And others will kill you", 3},
-	{{0, 1, 0, 1, 0}, "For help you, some villagers will give you info on the wolf", 3},
-	{{0, 0, 1, 1, 0}, "Here is our Paypal if you want to help us :", 2.5},
+	{{1, 1, 0, 1, 0}, "He's visible only at night and he's verry strong", 3},
+	{{1, 1, 0, 1, 0}, "In order to kill him you need to earn XP", 3},
+	{{1, 1, 0, 1, 0}, "For that you need to kill monsters", 3},
+	{{1, 1, 0, 1, 0}, "Some of then will run away", 3},
+	{{1, 1, 0, 1, 0}, "And others will kill you", 3},
+	{{1, 1, 0, 1, 0}, "For help you, some villagers will give you info on the wolf", 3},
+	{{1, 0, 1, 1, 0}, "Here is our Paypal if you want to help us :", 2.5},
 	{{1, 0, 0, 0, 0}, "paypal.me/RDakiche", 3},
 	{{1, 0, 0, 0, 0}, "Good luck & have fun !", 3}
 };
