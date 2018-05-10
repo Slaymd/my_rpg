@@ -9,30 +9,30 @@ CC			=	gcc
 
 SRC_TEST		=	\
 
-SRC			=	./src/main.c				\
-				./src/NIK_LA_LIB/v_sync.c		\
-				./src/lib.c				\
-				./src/init.c				\
-				./src/destroy.c				\
-				./src/cycle/create.c			\
-				./src/cycle/cycle.c			\
-				./src/cycle/time.c			\
-				./src/cycle/destroy.c			\
-				./src/character/create.c		\
-				./src/character/move.c			\
-				./src/character/stat.c			\
-				./src/character/display.c		\
-				./src/particle/particle.c		\
-				./src/particle/effect.c			\
-				./src/particle/form.c			\
-				./src/npc/create.c			\
-				./src/npc/inter.c			\
-				./src/npc/game.c			\
-				./src/npc/destroy.c			\
-				./src/fairy/create.c			\
-				./src/fairy/move.c			\
-				./src/fairy/display.c			\
-				./src/fairy/fight.c			\
+SRC			=	src/main.c				\
+				src/button/v_sync.c			\
+				src/lib.c				\
+				src/init.c				\
+				src/destroy.c				\
+				src/cycle/create.c			\
+				src/cycle/cycle.c			\
+				src/cycle/time.c			\
+				src/cycle/destroy.c			\
+				src/character/create.c			\
+				src/character/move.c			\
+				src/character/stat.c			\
+				src/character/display.c			\
+				src/particle/particle.c			\
+				src/particle/effect.c			\
+				src/particle/form.c			\
+				src/npc/create.c			\
+				src/npc/inter.c				\
+				src/npc/game.c				\
+				src/npc/destroy.c			\
+				src/fairy/create.c			\
+				src/fairy/move.c			\
+				src/fairy/display.c			\
+				src/fairy/fight.c			\
 				src/map/init_map.c			\
 				src/map/disp_map.c			\
 				src/map/pos_tools.c			\
@@ -55,7 +55,6 @@ SRC			=	./src/main.c				\
 				src/rand/rand.c				\
 				src/entity/deplacement_stone_ogre.c	\
 				src/entity/deplacement_ostrich.c	\
-				src/game_loop.c				\
 				src/entity/combat.c			\
 				src/entity/ennemy_generation.c		\
 				src/map/tile_getter.c			\
