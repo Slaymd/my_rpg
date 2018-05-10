@@ -9,14 +9,12 @@
 
 void mirror_lycan(entity_t *ent, int mirror)
 {
-	static int key = 0;
-
-	if (mirror == 1 && key == 1) {
+	if (mirror == 1 && ent->key == 1) {
 		ent->lvl += ent->lvl;
-		key = 0;
-	} else if (mirror == 0 && key == 0) {
+		ent->key = 0;
+	} else if (mirror == 0 && ent->key == 0) {
 		ent->lvl -= (ent->lvl / 2);
-		key = 1;
+		ent->key = 1;
 	}
 }
 
@@ -67,24 +65,20 @@ int my_if_lycan(entity_t *ent, int x)
 
 void deplacement_lycan(rpg_t *rpg, map_t *map, entity_t *ent)
 {
-	static int count = 0;
-	static int first = -1;
-	static int atk = -1;
-
-	first < 200 ? ent->hp = 270 : 0;
-	detect_ennemy(ent, map) == 1 && first == -1 ? first++ : 0;
-	if (first >= 0 && first < 200) {
-		lycan_cry(rpg, ent, count);
-		first++;
-		count = count >= 5 ? 0 : count + 1;
+	ent->lcry < 200 ? ent->hp = 270 : 0;
+	detect_ennemy(ent, map) == 1 && ent->lcry == -1 ? ent->lcry++ : 0;
+	if (ent->lcry >= 0 && ent->lcry < 200) {
+		lycan_cry(rpg, ent, ent->count);
+		ent->lcry++;
+		ent->count = ent->count >= 5 ? 0 : ent->count + 1;
 		return;
-	} else if (atk < 120 && ((atk == 0 && ent->hp > 0) ||
-	(atk >= 0 && ent->hp != 0))) {
+	} else if (ent->latk < 120 && ((ent->latk == 0 && ent->hp > 0) ||
+	(ent->latk >= 0 && ent->hp != 0))) {
 		attack_lycan(ent, rpg);
-		atk++;
+		ent->latk++;
 		return;
 	}
-	detect_ennemy(ent, map) == 1 && atk == -1 ? atk = 0 : 0;
-	atk >= 120 && ent->hp > 0 ? atk = -1 : 0;
-	follow_lycan(ent, map, rpg, first);
+	detect_ennemy(ent, map) == 1 && ent->latk == -1 ? ent->latk = 0 : 0;
+	ent->latk >= 120 && ent->hp > 0 ? ent->latk = -1 : 0;
+	follow_lycan(ent, map, rpg, ent->lcry);
 }

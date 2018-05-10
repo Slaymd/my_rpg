@@ -53,10 +53,10 @@ void display_attack_ogre(rpg_t *rpg, entity_t *ent, map_t *map, int count)
 
 void attack_ogre(entity_t *ent, rpg_t *rpg)
 {
-	ent->vogre == 0 && ent->mirror == 0 ? ent->square.left = 0, ent->square.top
-	= 440, ent->square.width = 180 : 0;
-	ent->vogre == 0 && ent->mirror == 1 ? ent->square.left = 0, ent->square.top
-	= 660, ent->square.width = 180 : 0;
+	ent->vogre == 0 && ent->mirror == 0 ? ent->square.left = 0
+	, ent->square.top = 440, ent->square.width = 180 : 0;
+	ent->vogre == 0 && ent->mirror == 1 ? ent->square.left = 0,
+	ent->square.top = 660, ent->square.width = 180 : 0;
 	ent->cogre++;
 	display_attack_ogre(rpg, ent, rpg->map, ent->cogre);
 	ent->vogre++;

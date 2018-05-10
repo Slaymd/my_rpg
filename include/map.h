@@ -136,11 +136,18 @@ struct entity_s {
 	sfTime time;
 	float seconds;
 	sfMusic *song;
+	int lcry;
+	int first;
+	int latk;
 	int count;
 	int atk;
 	int postrich;
 	int x;
 	int key;
+	int verif2;
+	int lcount2;
+	int lx;
+	int lcount;
 	float hp;
 	sfRectangleShape *hp_bar;
 };

@@ -12,10 +12,10 @@ entity_infos_t get_entity_infos(entity_type type)
 	entity_infos_t ents_infos[] = {{OSTRICH, {0, 150, 108, 120}, 1, 1, 850,
 	108, TXTRE_OSTRICH, 1, (pos_t){16020, 16010, 0}, 0, 430,
 	"0", 30}, {STONE_OGRE, {0, 150, 140, 155}, 1, 1, 644
-	, 144, TXTRE_STONE_OGRE, 2, (pos_t){16010, 16010, 0}, 0, 720,
+	, 144, TXTRE_STONE_OGRE, 2, (pos_t){17050, 16050, 0}, 0, 720,
 	"0", 150},
 	{LYCANTHROPE, {0, 220, 180, 175}, 1, 1, 1440, 180, TXTRE_LYCANTHROPE,
-	3, (pos_t){15980, 15980, 0}, 0, 720,
+	3, (pos_t){14080, 14980, 0}, 0, 720,
 	"assets/musics/cry.ogg", 270}, {VILLAGER, {0, 0, 70, 100}, 1, 1, 1,
 	110, TXTRE_VILLAGER, 4, (pos_t){16010, 16010, 0}, 0, 720, "0", 0},
 	{UNKNOWN, {0, 0, 0, 0}, 0, 0, 0, 0, "0", 0
@@ -37,11 +37,17 @@ entity_t *init_value(entity_t *ent, entity_infos_t infos)
 	ent->hp = infos.hp;
 	ent->compt = 0;
 	ent->verif = 0;
+	ent->lcount2 = 0;
+	ent->latk = -1;
+	ent->lx = 0;
+	ent->lcry = -1;
 	ent->vogre = 0;
-	ent->atk = -1;
+	ent->verif2 = 0;
+	ent->lcount = 0;
+	ent->seconds = 0;
 	ent->ogrekey = 0;
+	ent->atk = -1;
 	ent->cogre = 0;
-	ent->postrich = 0;
 	return (ent);
 }
 
@@ -59,14 +65,14 @@ entity_t *init_entity(entity_t *ent, entity_infos_t infos)
 	sfRectangleShape_setFillColor(ent->rect, (sfColor){0, 0, 0, 0});
 	ent->clock = sfClock_create();
 	ent->time = sfClock_getElapsedTime(ent->clock);
-	ent->seconds = 0;
 	ent->hp_bar = sfRectangleShape_create();
 	sfSprite_setOrigin(ent->sprite, (V2F){ent->square.width / 2,
 	ent->square.height / 2});
 	sfRectangleShape_setOrigin(ent->hp_bar, (V2F){25, 2.5});
 	sfRectangleShape_setSize(ent->hp_bar, (V2F){50, 5});
 	sfRectangleShape_setFillColor(ent->hp_bar, sfRed);
-	return (init_value(ent, infos));
+	ent = init_value(ent, infos);
+	return (ent);
 }
 
 entity_t *create_entity(map_t *map, entity_type type)
@@ -78,7 +84,7 @@ entity_t *create_entity(map_t *map, entity_type type)
 		return (NULL);
 	ent->movement = infos.movement;
 	ent->lvl = infos.lvl;
-	ent->pos = generate_pos_near(map, map->center, 1);
+	ent->pos = generate_pos_near(map, infos.pos, 1);
 	ent->rect = NULL;
 	ent->sprite = sfSprite_create();
 	ent->mirror = infos.mirror;

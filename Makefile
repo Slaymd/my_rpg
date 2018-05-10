@@ -80,7 +80,7 @@ SRC			=	src/main.c				\
 				src/entity/dead.c			\
 				src/entity/stone_ogre_capacity.c
 
-CFLAGS		=	-W -Wall -Wextra -I./include -g3 -lm
+CFLAGS		=	-W -Wall -Wextra -I./include
 
 LIB			=	-L./lib/my -lmy -L./lib/list -llist -L./lib/ui -lui -lm
 
