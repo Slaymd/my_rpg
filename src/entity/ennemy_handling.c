@@ -29,18 +29,19 @@ int detect_ennemy(entity_t *ent, map_t *map)
 
 void detect_damage(rpg_t *rpg, entity_t *ent)
 {
-	float x = ent->pos.x + (WIDTH / TILE_SIZE / 2);
-	float y = ent->pos.y + (HEIGHT / TILE_SIZE / 2);
-	float sx = 0;
-	float sy = 0;
+	int x = ent->pos.x;
+	int y = ent->pos.y;
+	int sx = 0;
+	int sy = 0;
 	shoot_t *tmp = rpg->fairy->shoot->first;
 
 	while (tmp) {
-		sy = tmp->pos_e.y + (WIDTH / TILE_SIZE / 2);
-		sx = tmp->pos_e.x + (WIDTH / TILE_SIZE / 2);
-		if (tmp->state != 0 && tmp->rect.left < 4800 &&
-		x - 10 >= sx && x + 10 <= sx && y - 10 >= sy && y + 10 >= sy)
-			ent->hp -= 100;
+		sy = tmp->pos_e.y;
+		sx = tmp->pos_e.x;
+		if (tmp->state != 0 && tmp->rect.left == 192 &&
+		x >= sx - 3 && x <= sx + 3 && y  >= sy - 3 && y <= sy  + 3)
+			ent->hp = ent->hp > 0 ? ent->hp -
+			rpg->character->stat->attack : 0;
 		tmp = tmp->next;
 	}
 }

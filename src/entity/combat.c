@@ -32,7 +32,8 @@ void follow_ostrich(entity_t *ent, map_t *map)
 			pos = x;
 			return;
 		}
-		pos != x && can_move_here(map, ent->pos) == 1 ? ent->pos.x -= 0.22 : 0;
+		pos != x && can_move_here(map, ent->pos) == 1 ?
+		ent->pos.x -= 0.22 : 0;
 		ent->mirror = 4;
 		pos = x;
 	} else if (ent->pos.x > x)
@@ -69,7 +70,7 @@ void attack_ogre(entity_t *ent, rpg_t *rpg)
 	ent->square.left = 0 : 0;
 }
 
-void follow_ogre(entity_t *ent, map_t *map)
+void follow_ogre(entity_t *ent, map_t *map, rpg_t *rpg)
 {
 	int x = map->center.x;
 	int y = map->center.y;
@@ -80,4 +81,5 @@ void follow_ogre(entity_t *ent, map_t *map)
 	pos = x;
 	ent->pos.y >= y ? ent->pos.y -= 0.11 : 0;
 	ent->pos.y <= y ? ent->pos.y += 0.11 : 0;
+	display_ennemy(rpg, ent, map, 5);
 }

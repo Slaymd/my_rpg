@@ -43,7 +43,6 @@ void detect_blocked_y(entity_t *ent, map_t *map, int block_x, int block_y)
 
 int run_char(entity_t *ent, map_t *map, int xx, int yy)
 {
-	//int pos = 0;
 	int block_x = 0;
 	int block_y = 0;
 
@@ -53,11 +52,10 @@ int run_char(entity_t *ent, map_t *map, int xx, int yy)
 	ent->pos.x >= xx + 0.3 && can_move_here(map, (pos_t){ent->pos.x
 	- 0.12, ent->pos.y, ent->pos.z}) == 1 ? ent->pos.x -= 0.12,
 	ent->mirror = 4 : block_x++;
-	//pos = xx;
 	ent->pos.y >= yy && can_move_here(map, (pos_t){ent->pos.x,
 	ent->pos.y - 0.16, ent->pos.z}) == 1 ? ent->pos.y -= 0.16 : block_y++;
 	ent->pos.y <= yy && can_move_here(map, (pos_t){ent->pos.x,
 	ent->pos.y + 0.16, ent->pos.z}) == 1 ? ent->pos.y += 0.16 : block_y++;
 	detect_blocked_y(ent, map, block_x, block_y);
-	return (/*pos*/0);
+	return (0);
 }

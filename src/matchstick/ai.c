@@ -11,7 +11,6 @@ void match_ai(stick_t *stick, match_t *match)
 {
 	int max = stick->max;
 
-	srand(time(NULL));
 	match->x = (rand() % stick->lines - 1) + 1;
 	for (; stick->line[match->x] <= 0;)
 		match->x = (rand() % stick->lines - 1) + 1;
