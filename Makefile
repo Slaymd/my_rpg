@@ -80,6 +80,10 @@ SRC			=	src/main.c				\
 				src/inventory/fct_for_inventory.c	\
 				src/inventory/fct_for_inventory2.c	\
 				src/inventory/init_inventory.c		\
+				src/inventory/init_tab_inventory.c	\
+				src/inventory/rand_drop_item.c		\
+				src/inventory/drop_item.c		\
+				src/inventory/drop_item2.c		\
 				src/entity/deplacement_villager.c	\
 				src/matchstick/main.c			\
 				src/matchstick/init.c			\

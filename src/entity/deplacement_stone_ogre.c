@@ -44,7 +44,8 @@ void deplacement_ogre(rpg_t *rpg, map_t *map, entity_t *ent)
 		ent->atk++;
 		return;
 	}
-	for (int i = 0; i == 0 && ent->hp <= 0; i++, dead_ogre(ent, rpg))
+	for (int i = 0; i == 0 && ent->hp <= 0;
+		i++, dead_ogre(ent, rpg), rand_drop_item(rpg, ent))
 		return;
 	detect_ennemy(ent, map) == 1 ? follow_ogre(ent, map, rpg) : 0;
 	(int)ent->pos.x == (int)map->center.x && (int)ent->pos.y ==

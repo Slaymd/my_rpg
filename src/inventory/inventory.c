@@ -7,22 +7,22 @@
 
 #include "rpg.h"
 
-void equip_item(inv_t *inv, item_t **slot, sfRenderWindow *wd)
+void equip_item(inv_t *inv, item_t **slot, rpg_t *rpg)
 {
 	int num1 = 0;
 	int num2 = 0;
 
 	if (sfKeyboard_isKeyPressed(sfKeyE)) {
-		inv->pos_m = sfMouse_getPosition((sfWindow*) wd);
+		inv->pos_m = sfMouse_getPosition((sfWindow*)rpg->wd);
 		num1 = if_m_in_sprite(inv->pos_m, slot);
 		if (slot[num1]->conso > 0 && slot[num1]->stack > 0)
-			consom(slot[num1]);
+			consom(slot[num1], rpg);
 		else if (slot[num1]->status == 1 && slot[num1]->can_e > 0)
 			equip(slot[num1], slot);
 		inv->fill = 0;
 	}
 	if (sfKeyboard_isKeyPressed(sfKeyR)) {
-		inv->pos_m = sfMouse_getPosition((sfWindow*) wd);
+		inv->pos_m = sfMouse_getPosition((sfWindow*)rpg->wd);
 		num2 = if_m_in_sprite(inv->pos_m, slot);
 		if (slot[num2]->status == 1 && slot[num2]->in_body > 0)
 			unequip(slot[num2], slot);
@@ -30,6 +30,31 @@ void equip_item(inv_t *inv, item_t **slot, sfRenderWindow *wd)
 	}
 }
 
+void drop(inv_t *inv, item_t **slot, rpg_t *rpg)
+{
+	int num = 0;
+
+	if (sfKeyboard_isKeyPressed(sfKeyD)) {
+		inv->pos_m = sfMouse_getPosition((sfWindow*)rpg->wd);
+		num = if_m_in_sprite(inv->pos_m, slot);
+		if (slot[num]->in_body == 0) {
+			slot[num]->can_e = 0;
+			slot[num]->status = 0;
+			slot[num]->attack = 0;
+			slot[num]->def = 0;
+			slot[num]->life = 0;
+			slot[num]->r_life = 0;
+			slot[num]->r_mana = 0;
+			slot[num]->conso = 0;
+			slot[num]->stack = 0;
+			slot[num]->titem = sfTexture_createFromFile
+			("assets/inventory/empty.png", NULL);
+			sfSprite_setTexture (slot[num]->sitem, slot[num]->titem, sfTrue);
+		}
+		inv->fill = 0;
+	}
+}
+//
 // void inv_info(inv_t *inv, item_t **slot, sfRenderWindow *wd)
 // {
 // 	int num_slot = 0;
@@ -79,7 +104,8 @@ void inv_event(rpg_t *rpg)
 	if (sfKeyboard_isKeyPressed(sfKeyEscape))
 		rpg->inv->quit = 1;
 	else if (rpg->inv->seconds > 0.08) {
-		equip_item(rpg->inv, rpg->inv->slot, rpg->wd);
+		equip_item(rpg->inv, rpg->inv->slot, rpg);
+		drop(rpg->inv, rpg->inv->slot, rpg);
 		sfClock_restart(rpg->inv->clocki);
 		// inv_info(rpg->inv, rpg->inv->slot, rpg->wd);
 	}

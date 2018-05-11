@@ -111,6 +111,7 @@
 
 	//INVENTAIRE
 	void init_inv(rpg_t *rpg);
+	void init_tab_item(rpg_t *rpg);
 	void inventory(rpg_t *rpg);
 	void unequip(item_t *slot, item_t **inv);
 	void equip(item_t *slot, item_t **inv);
@@ -119,7 +120,17 @@
 	void draw_all(rpg_t *rpg);
 	text_t *create_inv_text(char *info, int size, sfVector2f pos, sfColor color);
 	void recup_info(inv_t *inv, main_stat_t *stat);
-	void consom(item_t *slot);
+	void consom(item_t *slot, rpg_t *rpg);
+	void rand_drop_item(rpg_t *rpg, entity_t *ent);
+	void fill_r_life(inv_t *inv);
+	void fill_r_life2(inv_t *inv);
+	void fill_r_mana(inv_t *inv);
+	void fill_r_mana2(inv_t *inv);
+	void fill_att(inv_t *inv);
+	void fill_att2(inv_t *inv);
+	void fill_life_potion(inv_t *inv);
+	void fill_mana_potion(inv_t *inv);
+
 
 	//ACTION
 	void verif_action(rpg_t *rpg);

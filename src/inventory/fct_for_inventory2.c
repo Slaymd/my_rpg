@@ -70,9 +70,16 @@ void recup_info(inv_t *inv, main_stat_t *stat)
 	fill_str(inv->stat);
 }
 
-void consom(item_t *item)
+void consom(item_t *item, rpg_t *rpg)
 {
-	printf("on consomme la popo\n");
+	if (item->conso == 1)
+		rpg->character->stat->hp += 50;
+	else if (item->conso == 2)
+		rpg->character->stat->mana += 50;
+	else {
+		rpg->character->stat->hp += 40;
+		rpg->character->stat->mana += 40;
+	}
 	item->stack -= 1;
 	if (item->stack <= 0) {
 		item->titem = sfTexture_createFromFile
