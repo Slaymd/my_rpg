@@ -29,6 +29,9 @@ SRC			=	src/main.c				\
 				src/npc/inter.c				\
 				src/npc/game.c				\
 				src/npc/destroy.c			\
+				src/htp/create.c			\
+				src/htp/htp.c				\
+				src/htp/destroy.c			\
 				src/fairy/create.c			\
 				src/fairy/move.c			\
 				src/fairy/display.c			\
@@ -67,6 +70,10 @@ SRC			=	src/main.c				\
 				src/map/objects/init_objects.c		\
 				src/map/objects/object_gen.c		\
 				src/map/objects/object_disp.c		\
+				src/map/free/free_map.c			\
+				src/map/free/free_chunk.c		\
+				src/map/free/free_object.c		\
+				src/map/free/free_texture.c		\
 				src/entity/deplacement_lycan.c		\
 				src/entity/boss.c			\
 				src/inventory/inventory.c		\

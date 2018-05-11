@@ -11,16 +11,22 @@ void draw_all(rpg_t *rpg)
 {
 	sfRenderWindow_clear(rpg->wd, sfBlack);
 	disp_map(rpg);
-	cycle_handler(rpg);
+	display_particle(rpg->cycle->cycle, rpg->wd,
+	(V2F){WIDTH / 2, HEIGHT / 2}, 1);
 	sfRenderWindow_drawSprite(rpg->wd, rpg->inv->slot[1]->sitem, NULL);
 	sfRenderWindow_drawText(rpg->wd, rpg->inv->stat->attt->text, NULL);
 	sfRenderWindow_drawText(rpg->wd, rpg->inv->stat->deft->text, NULL);
 	sfRenderWindow_drawText(rpg->wd, rpg->inv->stat->lifet->text, NULL);
+	sfRenderWindow_drawText(rpg->wd, rpg->inv->stat->max_lifet->text, NULL);
+	sfRenderWindow_drawText(rpg->wd, rpg->inv->stat->manat->text, NULL);
+	sfRenderWindow_drawText(rpg->wd, rpg->inv->stat->max_manat->text, NULL);
 	sfRenderWindow_drawText(rpg->wd, rpg->inv->stat->r_lifet->text, NULL);
 	sfRenderWindow_drawText(rpg->wd, rpg->inv->stat->r_manat->text, NULL);
 	for (int cpt = 2; rpg->inv->slot[cpt] != NULL; cpt++) {
-		sfSprite_setPosition(rpg->inv->slot[cpt]->sitem, rpg->inv->slot[cpt]->pitem);
-		sfRenderWindow_drawSprite(rpg->wd, rpg->inv->slot[cpt]->sitem, NULL);
+		sfSprite_setPosition(rpg->inv->slot[cpt]->sitem,
+		rpg->inv->slot[cpt]->pitem);
+		sfRenderWindow_drawSprite(rpg->wd,
+		rpg->inv->slot[cpt]->sitem, NULL);
 	}
 	sfRenderWindow_display(rpg->wd);
 }

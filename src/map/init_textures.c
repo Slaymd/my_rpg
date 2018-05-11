@@ -23,6 +23,7 @@ texture_t *init_texture(int id, char *path, sfColor color)
 	txtsize = sfTexture_getSize(txt);
 	sfSprite_setScale(texture->sprite, (sfVector2f){tilesize.x/txtsize.x,
 	tilesize.y/txtsize.y});
+	texture->texture_path = NULL;
 	return (texture);
 }
 

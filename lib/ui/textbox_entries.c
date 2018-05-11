@@ -19,7 +19,6 @@ int	add_char_in_textbox(textbox_t *textbox, char *str, char c)
 		str[len] = (c >= 'A' && c <= 'Z') ? c + 32 : c;
 		str[len+1] = '\0';
 	}
-	printf("%s\n", str);
 	set_text_string(textbox->text, str);
 	textbox->entry_state = NORMAL;
 	return (0);

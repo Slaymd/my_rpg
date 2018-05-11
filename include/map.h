@@ -17,7 +17,7 @@
 #define FREQ 0.06
 
 #define TILES_PER_CHUNKS 16
-#define DEFAULT_RENDER_DISTANCE 3
+#define DEFAULT_RENDER_DISTANCE 2
 
 #define DEFAULT_POS_X 16000
 #define DEFAULT_POS_Y 16000
@@ -165,7 +165,6 @@ chunk_t *init_chunk(pos_t pos);
 //OBJECTS
 list_t *init_objects(void);
 int	generate_tile_objects(map_t *map, pos_t pos, int txt_id);
-int	free_object(object_t *obj);
 //int	generate_object_of_type(map_t *map, freq_type spawn_type, pos_t pos);
 
 //MAP GEN
@@ -211,5 +210,13 @@ int map_move(sfEvent event, map_t *map);
 
 //PERLIN
 float get_perlin_value(map_t *map, pos_t pos, float freq, int depth);
+
+//FREE
+void free_objects_stat(map_t *map);
+void	free_object(object_t *obj);
+void free_textures(map_t *map);
+void	free_objects(map_t *map);
+void free_chunks(map_t *map);
+void free_map(map_t *map);
 
 #endif /* RPG_MAP_H_ */

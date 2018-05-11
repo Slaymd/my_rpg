@@ -10,11 +10,11 @@
 int	init_mainmenu_buttons(rpg_t *rpg, scene_t *scene)
 {
 	button_t *play = create_flat_button((sfIntRect){100,400,130,75},\
-	sfBlack, sfWhite, my_strcpy(NULL, "PLAY"));
+	sfBlack, sfWhite, "PLAY");
 	button_t *stgs = create_flat_button((sfIntRect){100,500,130,35},\
-	sfBlack, sfWhite, my_strcpy(NULL, "settings"));
+	sfBlack, sfWhite, "settings");
 	button_t *exi = create_flat_button((sfIntRect){810,500,33,35},\
-	C_8C7AE6, C_F5F6FA, my_strcpy(NULL, "x"));
+	C_8C7AE6, C_F5F6FA, "x");
 
 	set_text_position(stgs->text, (sfVector2f){112,500});
 	play->action = &click_play_button;

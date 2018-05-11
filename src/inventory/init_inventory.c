@@ -69,18 +69,26 @@ void init_inv(rpg_t *rpg)
 	rpg->inv->stat->atti = 0;
 	rpg->inv->stat->defi = 0;
 	rpg->inv->stat->lifei = 0;
+	rpg->inv->stat->max_lifei = 0;
+	rpg->inv->stat->manai = 0;
 	rpg->inv->stat->r_lifei = 0;
 	rpg->inv->stat->r_manai = 0;
-	// rpg->inv->stat->attc = NULL;
-	// rpg->inv->stat->defc = NULL;
-	// rpg->inv->stat->lifec = NULL;
-	// rpg->inv->stat->r_lifec = NULL;
-	// rpg->inv->stat->r_manac = NULL;
-	rpg->inv->stat->attt = create_inv_text("attack=0 img/police.ttf", 20, (sfVector2f){333, 400}, sfWhite);
-	rpg->inv->stat->deft = create_inv_text("def=0 img/police.ttf", 20, (sfVector2f){344, 440}, sfWhite);
-	rpg->inv->stat->lifet = create_inv_text("life=0 img/police.ttf", 20, (sfVector2f){340, 340}, sfWhite);
-	rpg->inv->stat->r_lifet = create_inv_text("r_lifet=0 img/police.ttf", 20, (sfVector2f){450, 400}, sfWhite);
-	rpg->inv->stat->r_manat = create_inv_text("r_manat=0 img/police.ttf", 20, (sfVector2f){450, 440}, sfWhite);
+	rpg->inv->stat->attc = malloc(sizeof(char) * 2);
+	rpg->inv->stat->defc = malloc(sizeof(char) * 2);
+	rpg->inv->stat->lifec = malloc(sizeof(char) * 2);
+	rpg->inv->stat->max_lifec = malloc(sizeof(char) * 2);
+	rpg->inv->stat->manac = malloc(sizeof(char) * 2);
+	rpg->inv->stat->r_lifec = malloc(sizeof(char) * 2);
+	rpg->inv->stat->r_manac = malloc(sizeof(char) * 2);
+	rpg->inv->stat->attt = create_inv_text("0 img/police.ttf", 20, (sfVector2f){333, 400}, sfWhite);
+	rpg->inv->stat->deft = create_inv_text("0 img/police.ttf", 20, (sfVector2f){344, 440}, sfWhite);
+	rpg->inv->stat->lifet = create_inv_text("0 img/police.ttf", 20, (sfVector2f){340, 340}, sfWhite);
+	rpg->inv->stat->max_lifet = create_inv_text("100 img/police.ttf", 20, (sfVector2f){400, 340}, sfWhite);
+	rpg->inv->stat->manat = create_inv_text("0 img/police.ttf", 20, (sfVector2f){340, 360}, sfWhite);
+	rpg->inv->stat->max_manat = create_inv_text("100 img/police.ttf", 20, (sfVector2f){400, 360}, sfWhite);
+	rpg->inv->stat->r_lifet = create_inv_text("0 img/police.ttf", 20, (sfVector2f){450, 400}, sfWhite);
+	rpg->inv->stat->r_manat = create_inv_text("0 img/police.ttf", 20, (sfVector2f){450, 440}, sfWhite);
+
 	rpg->inv->slot[0] = create_case_item((sfIntRect){0, 0, 0, 0}, "assets/inventory/empty.png", (int[10]){0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
 	rpg->inv->slot[1] = create_case_item((sfIntRect){100, 40, 700, 500}, "assets/inventory/inv.png", (int[10]){0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
 

@@ -55,17 +55,16 @@ float get_perlin_value(map_t *map, pos_t pos, float freq, int depth)
 {
 	float xa = pos.x*freq;
 	float ya = pos.y*freq;
-	float amp = 1.0;
+	float amplitude = 2.0;
 	float fin = 0;
-	float divi = 0.0;
+	float division = 0.0;
 
 	for(int i = 0; i < depth; i++) {
-		divi += 256 * amp;
-		fin += noise_2d(map, (pos_t){xa, ya, 0}) * amp;
-		amp /= 2;
+		division += 256 * amplitude;
+		fin += noise_2d(map, (pos_t){xa, ya, 0}) * amplitude;
+		amplitude /= 2;
 		xa *= 2;
 		ya *= 2;
 	}
-
-	return (fin/divi);
+	return (fin/division);
 }

@@ -18,6 +18,7 @@
 		float attack;
 		float hp;
 		float mana;
+		float defense;
 		float hp_r;
 		float mana_r;
 		float hp_max;

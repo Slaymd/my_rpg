@@ -13,8 +13,7 @@ void set_character(character_t *character, int x, int y)
 	sfSprite_setPosition(character->sprite, character->pos_screen);
 	sfSprite_setTextureRect(character->sprite, character->rect);
 	sfSprite_setScale(character->sprite, (V2F){ZOOM, ZOOM});
-	sfSprite_setOrigin(character->sprite,
-	(V2F){SIZE_C_X / 2, SIZE_C_Y / 1});
+	sfSprite_setOrigin(character->sprite, (V2F){SIZE_C_X / 2, SIZE_C_Y});
 	sfRectangleShape_setSize(character->hp_bar, (V2F){50, 5});
 	sfRectangleShape_setFillColor(character->hp_bar, sfGreen);
 	sfRectangleShape_setPosition(character->hp_bar,
@@ -30,6 +29,7 @@ main_stat_t *init_character_stat(void)
 	main_stat_t *stat = malloc(sizeof(main_stat_t));
 
 	stat->attack = 2;
+	stat->defense = 5;
 	stat->hp = 100;
 	stat->mana = 100;
 	stat->hp_r = 2;
