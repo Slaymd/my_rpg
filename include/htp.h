@@ -18,7 +18,8 @@
 		// int ostich;
 		// int ogre;
 		// int wolf;
-		int disp[5];
+		// int npc;
+		int disp[6];
 		char *text;
 		float time;
 	};
@@ -30,7 +31,7 @@
 
 	struct htp_s {
 		int state;
-		sprite_tab_t sprite[5];
+		sprite_tab_t sprite[6];
 		sfFont *font;
 		sfText *text;
 		sfClock *clock;
