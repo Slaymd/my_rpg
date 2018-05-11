@@ -133,6 +133,7 @@ struct entity_s {
 	int ogrekey;
 	pos_t pos;
 	sfClock *clock;
+	int invent;
 	sfTime time;
 	float seconds;
 	sfMusic *song;

@@ -45,6 +45,7 @@ entity_t *init_value(entity_t *ent, entity_infos_t infos)
 	ent->verif2 = 0;
 	ent->lcount = 0;
 	ent->seconds = 0;
+	ent->invent = 0;
 	ent->ogrekey = 0;
 	ent->atk = -1;
 	ent->cogre = 0;
