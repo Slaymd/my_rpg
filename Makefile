@@ -29,6 +29,9 @@ SRC			=	src/main.c				\
 				src/npc/inter.c				\
 				src/npc/game.c				\
 				src/npc/destroy.c			\
+				src/htp/create.c			\
+				src/htp/htp.c				\
+				src/htp/destroy.c			\
 				src/fairy/create.c			\
 				src/fairy/move.c			\
 				src/fairy/display.c			\

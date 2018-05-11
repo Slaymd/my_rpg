@@ -20,6 +20,7 @@
 	#include <time.h>
 
 	#include "map.h"
+	#include "htp.h"
 	#include "matchstick.h"
 	#include "npc.h"
 	#include "cycle.h"
@@ -65,6 +66,7 @@
 		sfMusic *music;
 		view_t *view;
 		npc_t *npc;
+		htp_t *htp;
 		cycle_t *cycle;
 		scene_t *scene;
 		window_t *oldwin;
