@@ -18,7 +18,10 @@ entity_infos_t get_entity_infos(entity_type type)
 	3, (pos_t){14080, 14980, 0}, 0, 720,
 	"assets/musics/cry.ogg", 270}, {VILLAGER, {0, 0, 70, 100}, 1, 1, 1,
 	110, TXTRE_VILLAGER, 4, (pos_t){16010, 16010, 0}, 0, 720, "0", 0},
-	{UNKNOWN, {0, 0, 0, 0}, 0, 0, 0, 0, "0", 0
+	{VILLAGER2, {0, 0, 70, 100}, 1, 1, 1, 110, TXTRE_VILLAGER2, 5,
+	(pos_t){16010, 16010, 0}, 0, 720, "0", 0}, {VILLAGER3, {0, 0, 80, 100},
+	1, 1, 1, 110, TXTRE_VILLAGER3, 6, (pos_t){16010, 16010, 0}, 0, 720, "0",
+	0}, {UNKNOWN, {0, 0, 0, 0}, 0, 0, 0, 0, "0", 0
 	, (pos_t){0, 0, 0}, 0, 0, "0", 0}};
 	for (int i = 0; ents_infos[i].type != UNKNOWN; i++) {
 		if (ents_infos[i].type == type)
@@ -103,5 +106,7 @@ void init_sprite(rpg_t *rpg)
 	list_add(&rpg->entities, create_entity(rpg->map, STONE_OGRE));
 	list_add(&rpg->entities, create_entity(rpg->map, LYCANTHROPE));
 	list_add(&rpg->entities, create_entity(rpg->map, VILLAGER));
+	list_add(&rpg->entities, create_entity(rpg->map, VILLAGER2));
+	list_add(&rpg->entities, create_entity(rpg->map, VILLAGER3));
 	rpg->map->entities = rpg->entities;
 }

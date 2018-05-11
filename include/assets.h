@@ -137,6 +137,8 @@ assets/textures/objects/big_bush_2.png"
 #define TXTRE_STONE_OGRE "assets/entities/stone_ogre.png"
 #define TXTRE_LYCANTHROPE "assets/entities/lycanthrope.png"
 #define TXTRE_VILLAGER "assets/entities/npc_game.png"
+#define TXTRE_VILLAGER2 "assets/entities/npc2_game.png"
+#define TXTRE_VILLAGER3 "assets/entities/npc3_game.png"
 
 //Textures ID
 
