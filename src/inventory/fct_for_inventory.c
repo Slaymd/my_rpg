@@ -76,7 +76,8 @@ void equip(item_t *slot, item_t **inv)
 void unequip(item_t *slot, item_t **inv)
 {
 	for (int cpt = 2; inv[cpt] != NULL; cpt++) {
-		if (inv[cpt]->status == 0) {
+		if (inv[cpt]->status == 0 && inv[cpt]->in_body == 0 &&
+			inv[cpt]->conso == 0) {
 			fill_slot(inv[0], inv[cpt], 1);
 			fill_slot(inv[cpt], slot, 1);
 			fill_slot(slot, inv[0], 1);

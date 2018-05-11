@@ -65,6 +65,7 @@ void follow_lycan(entity_t *ent, map_t *map, rpg_t *rpg, int first)
 
 	if (ent->hp <= 0) {
 		lycan_die(ent, rpg);
+		rand_drop_item(rpg, ent);
 		return;
 	}
 	if (detect_char(ent, map) == 1 && first >= 200)
