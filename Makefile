@@ -43,7 +43,7 @@ SRC			=	src/main.c				\
 				src/map/init_textures.c			\
 				src/map/sprite_getter.c			\
 				src/event/events_gestion.c		\
-				src/event/event_scene_switchs.c	\
+				src/event/event_scene_switchs.c		\
 				src/map/generation/map_gen.c		\
 				src/map/generation/tile_gen.c		\
 				src/map/generation/chunk_gen.c		\
@@ -53,7 +53,7 @@ SRC			=	src/main.c				\
 				src/ui/ui_init_mainmenu.c		\
 				src/ui/ui_events_mainmenu.c		\
 				src/ui/ui_events_mapeditor.c		\
-				src/ui/ui_events_pause.c			\
+				src/ui/ui_events_pause.c		\
 				src/ui/ui_init_mapeditor.c		\
 				src/ui/ui_init_pause.c			\
 				src/entity/disp_ennemy.c		\
@@ -92,8 +92,9 @@ SRC			=	src/main.c				\
 				src/matchstick/player.c			\
 				src/matchstick/event_end_error.c	\
 				src/entity/boss_deg.c			\
-				src/entity/dead.c				\
+				src/entity/dead.c			\
 				src/entity/stone_ogre_capacity.c	\
+				src/map/generation/func_chunk_gen.c
 
 CFLAGS		=	-W -Wall -Wextra -I./include
 

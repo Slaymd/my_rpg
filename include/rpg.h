@@ -155,6 +155,10 @@
 	void free_rpg(rpg_t *rpg);
 
 	//ENNEMY
+	int chunk_entities_gen_villager2(map_t *map, pos_t apos);
+	int chunk_entities_gen_villager3(map_t *map, pos_t apos);
+	void deplacement_villager2(rpg_t *rpg, map_t *map, entity_t *ent);
+	void deplacement_villager3(rpg_t *rpg, map_t *map, entity_t *ent);
 	void mirror_ogre(entity_t *ent, int mirror);
 	int go_left_ogre(entity_t *ent, int count, map_t *map, rpg_t *rpg);
 	int go_right_ogre(entity_t *ent, int count, map_t *map, rpg_t *rpg);

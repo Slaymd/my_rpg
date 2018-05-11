@@ -23,3 +23,13 @@ void deplacement_villager(rpg_t *rpg, map_t *map, entity_t *ent)
 {
 	display_ennemy(rpg, ent, map, 5);
 }
+
+void deplacement_villager2(rpg_t *rpg, map_t *map, entity_t *ent)
+{
+	display_ennemy(rpg, ent, map, 5);
+}
+
+void deplacement_villager3(rpg_t *rpg, map_t *map, entity_t *ent)
+{
+	display_ennemy(rpg, ent, map, 5);
+}
