@@ -55,6 +55,11 @@
 
 	//TYPES
 	void npc_game(rpg_t *rpg, int next);
+	void npc_math(rpg_t *rpg, int next);
+
+	//DISPLAY
+	void display_arrow(rpg_t *rpg, int choices, dial_t dial);
+	void display_question(rpg_t *rpg, sfText *text, dial_t dial, int nbr);
 
 	//DESTROY
 	void free_npc(npc_t *npc);
