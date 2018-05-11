@@ -28,7 +28,9 @@ SRC			=	src/main.c				\
 				src/npc/create.c			\
 				src/npc/inter.c				\
 				src/npc/game.c				\
+				src/npc/math.c				\
 				src/npc/destroy.c			\
+				src/npc/display.c			\
 				src/htp/create.c			\
 				src/htp/htp.c				\
 				src/htp/destroy.c			\
@@ -43,7 +45,7 @@ SRC			=	src/main.c				\
 				src/map/init_textures.c			\
 				src/map/sprite_getter.c			\
 				src/event/events_gestion.c		\
-				src/event/event_scene_switchs.c	\
+				src/event/event_scene_switchs.c		\
 				src/map/generation/map_gen.c		\
 				src/map/generation/tile_gen.c		\
 				src/map/generation/chunk_gen.c		\
@@ -53,7 +55,7 @@ SRC			=	src/main.c				\
 				src/ui/ui_init_mainmenu.c		\
 				src/ui/ui_events_mainmenu.c		\
 				src/ui/ui_events_mapeditor.c		\
-				src/ui/ui_events_pause.c			\
+				src/ui/ui_events_pause.c		\
 				src/ui/ui_init_mapeditor.c		\
 				src/ui/ui_init_pause.c			\
 				src/entity/disp_ennemy.c		\
