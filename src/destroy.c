@@ -66,6 +66,7 @@ void free_rpg(rpg_t *rpg)
 {
 	sfRenderWindow_destroy(rpg->wd);
 	free_map(rpg->map);
+	free_scene(rpg->scene);
 	sfMusic_destroy(rpg->music);
 	free_fairy(rpg->fairy);
 	free_cycle(rpg->cycle);

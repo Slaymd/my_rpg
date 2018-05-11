@@ -17,9 +17,10 @@ void click_save_button(void *data)
 	if (my_strlen(seed) == 0)
 		seedtb->entry_state = ERROR;
 	else {
-		//free_scene(rpg->scene);
+		free_scene(rpg->scene);
 		rpg->scene = NULL;
 		rpg->state = 3;
+		free_map(rpg->map);
 		rpg->map = init_map(NULL, my_getnbr(seed));
 		rpg->map = generate_map(my_getnbr(seed));
 	}
@@ -37,6 +38,7 @@ void regen_map_from_ui(void *data)
 	seed = my_getnbr(get_text_string(seedtb->text));
 	if (seed == rpg->map->seed)
 		return;
+	free_map(rpg->map);
 	rpg->map = init_map(NULL, seed);
 	rpg->map = generate_map(seed);
 }
