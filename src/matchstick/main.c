@@ -35,9 +35,11 @@ void reset_ms(stick_t *stick, match_t *match)
 int play_matchstick(rpg_t *rpg, ms_t *ms)
 {
 	reset_ms(ms->stick, ms->match);
-	sfRenderWindow_setView(rpg->wd, rpg->view->v_normal);
 	while (sfRenderWindow_isOpen(rpg->wd) && my_end(ms->stick) == 0) {
 		matchstick_gestion(rpg, ms->match);
+		sfRenderWindow_setView(rpg->wd, rpg->view->v_screen);
+		disp_map(rpg);
+		sfRenderWindow_setView(rpg->wd, rpg->view->v_normal);
 		play_match(rpg, ms->match, ms->stick);
 		sfRenderWindow_display(rpg->wd);
 	}
