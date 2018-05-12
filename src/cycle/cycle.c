@@ -7,6 +7,11 @@
 
 #include "rpg.h"
 
+void cycle_rain(cycle_t *cycle, sfRenderWindow *window)
+{
+	sfRenderWindow_drawSprite(window, cycle->s_rain, NULL);
+}
+
 void run_cycle(cycle_t *cycle)
 {
 	sfColor color = sfSprite_getColor(cycle->cycle->sprite);
@@ -31,6 +36,7 @@ void cycle_handler(rpg_t *rpg)
 {
 	refresh_time(rpg->cycle);
 	sfRenderWindow_setView(rpg->wd, rpg->view->v_normal);
+	cycle_rain(rpg->cycle, rpg->wd);
 	display_time(rpg->cycle, rpg->wd);
 	display_particle(rpg->cycle->cycle, rpg->wd,
 	(V2F){WIDTH / 2, HEIGHT / 2}, 1);

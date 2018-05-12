@@ -35,22 +35,22 @@ void character_regen(character_t *c)
 
 void level_up(character_t *character, float increase)
 {
-	character->attack *= increase;
-	character->hp *= increase;
-	character->mana *= increase;
-	character->defense *= increase;
-	character->hp_r *= increase;
-	character->mana_r *= increase;
-	character->hp_max *= increase;
-	character->mana_max *= increase;
+	character->stat->attack *= increase;
+	character->stat->hp *= increase;
+	character->stat->mana *= increase;
+	character->stat->defense *= increase;
+	character->stat->hp_r *= increase;
+	character->stat->mana_r *= increase;
+	character->stat->hp_max *= increase;
+	character->stat->mana_max *= increase;
 }
 
-void character_regen(character_t *character)
+void character_stat(character_t *character)
 {
 	character_regen(character);
-	if (character->xp >= 100 + character->level * 5) {
+	if (character->stat->xp >= 100 + character->stat->level * 5) {
 		level_up(character, 1.2);
-		character->level++;
-		character->xp = 0;
+		character->stat->level++;
+		character->stat->xp = 0;
 	}
 }
