@@ -28,10 +28,10 @@ int talk_villager(rpg_t *rpg)
 {
 	if (rpg->character->inter == 0) {
 		if (check_villager(rpg) == 1)
-			return (0);
-		return (1);
+			return (1);
+		return (0);
 	}
-	return (0);
+	return (1);
 }
 
 void manage_inter(rpg_t *rpg)
@@ -41,9 +41,9 @@ void manage_inter(rpg_t *rpg)
 
 	rpg->npc->time = sfClock_getElapsedTime(rpg->npc->clock);
 	rpg->npc->seconds = rpg->npc->time.microseconds / 1000000.0;
-	if (talk_villager(rpg) == 1) {
+	// printf("%f\n", rpg->npc->seconds);
+	if (talk_villager(rpg) == 0)
 		return;
-	}
 	sfRenderWindow_setView(rpg->wd, rpg->view->v_normal);
 	sfRenderWindow_drawRectangleShape(rpg->wd, rpg->npc->box, NULL);
 	if (rpg->npc->seconds >= 0.5) {

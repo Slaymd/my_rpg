@@ -30,14 +30,11 @@ int manage_npc_fear(npc_t *npc, int *i, int next)
 void npc_fear(rpg_t *rpg, int next, int *choice)
 {
 	static int i = 0;
+	static int leave = 0;
 
-	sfRenderWindow_setView(rpg->wd, rpg->view->v_normal);
-	sfText_setString(rpg->npc->text, dial_fear[i].dial);
-	sfText_setOrigin(rpg->npc->text,
-	(V2F){(float)my_strlen(dial_fear[i].dial) / 4 * 20, 0});
-	sfText_setPosition(rpg->npc->text,
-	(V2F){WIDTH / 2, HEIGHT / 6 * 5 + 10});
-	sfRenderWindow_drawText(rpg->wd, rpg->npc->text, NULL);
+	next = (leave == 0) ? 0 : next;
+	leave = 1;
+	display_dial(rpg, dial_fear[i]);
 	if (dial_fear[i].ask != 0)
 		display_arrow(rpg, dial_fear[i].ask, dial_fear[i]);
 	for (int j = 1; j < dial_fear[i].ask + 1; j++)
@@ -47,5 +44,6 @@ void npc_fear(rpg_t *rpg, int next, int *choice)
 		rpg->character->inter = 0;
 		*choice = rand() % 3;
 		i = rand() % 2;
+		leave = 0;
 	}
 }
