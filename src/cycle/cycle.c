@@ -7,9 +7,38 @@
 
 #include "rpg.h"
 
+void display_rain(cycle_t *cycle, sfRenderWindow *window)
+{
+	sfSprite_setPosition(cycle->s_rain, (V2F){0, cycle->rain.y});
+	sfRenderWindow_drawSprite(window, cycle->s_rain, NULL);
+	sfSprite_setPosition(cycle->s_rain, (V2F){0, cycle->rain.y - 1080});
+	sfRenderWindow_drawSprite(window, cycle->s_rain, NULL);
+	(KeyPressed(sfKeyUp)) ? cycle->rain.y += 8 : 0;
+	cycle->rain.y += 8;
+	cycle->rain.y >= 1080 ? cycle->rain.y = 0 : 0;
+}
+
 void cycle_rain(cycle_t *cycle, sfRenderWindow *window)
 {
-	sfRenderWindow_drawSprite(window, cycle->s_rain, NULL);
+	static int rain = 0;
+	static long double luck = 0;
+
+	luck += 0.01;
+	// printf("%f\n", luck);
+	if (rain == 1) {
+		display_rain(cycle, window);
+		if (luck >= 1) {
+			cycle->rain.x = 0;
+			cycle->rain.y = 0;
+			rain = 0;
+			luck = 0;
+		}
+	} else {
+		if (luck >= 1) {
+			rain = 0;
+			luck = 0;
+		}
+	}
 }
 
 void run_cycle(cycle_t *cycle)

@@ -15,6 +15,7 @@ void set_cycle(cycle_t *cycle)
 	sfSprite_setTexture(cycle->s_clock, cycle->t_clock, sfTrue);
 	sfSprite_setPosition(cycle->s_clock, (V2F){42.5, 42.5});
 	sfSprite_setOrigin(cycle->s_clock, (V2F){37.5, 37.5});
+	sfSprite_setTexture(cycle->s_rain, cycle->t_rain, sfTrue);
 }
 
 cycle_t *create_cycle(void)
@@ -32,6 +33,7 @@ cycle_t *create_cycle(void)
 	cycle->s_clock = sfSprite_create();
 	cycle->t_rain = sfTexture_createFromFile("./img/rain.png", NULL);
 	cycle->s_rain = sfSprite_create();
+	cycle->rain = (V2F){0, 0};
 	cycle->cycle = create_particle((V2I){WIDTH, HEIGHT}, sfBlue, SQUARE,
 	NONE);
 	set_cycle(cycle);
