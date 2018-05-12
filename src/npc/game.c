@@ -28,7 +28,7 @@ int manage_npc_game(rpg_t *rpg, npc_t *npc, int *i, int next)
 	return (0);
 }
 
-void npc_game(rpg_t *rpg, int next)
+void npc_game(rpg_t *rpg, int next, int *choice)
 {
 	static int i = 0;
 
@@ -46,5 +46,6 @@ void npc_game(rpg_t *rpg, int next)
 	if (manage_npc_game(rpg, rpg->npc, &i, next) == 1) {
 		rpg->character->inter = 0;
 		i = 0;
+		*choice = rand() % 2;
 	}
 }

@@ -11,6 +11,7 @@ const dial_t dial_math[] = {
 	{"What is the biggest result ?", 2, "2 / 4 + 7", "5 * 1.55", NULL},
 	{"What is the smallest result ?", 2, "4 * 9 - 10", "7 * 3.8", NULL},
 	{"Is this result positive ? 6.5 * 5 - 32", 2, "Yes", "No", NULL},
+	{"i ^ i =", 2, "-1", "0", "1"},
 	{"Good job !", 0, NULL, NULL, NULL},
 	{"That's wrong.", 0, NULL, NULL, NULL},
 	{NULL, 0, NULL, NULL, NULL}
@@ -18,22 +19,23 @@ const dial_t dial_math[] = {
 
 int manage_npc_math(rpg_t *rpg, npc_t *npc, int *i, int next)
 {
-	if (*i >= 3 && next == 1)
+	if (*i >= 4 && next == 1)
 		return (1);
-	if (next == 1 && *i < 3) {
-		(*i == 0 && npc->select == 1) ? *i = 3 : 0;
-		(*i == 1 && npc->select == 0) ? *i = 3 : 0;
-		(*i == 2 && npc->select == 0) ? *i = 3 : 0;
-		(*i != 3) ? *i = 4 : 0;
+	if (next == 1 && *i < 4) {
+		(*i == 0 && npc->select == 1) ? *i = 4 : 0;
+		(*i == 1 && npc->select == 0) ? *i = 4 : 0;
+		(*i == 2 && npc->select == 0) ? *i = 4 : 0;
+		(*i == 3 && npc->select == 1) ? *i = 4 : 0;
+		(*i != 4) ? *i = 5 : 0;
 	}
 	return (0);
 }
 
-void npc_math(rpg_t *rpg, int next)
+void npc_math(rpg_t *rpg, int next, int *choice)
 {
 	static int i = -1;
 
-	i = (i == -1) ? rand() % 3 : i;
+	i = (i == -1) ? rand() % 4 : i;
 	sfRenderWindow_setView(rpg->wd, rpg->view->v_normal);
 	sfText_setString(rpg->npc->text, dial_math[i].dial);
 	sfText_setOrigin(rpg->npc->text,
@@ -47,6 +49,7 @@ void npc_math(rpg_t *rpg, int next)
 		display_question(rpg, rpg->npc->text, dial_math[i], j);
 	if (manage_npc_math(rpg, rpg->npc, &i, next) == 1) {
 		rpg->character->inter = 0;
-		i = rand() % 3;
+		i = rand() % 4;
+		*choice = rand() % 2;
 	}
 }

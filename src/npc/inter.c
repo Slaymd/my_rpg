@@ -37,6 +37,7 @@ int talk_villager(rpg_t *rpg)
 void manage_inter(rpg_t *rpg)
 {
 	int next = 0;
+	static int choice = 0;
 
 	rpg->npc->time = sfClock_getElapsedTime(rpg->npc->clock);
 	rpg->npc->seconds = rpg->npc->time.microseconds / 1000000.0;
@@ -50,6 +51,8 @@ void manage_inter(rpg_t *rpg)
 			sfClock_restart(rpg->npc->clock);
 		(KeyPressed(sfKeyReturn)) ? next = 1 : 0;
 	}
-	npc_math(rpg, next);
-	// npc_game(rpg, next);
+	if (choice == 0)
+		npc_math(rpg, next, &choice);
+	else
+		npc_game(rpg, next, &choice);
 }
