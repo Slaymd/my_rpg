@@ -9,33 +9,44 @@
 
 void display_rain(cycle_t *cycle, sfRenderWindow *window)
 {
-	sfSprite_setPosition(cycle->s_rain, (V2F){0, cycle->rain.y});
+	sfSprite_setPosition(cycle->s_rain, (V2F){cycle->rain.x - 1920, cycle->rain.y});
 	sfRenderWindow_drawSprite(window, cycle->s_rain, NULL);
-	sfSprite_setPosition(cycle->s_rain, (V2F){0, cycle->rain.y - 1080});
+	sfSprite_setPosition(cycle->s_rain, (V2F){cycle->rain.x - 1920, cycle->rain.y - 1080});
 	sfRenderWindow_drawSprite(window, cycle->s_rain, NULL);
+	sfSprite_setPosition(cycle->s_rain, (V2F){cycle->rain.x, cycle->rain.y});
+	sfRenderWindow_drawSprite(window, cycle->s_rain, NULL);
+	sfSprite_setPosition(cycle->s_rain, (V2F){cycle->rain.x, cycle->rain.y - 1080});
+	sfRenderWindow_drawSprite(window, cycle->s_rain, NULL);
+	sfSprite_setPosition(cycle->s_rain, (V2F){cycle->rain.x + 1920, cycle->rain.y});
+	sfRenderWindow_drawSprite(window, cycle->s_rain, NULL);
+	sfSprite_setPosition(cycle->s_rain, (V2F){cycle->rain.x + 1920, cycle->rain.y - 1080});
+	sfRenderWindow_drawSprite(window, cycle->s_rain, NULL);
+	(KeyPressed(sfKeyLeft)) ? cycle->rain.x += 8 : 0;
+	(KeyPressed(sfKeyRight)) ? cycle->rain.x -= 8 : 0;
 	(KeyPressed(sfKeyUp)) ? cycle->rain.y += 8 : 0;
 	cycle->rain.y += 8;
 	cycle->rain.y >= 1080 ? cycle->rain.y = 0 : 0;
+	cycle->rain.x >= 1920 ? cycle->rain.x = 0 : 0;
+	cycle->rain.x <= -1920 ? cycle->rain.x = 0 : 0;
 }
 
 void cycle_rain(cycle_t *cycle, sfRenderWindow *window)
 {
 	static int rain = 0;
-	static long double luck = 0;
+	static double luck = 0;
 
-	luck += 0.01;
-	// printf("%f\n", luck);
+	luck += 0.0001;
 	if (rain == 1) {
 		display_rain(cycle, window);
-		if (luck >= 1) {
+		if (luck >= 0.5) {
 			cycle->rain.x = 0;
 			cycle->rain.y = 0;
 			rain = 0;
 			luck = 0;
 		}
 	} else {
-		if (luck >= 1) {
-			rain = 0;
+		if (luck >= 2) {
+			rain = 1;
 			luck = 0;
 		}
 	}
