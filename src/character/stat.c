@@ -32,3 +32,25 @@ void character_regen(character_t *c)
 		sfClock_restart(c->stat->clock);
 	}
 }
+
+void level_up(character_t *character, float increase)
+{
+	character->attack *= increase;
+	character->hp *= increase;
+	character->mana *= increase;
+	character->defense *= increase;
+	character->hp_r *= increase;
+	character->mana_r *= increase;
+	character->hp_max *= increase;
+	character->mana_max *= increase;
+}
+
+void character_regen(character_t *character)
+{
+	character_regen(character);
+	if (character->xp >= 100 + character->level * 5) {
+		level_up(character, 1.2);
+		character->level++;
+		character->xp = 0;
+	}
+}

@@ -24,6 +24,7 @@
 		float hp_max;
 		float mana_max;
 		float xp;
+		int level;
 		sfClock *clock;
 		sfTime time;
 		float seconds;
@@ -49,4 +50,5 @@
 	void display_character_bar(rpg_t *, float, float max,
 	sfRectangleShape *);
 	void character_regen(character_t *);
+	void character_stat(character_t *);
 #endif
