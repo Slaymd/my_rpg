@@ -30,7 +30,8 @@ void display_dead_ogre(rpg_t *rpg, entity_t *ent, map_t *map, int count)
 void dead_ogre(entity_t *ent, rpg_t *rpg)
 {
 	ent->verif == 0 ? ent->square.left = 0, ent->square.top
-	= 800, ent->square.width = 200, ent->square.height = 300 : 0;
+	= 800, ent->square.width = 200, ent->square.height = 300,
+	rpg->character->stat->xp += 100 : 0;
 	ent->compt++;
 	display_dead_ogre(rpg, ent, rpg->map, ent->compt);
 	ent->verif++;
