@@ -40,6 +40,7 @@ int play_matchstick(rpg_t *rpg, ms_t *ms)
 		sfRenderWindow_setView(rpg->wd, rpg->view->v_screen);
 		disp_map(rpg);
 		sfRenderWindow_setView(rpg->wd, rpg->view->v_normal);
+		cycle_handler(rpg);
 		play_match(rpg, ms->match, ms->stick);
 		sfRenderWindow_display(rpg->wd);
 	}

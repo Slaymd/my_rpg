@@ -54,7 +54,7 @@ char *my_strcat_free(char *str1, char *str2)
 
 float clock_rotation(cycle_t *cycle)
 {
-	float rotation = -90;
+	float rotation = 90;
 
 	rotation += (float)cycle->h / 24.0 * 360.0;
 	rotation += (float)cycle->m / 60.0 / 24 * 360.0;

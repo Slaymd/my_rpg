@@ -13,7 +13,7 @@ int check_villager(rpg_t *rpg)
 
 	for (; tmp != NULL; tmp = tmp->next) {
 		if (((entity_t *)tmp->data)->num == 4 && KeyPressed(sfKeyReturn)
-		&& rpg->npc->seconds >= 0.3 &&
+		&& rpg->npc->seconds >= 0.5 &&
 		detect_villager((entity_t *){tmp->data}, rpg->map) == 1) {
 			rpg->character->inter = 1;
 			sfClock_restart(rpg->npc->clock);
@@ -41,18 +41,19 @@ void manage_inter(rpg_t *rpg)
 
 	rpg->npc->time = sfClock_getElapsedTime(rpg->npc->clock);
 	rpg->npc->seconds = rpg->npc->time.microseconds / 1000000.0;
-	if (talk_villager(rpg) == 1)
+	if (talk_villager(rpg) == 1) {
 		return;
+	}
 	sfRenderWindow_setView(rpg->wd, rpg->view->v_normal);
 	sfRenderWindow_drawRectangleShape(rpg->wd, rpg->npc->box, NULL);
-	if (rpg->npc->seconds >= 0.3) {
+	if (rpg->npc->seconds >= 0.5) {
 		if (KeyPressed(sfKeyReturn) || KeyPressed(sfKeyRight) ||
-		KeyPressed(sfKeyLeft))
+		KeyPressed(sfKeyLeft)) {
 			sfClock_restart(rpg->npc->clock);
-		(KeyPressed(sfKeyReturn)) ? next = 1 : 0;
+		}
+		next = (KeyPressed(sfKeyReturn)) ? 1 : 0;
 	}
-	if (choice == 0)
-		npc_math(rpg, next, &choice);
-	else
-		npc_game(rpg, next, &choice);
+	(choice == 0) ? npc_math(rpg, next, &choice) : 0;
+	(choice == 1) ?	npc_game(rpg, next, &choice) : 0;
+	(choice == 2) ?	npc_fear(rpg, next, &choice) : 0;
 }

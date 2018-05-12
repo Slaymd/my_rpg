@@ -47,6 +47,7 @@
 	//TYPES
 	void npc_game(rpg_t *rpg, int next, int *choice);
 	void npc_math(rpg_t *rpg, int next, int *choice);
+	void npc_fear(rpg_t *rpg, int next, int *choice);
 
 	//DISPLAY
 	void display_arrow(rpg_t *rpg, int choices, dial_t dial);

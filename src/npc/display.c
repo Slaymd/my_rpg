@@ -11,9 +11,9 @@ void display_arrow(rpg_t *rpg, int choices, dial_t dial)
 {
 	float x;
 
-	if (KeyPressed(sfKeyRight) && rpg->npc->seconds >= 0.3)
+	if (KeyPressed(sfKeyRight) && rpg->npc->seconds >= 0.5)
 		rpg->npc->select ++;
-	if (KeyPressed(sfKeyLeft) && rpg->npc->seconds >= 0.3)
+	if (KeyPressed(sfKeyLeft) && rpg->npc->seconds >= 0.5)
 		rpg->npc->select --;
 	(rpg->npc->select < 0) ? rpg->npc->select = choices - 1 : 0;
 	(rpg->npc->select > choices - 1) ? rpg->npc->select = 0 : 0;
