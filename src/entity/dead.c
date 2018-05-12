@@ -28,9 +28,16 @@ void lycan_die(entity_t *ent, rpg_t *rpg)
 	static int count = 0;
 
 	verif == 0 ? ent->square.left = 0, ent->square.top
-	= 1300, ent->square.width = 400, ent->square.height = 300 : 0;
+	= 1300, ent->square.width = 400, ent->square.height = 300,
+	rpg->character->stat->xp += 1000 : 0;
 	count++;
 	display_dead(rpg, ent, rpg->map, count);
 	verif++;
 	count >= 5 ? count = 0 : 0;
+}
+
+void xp_ostrich(entity_t *ent, rpg_t *rpg)
+{
+	ent->verif == 0 ? rpg->character->stat->xp += 25 : 0;
+	ent->verif++;
 }

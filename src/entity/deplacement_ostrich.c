@@ -65,6 +65,7 @@ int my_if_ostrich(entity_t *ent, int x)
 void deplacement_ostrich(rpg_t *rpg, map_t *map, entity_t *ent)
 {
 	if (ent->hp <= 0) {
+		xp_ostrich(ent, rpg);
 		rand_drop_item(rpg, ent);
 		ent->square.left = 1000;
 		return;
