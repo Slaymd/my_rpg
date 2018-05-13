@@ -16,7 +16,6 @@ void free_fairy(fairy_t *fairy)
 	sfSprite_destroy(fairy->s_rocket);
 	sfTexture_destroy(fairy->t_rocket);
 	sfClock_destroy(fairy->clock);
-	sfMusic_destroy(fairy->shhh);
 	sfVertexArray_destroy(fairy->line);
 	destroy_particle(fairy->particle);
 	if (fairy->shoot)
