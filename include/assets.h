@@ -13,6 +13,8 @@
 #define C_F5F6FA	(sfColor){245, 246, 250, 255}
 #define C_8C7AE6	(sfColor){140, 122, 230, 255}
 #define C_FF7675	(sfColor){255, 118, 117, 255}
+#define C_2ECC71	(sfColor){46, 204, 113, 255}
+#define C_E74C3C	(sfColor){231, 76, 60, 255}
 
 #define T_LOGO "The Legend of Groot Haan"
 
