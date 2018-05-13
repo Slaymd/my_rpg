@@ -170,7 +170,6 @@ int	generate_tile_objects(map_t *map, pos_t pos, int txt_id);
 //int	generate_object_of_type(map_t *map, freq_type spawn_type, pos_t pos);
 
 //MAP GEN
-map_t	*generate_map(int seed);
 chunk_t	*chunk_gen(map_t *map, pos_t pos);
 tile_t generate_tile_at(map_t *map, pos_t apos, pos_t pos);
 

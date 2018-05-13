@@ -47,7 +47,6 @@ SRC			=	src/main.c				\
 				src/map/sprite_getter.c			\
 				src/event/events_gestion.c		\
 				src/event/event_scene_switchs.c		\
-				src/map/generation/map_gen.c		\
 				src/map/generation/tile_gen.c		\
 				src/map/generation/chunk_gen.c		\
 				src/map/generation/perlin_noise.c	\

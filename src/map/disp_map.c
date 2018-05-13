@@ -62,18 +62,6 @@ int	disp_map(rpg_t *rpg)
 	return (0);
 }
 
-/*int	disp_map(sfRenderWindow *wd, map_t *map, pos_t ref)
-{
-	list_t	*_chunks = get_nearest_chunks(map, ref);
-	chunk_t		*chunk = NULL;
-
-	for (; _chunks != NULL; _chunks = _chunks->next) {
-		chunk = (chunk_t*)_chunks->data;
-		disp_chunk(wd, map, chunk, ref);
-	}
-	return (0);
-}*/
-
 int	disp_rect_at(sfRenderWindow *wd, map_t *mp, sfRectangleShape *rect,
 	pos_t p)
 {

@@ -22,7 +22,6 @@ void click_save_button(void *data)
 		rpg->state = 3;
 		free_map(rpg->map);
 		rpg->map = init_map(NULL, my_getnbr(seed));
-		rpg->map = generate_map(my_getnbr(seed));
 	}
 }
 
@@ -40,7 +39,6 @@ void regen_map_from_ui(void *data)
 		return;
 	free_map(rpg->map);
 	rpg->map = init_map(NULL, seed);
-	rpg->map = generate_map(seed);
 }
 
 void swap_state_maptravelling(rpg_t *rpg)
