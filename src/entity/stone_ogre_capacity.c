@@ -70,9 +70,11 @@ int my_if_ogre(entity_t *ent, int x)
 	} else if (x <= 0) {
 		ent->mirror = 0;
 		mirror_ogre(ent, 0);
-	} else if (x >= 20) {
-		ent->mirror = 1;
-		mirror_ogre(ent, 1);
+	} else {
+		if (x >= 20) {
+			ent->mirror = 1;
+			mirror_ogre(ent, 1);
+		}
 	}
 	return (x);
 }

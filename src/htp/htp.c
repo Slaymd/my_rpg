@@ -51,8 +51,7 @@ void manage_htp(rpg_t *rpg, htp_t *htp)
 	if (htp->seconds >= htp_tab[htp->state].time) {
 		htp->state ++;
 		sfClock_restart(htp->clock);
-	}
-	if (htp->state == 12) {
+	} if (htp->state == 12) {
 		rpg->scene = init_mainmenu(rpg);
 		rpg->state = 0;
 	}

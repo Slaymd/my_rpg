@@ -41,7 +41,6 @@ void manage_inter(rpg_t *rpg)
 
 	rpg->npc->time = sfClock_getElapsedTime(rpg->npc->clock);
 	rpg->npc->seconds = rpg->npc->time.microseconds / 1000000.0;
-	// printf("%f\n", rpg->npc->seconds);
 	if (talk_villager(rpg) == 0)
 		return;
 	sfRenderWindow_setView(rpg->wd, rpg->view->v_normal);

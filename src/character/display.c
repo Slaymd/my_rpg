@@ -21,6 +21,7 @@ void display_character(rpg_t *rpg, character_t *c)
 	} else {
 		rpg->map->center = generate_pos_near(rpg->map,
 		rpg->map->center, 2);
+		c->stat->mana = 100;
 		c->stat->hp = 100;
 	}
 	display_minimap(c->sprite, rpg);

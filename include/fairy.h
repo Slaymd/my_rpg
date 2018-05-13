@@ -8,8 +8,8 @@
 #ifndef _FAIRY_H_
 	#define _FAIRY_H_
 
-	#define SIZE_F_X 34
-	#define SIZE_F_Y 49
+	#define SIZE_F_X 72
+	#define SIZE_F_Y 69
 	#define MOVE_F_X 35
 	#define MOVE_F_Y 40
 	#define EXPLO_X 192
