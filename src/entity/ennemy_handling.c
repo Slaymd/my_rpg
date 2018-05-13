@@ -51,17 +51,16 @@ void detect_damage(rpg_t *rpg, entity_t *ent)
 void ennemy_handling(rpg_t *rpg, map_t *map)
 {
 	list_t *tmp = rpg->entities;
+	entity_t *ent = NULL;
+	ent = (entity_t *)tmp->data;
 
 	for (; tmp != NULL; tmp = tmp->next) {
-		((entity_t *)tmp->data)->time =
-		sfClock_getElapsedTime(((entity_t *)tmp->data)->clock);
-		((entity_t *)tmp->data)->seconds =
-		((entity_t *)tmp->data)->time.microseconds / 1000000.0;
+		ent->time = sfClock_getElapsedTime(ent->clock);
+		ent->seconds = ent->time.microseconds / 1000000.0;
 		for (int i = 0; i < 7; i++) {
-			((entity_t *)tmp->data)->num == func[i].balise ?
-			func[i].callback(rpg, map, (entity_t *)
-			{tmp->data}) : 0;
+			ent->num == func[i].balise ?
+			func[i].callback(rpg, map, ent) : 0;
 		}
-		detect_damage(rpg, (entity_t *) {tmp->data});
+		detect_damage(rpg, ent);
 	}
 }
