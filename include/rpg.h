@@ -123,7 +123,8 @@
 	void fill_slot(item_t *slot1, item_t *slot2, int i_equip);
 	int if_m_in_sprite(sfVector2i pos_m, item_t **slot);
 	void draw_all(rpg_t *rpg);
-	text_t *create_inv_text(char *info, int size, sfVector2f pos, sfColor color);
+	text_t *create_inv_text(char *info, int size, sfVector2f pos,
+	sfColor color);
 	void recup_info(inv_t *inv, main_stat_t *stat);
 	void consom(item_t *slot, rpg_t *rpg);
 	void rand_drop_item(rpg_t *rpg, entity_t *ent);

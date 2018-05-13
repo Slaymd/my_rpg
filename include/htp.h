@@ -13,12 +13,6 @@
 	typedef struct sprite_tab_s sprite_tab_t;
 
 	struct htp_tab_s {
-		// int character;
-		// int fairy;
-		// int ostich;
-		// int ogre;
-		// int wolf;
-		// int npc;
 		int disp[6];
 		char *text;
 		float time;
