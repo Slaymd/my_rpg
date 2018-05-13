@@ -13,9 +13,8 @@ int detect_attack_char(entity_t *ent, map_t *map)
 	int y = map->center.y;
 
 	if (x >= ent->pos.x - 5 && x <= ent->pos.x + 5 && y >= ent->pos.y - 2
-	&& y <= ent->pos.y + 2) {
+	&& y <= ent->pos.y + 2)
 		return (1);
-	}
 	return (0);
 }
 
