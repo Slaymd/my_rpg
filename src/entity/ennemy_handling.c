@@ -43,7 +43,7 @@ void detect_damage(rpg_t *rpg, entity_t *ent)
 		if (tmp->state != 0 && tmp->rect.left == 192 &&
 		x >= sx - 3 && x <= sx + 3 && y  >= sy - 3 && y <= sy  + 3)
 			ent->hp = ent->hp > 0 ? ent->hp -
-			rpg->character->stat->attack : 0;
+			rpg->inv->stat->atti : 0;
 		tmp = tmp->next;
 	}
 }

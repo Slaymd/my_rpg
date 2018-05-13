@@ -61,8 +61,9 @@ void attack_ogre(entity_t *ent, rpg_t *rpg)
 	display_attack_ogre(rpg, ent, rpg->map, ent->cogre);
 	ent->vogre++;
 	ent->cogre >= 5 ? ent->cogre = 0 : 0;
-	ent->vogre >= 100 ? ent->vogre = 0, rpg->character->stat->hp -= 20,
-	ent->square.width = 140, ent->square.top = 150,
+	ent->vogre >= 100 ? ent->vogre = 0, rpg->character->stat->hp -= 20 -
+	rpg->inv->stat->defi / 100 * 20, ent->square.width = 140,
+	ent->square.top = 150,
 	ent->square.left = 0 : 0;
 }
 

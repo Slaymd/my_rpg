@@ -12,8 +12,9 @@ int check_villager(rpg_t *rpg)
 	list_t *tmp = rpg->entities;
 
 	for (; tmp != NULL; tmp = tmp->next) {
-		if (((entity_t *)tmp->data)->num == 4 && KeyPressed(sfKeyReturn)
-		&& rpg->npc->seconds >= 0.5 &&
+		if ((((entity_t *)tmp->data)->num == 4 ||
+		((entity_t *)tmp->data)->num == 5 || ((entity_t *)tmp->data)->num
+		== 6) && KeyPressed(sfKeyReturn) && rpg->npc->seconds >= 0.5 &&
 		detect_villager((entity_t *){tmp->data}, rpg->map) == 1) {
 			rpg->character->inter = 1;
 			sfClock_restart(rpg->npc->clock);

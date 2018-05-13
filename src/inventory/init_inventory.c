@@ -47,13 +47,13 @@ void init_inv_stat2(rpg_t *rpg)
 void init_inv_stat(rpg_t *rpg)
 {
 	rpg->inv->stat = malloc(sizeof(stat_perso_t));
-	rpg->inv->stat->atti = 0;
-	rpg->inv->stat->defi = 0;
-	rpg->inv->stat->lifei = 0;
-	rpg->inv->stat->max_lifei = 0;
-	rpg->inv->stat->manai = 0;
-	rpg->inv->stat->r_lifei = 0;
-	rpg->inv->stat->r_manai = 0;
+	rpg->inv->stat->atti = rpg->character->stat->attack;
+	rpg->inv->stat->defi = rpg->character->stat->defense;
+	rpg->inv->stat->lifei = rpg->character->stat->hp;
+	rpg->inv->stat->max_lifei = rpg->character->stat->hp_max;
+	rpg->inv->stat->manai = rpg->character->stat->mana;
+	rpg->inv->stat->r_lifei = rpg->character->stat->hp_r;
+	rpg->inv->stat->r_manai = rpg->character->stat->mana_r;
 	rpg->inv->stat->attc = malloc(sizeof(char) * 2);
 	rpg->inv->stat->defc = malloc(sizeof(char) * 2);
 	rpg->inv->stat->lifec = malloc(sizeof(char) * 2);
