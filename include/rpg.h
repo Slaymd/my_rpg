@@ -136,6 +136,7 @@
 	void fill_att2(inv_t *inv);
 	void fill_life_potion(inv_t *inv);
 	void fill_mana_potion(inv_t *inv);
+	void fill_popo(inv_t *inv);
 
 	//ACTION
 	void verif_action(rpg_t *rpg);

@@ -30,10 +30,8 @@ void equip_item(inv_t *inv, item_t **slot, rpg_t *rpg)
 	}
 }
 
-void drop(inv_t *inv, item_t **slot, rpg_t *rpg)
+void drop(inv_t *inv, item_t **slot, rpg_t *rpg, int num)
 {
-	int num = 0;
-
 	if (sfKeyboard_isKeyPressed(sfKeyD)) {
 		inv->pos_m = sfMouse_getPosition((sfWindow*)rpg->wd);
 		num = if_m_in_sprite(inv->pos_m, slot);
@@ -49,23 +47,12 @@ void drop(inv_t *inv, item_t **slot, rpg_t *rpg)
 			slot[num]->stack = 0;
 			slot[num]->titem = sfTexture_createFromFile
 			("assets/inventory/empty.png", NULL);
-			sfSprite_setTexture (slot[num]->sitem, slot[num]->titem, sfTrue);
+			sfSprite_setTexture
+			(slot[num]->sitem, slot[num]->titem, sfTrue);
 		}
 		inv->fill = 0;
 	}
 }
-//
-// void inv_info(inv_t *inv, item_t **slot, sfRenderWindow *wd)
-// {
-// 	int num_slot = 0;
-//
-// 	if (sfKeyboard_isKeyPressed(sfKeyI)) {
-// 		inv->pos_m = sfMouse_getPosition((sfWindow*) wd);
-// 		num_slot = if_m_in_sprite(inv->pos_m, slot);
-// 		printf("num = %d, mouse = %d,%d\n", num_slot, inv->pos_m.x, inv->pos_m.y);
-// 		printf("%d %d %d attack = %d def = %d %d\n\n", slot[num_slot]->in_body, slot[num_slot]->can_e, slot[num_slot]->status, slot[num_slot]->attack, slot[num_slot]->def, slot[num_slot]->conso);
-// 	}
-// }
 
 void exchange_slot(rpg_t *rpg, inv_t *inv)
 {
@@ -105,9 +92,8 @@ void inv_event(rpg_t *rpg)
 		rpg->inv->quit = 1;
 	else if (rpg->inv->seconds > 0.08) {
 		equip_item(rpg->inv, rpg->inv->slot, rpg);
-		drop(rpg->inv, rpg->inv->slot, rpg);
+		drop(rpg->inv, rpg->inv->slot, rpg, 0);
 		sfClock_restart(rpg->inv->clocki);
-		// inv_info(rpg->inv, rpg->inv->slot, rpg->wd);
 	}
 	else if (rpg->event.type == sfEvtMouseButtonPressed)
 		exchange_slot(rpg, rpg->inv);
