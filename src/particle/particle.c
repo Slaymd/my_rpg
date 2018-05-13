@@ -7,7 +7,8 @@
 
 #include "rpg.h"
 
-particle_t *create_particle(sfVector2i size, sfColor color, form_type_t form, effect_type_t effect)
+particle_t *create_particle(sfVector2i size, sfColor color, form_type_t form,
+effect_type_t effect)
 {
 	particle_t *particle = malloc(sizeof(particle_t));
 	sfUint8 *pixels = malloc(sizeof(sfUint8) * size.x * size.y * 4);
@@ -40,7 +41,8 @@ void put_pixel(particle_t *particle, int x, int y, sfColor color)
 	}
 }
 
-void display_particle(particle_t *particle, sfRenderWindow *window, V2F pos, int refresh)
+void display_particle(particle_t *particle, sfRenderWindow *window, V2F pos,
+int refresh)
 {
 	select_form(particle, refresh);
 	sfTexture_updateFromPixels(particle->texture, particle->pixels,

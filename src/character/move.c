@@ -7,26 +7,23 @@
 
 #include "rpg.h"
 
-void move_character_y(character_t *character)
+void move_character_rect(character_t *character)
 {
 	if (sfKeyboard_isKeyPressed(sfKeyUp))
 		character->rect.top = 216;
-	if (sfKeyboard_isKeyPressed(sfKeyDown))
+	else if (sfKeyboard_isKeyPressed(sfKeyDown))
 		character->rect.top = 0;
-}
-
-void move_character_x(character_t *character)
-{
-	if (sfKeyboard_isKeyPressed(sfKeyRight))
-		character->rect.top = 144;
-	if (sfKeyboard_isKeyPressed(sfKeyLeft))
-		character->rect.top = 72;
+	else {
+		if (sfKeyboard_isKeyPressed(sfKeyRight))
+			character->rect.top = 144;
+		else if (sfKeyboard_isKeyPressed(sfKeyLeft))
+			character->rect.top = 72;
+	}
 }
 
 void move_character(character_t *character, rpg_t *rpg)
 {
-	move_character_y(character);
-	move_character_x(character);
+	move_character_rect(character);
 	(void)rpg;
 	if (character->seconds >= 0.10 && (sfKeyboard_isKeyPressed(sfKeyLeft) ||
 	sfKeyboard_isKeyPressed(sfKeyRight) ||

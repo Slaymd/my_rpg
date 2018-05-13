@@ -7,7 +7,8 @@
 
 #include "rpg.h"
 
-void display_character_bar(rpg_t *rpg, float stat, float max, sfRectangleShape *bar)
+void display_character_bar(rpg_t *rpg, float stat, float max, sfRectangleShape
+*bar)
 {
 	float nbr = 50 * (stat / max) * ZOOM;
 

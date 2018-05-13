@@ -16,7 +16,8 @@ void no_effect(particle_t *particle, sfVector2i pos, int refresh, sfColor color)
 		put_pixel(particle, pos.x, pos.y, color);
 }
 
-void radial_gradiant(particle_t *particle, sfVector2i pos, int refresh, sfColor color)
+void radial_gradiant(particle_t *particle, sfVector2i pos, int refresh, sfColor
+color)
 {
 	sfVector2f og;
 	float d;
@@ -37,7 +38,8 @@ void radial_gradiant(particle_t *particle, sfVector2i pos, int refresh, sfColor 
 	}
 }
 
-void select_effect(particle_t *particle, sfVector2i pos, int refresh, sfColor color)
+void select_effect(particle_t *particle, sfVector2i pos, int refresh, sfColor
+color)
 {
 	int i = 0;
 
