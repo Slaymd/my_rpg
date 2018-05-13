@@ -50,11 +50,11 @@ void detect_damage(rpg_t *rpg, entity_t *ent)
 
 void ennemy_handling(rpg_t *rpg, map_t *map)
 {
-	list_t *tmp = rpg->entities;
+	list_t *tmp = rpg->map->entities;
 	entity_t *ent = NULL;
-	ent = (entity_t *)tmp->data;
 
 	for (; tmp != NULL; tmp = tmp->next) {
+		ent = (entity_t *)tmp->data;
 		ent->time = sfClock_getElapsedTime(ent->clock);
 		ent->seconds = ent->time.microseconds / 1000000.0;
 		for (int i = 0; i < 7; i++) {
