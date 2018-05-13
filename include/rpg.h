@@ -155,6 +155,7 @@
 	void free_rpg(rpg_t *rpg);
 
 	//ENNEMY
+	void xp_ostrich(entity_t *ent, rpg_t *rpg);
 	int chunk_entities_gen_villager2(map_t *map, pos_t apos);
 	int chunk_entities_gen_villager3(map_t *map, pos_t apos);
 	void deplacement_villager2(rpg_t *rpg, map_t *map, entity_t *ent);

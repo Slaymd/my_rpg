@@ -37,6 +37,7 @@ main_stat_t *init_character_stat(void)
 	stat->hp_max = 100;
 	stat->mana_max = 100;
 	stat->xp = 0;
+	stat->level = 0;
 	stat->clock = sfClock_create();
 	stat->time = sfClock_getElapsedTime(stat->clock);
 	stat->seconds = 0;

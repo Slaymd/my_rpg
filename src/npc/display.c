@@ -38,3 +38,14 @@ void display_question(rpg_t *rpg, sfText *text, dial_t dial, int nbr)
 	(V2F){WIDTH / (dial.ask + 1) * nbr, HEIGHT / 6 * 5 + 50});
 	sfRenderWindow_drawText(rpg->wd, text, NULL);
 }
+
+void display_dial(rpg_t *rpg, dial_t dial)
+{
+	sfRenderWindow_setView(rpg->wd, rpg->view->v_normal);
+	sfText_setString(rpg->npc->text, dial.dial);
+	sfText_setOrigin(rpg->npc->text,
+	(V2F){(float)my_strlen(dial.dial) / 4 * 20, 0});
+	sfText_setPosition(rpg->npc->text,
+	(V2F){WIDTH / 2, HEIGHT / 6 * 5 + 10});
+	sfRenderWindow_drawText(rpg->wd, rpg->npc->text, NULL);
+}

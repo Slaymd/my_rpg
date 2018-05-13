@@ -65,13 +65,13 @@ void refresh_time(cycle_t *cycle)
 {
 	cycle->time = sfClock_getElapsedTime(cycle->clock);
 	cycle->seconds = cycle->time.microseconds / 1000000.0;
-	(cycle->seconds >= 0.00001) ? cycle->m ++ : 0;
+	(cycle->seconds >= 0.2) ? cycle->m ++ : 0;
 	if (cycle->m >= 60) {
 		cycle->m = 0;
 		cycle->h++;
 	} if (cycle->h >= 24) {
 		cycle->h = 0;
-	} if (cycle->seconds >= 0.00001) {
+	} if (cycle->seconds >= 0.2) {
 		run_cycle(cycle);
 		sfSprite_setRotation(cycle->s_clock, clock_rotation(cycle));
 		sfClock_restart(cycle->clock);

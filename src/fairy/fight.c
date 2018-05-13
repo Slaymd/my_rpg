@@ -55,15 +55,18 @@ void fairy_fight(fairy_t *fairy, rpg_t *rpg)
 {
 	float x = (float)sfMouse_getPositionRenderWindow(rpg->wd).x;
 	float y = (float)sfMouse_getPositionRenderWindow(rpg->wd).y;
+	static int i = 0;
 
 	if (rpg->fairy->seconds >= 0.05) {
+		i++;
 		move_shoot(fairy->shoot);
 		if (sfKeyboard_isKeyPressed(sfKeySpace) &&
-		rpg->character->stat->mana >= 10) {
+		rpg->character->stat->mana >= 10 && i >= 3) {
 			rpg->character->stat->mana -= 10;
 			new_shoot(fairy->shoot, (pos_t){x, y, 0}, (pos_t)
 			{fairy->pos.x, fairy->pos.y, 0} ,rpg);
 			sfMusic_play(fairy->shhh);
+			i = 0;
 		}
 		end_shoot(fairy->shoot);
 	}

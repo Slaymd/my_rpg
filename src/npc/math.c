@@ -34,15 +34,12 @@ int manage_npc_math(npc_t *npc, int *i, int next)
 void npc_math(rpg_t *rpg, int next, int *choice)
 {
 	static int i = -1;
+	static int leave = 0;
 
 	i = (i == -1) ? rand() % 4 : i;
-	sfRenderWindow_setView(rpg->wd, rpg->view->v_normal);
-	sfText_setString(rpg->npc->text, dial_math[i].dial);
-	sfText_setOrigin(rpg->npc->text,
-	(V2F){(float)my_strlen(dial_math[i].dial) / 4 * 20, 0});
-	sfText_setPosition(rpg->npc->text,
-	(V2F){WIDTH / 2, HEIGHT / 6 * 5 + 10});
-	sfRenderWindow_drawText(rpg->wd, rpg->npc->text, NULL);
+	next = (leave == 0) ? 0 : next;
+	leave = 1;
+	display_dial(rpg, dial_math[i]);
 	if (dial_math[i].ask != 0)
 		display_arrow(rpg, dial_math[i].ask, dial_math[i]);
 	for (int j = 1; j < dial_math[i].ask + 1; j++)
@@ -52,5 +49,6 @@ void npc_math(rpg_t *rpg, int next, int *choice)
 		rpg->character->inter = 0;
 		*choice = rand() % 3;
 		i = rand() % 4;
+		leave = 0;
 	}
 }

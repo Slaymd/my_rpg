@@ -17,11 +17,11 @@ const dial_t dial_game[] = {
 int manage_npc_game(rpg_t *rpg, npc_t *npc, int *i, int next)
 {
 	if (next == 1) {
-			if (*i >= 1 || (*i == 0 && npc->select == 1))
+		if (*i >= 1 || (*i == 0 && npc->select == 1))
 			return (1);
 		if (*i == 0 && npc->select == 0) {
-			*i = (play_matchstick(rpg, npc->ms) == 1) ?
-			2 : 1;
+			*i = (play_matchstick(rpg, npc->ms) == 1) ? 2 : 1;
+			sfClock_restart(rpg->npc->clock);
 		}
 	}
 	return (0);
@@ -30,14 +30,11 @@ int manage_npc_game(rpg_t *rpg, npc_t *npc, int *i, int next)
 void npc_game(rpg_t *rpg, int next, int *choice)
 {
 	static int i = 0;
+	static int leave = 0;
 
-	sfRenderWindow_setView(rpg->wd, rpg->view->v_normal);
-	sfText_setString(rpg->npc->text, dial_game[i].dial);
-	sfText_setOrigin(rpg->npc->text,
-	(V2F){(float)my_strlen(dial_game[i].dial) / 4 * 20, 0});
-	sfText_setPosition(rpg->npc->text,
-	(V2F){WIDTH / 2, HEIGHT / 6 * 5 + 10});
-	sfRenderWindow_drawText(rpg->wd, rpg->npc->text, NULL);
+	next = (leave == 0) ? 0 : next;
+	leave = 1;
+	display_dial(rpg, dial_game[i]);
 	if (dial_game[i].ask != 0)
 		display_arrow(rpg, dial_game[i].ask, dial_game[i]);
 	for (int j = 1; j < dial_game[i].ask + 1; j++)
@@ -47,5 +44,6 @@ void npc_game(rpg_t *rpg, int next, int *choice)
 		rpg->character->inter = 0;
 		*choice = rand() % 3;
 		i = 0;
+		leave = 0;
 	}
 }

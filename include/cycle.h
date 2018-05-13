@@ -22,6 +22,9 @@
 		float seconds;
 		sfSprite *s_clock;
 		sfTexture *t_clock;
+		sfSprite *s_rain;
+		sfTexture *t_rain;
+		sfVector2f rain;
 		particle_t *cycle;
 	};
 
