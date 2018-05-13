@@ -31,11 +31,10 @@ int	disp_game(rpg_t *rpg, sfEvent event)
 	return (0);
 }
 
-int	game_loop(rpg_t *rpg)
+void game_loop(rpg_t *rpg)
 {
 	sfEvent event;
 
-	sfRenderWindow_clear(rpg->wd, sfBlack);
 	while (sfRenderWindow_pollEvent(rpg->wd, &event)) {
 		rpg->event = event;
 		if (event.type == sfEvtClosed)
@@ -53,8 +52,6 @@ int	game_loop(rpg_t *rpg)
 	disp_pause_screen(rpg, 0);
 	if (rpg->state == 5)
 		manage_htp(rpg, rpg->htp);
-	sfRenderWindow_display(rpg->wd);
-	return (0);
 }
 
 int	main(void)
@@ -64,7 +61,9 @@ int	main(void)
 	srand(time(NULL));
 	init_sprite(rpg);
 	while (sfRenderWindow_isOpen(rpg->wd)) {
+		sfRenderWindow_clear(rpg->wd, sfBlack);
 		game_loop(rpg);
+		sfRenderWindow_display(rpg->wd);
 	}
 	free_rpg(rpg);
 	return (0);

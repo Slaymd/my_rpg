@@ -39,10 +39,10 @@ void display_shoot(list_shoot_t *shoot, fairy_t *fairy, rpg_t *rpg)
 	while (tmp) {
 		sfSprite_setTextureRect(fairy->s_explo, tmp->rect);
 		sfSprite_setRotation(fairy->s_rocket, tmp->angle);
-		if (tmp->state == 0)
+		if (tmp->state == 0) {
 			disp_sprite_at(rpg->wd, rpg->map, fairy->s_rocket,
 			tmp->pos_r);
-		else {
+		} else {
 			disp_sprite_at(rpg->wd, rpg->map, fairy->s_explo,
 			tmp->pos_e);
 		}

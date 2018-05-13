@@ -18,7 +18,10 @@ void display_character(rpg_t *rpg, character_t *c)
 		c->hp_bar);
 		display_character_bar(rpg, c->stat->mana, c->stat->mana_max,
 		c->mana_bar);
-	} else
-		sfRenderWindow_close(rpg->wd);
+	} else {
+		rpg->map->center = generate_pos_near(rpg->map,
+		rpg->map->center, 2);
+		c->stat->hp = 100;
+	}
 	display_minimap(c->sprite, rpg);
 }
