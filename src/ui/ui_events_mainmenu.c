@@ -33,3 +33,12 @@ void click_exit_button(void *data)
 
 	sfRenderWindow_close(rpg->wd);
 }
+
+void click_how_to_play_button(void *data)
+{
+	rpg_t *rpg = (rpg_t*)data;
+
+	free_scene(rpg->scene);
+	rpg->scene = NULL;
+	rpg->state = 5;
+}

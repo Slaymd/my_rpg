@@ -102,6 +102,7 @@
 	void click_pause_resume_button(void *data);
 	void click_pause_menu_button(void *data);
 	void click_pause_exit_button(void *data);
+	void click_how_to_play_button(void *data);
 
 	//CREATE
 	rpg_t *init_rpg(void);
@@ -130,7 +131,6 @@
 	void fill_att2(inv_t *inv);
 	void fill_life_potion(inv_t *inv);
 	void fill_mana_potion(inv_t *inv);
-
 
 	//ACTION
 	void verif_action(rpg_t *rpg);
