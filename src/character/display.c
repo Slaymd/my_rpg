@@ -20,7 +20,7 @@ void display_character(rpg_t *rpg, character_t *c)
 		c->mana_bar);
 	} else {
 		rpg->map->center = generate_pos_near(rpg->map,
-		rpg->map->center, 2);
+		(pos_t){16000, 16000, 0}, 2);
 		c->stat->mana = 100;
 		c->stat->hp = 100;
 	}
