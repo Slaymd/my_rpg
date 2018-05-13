@@ -21,8 +21,7 @@
 
 	typedef enum effect_type_s {
 		NONE,
-		RADIAL,
-		RAIN
+		RADIAL
 	} effect_type_t;
 
 	typedef struct form_tab_s {

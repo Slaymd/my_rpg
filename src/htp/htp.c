@@ -32,7 +32,6 @@ void display_htp(htp_t *htp, rpg_t *rpg)
 			sfRenderWindow_drawSprite(rpg->wd,
 			htp->sprite[i].sprite, NULL);
 	}
-	cycle_handler(rpg);
 	sfText_setOrigin(htp->text, (V2F){(float)my_strlen
 	(htp_tab[htp->state].text) / 4 * 26, 15});
 	sfText_setString(htp->text, htp_tab[htp->state].text);
@@ -53,6 +52,8 @@ void manage_htp(rpg_t *rpg, htp_t *htp)
 		htp->state ++;
 		sfClock_restart(htp->clock);
 	}
-	if (htp->state == 12)
-		rpg->state = 3;
+	if (htp->state == 12) {
+		rpg->scene = init_mainmenu(rpg);
+		rpg->state = 0;
+	}
 }
