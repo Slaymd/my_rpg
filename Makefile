@@ -10,7 +10,7 @@ CC			=	gcc
 SRC_TEST		=	\
 
 SRC			=	src/main.c				\
-				src/button/v_sync.c			\
+				src/settings/v_sync.c			\
 				src/lib.c				\
 				src/init.c				\
 				src/destroy.c				\

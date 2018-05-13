@@ -9,11 +9,10 @@
 
 void set_v_sync(rpg_t *rpg)
 {
-	static int enable = 1;
+	static int enable = 0;
 
 	sfRenderWindow_setVerticalSyncEnabled(rpg->wd, enable);
-	if (enable == 0)
-		enable = 1;
-	else
+	enable++;
+	if (enable == 2)
 		enable = 0;
 }
