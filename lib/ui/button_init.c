@@ -28,7 +28,7 @@ button_t	*create_void_button(void)
 }
 
 button_t	*create_flat_button(sfIntRect pos, sfColor fill,
-	sfColor outl, char *str)
+sfColor outl, char *str)
 {
 	button_t *button = create_void_button();
 	sfVector2f hard_pos = (sfVector2f){pos.left, pos.top};

@@ -18,7 +18,8 @@ int	can_be_placed_here(map_t *map, sfSprite *sprite, pos_t pos)
 		get_perlin_value(map, pos, FREQ, DEPTH));
 
 	for (; !(pos.x == mpos.x && pos.y == mpos.y); pos.x += 1) {
-		if (get_texture_from_noise(get_perlin_value(map, pos,FREQ, DEPTH))
+		if (get_texture_from_noise(get_perlin_value(map, pos,FREQ,
+		DEPTH))
 		!= txt_id || is_occuped_by_object_here(map, pos)) {
 			return (0);
 		}

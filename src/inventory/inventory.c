@@ -88,15 +88,17 @@ void inv_event(rpg_t *rpg)
 		rpg->inv->quit = 1;
 		return;
 	}
-	if (sfKeyboard_isKeyPressed(sfKeyEscape))
+	if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
 		rpg->inv->quit = 1;
-	else if (rpg->inv->seconds > 0.08) {
+		return;
+	} else if (rpg->inv->seconds > 0.08) {
 		equip_item(rpg->inv, rpg->inv->slot, rpg);
 		drop(rpg->inv, rpg->inv->slot, rpg, 0);
 		sfClock_restart(rpg->inv->clocki);
+		return;
 	}
-	else if (rpg->event.type == sfEvtMouseButtonPressed)
-		exchange_slot(rpg, rpg->inv);
+	(rpg->event.type == sfEvtMouseButtonPressed) ?
+	exchange_slot(rpg, rpg->inv) : 0;
 }
 
 void inventory(rpg_t *rpg)

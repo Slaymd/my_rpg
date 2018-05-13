@@ -25,8 +25,9 @@ void tooltip_animation_tick(button_t *button)
 		color.a -= 10;
 		sfText_setColor(tooltip->text->text, txtcolor);
 		sfRectangleShape_setFillColor(tooltip->rect, color);
-	} else if (tooltip->state == 2){
-		tooltip->state = 0;
+	} else {
+		if (tooltip->state == 2)
+			tooltip->state = 0;
 	}
 }
 

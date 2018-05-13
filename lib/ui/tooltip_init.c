@@ -6,6 +6,7 @@
 */
 
 #include "uilib.h"
+
 int	my_strlen(char *);
 
 tooltip_t	*create_tooltip(char *str, int size)

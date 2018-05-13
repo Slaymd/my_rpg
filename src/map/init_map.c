@@ -32,7 +32,9 @@ chunk_t *init_chunk(pos_t pos)
 
 	chunk->pos = pos;
 	chunk->tiles = (tile_t**)malloc(sizeof(tile_t*)*TILES_PER_CHUNKS);
-	for (int i = 0; i < TILES_PER_CHUNKS; i++)
-		chunk->tiles[i] = (tile_t*)malloc(sizeof(tile_t)*TILES_PER_CHUNKS);
+	for (int i = 0; i < TILES_PER_CHUNKS; i++) {
+		chunk->tiles[i] =
+		(tile_t*)malloc(sizeof(tile_t)*TILES_PER_CHUNKS);
+	}
 	return (chunk);
 }
