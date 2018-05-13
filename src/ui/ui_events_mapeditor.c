@@ -51,3 +51,14 @@ void swap_state_maptravelling(rpg_t *rpg)
 		DEFAULT_POS_X+TILES_PER_CHUNKS)
 		rpg->state = 2;
 }
+
+void click_vsync_button(void *data)
+{
+	rpg_t *rpg = (rpg_t*)data;
+	button_t *vsync = (button_t*)list_get_fromtag(rpg->scene->buttons,\
+	"vsync");
+
+	if (vsync->state == 0)
+		return;
+	set_v_sync(rpg);
+}

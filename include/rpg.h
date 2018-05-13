@@ -103,6 +103,10 @@
 	void click_pause_menu_button(void *data);
 	void click_pause_exit_button(void *data);
 	void click_how_to_play_button(void *data);
+	void click_vsync_button(void *data);
+
+	//SYS IMPROVEMENTS
+	void set_v_sync(rpg_t *rpg);
 
 	//CREATE
 	rpg_t *init_rpg(void);
