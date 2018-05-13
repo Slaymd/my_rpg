@@ -27,7 +27,8 @@ void display_attack(rpg_t *rpg, entity_t *ent, map_t *map, int count)
 		ent->square.left = ent->square.left + 400 >= 4400 ?
 		0 : ent->square.left + 400;
 		detect_attack_char(ent, map) == 1 ?
-		rpg->character->stat->hp -= 10 : 0;
+		rpg->character->stat->hp -= 10 - rpg->inv->stat->defi / 100 *
+		10: 0;
 		sfSprite_setTextureRect(ent->sprite, ent->square);
 	}
 	reinit_var(rpg, ent, map);
