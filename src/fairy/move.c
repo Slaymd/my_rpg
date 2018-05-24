@@ -25,14 +25,14 @@ void apply_physic_move(fairy_t *fairy, V2F ep)
 void physic_fairy_move_x(fairy_t *fairy, sfEvent event, V2F *ep)
 {
 	(void)event;
-	if (KeyPressed(sfKeyRight)) {
+	if (KeyPressed(sfKeyD)) {
 		if (fairy->pos.x > WIDTH / 2 - MOVE_F_X)
 			fairy->ec.x -= 0.5;
 		else {
 			fairy->ep.x += (fairy->ep.x < 5) ? 1 : 0;
 			ep->x = 1;
 		}
-	} else if (KeyPressed(sfKeyLeft)) {
+	} else if (KeyPressed(sfKeyQ)) {
 		if (fairy->pos.x < WIDTH / 2 + MOVE_F_X)
 			fairy->ec.x += 0.5;
 		else {
@@ -49,14 +49,14 @@ void physic_fairy_move(fairy_t *fairy, sfEvent event)
 {
 	V2F ep = (V2F){0, 0};
 
-	if (KeyPressed(sfKeyUp)) {
+	if (KeyPressed(sfKeyZ)) {
 		if (fairy->pos.y < HEIGHT / 2 + MOVE_F_Y)
 			fairy->ec.y += 0.5;
 		else {
 			fairy->ep.y -= (fairy->ep.y > -5) ? 1 : 0;
 			ep.y = 1;
 		}
-	} else if (KeyPressed(sfKeyDown)) {
+	} else if (KeyPressed(sfKeyS)) {
 		if (fairy->pos.y > HEIGHT / 2 - MOVE_F_Y)
 			fairy->ec.y -= 0.5;
 		else {

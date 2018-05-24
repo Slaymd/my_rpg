@@ -9,7 +9,7 @@
 
 int check_villager(rpg_t *rpg)
 {
-	list_t *tmp = rpg->entities;
+	list_t *tmp = rpg->map->entities;
 
 	for (; tmp != NULL; tmp = tmp->next) {
 		if ((((entity_t *)tmp->data)->num == 4 ||

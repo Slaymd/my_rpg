@@ -58,17 +58,17 @@ int map_move_down(map_t *map)
 int map_move(sfEvent event, map_t *map)
 {
 	(void)event;
-	if (KeyPressed(sfKeyUp)) {
+	if (KeyPressed(sfKeyZ)) {
 		map_move_up(map);
 		return (1);
-	} else if (KeyPressed(sfKeyDown)) {
+	} else if (KeyPressed(sfKeyS)) {
 		map_move_down(map);
 		return (1);
 	} else {
-		if (KeyPressed(sfKeyRight)) {
+		if (KeyPressed(sfKeyD)) {
 			map_move_right(map);
 			return (1);
-		} if (KeyPressed(sfKeyLeft)) {
+		} if (KeyPressed(sfKeyQ)) {
 			map_move_left(map);
 			return (1);
 		}
