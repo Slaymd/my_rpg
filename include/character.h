@@ -11,6 +11,8 @@
 	#define SIZE_C_X 68
 	#define SIZE_C_Y 72
 
+	#define CHAR_DEFAULT_SKIN "assets/character/sacha-red.png"
+
 	typedef struct character_s character_t;
 	typedef struct main_stat_s main_stat_t;
 

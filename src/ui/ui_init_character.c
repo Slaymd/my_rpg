@@ -19,6 +19,7 @@ void init_charactereditor_choicebutton(scene_t *scene, rpg_t *rpg)
 	sfTransparent, "green", NULL, NULL, NULL};
 	skinchoice->states[3] = (bt_state_t){1, (sfColor){255, 159, 243, 255},\
 	sfTransparent, "pink", NULL, NULL, NULL};
+	set_button_action(skinchoice, &click_character_swap_button, rpg);
 	list_add_withtag(&scene->buttons, skinchoice, "skin");
 }
 
@@ -38,14 +39,17 @@ scene_t *init_charactereditor(rpg_t *rpg)
 	(sfVector2f){WIDTH,HEIGHT}, sfBlack);
 	panel_t *character_img = create_image_panel((V2F){100,175},\
 	"assets/character/sacha-red.png");
+	button_t *donebt = create_flat_button((IR){50,HEIGHT-100,87,45},\
+	sfBlack, sfWhite, "Done");
 
 	set_panel_opacity(bgpanel, 0.3);
 	set_panel_image_rect(character_img, (IR){0,0,68,72});
 	set_panel_image_scale(character_img, 3);
-	set_panel_image(character_img, "assets/character/sacha-green.png");
+	set_button_action(donebt, &click_character_done_button, rpg);
 	init_charactereditor_labels(scene);
 	init_charactereditor_choicebutton(scene, rpg);
-	list_add(&scene->panels, character_img);
+	list_add_withtag(&scene->panels, character_img, "img");
 	list_add(&scene->panels, bgpanel);
+	list_add(&scene->buttons, donebt);
 	return (scene);
 }

@@ -69,6 +69,7 @@
 		htp_t *htp;
 		cycle_t *cycle;
 		scene_t *scene;
+		scene_t *last_scene;
 		window_t *oldwin;
 		map_t	*map;
 		character_t *character;
@@ -107,6 +108,8 @@
 	void click_vsync_button(void *data);
 	void click_music_button(void *data);
 	void click_character_button(void *data);
+	void click_character_swap_button(void *data);
+	void click_character_done_button(void *data);
 
 	//SYS IMPROVEMENTS
 	void set_v_sync(rpg_t *rpg);
@@ -203,6 +206,7 @@
 
 	//CHARACTER
 	character_t *init_character(void);
+	void set_character(character_t *character, int x, int y);
 
 	//FAIRY
 	fairy_t *init_fairy(void);

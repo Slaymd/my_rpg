@@ -52,7 +52,7 @@ character_t *init_character(void)
 
 	if (!character)
 		return (NULL);
-	character->texture = sfTexture_createFromFile("./img/sacha.png", NULL);
+	character->texture = sfTexture_createFromFile(CHAR_DEFAULT_SKIN, NULL);
 	character->sprite = sfSprite_create();
 	character->clock = sfClock_create();
 	character->time = sfClock_getElapsedTime(character->clock);

@@ -33,7 +33,7 @@ void click_character_button(void *data)
 {
 	rpg_t *rpg = (rpg_t*)data;
 
-	free_scene(rpg->scene);
+	rpg->last_scene = rpg->scene;
 	rpg->scene = init_charactereditor(rpg);
 	rpg->state = 1;
 }

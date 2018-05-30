@@ -99,6 +99,7 @@ SRC			=	src/main.c				\
 				src/map/generation/func_chunk_gen.c\
 				src/ui/ui_init_character.c		\
 				src/ui/ui_events_stgs_mapeditor.c	\
+				src/ui/ui_events_character.c		\
 
 CFLAGS		=	-W -Wall -Wextra -I./include
 
@@ -158,6 +159,5 @@ fclean:	clean
 	$(MAKE_LIBMY) fclean
 	$(MAKE_LIBLIST) fclean
 	$(MAKE_LIBUI) fclean
-
 
 re:	fclean all
