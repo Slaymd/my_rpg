@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2018
-** my_world_2017
+** UILib
 ** File description:
-** my_uilib
+** Header
 */
 
 #include <SFML/Graphics.h>
@@ -55,6 +55,8 @@ typedef struct tooltip_s {
 
 typedef struct panel_s {
 	sfRectangleShape *rect;
+	sfSprite *sprite;
+	sfTexture *texture;
 }panel_t;
 
 typedef struct button_s {
@@ -88,9 +90,13 @@ typedef struct scene_s {
 
 //UI ELEMENT CREATE
 panel_t *create_flat_panel(sfVector2f pos, sfVector2f size, sfColor fill);
+panel_t *create_image_panel(sfVector2f pos, char *img_path);
 
 //PANEL TOOLS
 void set_panel_opacity(panel_t *panel, float opacity);
+void set_panel_image_rect(panel_t *panel, sfIntRect rect);
+void set_panel_image(panel_t *panel, char *img_path);
+void set_panel_image_scale(panel_t *panel, float multiplier);
 void	disp_panels(sfRenderWindow *wd, list_t *panels);
 void free_panel(panel_t *panel);
 
@@ -107,6 +113,9 @@ button_t	*create_flat_button(sfIntRect pos, sfColor fill,
 //Button disp
 void	disp_button(sfRenderWindow *wd, button_t *button);
 void	disp_buttons(sfRenderWindow *wd, list_t *buttons);
+
+//BUTTON action
+void set_button_action(button_t *button, void (*pf)(void*), void *params);
 
 //Button position/size tools
 void set_button_size(button_t *button, sfVector2f size);

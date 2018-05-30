@@ -96,7 +96,9 @@ SRC			=	src/main.c				\
 				src/entity/boss_deg.c			\
 				src/entity/dead.c			\
 				src/entity/stone_ogre_capacity.c	\
-				src/map/generation/func_chunk_gen.c
+				src/map/generation/func_chunk_gen.c\
+				src/ui/ui_init_character.c		\
+				src/ui/ui_events_stgs_mapeditor.c	\
 
 CFLAGS		=	-W -Wall -Wextra -I./include
 

@@ -15,6 +15,8 @@ int	chunk_entities_gen_ostrich(map_t *map, pos_t apos)
 		return (0);
 	ent = create_entity(map, OSTRICH);
 	ent->pos = generate_pos_near(map, apos, 5);
+	while(!can_be_placed_here(map, ent->sprite, ent->pos))
+		ent->pos = generate_pos_near(map, ent->pos, 5);
 	list_append(&map->entities, ent);
 	return (0);
 }
@@ -27,6 +29,8 @@ int	chunk_entities_gen_ogre(map_t *map, pos_t apos)
 		return (0);
 	ent = create_entity(map, STONE_OGRE);
 	ent->pos = generate_pos_near(map, apos, 5);
+	while(!can_be_placed_here(map, ent->sprite, ent->pos))
+		ent->pos = generate_pos_near(map, ent->pos, 5);
 	list_append(&map->entities, ent);
 	return (0);
 }
@@ -39,6 +43,8 @@ int	chunk_entities_gen_villager(map_t *map, pos_t apos)
 		return (0);
 	ent = create_entity(map, VILLAGER);
 	ent->pos = generate_pos_near(map, apos, 5);
+	while(!can_be_placed_here(map, ent->sprite, ent->pos))
+		ent->pos = generate_pos_near(map, ent->pos, 5);
 	list_append(&map->entities, ent);
 	return (0);
 }
@@ -51,6 +57,8 @@ int	chunk_entities_gen_lycan(map_t *map, pos_t apos)
 		return (0);
 	ent = create_entity(map, LYCANTHROPE);
 	ent->pos = generate_pos_near(map, apos, 5);
+	while(!can_be_placed_here(map, ent->sprite, ent->pos))
+		ent->pos = generate_pos_near(map, ent->pos, 5);
 	list_append(&map->entities, ent);
 	return (0);
 }

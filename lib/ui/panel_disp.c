@@ -13,6 +13,8 @@ void	disp_panel(sfRenderWindow *wd, panel_t *panel)
 		return;
 	if (panel->rect != NULL)
 		sfRenderWindow_drawRectangleShape(wd, panel->rect, NULL);
+	if (panel->sprite != NULL)
+		sfRenderWindow_drawSprite(wd, panel->sprite, NULL);
 }
 
 void	disp_panels(sfRenderWindow *wd, list_t *panels)

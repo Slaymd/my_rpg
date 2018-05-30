@@ -89,6 +89,7 @@
 	scene_t *init_mainmenu(rpg_t *rpg);
 	scene_t *init_mapeditor(rpg_t *rpg);
 	scene_t *init_pausescreen(rpg_t *rpg);
+	scene_t *init_charactereditor(rpg_t *rpg);
 	void disp_mainmenu(rpg_t *rpg);
 	int disp_pause_screen(rpg_t *rpg, int ignore_state);
 	void swap_state_maptravelling(rpg_t *rpg);
@@ -104,6 +105,8 @@
 	void click_pause_exit_button(void *data);
 	void click_how_to_play_button(void *data);
 	void click_vsync_button(void *data);
+	void click_music_button(void *data);
+	void click_character_button(void *data);
 
 	//SYS IMPROVEMENTS
 	void set_v_sync(rpg_t *rpg);

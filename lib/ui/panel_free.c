@@ -13,5 +13,9 @@ void free_panel(panel_t *panel)
 		return;
 	if (panel->rect != NULL)
 		sfRectangleShape_destroy(panel->rect);
+	if (panel->sprite != NULL) {
+		sfTexture_destroy(panel->texture);
+		sfSprite_destroy(panel->sprite);
+	}
 	free(panel);
 }
