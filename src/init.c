@@ -37,9 +37,10 @@ rpg_t *init_rpg(void)
 	rpg->htp = create_htp();
 	rpg->cycle = create_cycle();
 	rpg->character = init_character();
+	if (!rpg->character)
+		return (NULL);
 	rpg->fairy = init_fairy();
 	rpg->map = init_map(NULL, SEED);
 	rpg->scene = init_mainmenu(rpg);
-	init_inv(rpg);
 	return (rpg);
 }

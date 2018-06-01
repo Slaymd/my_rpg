@@ -70,7 +70,8 @@ void init_tab_item(rpg_t *rpg)
 	rpg->inv->slot[0] = create_slot((sfIntRect){0, 0, 0, 0},
 	"assets/inventory/empty.png", (int[10]){0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
 	rpg->inv->slot[1] = create_slot((sfIntRect){100, 40, 700, 550},
-	"assets/inventory/new_inv.png", (int[10]){0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
+	"assets/inventory/new_inv.png",
+	(int[10]){0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
 	fill_mid_tab(rpg);
 	rpg->inv->slot[14] = create_slot((sfIntRect){165, 160, 65, 65},
 	"assets/inventory/empty.png", (int[10]){1, 0, 0, 0, 0, 0, 0, 0, 0, 0});

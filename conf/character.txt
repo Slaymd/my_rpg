@@ -1,0 +1,10 @@
+attack = 2
+defense = 5
+hp = 100
+mana = 100
+hp_r = 5
+mana_r = 5
+hp_max = 100
+mana_max = 100
+xp = 0
+level = 0

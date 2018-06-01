@@ -18,6 +18,8 @@ SRC			=	src/main.c				\
 				src/cycle/cycle.c			\
 				src/cycle/time.c			\
 				src/cycle/destroy.c			\
+				src/character/conf.c			\
+				src/character/conf_tools.c			\
 				src/character/create.c			\
 				src/character/move.c			\
 				src/character/stat.c			\

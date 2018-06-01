@@ -51,6 +51,13 @@
 	//STAT
 	void display_character_bar(rpg_t *, float, float max,
 	sfRectangleShape *);
+	int config_character_stat(main_stat_t *stat);
 	void character_regen(character_t *);
 	void character_stat(character_t *);
+	char	*my_str_cat(char *str1, char *str2);
+	int str_cmp(char const *s1, char const *s2);
+	int tab_len(char **tab);
+	void free_tab(char **tab);
+	int is_num(char *str);
+
 #endif

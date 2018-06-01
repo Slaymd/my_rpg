@@ -28,16 +28,18 @@ main_stat_t *init_character_stat(void)
 {
 	main_stat_t *stat = malloc(sizeof(main_stat_t));
 
-	stat->attack = 2;
-	stat->defense = 5;
-	stat->hp = 100;
-	stat->mana = 100;
-	stat->hp_r = 2;
-	stat->mana_r = 5;
-	stat->hp_max = 100;
-	stat->mana_max = 100;
+	stat->attack = 0;
+	stat->defense = 0;
+	stat->hp = 0;
+	stat->mana = 0;
+	stat->hp_r = 0;
+	stat->mana_r = 0;
+	stat->hp_max = 0;
+	stat->mana_max = 0;
 	stat->xp = 0;
 	stat->level = 0;
+	if (config_character_stat(stat) == 84)
+		return (NULL);
 	stat->clock = sfClock_create();
 	stat->time = sfClock_getElapsedTime(stat->clock);
 	stat->seconds = 0;
@@ -47,8 +49,6 @@ main_stat_t *init_character_stat(void)
 character_t *init_character(void)
 {
 	character_t *character = malloc(sizeof(character_t));
-	int x = WIDTH / 2;
-	int y = HEIGHT / 2;
 
 	if (!character)
 		return (NULL);
@@ -60,10 +60,12 @@ character_t *init_character(void)
 	character->inter = 0;
 	character->rect = (sfIntRect){0,0, SIZE_C_X, SIZE_C_Y};
 	character->speed = 4;
-	character->pos_screen = (V2F){x, y};
+	character->pos_screen = (V2F){WIDTH / 2, HEIGHT / 2};
 	character->stat = init_character_stat();
+	if (!character->stat)
+		return (NULL);
 	character->hp_bar = sfRectangleShape_create();
 	character->mana_bar = sfRectangleShape_create();
-	set_character(character, x, y);
+	set_character(character, WIDTH / 2, HEIGHT / 2);
 	return (character);
 }
