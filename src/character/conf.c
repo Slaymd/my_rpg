@@ -36,6 +36,8 @@ char *my_read(char *path)
 	int fd = open(path, O_RDONLY);
 	int rd;
 
+	if (fd < 0)
+		return (NULL);
 	rd = read(fd, buffer, 4094);
 	map[0] = '\0';
 	while (rd > 0) {
@@ -63,14 +65,14 @@ char *statistik[] = {
 	"level",
 };
 
-int *verif_conf(void)
+int *verif_conf(char *file)
 {
-	char *file = my_read("conf/character.txt");
-	char **lines = str_to_tab(file, '\n');
 	int *stats = malloc(sizeof(int) * 10);
+	char **lines = str_to_tab(file, '\n');
 	char **stat;
 
-	if (!stats || tab_len(lines) != 11)
+	free(file);
+	if (tab_len(lines) != 11)
 		return (NULL);
 	for (int i = 0; i < 10; i++) {
 		stat = str_to_tab(lines[i], ' ');
@@ -81,15 +83,18 @@ int *verif_conf(void)
 		stats[i] = my_getnbr(stat[2]);
 		free_tab(stat);
 	}
-	free(file);
 	free_tab(lines);
 	return (stats);
 }
 
 int config_character_stat(main_stat_t *stat)
 {
-	int *stats = verif_conf();
+	char *file = my_read("conf/character.txt");
+	int *stats;
 
+	if (!file)
+		return (84);
+	stats = verif_conf(file);
 	if (!stats)
 		return (84);
 	stat->attack = stats[0];
