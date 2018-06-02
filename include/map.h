@@ -89,6 +89,8 @@
 	struct map_s {
 		int	seed;
 		char	*name;
+		int	only_map;
+		float	*gen_profile;
 		list_t	*chunks;
 		list_t	*objects;
 		list_t	*entities;
@@ -161,7 +163,7 @@
 
 
 	//INITS
-	map_t *init_map(char *name, int seed);
+	map_t *init_map(char *name, int seed, int only_map, float *gen);
 	chunk_t *init_chunk(pos_t pos);
 
 	//OBJECTS
@@ -177,7 +179,7 @@
 
 	//TILE TEXTURES
 	int	get_texture_id(float adjtxt[9]);
-	int	get_texture_from_noise(float noise);
+	int	get_texture_from_noise(map_t *map, float noise);
 	int	is_txt_var_table_match(float adjtxt[9], float txtvar[9]);
 	int	get_texture_variation(float adjtxt[9]);
 

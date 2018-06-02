@@ -9,8 +9,10 @@
 
 void init_charactereditor_choicebutton(scene_t *scene, rpg_t *rpg)
 {
-	button_t *skinchoice = create_flat_button((IR){325, 285, 130, 45},\
+	button_t *skinchoice = create_flat_button((IR){325, 310, 130, 45},\
 	(sfColor){255, 107, 107, 255}, sfBlack, "red");
+	button_t *sexchoice = create_flat_button((IR){325, 250, 130, 45},\
+	sfWhite, sfBlack, "boy");
 
 	skinchoice->states = init_bt_states(skinchoice, 3);
 	skinchoice->states[1] = (bt_state_t){1, (sfColor){72, 219, 251, 255},\
@@ -19,8 +21,13 @@ void init_charactereditor_choicebutton(scene_t *scene, rpg_t *rpg)
 	sfTransparent, "green", NULL, NULL, NULL};
 	skinchoice->states[3] = (bt_state_t){1, (sfColor){255, 159, 243, 255},\
 	sfTransparent, "pink", NULL, NULL, NULL};
+	sexchoice->states = init_bt_states(sexchoice, 1);
+	sexchoice->states[1] = (bt_state_t){1, sfTransparent, sfTransparent,\
+	"girl", NULL, NULL, NULL};
 	set_button_action(skinchoice, &click_character_swap_button, rpg);
+	set_button_action(sexchoice, &click_character_sex_button, rpg);
 	list_add_withtag(&scene->buttons, skinchoice, "skin");
+	list_add_withtag(&scene->buttons, sexchoice, "sex");
 }
 
 void init_charactereditor_labels(scene_t *scene)

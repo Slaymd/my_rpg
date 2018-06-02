@@ -21,7 +21,7 @@ void click_save_button(void *data)
 		rpg->scene = NULL;
 		rpg->state = 3;
 		free_map(rpg->map);
-		rpg->map = init_map(NULL, my_getnbr(seed));
+		rpg->map = init_map(NULL, my_getnbr(seed), 0, rpg->gen_profile);
 	}
 }
 
@@ -38,7 +38,7 @@ void regen_map_from_ui(void *data)
 	if (seed == rpg->map->seed)
 		return;
 	free_map(rpg->map);
-	rpg->map = init_map(NULL, seed);
+	rpg->map = init_map(NULL, seed, 0, rpg->gen_profile);
 }
 
 void swap_state_maptravelling(rpg_t *rpg)

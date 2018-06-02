@@ -5,7 +5,7 @@
 ** create
 */
 
-#include "rpg.h"
+#include "../../include/rpg.h"
 
 void set_character(character_t *character, int x, int y)
 {
@@ -24,7 +24,7 @@ void set_character(character_t *character, int x, int y)
 	(V2F){x - (SIZE_C_X / 3.4), y - 55});
 }
 
-main_stat_t *init_character_stat(void)
+main_stat_t *init_character_stat(character_t *character)
 {
 	main_stat_t *stat = malloc(sizeof(main_stat_t));
 
@@ -41,6 +41,8 @@ main_stat_t *init_character_stat(void)
 	stat->clock = sfClock_create();
 	stat->time = sfClock_getElapsedTime(stat->clock);
 	stat->seconds = 0;
+	character->skin_sex = "sacha";
+	character->skin_color = "red";
 	return (stat);
 }
 
@@ -61,7 +63,7 @@ character_t *init_character(void)
 	character->rect = (sfIntRect){0,0, SIZE_C_X, SIZE_C_Y};
 	character->speed = 4;
 	character->pos_screen = (V2F){x, y};
-	character->stat = init_character_stat();
+	character->stat = init_character_stat(character);
 	character->hp_bar = sfRectangleShape_create();
 	character->mana_bar = sfRectangleShape_create();
 	set_character(character, x, y);

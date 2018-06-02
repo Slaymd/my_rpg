@@ -15,14 +15,20 @@ void init_mapeditor_labels(scene_t *scene)
 	"seed (only numbers)", 32, (sfColor){245, 246, 250, 255});
 	text_t *nametitle = create_text((sfVector2f){46,255},
 	"map name (optional)", 32, (sfColor){245, 246, 250, 255});
-	text_t *otherstgs = create_text((sfVector2f){WIDTH-269,155},
+	text_t *otherstgs = create_text((sfVector2f){WIDTH-269,355},
 	"other settings", 32, (sfColor){245, 246, 250, 255});
+	text_t *mapstgs = create_text((sfVector2f){WIDTH-240,105},
+	"map settings", 32, (sfColor){245, 246, 250, 255});
+	text_t *water = create_text((sfVector2f){WIDTH-230,155},
+	"water", 26, (sfColor){245, 246, 250, 255});
+	text_t *sand = create_text((sfVector2f){WIDTH-230,210},
+	"sand", 26, (sfColor){245, 246, 250, 255});
+	text_t *grass = create_text((sfVector2f){WIDTH-230,265},
+	"grass", 26, (sfColor){245, 246, 250, 255});
 
 	set_text_font(title, FONT_UBUMED);
-	list_add(&scene->labels, title);
-	list_add(&scene->labels, seedtitle);
-	list_add(&scene->labels, nametitle);
-	list_add(&scene->labels, otherstgs);
+	list_add_all(&scene->labels, 8, title, seedtitle, nametitle,\
+		otherstgs, mapstgs, water, sand, grass);
 }
 
 void init_mapeditor_buttons(rpg_t *rpg, scene_t *scene)
@@ -41,6 +47,7 @@ void init_mapeditor_buttons(rpg_t *rpg, scene_t *scene)
 	set_button_action(donebt, &regen_map_from_ui, rpg);
 	set_button_action(charcustom, &click_character_button, rpg);
 	donebt->tooltip = create_tooltip("Show this seed.", 22);
+	init_mapsettings_buttons(rpg, scene);
 	list_add(&scene->buttons, playbt);
 	list_add(&scene->buttons, donebt);
 	list_add(&scene->buttons, charcustom);
@@ -48,9 +55,9 @@ void init_mapeditor_buttons(rpg_t *rpg, scene_t *scene)
 
 void init_settings_buttons(rpg_t *rpg, scene_t *scene)
 {
-	button_t *vsync = create_flat_button((IR){WIDTH-150,220,100,35},\
+	button_t *vsync = create_flat_button((IR){WIDTH-150,420,100,35},\
 	sfBlack, sfWhite, "v-sync");
-	button_t *music = create_flat_button((IR){WIDTH-135,275,85,35},\
+	button_t *music = create_flat_button((IR){WIDTH-260,420,85,35},\
 	sfBlack, C_2ECC71, "music");
 
 	vsync->states = init_bt_states(vsync, 2);

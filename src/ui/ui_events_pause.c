@@ -21,7 +21,7 @@ void click_pause_menu_button(void *data)
 	rpg_t *rpg = (rpg_t*)data;
 
 	free_map(rpg->map);
-	rpg->map = init_map(NULL, SEED);
+	rpg->map = init_map(NULL, SEED, 0, rpg->gen_profile);
 	free_scene(rpg->scene);
 	rpg->scene = init_mainmenu(rpg);
 	rpg->state = 0;

@@ -100,6 +100,8 @@ SRC			=	src/main.c				\
 				src/ui/ui_init_character.c		\
 				src/ui/ui_events_stgs_mapeditor.c	\
 				src/ui/ui_events_character.c		\
+				src/ui/ui_init_mapsettings.c		\
+				src/ui/ui_events_mapsettings.c	\
 
 CFLAGS		=	-W -Wall -Wextra -I./include
 

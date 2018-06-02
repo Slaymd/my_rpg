@@ -14,12 +14,12 @@ int	can_be_placed_here(map_t *map, sfSprite *sprite, pos_t pos)
 	pos_t bpos = pos;
 	pos_t mpos = {pos.x+(int)(rect.width*scale.x/TILE_SIZE),
 	pos.y+(int)(rect.height*scale.y/TILE_SIZE), 0};
-	int	txt_id = get_texture_from_noise(
+	int	txt_id = get_texture_from_noise(map,\
 		get_perlin_value(map, pos, FREQ, DEPTH));
 
 	for (; !(pos.x == mpos.x && pos.y == mpos.y); pos.x += 1) {
-		if (get_texture_from_noise(get_perlin_value(map, pos,FREQ,
-		DEPTH))
+		if (get_texture_from_noise(map,\
+			get_perlin_value(map, pos,FREQ, DEPTH))
 		!= txt_id || is_occuped_by_object_here(map, pos)) {
 			return (0);
 		}

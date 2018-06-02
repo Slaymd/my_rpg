@@ -14,7 +14,7 @@ void click_play_button(void *data)
 	free_scene(rpg->scene);
 	rpg->scene = NULL;
 	rpg->state = 3;
-	rpg->map = init_map(NULL, SEED);
+	rpg->map = init_map(NULL, SEED, 0, rpg->gen_profile);
 }
 
 void click_map_settings_button(void *data)

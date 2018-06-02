@@ -46,6 +46,8 @@
 		main_stat_t *stat;
 		sfRectangleShape *hp_bar;
 		sfRectangleShape *mana_bar;
+		char *skin_color;
+		char *skin_sex;
 	};
 
 	//STAT

@@ -35,7 +35,7 @@ pos_t generate_pos_near(map_t *map, pos_t pos, int minradius)
 {
 	pos_t newpos = generate_hardpos_near(pos, minradius);
 
-	while (!can_move_here(map, newpos)) {
+	for (int i = 0; i < 100 && !can_move_here(map, newpos); i++) {
 		newpos = generate_hardpos_near(pos, minradius);
 		minradius += 1;
 	}

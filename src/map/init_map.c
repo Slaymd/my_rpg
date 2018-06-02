@@ -7,7 +7,7 @@
 
 #include "../../include/rpg.h"
 
-map_t *init_map(char *name, int seed)
+map_t *init_map(char *name, int seed, int only_map, float *genprofile)
 {
 	map_t	*map = (map_t*)malloc(sizeof(map_t));
 
@@ -16,8 +16,10 @@ map_t *init_map(char *name, int seed)
 	map->objects = NULL;
 	map->textures = init_textures();
 	map->obj_stats = init_objects();
+	map->gen_profile = genprofile;
 	map->seed = seed;
 	map->name = name;
+	map->only_map = only_map;
 	map->topleft_to_disp = (pos_t){500*TILES_PER_CHUNKS,
 		500*TILES_PER_CHUNKS, 0.0};
 	map->render_distance = (sfVector2i){DEFAULT_RENDER_DISTANCE,

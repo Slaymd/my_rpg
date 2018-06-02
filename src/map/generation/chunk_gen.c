@@ -76,11 +76,13 @@ chunk_t	*chunk_gen(map_t *map, pos_t pos)
 			chunk->tiles[y][x] = generate_tile_at(map, apos, tpos);
 		}
 	}
-	chunk_entities_gen_ostrich(map, apos);
-	chunk_entities_gen_ogre(map, apos);
-	chunk_entities_gen_villager(map, apos);
-	chunk_entities_gen_villager2(map, apos);
-	chunk_entities_gen_villager3(map, apos);
-	chunk_entities_gen_lycan(map, apos);
+	if (!map->only_map) {
+		chunk_entities_gen_ostrich(map, apos);
+		chunk_entities_gen_ogre(map, apos);
+		chunk_entities_gen_villager(map, apos);
+		chunk_entities_gen_villager2(map, apos);
+		chunk_entities_gen_villager3(map, apos);
+		chunk_entities_gen_lycan(map, apos);
+	}
 	return (chunk);
 }

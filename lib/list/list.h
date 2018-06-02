@@ -10,6 +10,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdarg.h>
 
 typedef struct list_s list_t;
 typedef struct intlist_s intlist_t;
@@ -31,6 +32,7 @@ int	list_add(list_t **list, void *data);
 int	intlist_add(intlist_t **list, int value);
 int	list_add_withtag(list_t **list, void *data, char *tag);
 int	list_append_withtag(list_t **list, void *data, char *tag);
+int	list_add_all(list_t **list, int nb, ...);
 
 //Append
 int	list_append(list_t	**list, void *data);

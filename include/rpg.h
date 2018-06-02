@@ -53,6 +53,9 @@
 	#define IR sfIntRect
 	#define KeyPressed sfKeyboard_isKeyPressed
 
+	#define MAP_SETTINGS_BUTTONS waterplu, watermin, sandplu, sandmin,\
+	grassplu, grassmin
+
 	struct view_s {
 		sfView *v_screen;
 		sfView *v_map;
@@ -64,6 +67,7 @@
 		sfRenderWindow *wd;
 		sfEvent event;
 		sfMusic *music;
+		float	*gen_profile;
 		view_t *view;
 		npc_t *npc;
 		htp_t *htp;
@@ -91,10 +95,12 @@
 	scene_t *init_mapeditor(rpg_t *rpg);
 	scene_t *init_pausescreen(rpg_t *rpg);
 	scene_t *init_charactereditor(rpg_t *rpg);
+	void init_mapsettings_buttons(rpg_t *rpg, scene_t *scene);
 	void disp_mainmenu(rpg_t *rpg);
 	int disp_pause_screen(rpg_t *rpg, int ignore_state);
 	void swap_state_maptravelling(rpg_t *rpg);
 	void regen_map_from_ui(void *data);
+	void set_panel_skin(character_t *character, panel_t *img);
 
 	//UI EVENTS
 	void click_play_button(void *data);
@@ -110,6 +116,13 @@
 	void click_character_button(void *data);
 	void click_character_swap_button(void *data);
 	void click_character_done_button(void *data);
+	void click_waterplu_setting(void *data);
+	void click_sandplu_setting(void *data);
+	void click_grassplu_setting(void *data);
+	void click_watermin_setting(void *data);
+	void click_sandmin_setting(void *data);
+	void click_grassmin_setting(void *data);
+	void click_character_sex_button(void *data);
 
 	//SYS IMPROVEMENTS
 	void set_v_sync(rpg_t *rpg);
