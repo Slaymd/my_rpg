@@ -95,11 +95,10 @@ void rand_drop_item(rpg_t *rpg, entity_t *ent)
 	int num_item = 0;
 
 	if (ent->invent == 0) {
-		num_item = rand()%15;
+		num_item = rand() % 15;
 		ent->invent = 1;
 	} else
 		return;
-
 	switch(num_item) {
 	case 1:
 		fill_armure(rpg->inv);

@@ -52,9 +52,10 @@ rpg_t *init_rpg(void)
 	rpg->cycle = create_cycle();
 	init_map_gen_profile(rpg);
 	rpg->character = init_character();
+	if (!rpg->character)
+		return (NULL);
 	rpg->fairy = init_fairy();
 	rpg->map = init_map(NULL, SEED, 0, rpg->gen_profile);
 	rpg->scene = init_mainmenu(rpg);
-	init_inv(rpg);
 	return (rpg);
 }

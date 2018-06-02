@@ -58,6 +58,9 @@ int	main(void)
 {
 	rpg_t *rpg = init_rpg();
 
+	if (!rpg)
+		return (84);
+	init_inv(rpg);
 	srand(time(NULL));
 	init_sprite(rpg);
 	while (sfRenderWindow_isOpen(rpg->wd)) {

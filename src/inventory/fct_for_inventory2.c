@@ -84,7 +84,7 @@ void consom(item_t *item, rpg_t *rpg)
 	if (item->stack <= 0) {
 		item->titem = sfTexture_createFromFile
 		("assets/inventory/empty.png", NULL);
-		sfSprite_setTexture (item->sitem, item->titem, sfTrue);
+		sfSprite_setTexture(item->sitem, item->titem, sfTrue);
 		item->status = 0;
 		item->conso = 0;
 	}
