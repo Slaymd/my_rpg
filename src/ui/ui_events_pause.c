@@ -35,3 +35,14 @@ void click_pause_exit_button(void *data)
 	rpg->scene = NULL;
 	sfRenderWindow_close(rpg->wd);
 }
+
+int disp_pause_screen(rpg_t *rpg, int ignore_state)
+{
+	if (rpg->state != 4 && ignore_state != 1)
+		return (0);
+	sfRenderWindow_setView(rpg->wd, rpg->view->v_screen);
+	disp_map(rpg);
+	sfRenderWindow_setView(rpg->wd, sfRenderWindow_getDefaultView(rpg->wd));
+	disp_scene(rpg->wd, rpg->scene);
+	return (1);
+}
